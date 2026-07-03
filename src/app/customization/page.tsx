@@ -16,6 +16,12 @@ export const metadata: Metadata = {
   description:
     "OEM branding, ODM custom design, and non-standard engineering for level sensors, flow meters, and pressure transmitters. Get a solution in 7 days, samples in 45 days.",
   alternates: { canonical: "/customization" },
+  openGraph: {
+    title: "OEM / ODM Custom Manufacturing — 7-Day Solution",
+    description:
+      "Send your specs. Get a solution in 7 days. From sample to bulk order in 45 days. MOQ from 1 unit for non-standard builds.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Custom Manufacturing" }],
+  },
 };
 
 const services = [
@@ -175,7 +181,7 @@ export default function CustomizationPage() {
           <h2 className="text-2xl font-bold text-dark mb-12 text-center">
             Our 7-Step Custom Process
           </h2>
-          <div className="grid md:grid-cols-7 gap-4">
+          <div className="grid sm:grid-cols-4 lg:grid-cols-7 gap-4">
             {steps.map((step, idx) => (
               <div key={idx} className="relative">
                 <div className="bg-white rounded-xl p-4 border border-border text-center">

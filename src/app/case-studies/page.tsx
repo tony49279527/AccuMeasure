@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { caseStudies, clientLogos } from "@/lib/case-studies";
 
 export const metadata: Metadata = {
@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   description:
     "Real projects from Saudi Arabia, Indonesia, and Brazil. 71% cost savings, 200-unit deliveries, OEM branding. See how global buyers use AccuMeasure instruments.",
   alternates: { canonical: "/case-studies" },
+  openGraph: {
+    title: "Case Studies — Global Buyers Trust AccuMeasure",
+    description:
+      "Saudi Water Co. saved 71%. Indonesia PDAM reordered 500 units. Brazil integrator OEM branded 2,000 gauges. Real results.",
+    images: [{ url: "/cases/saudi-water.jpg", width: 1200, height: 630, alt: "Case Study" }],
+  },
 };
 
 export default function CaseStudiesPage() {
@@ -40,8 +46,14 @@ export default function CaseStudiesPage() {
                   <h2 className="text-2xl font-bold text-dark mb-2">{cs.title}</h2>
 
                   <div className="grid md:grid-cols-2 gap-8 mt-6">
-                    <div className="aspect-video bg-primary/10 rounded-xl flex items-center justify-center">
-                      <span className="text-muted">Project Photo</span>
+                    <div className="aspect-video bg-primary/10 rounded-xl flex items-center justify-center overflow-hidden">
+                      <Image
+                        src={cs.image}
+                        alt={cs.title}
+                        width={600}
+                        height={340}
+                        className="object-cover"
+                      />
                     </div>
 
                     <div>

@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   description:
     "Founded in 2014, AccuMeasure is a 82-person measurement instrument factory in Xi'an, China. From 3 people to exporting to 40+ countries. Aerospace-grade quality at 1/3 the cost.",
   alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About AccuMeasure — Measurement Instrument Factory in Xi'an",
+    description:
+      "Founded in 2014 by Xi'an Jiaotong University and aerospace engineers. 82 employees, 2,600 sqm facility, exporting to 40+ countries.",
+    images: [{ url: "/factory/1.jpg", width: 1200, height: 630, alt: "AccuMeasure Factory" }],
+  },
 };
 
 export default function AboutPage() {

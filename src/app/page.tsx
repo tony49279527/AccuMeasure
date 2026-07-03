@@ -331,7 +331,7 @@ export default function Home() {
             Get a quote within 24 hours. No pressure, just specs and pricing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-cta hover:bg-cta-hover text-white px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center gap-2 transition-colors">
+            <Link href="/contact" className="btn-primary">
               Request a Quote
             </Link>
             <a

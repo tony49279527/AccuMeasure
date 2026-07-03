@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   description:
     "5-stage quality control, 72-hour aging test on every unit, calibration certificate with every shipment. 99.8% pass rate, <0.3% field failure rate. ISO 9001 certified.",
   alternates: { canonical: "/quality" },
+  openGraph: {
+    title: "Quality Assurance — 5-Stage QC & 72h Aging Test",
+    description:
+      "Every unit undergoes 72 hours of continuous testing under temperature cycling. 99.8% pass rate. ISO 9001, CE, ATEX certified.",
+    images: [{ url: "/factory/5.jpg", width: 1200, height: 630, alt: "72-Hour Aging Test" }],
+  },
 };
 
 export default function QualityPage() {
@@ -28,7 +34,7 @@ export default function QualityPage() {
           <h2 className="text-3xl font-bold text-dark mb-12 text-center">
             Our 5-Stage Quality Control
           </h2>
-          <div className="grid md:grid-cols-5 gap-4">
+          <div className="grid sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {[
               { step: 1, title: "IQC", desc: "Incoming Material Inspection" },
               { step: 2, title: "IPQC", desc: "In-Process Quality Control" },
