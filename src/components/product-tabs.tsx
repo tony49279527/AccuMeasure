@@ -1,11 +1,25 @@
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { FileText, Settings, Download, Droplet } from "lucide-react";
+import { FileText, Settings, Download, Droplet, Droplets, FlaskConical, ShieldCheck, Fuel, Factory, Microscope, Beer, Package, Home, SprayCan, Filter, Trees, Thermometer } from "lucide-react";
 import type { Product } from "@/lib/types";
 
 const appIcons: Record<string, typeof Droplet> = {
-  Droplet,
+  Oil: Fuel,
+  Droplets: Droplets,
+  FlaskConical: FlaskConical,
+  ShieldCheck: ShieldCheck,
+  Fuel: Fuel,
+  Factory: Factory,
+  Microscope: Microscope,
+  Beer: Beer,
+  Package: Package,
+  Home: Home,
+  SprayCan: SprayCan,
+  Filter: Filter,
+  Trees: Trees,
+  Mud: Droplets,
+  Thermometer: Thermometer,
 };
 
 export function ProductTabs({ product }: { product: Product }) {

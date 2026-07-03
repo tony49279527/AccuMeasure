@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Shield,
@@ -13,7 +14,6 @@ import {
   ArrowRight,
   MessageSquare,
 } from "lucide-react";
-import { products } from "@/lib/products";
 import { JsonLd } from "@/components/json-ld";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { waLink } from "@/lib/site";
@@ -57,9 +57,9 @@ export default function Home() {
                   <MessageSquare className="w-5 h-5" />
                   Get a Quote
                 </Link>
-                <button className="btn-secondary">
+                <Link href="/contact" className="btn-secondary">
                   Download Catalog
-                </button>
+                </Link>
               </div>
 
               <div className="mt-12 grid grid-cols-3 gap-6">
@@ -79,11 +79,15 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              <div className="aspect-square bg-primary/10 rounded-2xl flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Gauge className="w-32 h-32 text-primary mx-auto mb-4" />
-                  <p className="text-lg text-muted">Product Image</p>
-                </div>
+              <div className="aspect-square bg-primary/10 rounded-2xl flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/products/am-rl80.jpg"
+                  alt="80GHz Radar Level Transmitter"
+                  width={600}
+                  height={600}
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
           </div>
@@ -259,9 +263,15 @@ export default function Home() {
               {[1, 2, 3, 4].map((i) => (
                 <div
                   key={i}
-                  className="aspect-square bg-primary/10 rounded-xl flex items-center justify-center"
+                  className="aspect-square bg-primary/10 rounded-xl flex items-center justify-center overflow-hidden"
                 >
-                  <span className="text-muted">Factory Photo {i}</span>
+                  <Image
+                    src={`/factory/${i}.jpg`}
+                    alt={`Factory workshop ${i}`}
+                    width={300}
+                    height={300}
+                    className="object-cover"
+                  />
                 </div>
               ))}
             </div>
@@ -325,7 +335,7 @@ export default function Home() {
               Request a Quote
             </Link>
             <a
-              href="https://wa.me/8613800000000"
+              href={waLink}
               target="_blank"
               rel="noopener noreferrer"
               className="border border-white text-white hover:bg-white hover:text-primary px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center gap-2 transition-colors"

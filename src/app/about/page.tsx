@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { Users, Factory, Award, Calendar } from "lucide-react";
+import { Award } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us — Measurement Instrument Factory in Xi'an",
@@ -122,12 +123,18 @@ export default function AboutPage() {
             Inside Our Factory
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {Array.from({ length: 9 }).map((_, i) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
               <div
                 key={i}
-                className="aspect-square bg-primary/10 rounded-xl flex items-center justify-center"
+                className="aspect-square bg-primary/10 rounded-xl flex items-center justify-center overflow-hidden"
               >
-                <span className="text-muted">Photo {i + 1}</span>
+                <Image
+                  src={`/factory/${i}.jpg`}
+                  alt={`Factory photo ${i}`}
+                  width={300}
+                  height={300}
+                  className="object-cover"
+                />
               </div>
             ))}
           </div>

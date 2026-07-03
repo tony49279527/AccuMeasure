@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Gauge, Waves, Activity } from "lucide-react";
 import { products } from "@/lib/products";
@@ -68,9 +69,13 @@ export function ProductsExplorer({ initialCategory }: { initialCategory: Categor
                 className="card group"
               >
                 <div className="aspect-video bg-primary/10 rounded-xl flex items-center justify-center mb-6 overflow-hidden">
-                  <span className="text-muted text-sm font-mono">
-                    {product.model}
-                  </span>
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={400}
+                    height={225}
+                    className="object-cover"
+                  />
                 </div>
                 <div className="text-sm text-cta font-medium mb-2">
                   {product.model}

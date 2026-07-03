@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CheckCircle, Thermometer, Gauge, Clock, Award } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -86,8 +87,14 @@ export default function QualityPage() {
                 </p>
               </div>
             </div>
-            <div className="aspect-square bg-white/10 rounded-xl flex items-center justify-center">
-              <span className="text-white/70">Aging Test Room Photo</span>
+            <div className="aspect-square bg-white/10 rounded-xl flex items-center justify-center overflow-hidden">
+              <Image
+                src="/factory/5.jpg"
+                alt="72-Hour Aging Test Room"
+                width={400}
+                height={400}
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

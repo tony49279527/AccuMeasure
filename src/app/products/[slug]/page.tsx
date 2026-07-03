@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CheckCircle, MessageSquare, Download, ArrowRight, FileText } from "lucide-react";
+import { CheckCircle, MessageSquare, Download, ArrowRight } from "lucide-react";
 import { ProductTabs } from "@/components/product-tabs";
 import { InquiryForm } from "@/components/forms/inquiry-form";
 import { JsonLd } from "@/components/json-ld";
@@ -77,8 +78,15 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
 
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-2">
-              <div className="aspect-square bg-white rounded-xl border border-border flex items-center justify-center mb-4">
-                <span className="text-muted font-mono">{product.model}</span>
+              <div className="aspect-square bg-white rounded-xl border border-border flex items-center justify-center mb-4 overflow-hidden">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  width={500}
+                  height={500}
+                  className="object-cover"
+                  priority
+                />
               </div>
               <div className="grid grid-cols-4 gap-2">
                 {[0, 1, 2, 3].map((i) => (
@@ -128,7 +136,6 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary flex items-center gap-2"
-                  style={{ background: "#25D366", borderColor: "#25D366", color: "white" }}
                 >
                   <MessageSquare className="w-5 h-5" /> Chat on WhatsApp
                 </a>
