@@ -9,11 +9,37 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: {
+          DEFAULT: "#0C447C",
+          light: "#185FA5",
+        },
+        accent: "#378ADD",
+        cta: {
+          DEFAULT: "#EF9F27",
+          hover: "#BA7517",
+        },
+        dark: "#2C2C2A",
+        body: "#444441",
+        muted: "#5F5E5A",
+        "bg-light": "#F1EFE8",
+        "bg-white": "#FFFFFF",
+        success: "#1D9E75",
+        danger: "#E24B4A",
+        border: "rgba(0, 0, 0, 0.08)",
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)", "sans-serif"],
+        mono: ["var(--font-jetbrains-mono)", "monospace"],
+      },
+      borderRadius: {
+        xl: "12px",
+        lg: "8px",
+      },
+      maxWidth: {
+        "7xl": "1280px",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 export default config;
