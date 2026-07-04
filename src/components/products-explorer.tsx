@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Gauge, Waves, Activity } from "lucide-react";
@@ -10,12 +7,10 @@ import { cn } from "@/lib/utils";
 type Category = "all" | "level" | "flow" | "pressure";
 
 export function ProductsExplorer({ initialCategory }: { initialCategory: Category }) {
-  const [activeCategory, setActiveCategory] = useState<Category>(initialCategory);
-
   const filteredProducts =
-    activeCategory === "all"
+    initialCategory === "all"
       ? products
-      : products.filter((p) => p.category === activeCategory);
+      : products.filter((p) => p.category === initialCategory);
 
   const tabs: { label: string; value: Category | "customization"; icon?: typeof Gauge }[] = [
     { label: "All", value: "all" },
@@ -32,17 +27,19 @@ export function ProductsExplorer({ initialCategory }: { initialCategory: Categor
           <div className="flex flex-wrap gap-2 justify-center">
             {tabs.map((tab) => {
               const isActive =
-                tab.value !== "customization" && activeCategory === tab.value;
+                tab.value !== "customization" && initialCategory === tab.value;
+              const href =
+                tab.value === "customization"
+                  ? "/customization"
+                  : tab.value === "all"
+                    ? "/products"
+                    : `/products?category=${tab.value}`;
+
               return (
-                <button
+                <Link
                   key={tab.value}
-                  onClick={() => {
-                    if (tab.value === "customization") {
-                      window.location.href = "/customization";
-                    } else {
-                      setActiveCategory(tab.value as Category);
-                    }
-                  }}
+                  href={href}
+                  aria-current={isActive ? "page" : undefined}
                   className={cn(
                     "px-6 py-2 rounded-lg font-medium transition-colors flex items-center gap-2",
                     isActive
@@ -52,7 +49,7 @@ export function ProductsExplorer({ initialCategory }: { initialCategory: Categor
                 >
                   {tab.icon && <tab.icon className="w-4 h-4" />}
                   {tab.label}
-                </button>
+                </Link>
               );
             })}
           </div>
@@ -68,13 +65,13 @@ export function ProductsExplorer({ initialCategory }: { initialCategory: Categor
                 href={`/products/${product.slug}`}
                 className="card group"
               >
-                <div className="aspect-video bg-primary/10 rounded-xl flex items-center justify-center mb-6 overflow-hidden">
+                <div className="relative aspect-[3/2] bg-primary/5 rounded-xl mb-6 overflow-hidden">
                   <Image
                     src={product.image}
-                    alt={product.name}
-                    width={400}
-                    height={225}
-                    className="object-cover"
+                    alt={`${product.model} ${product.name}`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="text-sm text-cta font-medium mb-2">

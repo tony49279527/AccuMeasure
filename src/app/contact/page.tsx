@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { MapPin, Clock, Users, Globe, Mail, MessageSquare } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { InquiryForm } from "@/components/forms/inquiry-form";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { getProductById } from "@/lib/products";
 import { siteConfig, waLink } from "@/lib/site";
 
@@ -49,19 +50,28 @@ const salesContacts = [
 export default function ContactPage({
   searchParams,
 }: {
-  searchParams: { product?: string };
+  searchParams: { product?: string; document?: string; request?: string };
 }) {
   const productId = searchParams.product;
   const product = productId ? getProductById(productId) : undefined;
+  const defaultMessage =
+    searchParams.request === "catalog"
+      ? "Please send me your latest product catalog."
+      : product && searchParams.document
+        ? `Please send me the latest ${searchParams.document} for ${product.model} ${product.name}.`
+        : undefined;
 
   return (
     <div>
       <section className="pt-24 pb-16 bg-bg-light">
-        <div className="container-max text-center">
-          <h1 className="text-4xl font-bold text-dark mb-6">Contact Us</h1>
-          <p className="text-lg text-muted max-w-3xl mx-auto">
-            Get a quote within 24 hours. Or just say hi.
-          </p>
+        <div className="container-max">
+          <Breadcrumbs items={[{ name: "Contact Us" }]} />
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-dark mb-6">Contact Us</h1>
+            <p className="text-lg text-muted max-w-3xl mx-auto">
+              Get a quote within 24 hours. Or just say hi.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -82,6 +92,7 @@ export default function ContactPage({
                         : "Pressure Sensors"
                       : undefined
                   }
+                  defaultMessage={defaultMessage}
                 />
               </div>
             </div>

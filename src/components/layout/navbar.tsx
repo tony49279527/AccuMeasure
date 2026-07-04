@@ -20,6 +20,7 @@ const navItems = [
   { label: "About Us", href: "/about" },
   { label: "Quality", href: "/quality" },
   { label: "Case Studies", href: "/case-studies" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -47,6 +48,8 @@ export function Navbar() {
                 <div key={item.label} className="relative group">
                   {hasChildren ? (
                     <button
+                      type="button"
+                      aria-haspopup="true"
                       className={cn(
                         "flex items-center gap-1 py-2 text-sm font-medium transition-colors",
                         isActive ? "text-primary" : "text-muted hover:text-dark"
@@ -68,7 +71,7 @@ export function Navbar() {
                   )}
 
                   {hasChildren && (
-                    <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200">
                       <div className="bg-white border border-border rounded-xl shadow-lg p-2 min-w-48">
                         {item.children.map((child) => (
                           <Link
@@ -93,8 +96,12 @@ export function Navbar() {
           </Link>
 
           <button
+            type="button"
             className="md:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -102,7 +109,7 @@ export function Navbar() {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-border">
+        <div id="mobile-navigation" className="md:hidden bg-white border-t border-border">
           <div className="container-max py-4 space-y-2">
             {navItems.map((item) => {
               const hasChildren = item.children && item.children.length > 0;

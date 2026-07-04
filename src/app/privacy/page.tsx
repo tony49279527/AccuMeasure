@@ -34,11 +34,11 @@ export default function PrivacyPage() {
           <p>
             Inquiry data is stored securely and retained for up to 2 years for project
             reference. You may request deletion of your data at any time by emailing
-            info@accumeasure-instrument.com.
+            info@accumeasuretech.com.
           </p>
           <h2 className="text-xl font-semibold text-dark">Contact</h2>
           <p>
-            Questions about this policy? Email us at info@accumeasure-instrument.com.
+            Questions about this policy? Email us at info@accumeasuretech.com.
           </p>
         </div>
       </div>

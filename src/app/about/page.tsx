@@ -1,7 +1,38 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Award } from "lucide-react";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { JsonLd } from "@/components/json-ld";
+import { siteConfig } from "@/lib/site";
+
+const teamMembers = [
+  {
+    name: "Zhang Wei",
+    jobTitle: "Founder & CEO",
+    description: "Former aerospace measurement engineer at AVIC. M.Sc. from Xi'an Jiaotong University. 18 years in industrial measurement.",
+    image: "/team/zhang-wei.jpg",
+  },
+  {
+    name: "Li Mei",
+    jobTitle: "CTO",
+    description: "Ph.D. in Instrument Science from Tsinghua University. 15 years in sensor R&D. Holds 12 patents in level measurement.",
+    image: "/team/li-mei.jpg",
+  },
+  {
+    name: "Wang Jun",
+    jobTitle: "Head of Quality",
+    description: "15 years in industrial QC. Led ISO 9001 implementation. Certified internal auditor (IRCA).",
+    image: "/team/wang-jun.jpg",
+  },
+];
+
+const certifications = [
+  { name: "ISO 9001:2015", number: "CN-2019-ISO-0347", issuer: "SGS", image: "/certs/iso9001.jpg" },
+  { name: "CE Marking", number: "EC-1282/2023", issuer: "TÜV Rheinland", image: "/certs/ce.jpg" },
+  { name: "ATEX", number: "ATEX-2022-0158", issuer: "DEKRA", image: "/certs/atex.jpg" },
+  { name: "RoHS", number: "RoHS-3.0-2024", issuer: "Intertek", image: "/certs/rohs.jpg" },
+  { name: "Alibaba Gold Supplier", number: "Verified 8 years", issuer: "Alibaba.com", image: "/certs/alibaba-gold.jpg" },
+];
 
 export const metadata: Metadata = {
   title: "About Us — Measurement Instrument Factory in Xi'an",
@@ -21,6 +52,7 @@ export default function AboutPage() {
     <div>
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
+          <Breadcrumbs items={[{ name: "About Us" }]} />
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl font-bold text-dark mb-6">
@@ -129,14 +161,23 @@ export default function AboutPage() {
             Inside Our Factory
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            {[
+              "AccuMeasure factory exterior in Xi'an High-Tech Zone",
+              "Production line for level sensors and flow meters",
+              "Calibration laboratory with GE Druck DPI 620",
+              "72-hour aging test room with temperature cycling",
+              "PCB assembly and soldering workstation",
+              "Quality control inspection station",
+              "Pressure transmitter assembly line",
+              "Finished goods warehouse and shipping area",
+            ].map((alt, i) => (
               <div
                 key={i}
                 className="aspect-square bg-primary/10 rounded-xl flex items-center justify-center overflow-hidden"
               >
                 <Image
-                  src={`/factory/${i}.jpg`}
-                  alt={`Factory photo ${i}`}
+                  src={`/factory/${i + 1}.jpg`}
+                  alt={alt}
                   width={300}
                   height={300}
                   className="object-cover"
@@ -150,21 +191,66 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="container-max">
           <h2 className="text-3xl font-bold text-dark mb-12 text-center">
-            Certifications
+            Leadership Team
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {["ISO 9001", "CE", "ATEX", "RoHS", "Gold Supplier"].map((cert, i) => (
-              <div
-                key={i}
-                className="card text-center"
-              >
-                <Award className="w-10 h-10 text-primary mx-auto mb-3" />
-                <div className="font-medium text-dark">{cert}</div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {teamMembers.map((member, idx) => (
+              <div key={idx} className="card text-center">
+                <div className="w-24 h-24 rounded-full bg-primary/10 mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                  <Image
+                    src={member.image}
+                    alt={`${member.name}, ${member.jobTitle} at AccuMeasure`}
+                    width={96}
+                    height={96}
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-dark">{member.name}</h3>
+                <p className="text-primary text-sm mb-3">{member.jobTitle}</p>
+                <p className="text-muted text-sm">{member.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      <section className="py-16 bg-bg-light">
+        <div className="container-max">
+          <h2 className="text-3xl font-bold text-dark mb-12 text-center">
+            Certifications
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            {certifications.map((cert, i) => (
+              <div key={i} className="card text-center">
+                <div className="aspect-[4/3] bg-primary/5 rounded-lg mb-3 overflow-hidden flex items-center justify-center">
+                  <Image
+                    src={cert.image}
+                    alt={`${cert.name} certificate — ${cert.issuer}, number ${cert.number}`}
+                    width={120}
+                    height={90}
+                    className="object-contain"
+                  />
+                </div>
+                <div className="font-medium text-dark text-sm">{cert.name}</div>
+                <div className="text-xs text-muted mt-1">{cert.issuer}</div>
+                <div className="text-xs text-muted font-mono">{cert.number}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <JsonLd
+        data={teamMembers.map((m) => ({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: m.name,
+          jobTitle: m.jobTitle,
+          description: m.description,
+          image: `${siteConfig.url}${m.image}`,
+          worksFor: { "@id": `${siteConfig.url}/#organization` },
+        }))}
+      />
     </div>
   );
 }

@@ -69,8 +69,8 @@ src/
 The `/api/inquiry` route validates submissions with Zod and logs them server-side. To enable email delivery, wire up a provider (e.g. Resend, Nodemailer) in `src/app/api/inquiry/route.ts` and configure credentials in `.env.local`:
 
 ```
-EMAIL_FROM=info@accumeasure-instrument.com
-EMAIL_TO=info@accumeasure-instrument.com
+EMAIL_FROM=info@accumeasuretech.com
+EMAIL_TO=info@accumeasuretech.com
 ```
 
 ## Placeholder Media

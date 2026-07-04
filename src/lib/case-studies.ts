@@ -102,3 +102,7 @@ export const clientLogos = [
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug);
 }
+
+export function getCaseStudiesByProductId(productId: string): CaseStudy[] {
+  return caseStudies.filter((c) => c.productIds.includes(productId));
+}

@@ -31,7 +31,7 @@ export default function TermsPage() {
           </p>
           <h2 className="text-xl font-semibold text-dark">Contact</h2>
           <p>
-            Questions about these terms? Email us at info@accumeasure-instrument.com.
+            Questions about these terms? Email us at info@accumeasuretech.com.
           </p>
         </div>
       </div>

@@ -42,6 +42,17 @@ export interface Product {
     type: 'pdf' | 'doc' | '3d';
     url: string;
   }[];
+  procurement?: {
+    packaging: string;
+    paymentTerms: string;
+    tradeTerms: string;
+    shipping: string;
+    samples: string;
+  };
+  faq?: {
+    question: string;
+    answer: string;
+  }[];
   relatedProductIds: string[];
 }
 

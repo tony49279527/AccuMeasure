@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { CheckCircle, Thermometer, Gauge, Clock, Award } from "lucide-react";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Quality Assurance — 5-Stage QC & 72h Aging Test",
@@ -19,13 +20,16 @@ export default function QualityPage() {
   return (
     <div>
       <section className="pt-24 pb-16 bg-bg-light">
-        <div className="container-max text-center">
-          <h1 className="text-4xl font-bold text-dark mb-6">
-            Quality You Can Trust
-          </h1>
-          <p className="text-lg text-muted max-w-3xl mx-auto">
-            5-stage quality control. 72-hour aging test on every unit. Calibration certificate with every shipment.
-          </p>
+        <div className="container-max">
+          <Breadcrumbs items={[{ name: "Quality Assurance" }]} />
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-dark mb-6">
+              Quality You Can Trust
+            </h1>
+            <p className="text-lg text-muted max-w-3xl mx-auto">
+              5-stage quality control. 72-hour aging test on every unit. Calibration certificate with every shipment.
+            </p>
+          </div>
         </div>
       </section>
 

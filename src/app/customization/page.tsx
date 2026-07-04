@@ -9,6 +9,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { CustomizationForm } from "@/components/forms/customization-form";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -112,16 +113,19 @@ export default function CustomizationPage() {
   return (
     <div>
       <section className="pt-24 pb-16 bg-bg-light">
-        <div className="container-max text-center">
-          <h1 className="text-4xl font-bold text-dark mb-6">
-            OEM / ODM Custom Manufacturing
-          </h1>
-          <p className="text-lg text-muted max-w-2xl mx-auto mb-8">
-            Send your specs. Get a solution in 7 days. From sample to bulk order in 45 days.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a href="#form" className="btn-primary">Submit Custom Request</a>
-            <a href="#cases" className="btn-secondary">View Custom Cases</a>
+        <div className="container-max">
+          <Breadcrumbs items={[{ name: "OEM / ODM Customization" }]} />
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-dark mb-6">
+              OEM / ODM Custom Manufacturing
+            </h1>
+            <p className="text-lg text-muted max-w-2xl mx-auto mb-8">
+              Send your specs. Get a solution in 7 days. From sample to bulk order in 45 days.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a href="#form" className="btn-primary">Submit Custom Request</a>
+              <a href="#cases" className="btn-secondary">View Custom Cases</a>
+            </div>
           </div>
         </div>
       </section>

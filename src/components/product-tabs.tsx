@@ -1,7 +1,4 @@
-"use client";
-
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { FileText, Settings, Download, Droplet, Droplets, FlaskConical, ShieldCheck, Fuel, Factory, Microscope, Beer, Package, Home, SprayCan, Filter, Trees, Thermometer } from "lucide-react";
+import { FileText, Settings, MessageSquare, Droplet, Droplets, FlaskConical, ShieldCheck, Fuel, Factory, Microscope, Beer, Package, Home, SprayCan, Filter, Trees, Thermometer } from "lucide-react";
 import type { Product } from "@/lib/types";
 
 const appIcons: Record<string, typeof Droplet> = {
@@ -24,20 +21,24 @@ const appIcons: Record<string, typeof Droplet> = {
 
 export function ProductTabs({ product }: { product: Product }) {
   return (
-    <Tabs defaultValue="specs" className="w-full">
-      <TabsList className="w-full justify-start bg-bg-light p-1 h-auto flex-wrap">
-        <TabsTrigger value="specs" className="flex items-center gap-2">
+    <div className="space-y-12">
+      <nav
+        aria-label="Product information"
+        className="flex flex-wrap gap-2 border-b border-border pb-4"
+      >
+        <a href="#specifications" className="btn-secondary px-4 py-2">
           <Settings className="w-4 h-4" /> Specifications
-        </TabsTrigger>
-        <TabsTrigger value="apps" className="flex items-center gap-2">
+        </a>
+        <a href="#applications" className="btn-secondary px-4 py-2">
           <FileText className="w-4 h-4" /> Applications
-        </TabsTrigger>
-        <TabsTrigger value="downloads" className="flex items-center gap-2">
-          <Download className="w-4 h-4" /> Downloads
-        </TabsTrigger>
-      </TabsList>
+        </a>
+        <a href="#documents" className="btn-secondary px-4 py-2">
+          <MessageSquare className="w-4 h-4" /> Technical Documents
+        </a>
+      </nav>
 
-      <TabsContent value="specs" className="mt-6">
+      <section id="specifications" className="scroll-mt-24">
+        <h2 className="text-2xl font-bold text-dark mb-6">Specifications</h2>
         <div className="space-y-8">
           {product.specifications.map((group, gIdx) => (
             <div key={gIdx}>
@@ -60,9 +61,10 @@ export function ProductTabs({ product }: { product: Product }) {
             </div>
           ))}
         </div>
-      </TabsContent>
+      </section>
 
-      <TabsContent value="apps" className="mt-6">
+      <section id="applications" className="scroll-mt-24">
+        <h2 className="text-2xl font-bold text-dark mb-6">Applications</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {product.applications.map((app, idx) => {
             const Icon = appIcons[app.icon] || Droplet;
@@ -80,14 +82,18 @@ export function ProductTabs({ product }: { product: Product }) {
             );
           })}
         </div>
-      </TabsContent>
+      </section>
 
-      <TabsContent value="downloads" className="mt-6">
-        <div className="space-y-3">
+      <section id="documents" className="scroll-mt-24">
+        <h2 className="text-2xl font-bold text-dark mb-2">Technical Documents</h2>
+        <p className="text-muted mb-6">
+          Request the latest controlled version and we will send it with your product quotation.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-3">
           {product.downloads.map((dl, idx) => (
             <a
               key={idx}
-              href={dl.url}
+              href={`/contact?product=${encodeURIComponent(product.id)}&document=${encodeURIComponent(dl.name)}`}
               className="flex items-center justify-between p-4 border border-border rounded-xl hover:border-accent hover:bg-bg-light transition-colors group"
             >
               <div className="flex items-center gap-3">
@@ -99,11 +105,13 @@ export function ProductTabs({ product }: { product: Product }) {
                   <div className="text-muted text-xs uppercase">{dl.type}</div>
                 </div>
               </div>
-              <Download className="w-5 h-5 text-muted group-hover:text-accent" />
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-primary">
+                Request <MessageSquare className="w-4 h-4" />
+              </span>
             </a>
           ))}
         </div>
-      </TabsContent>
-    </Tabs>
+      </section>
+    </div>
   );
 }

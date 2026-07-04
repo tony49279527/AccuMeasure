@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { caseStudies, clientLogos } from "@/lib/case-studies";
+import { getProductById } from "@/lib/products";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { JsonLd } from "@/components/json-ld";
+import { articleJsonLd } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Case Studies — Global Buyers Trust AccuMeasure",
@@ -19,12 +24,18 @@ export const metadata: Metadata = {
 export default function CaseStudiesPage() {
   return (
     <div>
+      <JsonLd
+        data={caseStudies.map((cs) => articleJsonLd(cs))}
+      />
       <section className="pt-24 pb-16 bg-bg-light">
-        <div className="container-max text-center">
-          <h1 className="text-4xl font-bold text-dark mb-6">Case Studies</h1>
-          <p className="text-lg text-muted max-w-3xl mx-auto">
-            Real projects. Real results. See how global buyers use AccuMeasure instruments.
-          </p>
+        <div className="container-max">
+          <Breadcrumbs items={[{ name: "Case Studies" }]} />
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-dark mb-6">Case Studies</h1>
+            <p className="text-lg text-muted max-w-3xl mx-auto">
+              Real projects. Real results. See how global buyers use AccuMeasure instruments.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -95,6 +106,27 @@ export default function CaseStudiesPage() {
                           — {cs.testimonialAuthor}, {cs.title.split(" — ")[0]}
                         </p>
                       </div>
+
+                      {cs.productIds.length > 0 && (
+                        <div className="mt-4">
+                          <h4 className="font-medium text-dark mb-2 text-sm">Products Used</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {cs.productIds.map((pid) => {
+                              const p = getProductById(pid);
+                              if (!p) return null;
+                              return (
+                                <Link
+                                  key={pid}
+                                  href={`/products/${p.slug}`}
+                                  className="inline-flex items-center gap-1 text-xs bg-white border border-border rounded-full px-3 py-1 hover:border-primary hover:text-primary transition-colors"
+                                >
+                                  {p.model} {p.name}
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

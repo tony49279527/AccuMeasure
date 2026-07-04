@@ -1,5 +1,13 @@
 import { Product } from './types';
 
+export const defaultProcurement = {
+  packaging: 'Standard export carton with foam padding; custom wooden cases available for large orders.',
+  paymentTerms: 'T/T (30% deposit, 70% before shipment), L/C at sight, PayPal for samples, Alibaba Trade Assurance.',
+  tradeTerms: 'FOB Xi\'an / CIF / EXW (per Incoterms 2020).',
+  shipping: 'DHL/FedEx for samples (3-7 days); sea freight for bulk orders (15-35 days); air freight on request.',
+  samples: '1 sample unit available at unit price plus shipping; sample cost refundable on bulk order >= MOQ.',
+};
+
 export const products: Product[] = [
   {
     id: '1',
@@ -9,7 +17,7 @@ export const products: Product[] = [
     category: 'level',
     tagline: 'Economical level measurement for oil, water, and chemical tanks',
     description: 'The AM-CL100 is a reliable capacitive level sensor designed for continuous level measurement of liquid and bulk solids in tanks. With a robust design and economical pricing, it\'s ideal for general industrial applications.',
-    image: '/products/am-cl100.jpg',
+    image: '/products/am-cl100-v2.jpg',
     gallery: [
       '/products/am-cl100-1.jpg',
       '/products/am-cl100-2.jpg',
@@ -81,6 +89,14 @@ export const products: Product[] = [
       { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-cl100-datasheet.pdf' },
       { name: 'Installation Manual', type: 'pdf', url: '/downloads/am-cl100-manual.pdf' },
     ],
+    procurement: defaultProcurement,
+    faq: [
+      { question: 'What is the measurement range of the AM-CL100 capacitive level sensor?', answer: 'The AM-CL100 measures continuous level from 0.5 to 6 meters with ±1% FS accuracy and 0.1% FS resolution.' },
+      { question: 'What wetted materials are available?', answer: '304/316L stainless steel, PP (polypropylene), and PVDF options are available to suit different media compatibility requirements.' },
+      { question: 'What output signals does the AM-CL100 support?', answer: 'It supports 4-20mA and RS485 Modbus outputs, powered by 12-36V DC supply.' },
+      { question: 'Is it suitable for chemical tanks?', answer: 'Yes, the PVDF and 316L SS wetted parts are compatible with many corrosive chemicals. For highly aggressive media, please confirm chemical compatibility with our engineers.' },
+      { question: 'What is the MOQ and lead time?', answer: 'The minimum order quantity is 50 units with a standard lead time of 15-20 days. Sample units are available for evaluation.' },
+    ],
     relatedProductIds: ['2', '3', '4'],
   },
   {
@@ -91,7 +107,7 @@ export const products: Product[] = [
     category: 'level',
     tagline: 'Non-contact radar measurement, ±2mm accuracy, 80m range',
     description: 'High-performance 80GHz FMCW radar level transmitter for non-contact continuous level measurement. Perfect for challenging applications with dust, vapor, or high temperatures.',
-    image: '/products/am-rl80.jpg',
+    image: '/products/am-rl80-v2.jpg',
     gallery: [
       '/products/am-rl80-1.jpg',
       '/products/am-rl80-2.jpg',
@@ -157,6 +173,14 @@ export const products: Product[] = [
       { name: 'Installation Manual', type: 'pdf', url: '/downloads/am-rl80-manual.pdf' },
       { name: '3D Model', type: '3d', url: '/downloads/am-rl80-3d.step' },
     ],
+    procurement: defaultProcurement,
+    faq: [
+      { question: 'What makes the 80GHz FMCW radar better than lower-frequency radar?', answer: 'The 80GHz frequency produces a narrower beam angle (about 8°), enabling better focusing in narrow tanks and avoiding false echoes from agitators or internal structures. It achieves ±2mm accuracy up to 80m range.' },
+      { question: 'Is the AM-RL80 certified for hazardous areas?', answer: 'Yes, it carries ATEX and IECEx Ex d IIC T6 explosion-proof certification, making it suitable for hazardous area installations including oil and gas, chemical, and LPG/LNG applications.' },
+      { question: 'What is the maximum process temperature?', answer: 'The AM-RL80 operates from -40°C to +200°C process temperature with IP67 protection.' },
+      { question: 'Does it require contact with the measured medium?', answer: 'No, the AM-RL80 is a non-contact radar level transmitter. It mounts on top of the tank and measures through air, making it ideal for corrosive, abrasive, or high-temperature media.' },
+      { question: 'What output protocols are supported?', answer: '4-20mA HART and RS485 Modbus RTU are standard, powered by 12-36V DC.' },
+    ],
     relatedProductIds: ['1', '3', '4'],
   },
   {
@@ -167,7 +191,7 @@ export const products: Product[] = [
     category: 'level',
     tagline: 'Non-contact economical level sensing for water and chemicals',
     description: 'Reliable ultrasonic level sensor for non-contact level measurement of liquids in tanks. Easy installation and maintenance, ideal for water treatment and chemical applications.',
-    image: '/products/am-ul20.jpg',
+    image: '/products/am-ul20-v2.jpg',
     gallery: [
       '/products/am-ul20-1.jpg',
       '/products/am-ul20-2.jpg',
@@ -225,6 +249,14 @@ export const products: Product[] = [
     downloads: [
       { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-ul20-datasheet.pdf' },
     ],
+    procurement: defaultProcurement,
+    faq: [
+      { question: 'What is the measurement range and accuracy of the AM-UL20?', answer: 'The AM-UL20 ultrasonic level sensor measures 0.5 to 20 meters with ±1% FS accuracy, using non-contact ultrasonic technology.' },
+      { question: 'What material is the transducer made of?', answer: 'The transducer is PVDF (polyvinylidene fluoride), providing excellent chemical resistance for corrosive liquids and wastewater.' },
+      { question: 'Can the AM-UL20 be used in water treatment plants?', answer: 'Yes, it is commonly used in potable water, wastewater, and water treatment process tanks. The PVDF transducer is suitable for most water treatment chemicals.' },
+      { question: 'What are the operating temperature limits?', answer: 'The sensor operates from -20°C to +60°C with IP65 protection.' },
+      { question: 'Does ultrasonic measurement work in tanks with foam or vapor?', answer: 'Light foam and vapor are generally tolerated, but heavy foam or dense vapor can attenuate the ultrasonic signal. For such conditions, we recommend the AM-RL80 radar level transmitter instead.' },
+    ],
     relatedProductIds: ['1', '2', '4'],
   },
   {
@@ -235,7 +267,7 @@ export const products: Product[] = [
     category: 'level',
     tagline: 'WiFi-connected smart level sensor. Install in 5 minutes, monitor from your phone.',
     description: 'Battery-powered WiFi level sensor with cloud monitoring. Easy installation without wiring, perfect for remote tank monitoring.',
-    image: '/products/am-wl50.jpg',
+    image: '/products/am-wl50-v2.jpg',
     gallery: [
       '/products/am-wl50-1.jpg',
       '/products/am-wl50-2.jpg',
@@ -290,6 +322,14 @@ export const products: Product[] = [
     downloads: [
       { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-wl50-datasheet.pdf' },
     ],
+    procurement: defaultProcurement,
+    faq: [
+      { question: 'How does the AM-WL50 WiFi level sensor connect to the internet?', answer: 'The AM-WL50 connects via 2.4GHz WiFi (b/g/n) using MQTT or HTTP protocols. No gateway or wiring is required — it connects directly to your existing WiFi network.' },
+      { question: 'How long does the battery last?', answer: 'The sensor is powered by 3x AA batteries with a typical battery life of 6 months. Battery status is visible in the mobile app.' },
+      { question: 'Is there a mobile app for monitoring?', answer: 'Yes, apps are available for iOS, Android, and WeChat mini-program. You can view real-time levels, set high/low alarms, and receive push notifications.' },
+      { question: 'What is the measurement range?', answer: 'The AM-WL50 measures 0.3 to 5 meters with ±2% FS accuracy using ultrasonic technology.' },
+      { question: 'Can multiple sensors be monitored from one account?', answer: 'Yes, you can add multiple AM-WL50 sensors to a single account and monitor all tanks from one dashboard.' },
+    ],
     relatedProductIds: ['1', '2', '3'],
   },
   {
@@ -300,7 +340,7 @@ export const products: Product[] = [
     category: 'flow',
     tagline: 'Mainstream flow meter for water treatment and chemical industry',
     description: 'Full-bore electromagnetic flow meter for conductive liquids. No moving parts, reliable and accurate for water and slurry applications.',
-    image: '/products/am-emf100.jpg',
+    image: '/products/am-emf100-v2.jpg',
     gallery: [
       '/products/am-emf100-1.jpg',
       '/products/am-emf100-2.jpg',
@@ -360,6 +400,14 @@ export const products: Product[] = [
     downloads: [
       { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-emf100-datasheet.pdf' },
     ],
+    procurement: defaultProcurement,
+    faq: [
+      { question: 'What sizes are available for the AM-EMF100 electromagnetic flow meter?', answer: 'Sizes range from DN6 to DN600 (1/4" to 24"), with ±0.5% FS accuracy and flow velocity range of 0.1-12 m/s.' },
+      { question: 'Can it measure non-conductive fluids like oil or pure water?', answer: 'No. Electromagnetic flow meters require the fluid to have minimum conductivity (typically >5 µS/cm). For non-conductive fluids like oil, please consider our ultrasonic flow meter AM-UF200.' },
+      { question: 'What liner and electrode materials are available?', answer: 'Liners: PTFE, PFA, and rubber. Electrodes: 316L stainless steel, Hastelloy C, and Titanium, selected based on fluid chemical compatibility.' },
+      { question: 'Does the AM-EMF100 have explosion-proof certification?', answer: 'Yes, ATEX explosion-proof certification is available for hazardous area installations.' },
+      { question: 'What outputs does it support?', answer: '4-20mA, pulse, and RS485 Modbus RTU outputs are standard, with an integrated LCD display.' },
+    ],
     relatedProductIds: ['6', '7'],
   },
   {
@@ -370,7 +418,7 @@ export const products: Product[] = [
     category: 'flow',
     tagline: 'Clamp-on, non-invasive flow measurement. No pipe cutting required.',
     description: 'Clamp-on ultrasonic flow meter for non-invasive flow measurement. Install without stopping process or cutting pipes.',
-    image: '/products/am-uf200.jpg',
+    image: '/products/am-uf200-v2.jpg',
     gallery: [
       '/products/am-uf200-1.jpg',
       '/products/am-uf200-2.jpg',
@@ -416,6 +464,14 @@ export const products: Product[] = [
     downloads: [
       { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-uf200-datasheet.pdf' },
     ],
+    procurement: defaultProcurement,
+    faq: [
+      { question: 'Does the clamp-on ultrasonic flow meter require cutting the pipe?', answer: 'No. The AM-UF200 uses clamp-on transit-time ultrasonic technology. Sensors mount externally on the pipe wall, so there is no process shutdown, no pipe cutting, and no pressure drop.' },
+      { question: 'What pipe sizes and materials are supported?', answer: 'It supports pipe sizes from DN15 to DN1000 (1/2" to 40") in metal and plastic pipe materials.' },
+      { question: 'What is the accuracy of the AM-UF200?', answer: '±1% FS accuracy for clamp-on installation on properly prepared pipe surfaces.' },
+      { question: 'Is a portable version available for temporary measurements?', answer: 'Yes, both portable and fixed versions are available. The portable version is ideal for surveying multiple measurement points.' },
+      { question: 'Can it measure non-conductive fluids?', answer: 'Yes, unlike electromagnetic flow meters, the ultrasonic principle works with any fluid that can transmit sound waves, including oils and pure water.' },
+    ],
     relatedProductIds: ['5', '7'],
   },
   {
@@ -426,7 +482,7 @@ export const products: Product[] = [
     category: 'flow',
     tagline: 'Precision gas mass flow measurement for labs and semiconductors',
     description: 'High-precision thermal mass flow meter for gas measurement. Ideal for laboratory and semiconductor applications requiring high accuracy.',
-    image: '/products/am-mf50.jpg',
+    image: '/products/am-mf50-v2.jpg',
     gallery: [
       '/products/am-mf50-1.jpg',
       '/products/am-mf50-2.jpg',
@@ -472,6 +528,14 @@ export const products: Product[] = [
     downloads: [
       { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-mf50-datasheet.pdf' },
     ],
+    procurement: defaultProcurement,
+    faq: [
+      { question: 'What is the measurement principle of the AM-MF50?', answer: 'The AM-MF50 uses thermal mass flow technology to measure gas mass flow directly, without needing temperature or pressure compensation.' },
+      { question: 'What is the accuracy and response time?', answer: 'It provides ±1% FS accuracy with a fast <10ms response time, making it suitable for dynamic process control.' },
+      { question: 'What flow range does it cover?', answer: 'The AM-MF50 measures 0 to 500 slm (standard liters per minute) of gas flow.' },
+      { question: 'What output interfaces are available?', answer: '4-20mA, RS485, and EtherNet/IP outputs are supported for integration with PLC and DCS systems.' },
+      { question: 'Is it suitable for semiconductor manufacturing?', answer: 'Yes, the 316L stainless steel construction and high precision make it ideal for semiconductor process gas control and laboratory applications.' },
+    ],
     relatedProductIds: ['5', '6'],
   },
   {
@@ -482,7 +546,7 @@ export const products: Product[] = [
     category: 'pressure',
     tagline: 'Aerospace-grade vibration resistance. Industrial pressure workhorse.',
     description: 'Rugged pressure transmitter with aerospace-grade components. High vibration resistance for demanding industrial applications.',
-    image: '/products/am-pt300.jpg',
+    image: '/products/am-pt300-v2.jpg',
     gallery: [
       '/products/am-pt300-1.jpg',
       '/products/am-pt300-2.jpg',
@@ -539,6 +603,14 @@ export const products: Product[] = [
     downloads: [
       { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-pt300-datasheet.pdf' },
     ],
+    procurement: defaultProcurement,
+    faq: [
+      { question: 'What pressure range does the AM-PT300 cover?', answer: 'The AM-PT300 covers 0-10kPa to 0-100MPa with ±0.25% FS accuracy, using piezoresistive sensing technology.' },
+      { question: 'What does aerospace-grade vibration resistance mean in practice?', answer: 'The sensor uses aerospace-grade components and construction that withstand high vibration environments, making it suitable for hydraulic systems, pumps, and heavy industrial machinery where standard sensors fail prematurely.' },
+      { question: 'Is the AM-PT300 explosion-proof certified?', answer: 'Yes, it carries ATEX Ex d IIC T6 explosion-proof certification and IP65 protection for harsh environments.' },
+      { question: 'What is the operating temperature range?', answer: 'It operates from -40°C to +125°C, suitable for both cold outdoor and high-temperature industrial applications.' },
+      { question: 'What output signals are supported?', answer: '4-20mA and RS485 Modbus outputs are standard, powered by 12-36V DC supply.' },
+    ],
     relatedProductIds: ['9'],
   },
   {
@@ -549,7 +621,7 @@ export const products: Product[] = [
     category: 'pressure',
     tagline: 'Digital replacement for mechanical gauges. 2-year battery life.',
     description: 'Battery-powered digital pressure gauge with LCD display. Drop-in replacement for mechanical gauges with much higher accuracy.',
-    image: '/products/am-pg200.jpg',
+    image: '/products/am-pg200-v2.jpg',
     gallery: [
       '/products/am-pg200-1.jpg',
       '/products/am-pg200-2.jpg',
@@ -601,6 +673,14 @@ export const products: Product[] = [
     certifications: ['ISO9001', 'CE'],
     downloads: [
       { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-pg200-datasheet.pdf' },
+    ],
+    procurement: defaultProcurement,
+    faq: [
+      { question: 'Can the AM-PG200 replace a mechanical pressure gauge directly?', answer: 'Yes, the AM-PG200 is designed as a drop-in replacement for mechanical dial gauges. It uses the same mounting threads and provides a digital LCD readout with higher accuracy (±0.5% FS).' },
+      { question: 'How long does the battery last?', answer: 'The gauge is powered by 2x AA batteries with a 2-year typical battery life, reducing maintenance frequency significantly compared to wired gauges.' },
+      { question: 'What pressure units can it display?', answer: 'The 4-digit LCD can display MPa, Bar, PSI, and kPa, switchable from the menu.' },
+      { question: 'What pressure range does it cover?', answer: 'The AM-PG200 covers 0-10kPa to 0-100MPa using piezoresistive sensing technology with ±0.5% FS accuracy.' },
+      { question: 'Is it suitable for outdoor or harsh environments?', answer: 'Yes, it has a rugged industrial housing. For hazardous area installations, please consult our AM-PT300 pressure transmitter with ATEX certification.' },
     ],
     relatedProductIds: ['8'],
   },

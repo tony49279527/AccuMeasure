@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { FloatingButtons } from "@/components/layout/floating-buttons";
+import { JsonLd } from "@/components/json-ld";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,7 +34,13 @@ export const metadata: Metadata = {
     "industrial measurement instruments",
     "AccuMeasure",
   ],
-  metadataBase: new URL("https://accumeasure-instrument.com"),
+  metadataBase: new URL("https://accumeasuretech.com"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -71,10 +79,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className={`${inter.variable} ${jetbrainsMono.variable} pb-14 font-sans antialiased md:pb-0`}
       >
+        <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <Navbar />
-        <main className="pt-16">{children}</main>
+        <main>{children}</main>
         <Footer />
         <FloatingButtons />
       </body>

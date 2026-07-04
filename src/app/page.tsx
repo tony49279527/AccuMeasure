@@ -57,8 +57,8 @@ export default function Home() {
                   <MessageSquare className="w-5 h-5" />
                   Get a Quote
                 </Link>
-                <Link href="/contact" className="btn-secondary">
-                  Download Catalog
+                <Link href="/contact?request=catalog" className="btn-secondary">
+                  Request Product Catalog
                 </Link>
               </div>
 

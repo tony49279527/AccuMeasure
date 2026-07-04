@@ -18,12 +18,14 @@ interface InquiryFormProps {
   productId?: string;
   productName?: string;
   defaultInterest?: string;
+  defaultMessage?: string;
 }
 
 export function InquiryForm({
   productId,
   productName,
   defaultInterest,
+  defaultMessage,
 }: InquiryFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -40,6 +42,7 @@ export function InquiryForm({
     defaultValues: {
       productInterest: defaultInterest ? [defaultInterest] : [],
       productId: productId,
+      message: defaultMessage,
     },
   });
 
@@ -216,6 +219,7 @@ export function InquiryForm({
         <Textarea
           id="message"
           rows={5}
+          defaultValue={defaultMessage}
           placeholder="Tell us about your application and requirements..."
           {...register("message")}
         />
