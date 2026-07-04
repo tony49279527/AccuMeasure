@@ -1,5 +1,6 @@
 import { siteConfig } from "./site";
 import type { Product, CaseStudy } from "./types";
+import type { BlogPost } from "./blog";
 
 export function organizationJsonLd() {
   return {
@@ -184,5 +185,29 @@ export function articleJsonLd(caseStudy: CaseStudy) {
     mentions: caseStudy.productIds.map(
       (id) => `${siteConfig.url}/products#${id}`,
     ),
+  };
+}
+
+export function blogArticleJsonLd(post: BlogPost) {
+  const postUrl = `${siteConfig.url}/blog/${post.slug}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${postUrl}#article`,
+    headline: post.title,
+    description: post.description,
+    url: postUrl,
+    datePublished: post.datePublished,
+    dateModified: post.dateModified,
+    articleSection: post.category,
+    keywords: post.keywords.join(", "),
+    author: { "@id": `${siteConfig.url}/#organization` },
+    publisher: { "@id": `${siteConfig.url}/#organization` },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": postUrl,
+    },
+    about: post.relatedProductIds.map((id) => `${siteConfig.url}/products#${id}`),
   };
 }

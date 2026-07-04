@@ -19,6 +19,7 @@ const navItems = [
   { label: "Customization", href: "/customization" },
   { label: "Industries", href: "/industries" },
   { label: "Resources", href: "/resources" },
+  { label: "Blog", href: "/blog" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -47,8 +48,8 @@ export function Navbar() {
               return (
                 <div key={item.label} className="relative group">
                   {hasChildren ? (
-                    <button
-                      type="button"
+                    <Link
+                      href={item.href}
                       aria-haspopup="true"
                       className={cn(
                         "flex items-center gap-1 py-2 text-sm font-medium transition-colors",
@@ -57,7 +58,7 @@ export function Navbar() {
                     >
                       {item.label}
                       <ChevronDown className="w-4 h-4" />
-                    </button>
+                    </Link>
                   ) : (
                     <Link
                       href={item.href}
@@ -117,9 +118,13 @@ export function Navbar() {
                 <div key={item.label}>
                   {hasChildren ? (
                     <>
-                      <div className="px-4 py-2 font-medium text-dark">
+                      <Link
+                        href={item.href}
+                        className="block px-4 py-2 font-medium text-dark hover:text-primary"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
                         {item.label}
-                      </div>
+                      </Link>
                       <div className="pl-4 space-y-1">
                         {item.children.map((child) => (
                           <Link

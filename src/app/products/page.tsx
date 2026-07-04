@@ -47,9 +47,12 @@ export default function ProductsPage({
         <div className="container-max">
           <Breadcrumbs items={[{ name: "Products" }]} />
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-dark mb-4">Products</h1>
+            <h1 className="text-4xl font-bold text-dark mb-4">
+              Industrial Measurement Products: Level Sensors, Flow Meters &amp; Pressure Transmitters
+            </h1>
             <p className="text-muted max-w-2xl mx-auto">
-              Industrial measurement instruments, factory-direct. Every unit ships with a calibration certificate.
+              Search factory-direct level, flow, and pressure instruments by model, application,
+              output signal, certification, or measuring range. Every unit ships with a calibration certificate.
             </p>
           </div>
         </div>

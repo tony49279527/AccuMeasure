@@ -19,7 +19,7 @@ import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "AccuMeasureTech | Precision Measurement Sensors & Industrial Measuring Solutions",
+  title: "AccuMeasureTech | Level Sensor, Flow Meter & Pressure Transmitter Manufacturer",
   description:
     "Factory-direct industrial measurement instruments from Xi'an, China. Capacitive & radar level sensors, electromagnetic flow meters, pressure transmitters. ISO9001 certified. 10+ years exporting to 40+ countries.",
   alternates: { canonical: "/" },
@@ -33,6 +33,25 @@ export const metadata: Metadata = {
   ],
 };
 
+const homeFactoryImages = [
+  {
+    src: "/factory/1.jpg",
+    alt: "AccuMeasure factory exterior in Xi'an High-Tech Zone, China",
+  },
+  {
+    src: "/factory/2.jpg",
+    alt: "Level sensor and flow meter production line inside AccuMeasure factory",
+  },
+  {
+    src: "/factory/3.jpg",
+    alt: "Calibration laboratory for radar level transmitters and pressure sensors",
+  },
+  {
+    src: "/factory/4.jpg",
+    alt: "72-hour aging test room for industrial measurement instruments",
+  },
+];
+
 export default function Home() {
   return (
     <div>
@@ -42,15 +61,15 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-dark tracking-tight mb-6">
-                Industrial Measurement Instruments,
+                Level Sensor, Flow Meter &amp; Pressure Transmitter Manufacturer
                 <span className="text-primary block mt-2">
-                  Built to Last
+                  Factory-Direct from Xi&apos;an
                 </span>
               </h1>
               <p className="text-lg text-muted mb-8 max-w-xl">
-                Level · Flow · Pressure sensors from a factory in Xi&apos;an, China.
-                10 years exporting to 40+ countries. Aerospace-grade quality at
-                1/3 the cost.
+                Factory-direct level sensors, flow meters, and pressure transmitters
+                from Xi&apos;an, China. 10 years exporting to 40+ countries.
+                Aerospace-grade quality at 1/3 the cost.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/contact" className="btn-primary">
@@ -260,14 +279,14 @@ export default function Home() {
         <div className="container-max">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="grid grid-cols-2 gap-4">
-              {[1, 2, 3, 4].map((i) => (
+              {homeFactoryImages.map((image) => (
                 <div
-                  key={i}
+                  key={image.src}
                   className="aspect-square bg-primary/10 rounded-xl flex items-center justify-center overflow-hidden"
                 >
                   <Image
-                    src={`/factory/${i}.jpg`}
-                    alt={`Factory workshop ${i}`}
+                    src={image.src}
+                    alt={image.alt}
                     width={300}
                     height={300}
                     className="object-cover"

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbJsonLd } from "@/lib/seo";
@@ -18,6 +18,10 @@ export interface CategoryPageData {
   h1: string;
   lead: string;
   overview: string;
+  selectionGuide: {
+    title: string;
+    description: string;
+  }[];
 }
 
 export function generateCategoryMetadata(data: CategoryPageData): Metadata {
@@ -117,6 +121,31 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
       </section>
 
       <section className="py-16 bg-bg-light">
+        <div className="container-max">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-bold text-dark mb-3">
+              {data.label} Selection Guide
+            </h2>
+            <p className="text-muted max-w-2xl mx-auto">
+              Use these checks before sending an RFQ. They help our engineers confirm
+              the right model, output, material, and certification for your project.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {data.selectionGuide.map((item) => (
+              <div key={item.title} className="bg-white rounded-xl border border-border p-6">
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-dark mb-2">{item.title}</h3>
+                <p className="text-muted text-sm leading-6">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
         <div className="container-max">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-dark mb-4">
