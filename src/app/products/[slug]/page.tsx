@@ -13,13 +13,17 @@ import { productJsonLd, faqPageJsonLd } from "@/lib/seo";
 import { waLink } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
+const reservedSlugs = ["level", "flow", "pressure"];
+
 export function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }));
+  return products
+    .filter((p) => !reservedSlugs.includes(p.slug))
+    .map((p) => ({ slug: p.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const product = getProductBySlug(params.slug);
-  if (!product) {
+  if (!product || reservedSlugs.includes(params.slug)) {
     return { title: "Product Not Found" };
   }
   return {
@@ -36,7 +40,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 
 export default function ProductDetailPage({ params }: { params: { slug: string } }) {
   const product = getProductBySlug(params.slug);
-  if (!product) notFound();
+  if (!product || reservedSlugs.includes(params.slug)) notFound();
 
   const relatedProducts = product.relatedProductIds
     .map((id) => getProductById(id))
