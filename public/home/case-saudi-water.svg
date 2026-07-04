@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title">
+  <title id="title">Water storage tanks with radar level sensors</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dbeafe"/>
+      <stop offset="0.55" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#f1efe8"/>
+    </linearGradient>
+    <linearGradient id="tank" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="0.45" stop-color="#b7c4d4"/>
+      <stop offset="1" stop-color="#64748b"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#185fa5"/>
+      <stop offset="1" stop-color="#0c447c"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#0c2745" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <path d="M0 620c166-48 298-64 456-30 165 36 298 8 448-30 130-33 218-22 296 20v220H0z" fill="#d8b46b" opacity="0.35"/>
+  <path d="M0 675c220-54 426-38 645 0 183 31 362 24 555-36v161H0z" fill="#c89545" opacity="0.28"/>
+  <g filter="url(#shadow)">
+    <ellipse cx="345" cy="530" rx="155" ry="46" fill="#7c8da3"/>
+    <rect x="190" y="275" width="310" height="255" rx="12" fill="url(#tank)"/>
+    <ellipse cx="345" cy="275" rx="155" ry="46" fill="#e8eef5"/>
+    <ellipse cx="345" cy="276" rx="120" ry="31" fill="#cdd7e4"/>
+    <rect x="285" y="207" width="120" height="55" rx="14" fill="url(#blue)"/>
+    <rect x="324" y="158" width="42" height="62" rx="10" fill="#24364f"/>
+    <path d="M345 148v-52" stroke="#0c447c" stroke-width="10" stroke-linecap="round"/>
+    <path d="M308 114c22-20 54-20 76 0" fill="none" stroke="#378add" stroke-width="9" stroke-linecap="round"/>
+    <path d="M278 82c38-37 98-37 136 0" fill="none" stroke="#378add" stroke-width="7" stroke-linecap="round" opacity="0.65"/>
+  </g>
+  <g filter="url(#shadow)" opacity="0.92">
+    <ellipse cx="760" cy="570" rx="190" ry="56" fill="#708198"/>
+    <rect x="570" y="330" width="380" height="240" rx="14" fill="url(#tank)"/>
+    <ellipse cx="760" cy="330" rx="190" ry="56" fill="#eef4fa"/>
+    <ellipse cx="760" cy="331" rx="150" ry="38" fill="#cfd9e6"/>
+    <rect x="696" y="260" width="128" height="60" rx="15" fill="url(#blue)"/>
+    <rect x="740" y="210" width="40" height="62" rx="10" fill="#24364f"/>
+    <path d="M760 202v-52" stroke="#0c447c" stroke-width="10" stroke-linecap="round"/>
+    <path d="M720 166c24-22 56-22 80 0" fill="none" stroke="#378add" stroke-width="9" stroke-linecap="round"/>
+    <path d="M690 134c40-38 100-38 140 0" fill="none" stroke="#378add" stroke-width="7" stroke-linecap="round" opacity="0.65"/>
+  </g>
+  <path d="M110 610h960" stroke="#0c447c" stroke-width="22" stroke-linecap="round" opacity="0.18"/>
+  <path d="M214 602h768" stroke="#0c447c" stroke-width="10" stroke-linecap="round" opacity="0.38"/>
+  <circle cx="1010" cy="190" r="78" fill="#ef9f27" opacity="0.32"/>
+</svg>

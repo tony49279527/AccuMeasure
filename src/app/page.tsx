@@ -35,20 +35,80 @@ export const metadata: Metadata = {
 
 const homeFactoryImages = [
   {
-    src: "/factory/1.jpg",
-    alt: "AccuMeasure factory exterior in Xi'an High-Tech Zone, China",
+    src: "/home/factory-assembly.svg",
+    alt: "AccuMeasure sensor assembly line for level transmitters and flow meters",
   },
   {
-    src: "/factory/2.jpg",
-    alt: "Level sensor and flow meter production line inside AccuMeasure factory",
+    src: "/home/factory-calibration.svg",
+    alt: "Calibration bench for radar level transmitters and pressure sensors",
   },
   {
-    src: "/factory/3.jpg",
-    alt: "Calibration laboratory for radar level transmitters and pressure sensors",
+    src: "/home/factory-aging-test.svg",
+    alt: "72-hour aging test racks for industrial measurement instruments",
   },
   {
-    src: "/factory/4.jpg",
-    alt: "72-hour aging test room for industrial measurement instruments",
+    src: "/home/factory-qc-packaging.svg",
+    alt: "Quality control and export packaging workflow at AccuMeasure",
+  },
+];
+
+const homeProductCategories = [
+  {
+    icon: Gauge,
+    eyebrow: "Level",
+    title: "Level Measurement",
+    description:
+      "Capacitive, 80GHz radar, ultrasonic, and IoT WiFi level sensors.",
+    href: "/products/level",
+    image: "/products/am-rl80-v2.jpg",
+    alt: "80GHz radar level transmitter for tanks and silos",
+    chips: ["Radar", "Ultrasonic", "Capacitive"],
+  },
+  {
+    icon: Waves,
+    eyebrow: "Flow",
+    title: "Flow Measurement",
+    description:
+      "Electromagnetic, ultrasonic, and digital mass flow meters for industrial lines.",
+    href: "/products/flow",
+    image: "/products/am-emf100-v2.jpg",
+    alt: "Electromagnetic flow meter for water treatment and process pipelines",
+    chips: ["Electromagnetic", "Ultrasonic", "Mass Flow"],
+  },
+  {
+    icon: Activity,
+    eyebrow: "Pressure",
+    title: "Pressure Measurement",
+    description:
+      "Piezoresistive transmitters and smart digital pressure gauges.",
+    href: "/products/pressure",
+    image: "/products/am-pt300-v2.jpg",
+    alt: "Pressure transmitter for OEM equipment and process measurement",
+    chips: ["Transmitters", "Gauges", "OEM"],
+  },
+];
+
+const homeCaseStudies = [
+  {
+    client: "Saudi Water Co.",
+    product: "Radar Level Sensors",
+    result: "Saved 71% vs European brand. 6 months, zero failures.",
+    image: "/home/case-saudi-water.svg",
+    alt: "Large water storage tanks using radar level sensors in a desert utility site",
+  },
+  {
+    client: "Indonesia PDAM",
+    product: "Electromagnetic Flow Meters",
+    result: "200 units delivered. Repeat order for 500 more.",
+    image: "/home/case-indonesia-flow.svg",
+    alt: "Water treatment pipeline with electromagnetic flow meter installation",
+  },
+  {
+    client: "Brazil Integrator",
+    product: "OEM Digital Pressure Gauges",
+    result: "Custom branded. First order 500, reorder 2,000.",
+    image: "/home/case-brazil-oem.svg",
+    alt: "OEM pressure gauge assembly and packaging for a system integrator",
   },
 ];
 
@@ -100,11 +160,11 @@ export default function Home() {
             <div className="relative">
               <div className="aspect-square bg-primary/10 rounded-2xl flex items-center justify-center overflow-hidden">
                 <Image
-                  src="/products/am-rl80.jpg"
+                  src="/products/am-rl80-v2.jpg"
                   alt="80GHz Radar Level Transmitter"
                   width={600}
                   height={600}
-                  className="object-cover"
+                  className="h-full w-full object-cover"
                   priority
                 />
               </div>
@@ -145,40 +205,40 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Gauge,
-                title: "Level Measurement",
-                description:
-                  "Capacitive, 80GHz radar, ultrasonic, and IoT WiFi level sensors.",
-                href: "/products?category=level",
-              },
-              {
-                icon: Waves,
-                title: "Flow Measurement",
-                description:
-                  "Electromagnetic, ultrasonic, and digital mass flow meters.",
-                href: "/products?category=flow",
-              },
-              {
-                icon: Activity,
-                title: "Pressure Measurement",
-                description:
-                  "Piezoresistive transmitters and smart digital pressure gauges.",
-                href: "/products?category=pressure",
-              },
-            ].map((cat, idx) => (
-              <Link key={idx} href={cat.href} className="card group">
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                  <cat.icon className="w-7 h-7 text-primary group-hover:text-white" />
+            {homeProductCategories.map((cat) => (
+              <Link key={cat.href} href={cat.href} className="card group overflow-hidden p-0">
+                <div className="relative h-52 bg-bg-light overflow-hidden">
+                  <Image
+                    src={cat.image}
+                    alt={cat.alt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 text-sm font-semibold text-primary shadow-sm">
+                    <cat.icon className="w-4 h-4" />
+                    {cat.eyebrow}
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-dark mb-3">
-                  {cat.title}
-                </h3>
-                <p className="text-muted mb-6">{cat.description}</p>
-                <span className="inline-flex items-center gap-2 text-accent font-medium">
-                  Explore Products <ArrowRight className="w-4 h-4" />
-                </span>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-dark mb-3">
+                    {cat.title}
+                  </h3>
+                  <p className="text-muted mb-5">{cat.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {cat.chips.map((chip) => (
+                      <span
+                        key={chip}
+                        className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+                      >
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="inline-flex items-center gap-2 text-accent font-medium">
+                    Explore Products <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
@@ -243,32 +303,27 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                client: "Saudi Water Co.",
-                product: "Radar Level Sensors",
-                result: "Saved 71% vs European brand. 6 months, zero failures.",
-              },
-              {
-                client: "Indonesia PDAM",
-                product: "Electromagnetic Flow Meters",
-                result: "200 units delivered. Repeat order for 500 more.",
-              },
-              {
-                client: "Brazil Integrator",
-                product: "OEM Digital Pressure Gauges",
-                result: "Custom branded. First order 500, reorder 2,000.",
-              },
-            ].map((cs, idx) => (
-              <div key={idx} className="card">
-                <div className="text-sm text-muted mb-2">{cs.product}</div>
-                <h3 className="text-xl font-semibold text-dark mb-4">
-                  {cs.client}
-                </h3>
-                <p className="text-muted mb-6">{cs.result}</p>
-                <Link href="/case-studies" className="text-accent font-medium inline-flex items-center gap-2">
-                  Read case study <ArrowRight className="w-4 h-4" />
-                </Link>
+            {homeCaseStudies.map((cs) => (
+              <div key={cs.client} className="card overflow-hidden p-0">
+                <div className="relative h-48 bg-bg-light">
+                  <Image
+                    src={cs.image}
+                    alt={cs.alt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="text-sm text-muted mb-2">{cs.product}</div>
+                  <h3 className="text-xl font-semibold text-dark mb-4">
+                    {cs.client}
+                  </h3>
+                  <p className="text-muted mb-6">{cs.result}</p>
+                  <Link href="/case-studies" className="text-accent font-medium inline-flex items-center gap-2">
+                    Read case study <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -282,13 +337,13 @@ export default function Home() {
               {homeFactoryImages.map((image) => (
                 <div
                   key={image.src}
-                  className="aspect-square bg-primary/10 rounded-xl flex items-center justify-center overflow-hidden"
+                  className="relative aspect-square bg-primary/10 rounded-xl flex items-center justify-center overflow-hidden"
                 >
                   <Image
                     src={image.src}
                     alt={image.alt}
-                    width={300}
-                    height={300}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, 50vw"
                     className="object-cover"
                   />
                 </div>
