@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CheckCircle, MessageSquare, FileText, ArrowRight, Package, CreditCard, Ship, FlaskConical, Truck } from "lucide-react";
+import { CheckCircle, MessageSquare, FileText, ArrowRight, Package, CreditCard, Ship, FlaskConical, Truck, Gauge, Wrench, ShieldCheck } from "lucide-react";
 import { ProductTabs } from "@/components/product-tabs";
 import { InquiryForm } from "@/components/forms/inquiry-form";
 import { JsonLd } from "@/components/json-ld";
@@ -23,10 +23,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     return { title: "Product Not Found" };
   }
   return {
-    title: `${product.model} ${product.name}`,
-    description: `${product.tagline} ${product.keySpecs
-      .map((s) => `${s.label}: ${s.value}`)
-      .join(", ")}. From $${product.priceFrom}. Factory direct from Xi'an, China.`,
+    title: `${product.model} ${product.name} | Measurement Range, Accuracy, Applications | AccuMeasureTech`,
+    description: `${product.tagline} Measurement range: ${product.keySpecs.find(s => s.label.toLowerCase().includes('range') || s.label.toLowerCase().includes('accuracy'))?.value || product.keySpecs[0]?.value || 'various'}. From $${product.priceFrom} (FOB Xi'an). Factory-direct from AccuMeasure, ISO 9001 certified.`,
     alternates: { canonical: `/products/${product.slug}` },
     openGraph: {
       title: `${product.model} ${product.name}`,
@@ -133,6 +131,41 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
 
       <section className="py-16">
         <div className="container-max">
+          <div className="mb-12">
+            <h2 className="text-lg font-semibold text-dark mb-4">Quick Specifications</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+              {(() => {
+                const allItems = product.specifications.flatMap((g) => g.items);
+                const priorityKeys = [
+                  "accuracy", "range", "range (liquid)", "max range",
+                  "output", "output signal", "output protocol",
+                  "material", "wetted material", "electrode material",
+                  "process connection", "connection", "mounting",
+                  "process temperature", "temperature", "operating temperature",
+                  "protection", "protection class", "ip rating",
+                  "power supply", "supply", "power",
+                  "frequency", "technology", "measurement principle",
+                  "sizes", "size", "pipe size",
+                  "certification", "certifications", "approvals",
+                  "battery", "battery life",
+                  "response time", "response",
+                ];
+                const filtered = allItems.filter((it) =>
+                  priorityKeys.some((k) => it.param.toLowerCase().includes(k.toLowerCase())),
+                );
+                const result = filtered.length >= 6 ? filtered.slice(0, 6) : allItems.slice(0, 6);
+                return result.map((spec, i) => (
+                  <div key={i} className="bg-white rounded-lg p-3 border border-border">
+                    <p className="text-xs text-muted mb-1">{spec.param}</p>
+                    <p className="text-sm font-semibold text-dark">{spec.value}</p>
+                  </div>
+                ));
+              })()}
+            </div>
+            <p className="text-xs text-muted mt-3">
+              Key specifications shown above. See full specification tables below.
+            </p>
+          </div>
           <ProductTabs product={product} />
         </div>
       </section>
@@ -150,6 +183,100 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                 <p className="text-muted text-sm">{adv.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="container-max">
+          <h2 className="text-2xl font-bold text-dark mb-8 text-center">How to Choose</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-xl p-8 border border-border">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                <Gauge className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold text-dark mb-3">What to look for</h3>
+              <ul className="space-y-2 text-muted text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span><strong>Accuracy:</strong> Match your process tolerance. 0.25% FS for custody transfer, 1% FS for tank level monitoring.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span><strong>Range:</strong> Ensure the sensor covers your full tank depth, including dead zones. Add 20% margin.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span><strong>Medium compatibility:</strong> Check wetted material against your fluid&apos;s chemical compatibility chart.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span><strong>Output signal:</strong> Match your PLC/DCS interface. 4-20mA is universal; RS485 for Modbus; EtherNet/IP for industrial Ethernet.</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white rounded-xl p-8 border border-border">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                <Wrench className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold text-dark mb-3">Installation &amp; Wiring</h3>
+              <ul className="space-y-2 text-muted text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span><strong>Power:</strong> Most AccuMeasure instruments run on 12–36V DC. Battery-powered models available for remote sites.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span><strong>Mounting:</strong> Threaded (G1/4, G1/2, M20), flange (DN25–DN200), or clamp-on. Standard process connections ship with the unit.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span><strong>Wiring:</strong> 2-wire (loop-powered) or 4-wire configurations. All units include a wiring diagram on the housing label.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span><strong>Environment:</strong> Check IP rating for outdoor installations. IP67 units are suitable for direct rain and dust exposure.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p className="text-center text-sm text-muted mt-6">
+            Not sure which configuration is right for you? <a href="#quote" className="text-primary underline">Ask our engineers</a> — we&apos;ll review your spec and recommend the best option.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-16 bg-bg-light">
+        <div className="container-max">
+          <h2 className="text-2xl font-bold text-dark mb-8 text-center">Quality &amp; Certification</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-xl p-6 border border-border text-center">
+              <div className="w-12 h-12 bg-cta/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <ShieldCheck className="w-6 h-6 text-cta" />
+              </div>
+              <h3 className="font-semibold text-dark mb-2">72-Hour Aging Test</h3>
+              <p className="text-muted text-sm">
+                Every unit runs continuously for 72 hours under temperature cycling (0°C to 50°C) to detect infant mortality failures before shipment.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-border text-center">
+              <div className="w-12 h-12 bg-cta/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FileText className="w-6 h-6 text-cta" />
+              </div>
+              <h3 className="font-semibold text-dark mb-2">Calibration Certificate</h3>
+              <p className="text-muted text-sm">
+                Individual calibration certificate with traceable reference standards included with every shipment at no extra charge.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-border text-center">
+              <div className="w-12 h-12 bg-cta/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-6 h-6 text-cta" />
+              </div>
+              <h3 className="font-semibold text-dark mb-2">ISO 9001 · CE · ATEX · RoHS</h3>
+              <p className="text-muted text-sm">
+                ISO 9001 certified factory. Products bear CE, ATEX (where applicable), and RoHS marks. See <Link href="/certificates" className="text-primary underline">full certificates</Link>.
+              </p>
+            </div>
           </div>
         </div>
       </section>

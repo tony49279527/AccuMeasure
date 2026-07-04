@@ -11,16 +11,16 @@ const navItems = [
     label: "Products",
     href: "/products",
     children: [
-      { label: "Level Sensors", href: "/products?category=level" },
-      { label: "Flow Meters", href: "/products?category=flow" },
-      { label: "Pressure Sensors", href: "/products?category=pressure" },
+      { label: "Level Sensors", href: "/products/level" },
+      { label: "Flow Meters", href: "/products/flow" },
+      { label: "Pressure Sensors", href: "/products/pressure" },
     ],
   },
   { label: "Customization", href: "/customization" },
-  { label: "About Us", href: "/about" },
-  { label: "Quality", href: "/quality" },
+  { label: "Industries", href: "/industries" },
+  { label: "Resources", href: "/resources" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Blog", href: "/blog" },
+  { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 

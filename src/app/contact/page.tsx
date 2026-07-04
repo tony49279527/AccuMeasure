@@ -7,7 +7,7 @@ import { getProductById } from "@/lib/products";
 import { siteConfig, waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact AccuMeasureTech | Get a Quote Within 24 Hours — Level, Flow & Pressure Instruments",
   description:
     "Get a quote within 24 hours. Contact AccuMeasure for level sensors, flow meters, and pressure transmitters. Email, WhatsApp, or request a callback.",
   alternates: { canonical: "/contact" },

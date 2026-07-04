@@ -19,7 +19,7 @@ import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "AccuMeasure | Level Sensor, Flow Meter & Pressure Transmitter Manufacturer",
+  title: "AccuMeasureTech | Precision Measurement Sensors & Industrial Measuring Solutions",
   description:
     "Factory-direct industrial measurement instruments from Xi'an, China. Capacitive & radar level sensors, electromagnetic flow meters, pressure transmitters. ISO9001 certified. 10+ years exporting to 40+ countries.",
   alternates: { canonical: "/" },

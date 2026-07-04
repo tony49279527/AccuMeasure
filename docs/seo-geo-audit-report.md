@@ -96,7 +96,7 @@
 | Employees | 82 | Organization schema + About page | Verify current headcount |
 | NAICS | 334513 (Instruments) | Organization schema | Verify appropriateness |
 | Phone | +86-29-8888-XXXX | site.ts | Placeholder — needs real number |
-| Email | sales@accumeasuretech.com | site.ts | Verify domain email works |
+| Email | info@accumeasuretech.com | site.ts | MX records not set up — email routing needed |
 | LinkedIn | linkedin.com/company/accumeasure | site.ts | Profile may not exist yet |
 | Alibaba | alibaba.com/accumeasure | site.ts | Storefront URL needs verification |
 

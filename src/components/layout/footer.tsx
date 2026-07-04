@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="bg-dark text-white pt-16 pb-8">
       <div className="container-max">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
@@ -22,23 +22,49 @@ export function Footer() {
             <h3 className="font-semibold mb-6">Products</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/products?category=level" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/products/level" className="text-muted hover:text-white transition-colors text-sm">
                   Level Sensors
                 </Link>
               </li>
               <li>
-                <Link href="/products?category=flow" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/products/flow" className="text-muted hover:text-white transition-colors text-sm">
                   Flow Meters
                 </Link>
               </li>
               <li>
-                <Link href="/products?category=pressure" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/products/pressure" className="text-muted hover:text-white transition-colors text-sm">
                   Pressure Sensors
                 </Link>
               </li>
               <li>
                 <Link href="/customization" className="text-muted hover:text-white transition-colors text-sm">
                   Customization
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-6">Solutions</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/industries" className="text-muted hover:text-white transition-colors text-sm">
+                  Industries
+                </Link>
+              </li>
+              <li>
+                <Link href="/case-studies" className="text-muted hover:text-white transition-colors text-sm">
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources" className="text-muted hover:text-white transition-colors text-sm">
+                  Resources
+                </Link>
+              </li>
+              <li>
+                <Link href="/certificates" className="text-muted hover:text-white transition-colors text-sm">
+                  Certificates
                 </Link>
               </li>
             </ul>
@@ -58,8 +84,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/case-studies" className="text-muted hover:text-white transition-colors text-sm">
-                  Case Studies
+                <Link href="/blog" className="text-muted hover:text-white transition-colors text-sm">
+                  Blog
                 </Link>
               </li>
               <li>

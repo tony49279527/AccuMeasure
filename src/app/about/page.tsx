@@ -35,9 +35,9 @@ const certifications = [
 ];
 
 export const metadata: Metadata = {
-  title: "About Us — Measurement Instrument Factory in Xi'an",
+  title: "About AccuMeasureTech | Precision Measurement Instrument Factory in Xi'an, China",
   description:
-    "Founded in 2014, AccuMeasure is a 82-person measurement instrument factory in Xi'an, China. From 3 people to exporting to 40+ countries. Aerospace-grade quality at 1/3 the cost.",
+    "Founded in 2014, AccuMeasureTech is an 82-person measurement instrument factory in Xi'an, China. ISO 9001 certified. From 3 people to exporting level sensors, flow meters, and pressure transmitters to 40+ countries.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About AccuMeasure — Measurement Instrument Factory in Xi'an",
