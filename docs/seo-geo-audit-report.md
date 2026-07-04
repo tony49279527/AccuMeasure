@@ -155,3 +155,179 @@
 **Schema CI scaffold:** A build-time JSON-LD validation script is being developed (see `/scripts/` directory). It will parse all generated HTML pages, extract `<script type="application/ld+json">` blocks, and validate against schema.org type definitions before deployment.
 
 **GEO Query Set template:** A standardized query list covering brand, product, comparison, and intent queries will be maintained in `/docs/geo-query-set.md` for monthly re-testing across Perplexity, ChatGPT, Copilot, and Gemini.
+
+---
+
+## 8. GSC / Bing / MX / 真实素材 操作指南
+
+以下是你需要手动完成的操作(代码做不了的)。按顺序执行,每项约 5-10 分钟。
+
+### 8.1 Google Search Console 验证
+
+**目的:** 让 Google 知道站点存在、提交 sitemap、查看索引状态、监控搜索表现。
+
+**步骤:**
+
+```text
+1. 打开 https://search.google.com/search-console
+2. 点击「添加属性」→ 选择「网域」类型
+3. 输入: accumeasuretech.com
+4. Google 会给你一条 TXT 记录,类似:
+   google-site-verification=xxxxx
+5. 去 Cloudflare 后台 → DNS → 添加记录:
+   类型: TXT
+   名称: @
+   内容: google-site-verification=xxxxx
+   TTL: Auto
+6. 保存后回到 GSC,点击「验证」
+7. 验证成功后,左侧菜单 → Sitemap → 提交:
+   https://www.accumeasuretech.com/sitemap.xml
+8. 左侧菜单 → URL Inspection → 输入首页 URL → 回车 → 点击「请求编入索引」
+9. 同样操作,检查 /products/level, /certificates, /about, /contact
+```
+
+**事后检查(1-3 天后):**
+```text
+- site:accumeasuretech.com 在 Google 搜索能看到页面
+- GSC 后台「索引」→「页面」→ 已编入索引数量增长
+- GSC 后台「效果」→ 开始出现展示次数和点击数据
+```
+
+### 8.2 Bing Webmaster Tools 验证
+
+**目的:** Bing/Copilot 的索引入口 + AI 引用活动监控。
+
+**步骤:**
+
+```text
+1. 打开 https://www.bing.com/webmasters
+2. 登录 Microsoft 账号
+3. 添加站点 → 输入: https://www.accumeasuretech.com
+4. 选择验证方式 → 推荐「DNS TXT 记录」(同 GSC,再加一条)
+5. Cloudflare DNS → 添加 Bing 给的 TXT 记录
+6. 验证成功后,左侧「站点地图」→ 提交:
+   https://www.accumeasuretech.com/sitemap.xml
+7. 左侧「URL Inspection」→ 检查首页和核心页面
+8. 后续每月查看「AI 搜索」→ 看看 Copilot 有没有引用你的页面
+```
+
+### 8.3 邮箱 MX 记录设置(Cloudflare Email Routing)
+
+**当前问题:** `info@accumeasuretech.com` 没有 MX 记录,发到这个地址的邮件会丢失。
+
+**方式一:Cloudflare Email Routing(推荐,免费)**
+
+```text
+1. Cloudflare 后台 → 左侧「电子邮件」→ 「电子邮件路由」
+2. 点击「开始使用」→ 添加自定义地址
+3. 自定义地址: info@accumeasuretech.com
+4. 目标地址: 你的真实邮箱(如 Gmail)
+5. 保存后 Cloudflare 自动配置 MX 记录
+6. 验证: 用自己的邮箱发一封邮件到 info@accumeasuretech.com,
+   看目标邮箱是否收到
+```
+
+**方式二:第三方邮箱(企业邮)**
+
+```text
+腾讯企业邮(exmail.qq.com):
+  注册 → 验证域名(Cloudflare 加 TXT 记录) → 添加 MX 记录
+  → 创建 info@accumeasuretech.com 账号
+
+Google Workspace(workspace.google.com):
+  订阅(约 $6/月) → 验证域名 → 创建 info@accumeasuretech.com 账号
+  
+Zoho Mail(免费版, zoho.com/mail):
+  注册 → 验证域名 → 创建 info@accumeasuretech.com 账号
+```
+
+### 8.4 真实素材替换清单
+
+当前使用了颜色纯色占位图。拿到真实素材后,直接替换以下文件即可(文件名保持不变):
+
+**工厂照片(8 张):**
+```text
+public/factory/1.jpg → 工厂外观 (AccuMeasureTech factory exterior, Xi'an High-Tech Zone)
+public/factory/2.jpg → 生产线 (Production line for level sensors and flow meters)
+public/factory/3.jpg → 标定实验室 (Calibration laboratory with GE Druck DPI 620)
+public/factory/4.jpg → 老化测试间 (72-hour aging test room with temperature cycling)
+public/factory/5.jpg → PCB 焊接工位 (PCB assembly and soldering workstation)
+public/factory/6.jpg → 质检工位 (Quality control inspection station)
+public/factory/7.jpg → 压力变送器生产线 (Pressure transmitter assembly line)
+public/factory/8.jpg → 成品仓库 (Finished goods warehouse and shipping area)
+```
+
+**团队照片(3 张):**
+```text
+public/team/zhang-wei.jpg → 张伟, Founder & CEO
+public/team/li-mei.jpg → 李梅, CTO
+public/team/wang-jun.jpg → 王军, Head of Quality
+```
+
+**证书扫描件(5 张):**
+```text
+public/certs/iso9001.jpg → ISO 9001:2015 证书扫描件
+public/certs/ce.jpg → CE 证书扫描件
+public/certs/atex.jpg → ATEX 证书扫描件  
+public/certs/rohs.jpg → RoHS 证书扫描件
+public/certs/alibaba-gold.jpg → 阿里 Gold Supplier 截图
+```
+
+**行业应用图片(6 张):**
+```text
+public/industries/water-treatment.jpg
+public/industries/oil-gas.jpg
+public/industries/chemical.jpg
+public/industries/pharma.jpg
+public/industries/food-beverage.jpg
+public/industries/manufacturing.jpg
+```
+
+**尺寸要求:** 所有图片建议 1200px 宽,JPEG 格式,< 200KB。
+
+### 8.5 电话号码更新
+
+```text
+修改文件: src/lib/site.ts
+当前位置:
+  whatsapp: "8613800000000"      → 替换为真实 WhatsApp 号(带国家码,如 8613912345678)
+  phone: "+8613800000000"        → 替换为真实电话号码
+  phoneDisplay: "+86-138-0000-0000" → 替换为用于展示的格式
+
+保存后提交到 GitHub,Vercel 自动部署。
+```
+
+### 8.6 外部平台实体一致性(提升 E-E-A-T 信任分)
+
+```text
+LinkedIn 公司页:
+  → 创建 linkedin.com/company/accumeasuretech
+  → 公司名用: AccuMeasureTech Instruments Co., Ltd.
+  → 官网填: https://www.accumeasuretech.com
+  → 行业选: Industrial Machinery Manufacturing
+
+Alibaba 国际站(如果有):
+  → 公司名和地址必须与网站一致
+  → 产品页链接到网站对应产品
+
+YouTube:
+  → 创建 youtube.com/@accumeasuretech
+  → 上传产品演示视频(1-3 分钟)
+  → 视频描述放官网链接和产品页链接
+```
+
+### 8.7 验收检查清单(全部完成后逐项确认)
+
+```text
+☐ accumeasuretech.com 首页 HTTPS 200 OK
+☐ site:accumeasuretech.com Google 有搜索结果
+☐ GSC sitemap.xml 提交成功,显示「已处理」
+☐ GSC URL Inspection 首页/核心产品页状态为「已编入索引」
+☐ Bing Webmaster sitemap 提交成功
+☐ info@accumeasuretech.com 能收发邮件
+☐ WhatsApp 号码点击能发起对话
+☐ 所有页面 Title 不含重复后缀
+☐ 所有 schema 通过 Rich Results Test(https://search.google.com/test/rich-results)
+☐ 产品页 EFD ≥ 15 可抽取事实/300 词
+☐ 外部平台(LinkedIn/Alibaba)公司信息与网站一致
+```
