@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "industrial measurement instruments",
     "AccuMeasure",
   ],
-  metadataBase: new URL("https://accumeasuretech.com"),
+  metadataBase: new URL("https://www.accumeasuretech.com"),
   alternates: {
     canonical: "/",
     languages: {

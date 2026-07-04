@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "AccuMeasure Instruments Co., Ltd.",
   shortName: "AccuMeasure",
   cnName: "西安精准测量仪器有限公司",
-  url: "https://accumeasuretech.com",
+  url: "https://www.accumeasuretech.com",
   email: "info@accumeasuretech.com",
   whatsapp: "8613800000000",
   whatsappDisplay: "+86-138-0000-0000",
