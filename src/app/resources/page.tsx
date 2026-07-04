@@ -5,12 +5,12 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { products } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "Resources — Datasheets, Manuals & Downloads | AccuMeasure",
+  title: "Resources — Datasheets, Manuals & Downloads | AccuMeasureTech",
   description:
     "Download product datasheets, installation manuals, 3D models, and certificates for AccuMeasure level sensors, flow meters, and pressure transmitters.",
   alternates: { canonical: "/resources" },
   openGraph: {
-    title: "Resources — Datasheets, Manuals & Downloads | AccuMeasure",
+    title: "Resources — Datasheets, Manuals & Downloads | AccuMeasureTech",
     description:
       "Product datasheets, installation manuals, and technical documentation for AccuMeasure measurement instruments.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Resources" }],

@@ -8,12 +8,12 @@ import { breadcrumbJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Industries — Measurement Solutions by Application | AccuMeasure",
+  title: "Industries — Measurement Solutions by Application | AccuMeasureTech",
   description:
     "Level, flow, and pressure measurement solutions for water treatment, oil & gas, chemical processing, food & beverage, pharmaceutical, and manufacturing industries. Factory-direct from Xi'an, China.",
   alternates: { canonical: "/industries" },
   openGraph: {
-    title: "Industries — Measurement Solutions by Application | AccuMeasure",
+    title: "Industries — Measurement Solutions by Application | AccuMeasureTech",
     description:
       "From water treatment to oil & gas, chemical processing to pharmaceuticals — find the right measurement instrument for your industry.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Industries" }],

@@ -5,12 +5,12 @@ import { Shield, Award, FileCheck, ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Certificates — ISO 9001, CE, ATEX, RoHS Certified | AccuMeasure",
+  title: "Certificates — ISO 9001, CE, ATEX, RoHS Certified | AccuMeasureTech",
   description:
     "AccuMeasure certificates and quality credentials. ISO 9001:2015 certified factory (SGS), CE Marking (TÜV Rheinland), ATEX Ex d IIC T6 (DEKRA), RoHS 3.0 (Intertek). 2-year warranty on every instrument.",
   alternates: { canonical: "/certificates" },
   openGraph: {
-    title: "Certificates — ISO 9001, CE, ATEX, RoHS | AccuMeasure",
+    title: "Certificates — ISO 9001, CE, ATEX, RoHS | AccuMeasureTech",
     description:
       "Download and verify AccuMeasure quality certifications. ISO 9001, CE, ATEX, RoHS. Every instrument ships with an individual calibration certificate.",
     images: [{ url: "/certs/iso9001.jpg", width: 1200, height: 630, alt: "ISO 9001 Certificate" }],

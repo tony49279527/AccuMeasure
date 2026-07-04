@@ -21,8 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "AccuMeasure | Level Sensor, Flow Meter & Pressure Transmitter Manufacturer",
-    template: "%s | AccuMeasure",
+    default: "AccuMeasureTech | Precision Measurement Sensors & Industrial Measuring Solutions",
+    template: "%s",
   },
   description:
     "Factory-direct industrial measurement instruments from Xi'an, China. Capacitive & radar level sensors, electromagnetic flow meters, pressure transmitters. ISO9001 certified. 10+ years exporting to 40+ countries.",

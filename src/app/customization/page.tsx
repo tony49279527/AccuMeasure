@@ -13,7 +13,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "OEM / ODM Custom Manufacturing | AccuMeasure",
+  title: "OEM / ODM Custom Manufacturing | AccuMeasureTech",
   description:
     "OEM branding, ODM custom design, and non-standard engineering for level sensors, flow meters, and pressure transmitters. Get a solution in 7 days, samples in 45 days.",
   alternates: { canonical: "/customization" },
