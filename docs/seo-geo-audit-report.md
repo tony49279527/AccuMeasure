@@ -51,6 +51,74 @@ Info Architecture: 4.5 → **4.6** (case deep-links). **New total: ≈ 3.86 / 5.
 
 ---
 
+## Round 3 (2026-07-05 evening) — EFD quantification + GEO observation baseline
+
+### EFD/EAR quantification (closes I-06)
+
+New repeatable tool: `scripts/efd-audit.cjs` (run after `next build`). Counts
+atomic-fact proxies (spec values with units, standards, cert numbers, MOQ/lead-time,
+trade terms) against visible word count, per the methodology formula
+`EFD = facts / 300 words × 100`.
+
+| Page | Words | Facts | EFD | EAR | Verdict |
+|------|------:|------:|----:|----:|---------|
+| Homepage | 514 | 26 | 15.2 | 0.08 | strong (was 9.7 before "At a Glance" fact block) |
+| AM-RL80 radar | 968 | 87 | 27.0 | 0.09 | strong |
+| AM-PT300 pressure | 794 | 68 | 25.7 | 0.12 | strong |
+| AM-CL100 capacitive | 905 | 73 | 24.2 | 0.08 | strong |
+| AM-UL20 ultrasonic | 840 | 63 | 22.5 | 0.10 | strong |
+| AM-EMF100 emf | 886 | 60 | 20.3 | 0.13 | strong |
+| /customization | 460 | 31 | 20.2 | 0.00 | strong |
+| AM-MF50 / AM-UF200 / AM-PG200 / AM-WL50 | — | — | 15.5–16.4 | 0.14 | strong |
+| /quality | 268 | 14 | 15.7 | 0.14 | strong |
+| /certificates | 574 | 29 | 15.2 | 0.41 | strong |
+| /about | 517 | 15 | 8.7 | 0.60 | fair (narrative page; highest EAR on site) |
+
+**All 9 product pages meet the EFD ≥ 15 acceptance threshold** (see Section 8.7
+checklist item). Homepage was below (9.7) and fixed by adding a 12-item
+"AccuMeasure at a Glance" fact grid (founded/facility/team/certs/price/MOQ/
+lead time/warranty/markets). Note: EAR is systematically undercounted by the
+proxy script (it only recognizes cert-number and issuer patterns as evidence);
+treat trends, not absolutes.
+
+### GEO observation baseline (first entry in the observation layer)
+
+Recorded 2026-07-05, via web search (engine-mediated; AI-platform runs still pending):
+
+| Check | Result |
+|-------|--------|
+| Brand query "AccuMeasure Instruments Xi'an" | Site NOT in results; competitors dominate: Xi'an Acme M&C (pressureleveltransmitter.com), MTI "Accumeasure" brand (vitrek.com) — **brand-name collision risk confirmed (I-05)** |
+| Brand + domain query | Synthesis correctly identifies "AccuMeasure Instruments Co., Ltd. (accumeasuretech.com), High-Tech Zone Xi'an" as a distinct entity — entity disambiguation is working at the knowledge layer |
+| `site:` on Bing | Domain recognized, indexing in progress (IndexNow submitted 29 URLs) |
+| `site:` on Google | Zero results — **GSC ownership verified, but sitemap indexing still pending** |
+
+Implication: the #1 GEO lever right now is **time + external entity signals**
+(LinkedIn company page, B2B directory listings with consistent NAP), not more
+on-site optimization. The MTI Instruments "Accumeasure" brand collision makes
+external disambiguation signals (sameAs links, consistent legal name) more
+important than for a typical site.
+
+### E-E-A-T consistency fix
+
+Blog posts now show a visible byline ("By AccuMeasure Engineering Team") matching
+the `author` in Article schema — closes the visible-text/schema consistency gap
+flagged by the methodology's structured-data rules.
+
+### Round 3 score movement
+
+| Module | R2b | R3 | Reason |
+|--------|-----|-----|--------|
+| Content Quality & Extractable Facts | 3.8 | **4.3** | EFD quantified + all core pages ≥ threshold; homepage fact block |
+| GEO Visibility | 1.5 | **2.0** | Observation layer now live with recorded baseline; still 0 citations (site too new) |
+| Entity Trust & E-E-A-T | 3.0 | **3.2** | Visible byline; still blocked on real media + external profiles |
+
+**New total: ≈ 4.00 / 5.00 (80.1%)** — crosses into the "structure mature,
+targeted fixes accelerate growth" band. Remaining gaps are all
+user-action-dependent (real photos, LinkedIn page, GA4 ID, waiting for Google
+indexing) rather than code-side.
+
+---
+
 ## 1. Executive Summary
 
 **Total Score: 3.62 / 5.00 (72.4%)** — up from baseline 3.05 / 5.00 (61.0%)
@@ -100,7 +168,7 @@ Info Architecture: 4.5 → **4.6** (case deep-links). **New total: ≈ 3.86 / 5.
 | I-03 | Certificate numbers not on product pages | Certs only on About page | Product-level EAR (fact evidence rate) low | P1 | Open |
 | I-04 | No Lighthouse/PSI baseline | Pre-deployment, no performance data | Core Web Vitals unverified | P2 | Open — post-deploy |
 | I-05 | No external entity consistency check | LinkedIn/Alibaba/customs alignment unverified | AI may confuse brand with trading co. | P2 | Open — manual audit needed |
-| I-06 | Product page EFD unquantified | No atomic-fact count done per page | Cannot prioritize content gaps | P2 | Open |
+| I-06 | Product page EFD unquantified | No atomic-fact count done per page | Cannot prioritize content gaps | P2 | **Closed R3** — `scripts/efd-audit.cjs`; all 9 product pages EFD ≥ 15 |
 | I-07 | No Schema CI in build pipeline | JSON-LD validated manually only | Schema regressions possible on deploy | P2 | In progress — scaffold building |
 | I-08 | OG images are placeholders | `/og-image.png` is auto-generated | Social sharing appearance weak | P2 | Open |
 | I-09 | No hreflang x-default annotation | Only `en-US` in alternates.languages | Multi-language expansion blocked | P2 | Open — reserved structure ready |

@@ -399,6 +399,38 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="py-20">
+        <div className="container-max">
+          <h2 className="text-3xl lg:text-4xl font-bold text-dark mb-4 text-center">
+            AccuMeasure at a Glance
+          </h2>
+          <p className="text-muted text-center max-w-2xl mx-auto mb-12">
+            The facts buyers ask about first — before the catalog and the sales call.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {[
+              { label: "Founded", value: "2014, Xi'an, China" },
+              { label: "Facility", value: "2,600 sqm, High-Tech Zone" },
+              { label: "Team", value: "82 staff, 15 R&D engineers" },
+              { label: "Quality System", value: "ISO 9001:2015 (SGS)" },
+              { label: "Product Certifications", value: "CE, ATEX, RoHS, IECEx" },
+              { label: "Price Range", value: "From $35 (FOB Xi'an)" },
+              { label: "MOQ", value: "1 sample · 50 units bulk" },
+              { label: "Standard Lead Time", value: "15-20 days" },
+              { label: "Burn-in Testing", value: "72-hour aging, every unit" },
+              { label: "Documentation", value: "Calibration cert per unit" },
+              { label: "Warranty", value: "2 years" },
+              { label: "Export Markets", value: "40+ countries" },
+            ].map((fact) => (
+              <div key={fact.label} className="bg-bg-light rounded-lg border border-border p-4">
+                <div className="text-xs text-muted uppercase tracking-wide mb-1">{fact.label}</div>
+                <div className="text-sm font-semibold text-dark">{fact.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 bg-primary">
         <div className="container-max text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">

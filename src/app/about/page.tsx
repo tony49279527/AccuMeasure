@@ -81,9 +81,11 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: "2014", label: "Founded" },
-                { value: "82", label: "Employees" },
+                { value: "82", label: "Employees (15 R&D)" },
                 { value: "2,600 sqm", label: "Facility" },
                 { value: "40+", label: "Export Markets" },
+                { value: "2 years", label: "Product Warranty" },
+                { value: "15-20 days", label: "Standard Lead Time" },
               ].map((item) => (
                 <div key={item.label} className="bg-white rounded-xl border border-border p-6">
                   <div className="text-2xl font-bold text-primary">{item.value}</div>

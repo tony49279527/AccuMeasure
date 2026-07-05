@@ -90,6 +90,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <Clock className="w-4 h-4" />
                 {post.readTime}
               </span>
+              <span className="inline-flex items-center gap-2">
+                By AccuMeasure Engineering Team
+              </span>
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold text-dark tracking-tight mb-6">
               {post.title}
