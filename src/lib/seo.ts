@@ -173,11 +173,13 @@ export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
 }
 
 export function articleJsonLd(caseStudy: CaseStudy) {
+  const caseUrl = `${siteConfig.url}/case-studies/${caseStudy.slug}`;
   return {
     "@context": "https://schema.org",
     "@type": "Article",
-    "@id": `${siteConfig.url}/case-studies#${caseStudy.slug}`,
+    "@id": `${caseUrl}#article`,
     headline: caseStudy.title,
+    url: caseUrl,
     image: [`${siteConfig.url}${caseStudy.image}`],
     datePublished: caseStudy.datePublished,
     dateModified: caseStudy.dateModified,
@@ -185,6 +187,7 @@ export function articleJsonLd(caseStudy: CaseStudy) {
     author: { "@id": `${siteConfig.url}/#organization` },
     publisher: { "@id": `${siteConfig.url}/#organization` },
     about: caseStudy.background,
+    mainEntityOfPage: { "@type": "WebPage", "@id": caseUrl },
     mentions: caseStudy.productIds.map(
       (id) => `${siteConfig.url}/products#${id}`,
     ),

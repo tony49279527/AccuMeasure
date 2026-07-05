@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { caseStudies, clientLogos } from "@/lib/case-studies";
 import { getProductById } from "@/lib/products";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -58,7 +59,11 @@ export default function CaseStudiesPage() {
                       Published {cs.datePublished}
                     </time>
                   </div>
-                  <h2 className="text-2xl font-bold text-dark mb-2">{cs.title}</h2>
+                  <h2 className="text-2xl font-bold text-dark mb-2">
+                    <Link href={`/case-studies/${cs.slug}`} className="hover:text-primary transition-colors">
+                      {cs.title}
+                    </Link>
+                  </h2>
 
                   <div className="grid md:grid-cols-2 gap-8 mt-6">
                     <div className="aspect-video bg-primary/10 rounded-xl flex items-center justify-center overflow-hidden">
@@ -110,6 +115,13 @@ export default function CaseStudiesPage() {
                           — {cs.testimonialAuthor}, {cs.title.split(" — ")[0]}
                         </p>
                       </div>
+
+                      <Link
+                        href={`/case-studies/${cs.slug}`}
+                        className="text-accent font-medium inline-flex items-center gap-1 text-sm mt-4"
+                      >
+                        Read Full Case Study <ArrowRight className="w-4 h-4" />
+                      </Link>
 
                       {cs.productIds.length > 0 && (
                         <div className="mt-4">

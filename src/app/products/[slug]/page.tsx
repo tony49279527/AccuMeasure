@@ -337,7 +337,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
               {productCases.map((cs) => (
                 <Link
                   key={cs.id}
-                  href="/case-studies"
+                  href={`/case-studies/${cs.slug}`}
                   className="card group block"
                 >
                   <div className="flex items-center gap-2 mb-3">
