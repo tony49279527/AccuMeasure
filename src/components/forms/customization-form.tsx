@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckCircle, Loader2, AlertCircle, Upload, Send } from "lucide-react";
+import { CheckCircle, Loader2, AlertCircle, Send } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -22,7 +22,6 @@ export function CustomizationForm() {
     register,
     handleSubmit,
     reset,
-    setValue,
     formState: { errors },
   } = useForm<CustomizationValues>({
     resolver: zodResolver(customizationSchema),
@@ -179,22 +178,15 @@ export function CustomizationForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="c-file">Upload Spec / Drawing (optional)</Label>
-        <div className="flex items-center gap-3 p-4 border border-dashed border-border rounded-lg text-muted text-sm">
-          <Upload className="w-5 h-5 text-muted" />
-          <input
-            id="c-file"
-            type="file"
-            className="text-sm flex-1"
-            onChange={(e) => {
-              const f = e.target.files?.[0];
-              if (f) {
-                setValue("fileName", f.name);
-              }
-            }}
-          />
-          <span className="text-xs">PDF, DWG, STEP, max 20MB</span>
-        </div>
+        <Label htmlFor="c-file-note">Drawing / Spec File Reference (optional)</Label>
+        <Input
+          id="c-file-note"
+          placeholder="e.g. AM tank drawing v3.pdf, STEP file available on request"
+          {...register("fileName")}
+        />
+        <p className="text-xs text-muted">
+          Mention the drawing or file name here. Our engineer will ask you to send the PDF, DWG, or STEP file by email or WhatsApp after submission.
+        </p>
       </div>
 
       <div className="space-y-2">

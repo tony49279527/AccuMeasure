@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FileText, BookOpen, Download, ArrowRight } from "lucide-react";
+import { FileText, BookOpen, MessageSquare, ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { products } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "Resources — Datasheets, Manuals & Downloads | AccuMeasureTech",
+  title: "Resources — Datasheets, Manuals & Technical Document Requests | AccuMeasureTech",
   description:
-    "Download product datasheets, installation manuals, 3D models, and certificates for AccuMeasure level sensors, flow meters, and pressure transmitters.",
+    "Request current product datasheets, installation manuals, 3D models, and certificates for AccuMeasure level sensors, flow meters, and pressure transmitters.",
   alternates: { canonical: "/resources" },
   openGraph: {
-    title: "Resources — Datasheets, Manuals & Downloads | AccuMeasureTech",
+    title: "Resources — Datasheets, Manuals & Technical Documents | AccuMeasureTech",
     description:
-      "Product datasheets, installation manuals, and technical documentation for AccuMeasure measurement instruments.",
+      "Request controlled product datasheets, installation manuals, and technical documentation for AccuMeasure measurement instruments.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Resources" }],
   },
 };
@@ -24,9 +24,9 @@ export default function ResourcesPage() {
         <div className="container-max">
           <Breadcrumbs items={[{ name: "Resources" }]} />
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-dark mb-6">Resources &amp; Downloads</h1>
+            <h1 className="text-4xl font-bold text-dark mb-6">Resources &amp; Technical Documents</h1>
             <p className="text-lg text-muted max-w-2xl mx-auto">
-              Product datasheets, installation manuals, 3D models, and technical guides for AccuMeasure instruments.
+              Request the latest controlled datasheets, installation manuals, 3D models, and technical guides for AccuMeasure instruments.
             </p>
           </div>
         </div>
@@ -56,25 +56,24 @@ export default function ResourcesPage() {
 
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
                 {product.downloads.map((dl, dIdx) => (
-                  <a
+                  <Link
                     key={dIdx}
-                    href={dl.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={`/contact?product=${encodeURIComponent(product.id)}&document=${encodeURIComponent(dl.name)}`}
                     className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all"
                   >
                     <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
                       {dl.type === "pdf" ? (
                         <FileText className="w-5 h-5 text-primary" />
                       ) : (
-                        <Download className="w-5 h-5 text-primary" />
+                        <MessageSquare className="w-5 h-5 text-primary" />
                       )}
                     </div>
                     <div className="min-w-0">
                       <p className="text-sm font-medium text-dark truncate">{dl.name}</p>
-                      <p className="text-xs text-muted uppercase">{dl.type === "3d" ? "3D Model · STEP" : "PDF Document"}</p>
+                      <p className="text-xs text-muted uppercase">{dl.type === "3d" ? "3D Model · Request STEP" : "Request PDF"}</p>
                     </div>
-                  </a>
+                    <span className="ml-auto text-xs font-medium text-primary">Request</span>
+                  </Link>
                 ))}
               </div>
             </div>

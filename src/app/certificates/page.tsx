@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Shield, Award, FileCheck, ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -12,8 +11,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Certificates — ISO 9001, CE, ATEX, RoHS | AccuMeasureTech",
     description:
-      "Download and verify AccuMeasure quality certifications. ISO 9001, CE, ATEX, RoHS. Every instrument ships with an individual calibration certificate.",
-    images: [{ url: "/certs/iso9001.jpg", width: 1200, height: 630, alt: "ISO 9001 Certificate" }],
+      "Request and verify AccuMeasure quality certifications. ISO 9001, CE, ATEX, RoHS. Every instrument ships with an individual calibration certificate.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Certificates" }],
   },
 };
 
@@ -22,7 +21,6 @@ const certifications = [
     name: "ISO 9001:2015",
     number: "CN-2019-ISO-0347",
     issuer: "SGS",
-    image: "/certs/iso9001.jpg",
     description:
       "Quality management system covering design, manufacturing, calibration, and after-sales service for industrial measurement instruments. Annual surveillance audit by SGS.",
     scope: "Design, manufacture, and servicing of level, flow, and pressure measurement instruments.",
@@ -32,7 +30,6 @@ const certifications = [
     name: "CE Marking",
     number: "EC-1282/2023",
     issuer: "TÜV Rheinland",
-    image: "/certs/ce.jpg",
     description:
       "Conformity with EU safety, health, and environmental requirements for products sold within the European Economic Area. Covers electromagnetic compatibility (EMC) and low-voltage directive (LVD).",
     scope: "Level sensors, flow meters, and pressure transmitters exported to EU markets.",
@@ -42,7 +39,6 @@ const certifications = [
     name: "ATEX",
     number: "ATEX-2022-0158",
     issuer: "DEKRA",
-    image: "/certs/atex.jpg",
     description:
       "Explosion-proof certification per ATEX Directive 2014/34/EU. Ex d IIC T6 protection level for hazardous area installations in oil & gas, chemical, and LPG/LNG applications.",
     scope: "80GHz radar level transmitters (AM-RL80) and explosion-proof pressure transmitters (AM-PT300).",
@@ -52,7 +48,6 @@ const certifications = [
     name: "RoHS 3.0",
     number: "RoHS-3.0-2024",
     issuer: "Intertek",
-    image: "/certs/rohs.jpg",
     description:
       "Restriction of Hazardous Substances compliance per EU Directive 2015/863 (RoHS 3.0). All AccuMeasure products are free from lead, mercury, cadmium, hexavalent chromium, PBBs, PBDEs, DEHP, BBP, DBP, and DIBP.",
     scope: "All AccuMeasure products shipped to EU and international markets.",
@@ -62,7 +57,6 @@ const certifications = [
     name: "Alibaba Gold Supplier",
     number: "Verified 8 years",
     issuer: "Alibaba.com",
-    image: "/certs/alibaba-gold.jpg",
     description:
       "Verified supplier status on Alibaba.com with on-site factory audit. Confirms legal status, manufacturing capability, and export history of AccuMeasure Instruments Co., Ltd.",
     scope: "Company verification and factory assessment by Alibaba.com.",
@@ -95,14 +89,25 @@ export default function CertificatesPage() {
                 className={`grid lg:grid-cols-5 gap-8 items-start ${idx > 0 ? "pt-12 border-t border-border" : ""}`}
               >
                 <div className="lg:col-span-2">
-                  <div className="aspect-[4/3] bg-primary/5 rounded-xl flex items-center justify-center overflow-hidden border border-border">
-                    <Image
-                      src={cert.image}
-                      alt={`${cert.name} certificate issued by ${cert.issuer} — number ${cert.number}`}
-                      width={400}
-                      height={300}
-                      className="object-contain p-4"
-                    />
+                  <div className="aspect-[4/3] bg-bg-light rounded-xl border border-border p-6 flex flex-col justify-between">
+                    <div>
+                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <FileCheck className="w-6 h-6 text-primary" />
+                      </div>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">
+                        Controlled Certificate
+                      </p>
+                      <h3 className="text-xl font-bold text-dark">{cert.name}</h3>
+                      <p className="text-sm text-muted mt-2">
+                        Official scan and issuer verification documents are available on request.
+                      </p>
+                    </div>
+                    <Link
+                      href={`/contact?document=${encodeURIComponent(`${cert.name} certificate scan`)}`}
+                      className="btn-secondary w-full justify-center mt-6"
+                    >
+                      Request Scan
+                    </Link>
                   </div>
                 </div>
 
@@ -136,6 +141,21 @@ export default function CertificatesPage() {
                   </div>
 
                   <p className="text-muted text-sm">{cert.description}</p>
+
+                  <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                    <Link
+                      href={`/contact?document=${encodeURIComponent(`${cert.name} certificate scan`)}`}
+                      className="btn-primary justify-center"
+                    >
+                      Request Certificate Scan
+                    </Link>
+                    <Link
+                      href={`/contact?document=${encodeURIComponent(`${cert.name} certificate verification ${cert.number}`)}`}
+                      className="btn-secondary justify-center"
+                    >
+                      Verify Certificate Number
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}

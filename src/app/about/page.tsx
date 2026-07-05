@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
@@ -9,29 +8,45 @@ const teamMembers = [
   {
     name: "Zhang Wei",
     jobTitle: "Founder & CEO",
-    description: "Former aerospace measurement engineer at AVIC. M.Sc. from Xi'an Jiaotong University. 18 years in industrial measurement.",
-    image: "/team/zhang-wei.jpg",
+    description: "Industrial measurement engineer with 18 years of product and export-manufacturing experience.",
   },
   {
     name: "Li Mei",
     jobTitle: "CTO",
-    description: "Ph.D. in Instrument Science from Tsinghua University. 15 years in sensor R&D. Holds 12 patents in level measurement.",
-    image: "/team/li-mei.jpg",
+    description: "Leads sensor R&D, firmware configuration, and application-specific engineering reviews.",
   },
   {
     name: "Wang Jun",
     jobTitle: "Head of Quality",
-    description: "15 years in industrial QC. Led ISO 9001 implementation. Certified internal auditor (IRCA).",
-    image: "/team/wang-jun.jpg",
+    description: "Runs supplier inspection, process checks, aging-test control, and final calibration release.",
   },
 ];
 
 const certifications = [
-  { name: "ISO 9001:2015", number: "CN-2019-ISO-0347", issuer: "SGS", image: "/certs/iso9001.jpg" },
-  { name: "CE Marking", number: "EC-1282/2023", issuer: "TÜV Rheinland", image: "/certs/ce.jpg" },
-  { name: "ATEX", number: "ATEX-2022-0158", issuer: "DEKRA", image: "/certs/atex.jpg" },
-  { name: "RoHS", number: "RoHS-3.0-2024", issuer: "Intertek", image: "/certs/rohs.jpg" },
-  { name: "Alibaba Gold Supplier", number: "Verified 8 years", issuer: "Alibaba.com", image: "/certs/alibaba-gold.jpg" },
+  { name: "ISO 9001:2015", number: "CN-2019-ISO-0347", issuer: "SGS" },
+  { name: "CE Marking", number: "EC-1282/2023", issuer: "TÜV Rheinland" },
+  { name: "ATEX", number: "ATEX-2022-0158", issuer: "DEKRA" },
+  { name: "RoHS", number: "RoHS-3.0-2024", issuer: "Intertek" },
+  { name: "Alibaba Gold Supplier", number: "Verified 8 years", issuer: "Alibaba.com" },
+];
+
+const factoryCapabilities = [
+  {
+    title: "Assembly & Configuration",
+    desc: "Model selection, housing assembly, output configuration, and serial-number traceability.",
+  },
+  {
+    title: "Calibration Lab",
+    desc: "Pressure, flow, and level calibration records prepared for export shipment documentation.",
+  },
+  {
+    title: "72-Hour Aging Test",
+    desc: "Continuous powered testing with post-aging inspection before final release.",
+  },
+  {
+    title: "Export QC & Packing",
+    desc: "Outgoing inspection, calibration certificate matching, carton protection, and shipment labeling.",
+  },
 ];
 
 export const metadata: Metadata = {
@@ -63,8 +78,18 @@ export default function AboutPage() {
                 for aerospace and measurement technology heritage.
               </p>
             </div>
-            <div className="aspect-video bg-primary/10 rounded-xl flex items-center justify-center">
-              <span className="text-muted">Team Photo</span>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { value: "2014", label: "Founded" },
+                { value: "82", label: "Employees" },
+                { value: "2,600 sqm", label: "Facility" },
+                { value: "40+", label: "Export Markets" },
+              ].map((item) => (
+                <div key={item.label} className="bg-white rounded-xl border border-border p-6">
+                  <div className="text-2xl font-bold text-primary">{item.value}</div>
+                  <div className="text-sm text-muted mt-1">{item.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -91,12 +116,26 @@ export default function AboutPage() {
                 </p>
                 <p>
                   We don&apos;t compete on being the biggest. We compete on being the
-                  factory that picks up the phone at 3am — the one you can trust.
+                  factory that gives overseas buyers direct access to sales, engineering,
+                  and quality teams when project details need a fast answer.
                 </p>
               </div>
             </div>
-            <div className="aspect-square bg-primary/10 rounded-xl flex items-center justify-center">
-              <span className="text-muted">Founders Photo</span>
+            <div className="bg-bg-light rounded-xl border border-border p-8">
+              <h3 className="text-xl font-semibold text-dark mb-6">How We Support Buyers</h3>
+              <div className="space-y-4">
+                {[
+                  "Application review before quotation, not only catalog matching.",
+                  "Factory-calibrated instruments with serial-number documentation.",
+                  "OEM/ODM configuration support for branding, enclosure, firmware, and output signal.",
+                  "Export packaging and shipping options for sample and bulk orders.",
+                ].map((item) => (
+                  <div key={item} className="flex gap-3">
+                    <span className="mt-1 h-2 w-2 rounded-full bg-primary flex-shrink-0" />
+                    <p className="text-sm text-muted">{item}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -160,28 +199,14 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-dark mb-12 text-center">
             Inside Our Factory
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[
-              "AccuMeasure factory exterior in Xi'an High-Tech Zone",
-              "Production line for level sensors and flow meters",
-              "Calibration laboratory with GE Druck DPI 620",
-              "72-hour aging test room with temperature cycling",
-              "PCB assembly and soldering workstation",
-              "Quality control inspection station",
-              "Pressure transmitter assembly line",
-              "Finished goods warehouse and shipping area",
-            ].map((alt, i) => (
-              <div
-                key={i}
-                className="aspect-square bg-primary/10 rounded-xl flex items-center justify-center overflow-hidden"
-              >
-                <Image
-                  src={`/factory/${i + 1}.jpg`}
-                  alt={alt}
-                  width={300}
-                  height={300}
-                  className="object-cover"
-                />
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {factoryCapabilities.map((item) => (
+              <div key={item.title} className="bg-white rounded-xl border border-border p-6">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <span className="text-primary font-bold">✓</span>
+                </div>
+                <h3 className="font-semibold text-dark mb-2">{item.title}</h3>
+                <p className="text-muted text-sm leading-6">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -196,14 +221,10 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {teamMembers.map((member, idx) => (
               <div key={idx} className="card text-center">
-                <div className="w-24 h-24 rounded-full bg-primary/10 mx-auto mb-4 overflow-hidden flex items-center justify-center">
-                  <Image
-                    src={member.image}
-                    alt={`${member.name}, ${member.jobTitle} at AccuMeasure`}
-                    width={96}
-                    height={96}
-                    className="object-cover"
-                  />
+                <div className="w-24 h-24 rounded-full bg-primary/10 mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-primary">
+                    {member.name.split(" ").map((part) => part[0]).join("")}
+                  </span>
                 </div>
                 <h3 className="text-lg font-semibold text-dark">{member.name}</h3>
                 <p className="text-primary text-sm mb-3">{member.jobTitle}</p>
@@ -222,20 +243,19 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {certifications.map((cert, i) => (
               <div key={i} className="card text-center">
-                <div className="aspect-[4/3] bg-primary/5 rounded-lg mb-3 overflow-hidden flex items-center justify-center">
-                  <Image
-                    src={cert.image}
-                    alt={`${cert.name} certificate — ${cert.issuer}, number ${cert.number}`}
-                    width={120}
-                    height={90}
-                    className="object-contain"
-                  />
+                <div className="w-12 h-12 bg-primary/10 rounded-xl mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-primary font-bold">{i + 1}</span>
                 </div>
                 <div className="font-medium text-dark text-sm">{cert.name}</div>
                 <div className="text-xs text-muted mt-1">{cert.issuer}</div>
                 <div className="text-xs text-muted font-mono">{cert.number}</div>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/certificates" className="btn-secondary">
+              View Certificate Details
+            </Link>
           </div>
         </div>
       </section>
@@ -247,7 +267,6 @@ export default function AboutPage() {
           name: m.name,
           jobTitle: m.jobTitle,
           description: m.description,
-          image: `${siteConfig.url}${m.image}`,
           worksFor: { "@id": `${siteConfig.url}/#organization` },
         }))}
       />

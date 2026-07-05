@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Tag,
@@ -15,12 +16,12 @@ import { waLink } from "@/lib/site";
 export const metadata: Metadata = {
   title: "OEM / ODM Custom Manufacturing | AccuMeasureTech",
   description:
-    "OEM branding, ODM custom design, and non-standard engineering for level sensors, flow meters, and pressure transmitters. Get a solution in 7 days, samples in 45 days.",
+    "OEM branding, ODM custom design, and non-standard engineering for level sensors, flow meters, and pressure transmitters. Get a solution in 7 days, first custom order in 45-60 days.",
   alternates: { canonical: "/customization" },
   openGraph: {
     title: "OEM / ODM Custom Manufacturing — 7-Day Solution",
     description:
-      "Send your specs. Get a solution in 7 days. From sample to bulk order in 45 days. MOQ from 1 unit for non-standard builds.",
+      "Send your specs. Get a solution in 7 days. From sample approval to first custom order in 45-60 days. MOQ from 1 unit for non-standard builds.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Custom Manufacturing" }],
   },
 };
@@ -91,21 +92,29 @@ const deliveredCases = [
     title: "Saudi WiFi Level Sensor",
     desc: "Custom WiFi-enabled level sensor with Arabic app interface for water tank monitoring.",
     qty: "1,200 units",
+    image: "/products/am-wl50-v2.jpg",
+    alt: "WiFi smart level sensor configured for OEM tank monitoring",
   },
   {
     title: "Indonesia Electromagnetic Flow Meter",
     desc: "Battery-powered portable electromagnetic flow meter for remote irrigation monitoring.",
     qty: "300 units",
+    image: "/products/am-emf100-v2.jpg",
+    alt: "Electromagnetic flow meter configured for custom water monitoring projects",
   },
   {
     title: "Brazil OEM Pressure Gauge",
     desc: "Private-label digital pressure gauge with custom display language and pressure ranges.",
     qty: "2,500 units",
+    image: "/products/am-pg200-v2.jpg",
+    alt: "Digital pressure gauge used for OEM private-label projects",
   },
   {
     title: "Dubai High-Temp Radar",
     desc: "80GHz radar level transmitter rated for +150°C ambient in oil storage tanks.",
     qty: "80 units",
+    image: "/products/am-rl80-v2.jpg",
+    alt: "80GHz radar level transmitter configured for high-temperature tank applications",
   },
 ];
 
@@ -120,7 +129,7 @@ export default function CustomizationPage() {
               OEM / ODM Custom Manufacturing
             </h1>
             <p className="text-lg text-muted max-w-2xl mx-auto mb-8">
-              Send your specs. Get a solution in 7 days. From sample to bulk order in 45 days.
+              Send your specs. Get a solution in 7 days. From sample approval to first custom order in 45-60 days.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="#form" className="btn-primary">Submit Custom Request</a>
@@ -212,8 +221,14 @@ export default function CustomizationPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {deliveredCases.map((c, idx) => (
               <div key={idx} className="bg-white rounded-xl p-6 border border-border">
-                <div className="aspect-video bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-muted text-xs">Project Photo</span>
+                <div className="relative aspect-video bg-primary/10 rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src={c.image}
+                    alt={c.alt}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
                 <h3 className="font-semibold text-dark mb-2">{c.title}</h3>
                 <p className="text-muted text-sm mb-4">{c.desc}</p>

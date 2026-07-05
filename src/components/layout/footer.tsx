@@ -13,7 +13,7 @@ export function Footer() {
               </div>
               <span className="text-xl font-bold">AccuMeasure</span>
             </div>
-            <p className="text-muted text-sm mb-6">
+            <p className="text-white/70 text-sm mb-6">
               Level · Flow · Pressure instruments from Xi&apos;an, China
             </p>
           </div>
@@ -22,22 +22,22 @@ export function Footer() {
             <h3 className="font-semibold mb-6">Products</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/products/level" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/products/level" className="text-white/70 hover:text-white transition-colors text-sm">
                   Level Sensors
                 </Link>
               </li>
               <li>
-                <Link href="/products/flow" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/products/flow" className="text-white/70 hover:text-white transition-colors text-sm">
                   Flow Meters
                 </Link>
               </li>
               <li>
-                <Link href="/products/pressure" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/products/pressure" className="text-white/70 hover:text-white transition-colors text-sm">
                   Pressure Sensors
                 </Link>
               </li>
               <li>
-                <Link href="/customization" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/customization" className="text-white/70 hover:text-white transition-colors text-sm">
                   Customization
                 </Link>
               </li>
@@ -48,22 +48,22 @@ export function Footer() {
             <h3 className="font-semibold mb-6">Solutions</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/industries" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/industries" className="text-white/70 hover:text-white transition-colors text-sm">
                   Industries
                 </Link>
               </li>
               <li>
-                <Link href="/case-studies" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/case-studies" className="text-white/70 hover:text-white transition-colors text-sm">
                   Case Studies
                 </Link>
               </li>
               <li>
-                <Link href="/resources" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/resources" className="text-white/70 hover:text-white transition-colors text-sm">
                   Resources
                 </Link>
               </li>
               <li>
-                <Link href="/certificates" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/certificates" className="text-white/70 hover:text-white transition-colors text-sm">
                   Certificates
                 </Link>
               </li>
@@ -74,22 +74,22 @@ export function Footer() {
             <h3 className="font-semibold mb-6">Company</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/about" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/about" className="text-white/70 hover:text-white transition-colors text-sm">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/quality" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/quality" className="text-white/70 hover:text-white transition-colors text-sm">
                   Quality
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/blog" className="text-white/70 hover:text-white transition-colors text-sm">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/about#factory" className="text-muted hover:text-white transition-colors text-sm">
+                <Link href="/about#factory" className="text-white/70 hover:text-white transition-colors text-sm">
                   Factory Tour
                 </Link>
               </li>
@@ -98,7 +98,7 @@ export function Footer() {
 
           <div>
             <h3 className="font-semibold mb-6">Contact</h3>
-            <ul className="space-y-3 text-muted text-sm">
+            <ul className="space-y-3 text-white/70 text-sm">
               <li>{siteConfig.address}</li>
               <li>
                 <a href={`mailto:${siteConfig.email}`} className="hover:text-white transition-colors">
@@ -116,17 +116,17 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted text-sm">
+          <p className="text-white/70 text-sm">
             © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link href="/privacy" className="text-muted hover:text-white transition-colors text-sm">
+            <Link href="/privacy" className="text-white/70 hover:text-white transition-colors text-sm">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-muted hover:text-white transition-colors text-sm">
+            <Link href="/terms" className="text-white/70 hover:text-white transition-colors text-sm">
               Terms of Service
             </Link>
-            <Link href="/sitemap.xml" className="text-muted hover:text-white transition-colors text-sm">
+            <Link href="/sitemap.xml" className="text-white/70 hover:text-white transition-colors text-sm">
               Sitemap
             </Link>
           </div>

@@ -61,6 +61,8 @@ export default function ContactPage({
       ? "Please send me your latest product catalog."
       : product && searchParams.document
         ? `Please send me the latest ${searchParams.document} for ${product.model} ${product.name}.`
+        : searchParams.document
+          ? `Please send me the latest ${searchParams.document}.`
         : undefined;
 
   return (
@@ -159,14 +161,22 @@ export default function ContactPage({
                         <div key={idx} className="bg-bg-light p-4 rounded-lg">
                           <div className="font-medium text-dark">{contact.name}</div>
                           <div className="text-muted text-sm mb-2">{contact.role}</div>
-                          <div className="text-sm text-primary flex items-center gap-2">
+                          <a
+                            href={`mailto:${contact.email}`}
+                            className="text-sm text-primary hover:underline flex items-center gap-2"
+                          >
                             <Mail className="w-4 h-4" />
                             {contact.email}
-                          </div>
-                          <div className="text-sm text-success flex items-center gap-2">
+                          </a>
+                          <a
+                            href={waLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-success hover:underline flex items-center gap-2"
+                          >
                             <MessageSquare className="w-4 h-4" />
                             {contact.wa}
-                          </div>
+                          </a>
                         </div>
                       ))}
                     </div>

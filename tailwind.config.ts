@@ -15,8 +15,8 @@ const config: Config = {
         },
         accent: "#378ADD",
         cta: {
-          DEFAULT: "#EF9F27",
-          hover: "#BA7517",
+          DEFAULT: "#A86512",
+          hover: "#7A4308",
         },
         dark: "#2C2C2A",
         body: "#444441",
