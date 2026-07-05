@@ -20,7 +20,13 @@ export const metadata: Metadata = {
   title: "AccuMeasureTech | Level Sensor, Flow Meter & Pressure Transmitter Manufacturer",
   description:
     "Factory-direct industrial measurement instruments from Xi'an, China. Capacitive & radar level sensors, electromagnetic flow meters, pressure transmitters. ISO9001 certified. 10+ years exporting to 40+ countries.",
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/",
+      "x-default": "/",
+    },
+  },
   keywords: [
     "level sensor manufacturer",
     "radar level transmitter",
