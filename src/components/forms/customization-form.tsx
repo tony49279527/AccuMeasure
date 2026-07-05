@@ -95,6 +95,12 @@ export function CustomizationForm() {
         </div>
       </div>
 
+      {/* Honeypot — invisible to humans, bots tend to fill every field */}
+      <div className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="c-website">Website</label>
+        <input id="c-website" type="text" tabIndex={-1} autoComplete="off" {...register("website")} />
+      </div>
+
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <Label htmlFor="c-email">Email *</Label>

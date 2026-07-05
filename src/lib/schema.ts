@@ -77,6 +77,8 @@ export const inquirySchema = z.object({
   message: z.string().optional(),
   productId: z.string().optional(),
   privacy: privacyField,
+  // Honeypot: hidden from humans; any value marks the submission as bot spam.
+  website: z.string().optional(),
 });
 
 export type InquiryValues = z.infer<typeof inquirySchema>;
@@ -102,6 +104,7 @@ export const customizationSchema = z.object({
     .min(10, "Please describe your requirements (at least 10 characters)"),
   fileName: z.string().optional(),
   privacy: privacyField,
+  website: z.string().optional(),
 });
 
 export type CustomizationValues = z.infer<typeof customizationSchema>;

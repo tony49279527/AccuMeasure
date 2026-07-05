@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { FloatingButtons } from "@/components/layout/floating-buttons";
 import { JsonLd } from "@/components/json-ld";
+import { Analytics } from "@/components/analytics";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 const inter = Inter({
@@ -83,6 +84,7 @@ export default function RootLayout({
         className={`${inter.variable} ${jetbrainsMono.variable} pb-14 font-sans antialiased md:pb-0`}
       >
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
+        <Analytics />
         <Navbar />
         <main>{children}</main>
         <Footer />

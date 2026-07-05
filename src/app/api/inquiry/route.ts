@@ -74,6 +74,13 @@ export async function POST(request: Request) {
     );
   }
 
+  // Honeypot tripped: pretend success so bots don't adapt, but skip logging as
+  // a lead and skip email delivery.
+  if (typeof parsed.data.website === "string" && parsed.data.website.length > 0) {
+    console.warn(`[${formType.toUpperCase()}] Honeypot triggered — dropped bot submission.`);
+    return NextResponse.json({ success: true, message: "Inquiry received." });
+  }
+
   // Always log server-side so submissions are recoverable from Vercel logs
   // even if email delivery is unconfigured or fails.
   console.log(`[${formType.toUpperCase()}] New submission:`, JSON.stringify(parsed.data));
