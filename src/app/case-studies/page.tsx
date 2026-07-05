@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Case Studies — Global Buyers Trust AccuMeasure",
     description:
       "Saudi Water Co. saved 71%. Indonesia PDAM reordered 500 units. Brazil integrator OEM branded 2,000 gauges. Real results.",
-    images: [{ url: "/cases/saudi-water.jpg", width: 1200, height: 630, alt: "Case Study" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Case Studies" }],
   },
 };
 

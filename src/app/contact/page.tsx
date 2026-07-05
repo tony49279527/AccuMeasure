@@ -44,9 +44,23 @@ const faqs = [
   },
 ];
 
+// Both desks route to the monitored info@ mailbox — sarah@/leo@ style aliases
+// don't exist in email routing and would bounce buyer emails.
 const salesContacts = [
-  { name: "Sarah Chen", role: "International Sales", email: "sarah@accumeasuretech.com", wa: siteConfig.whatsappDisplay },
-  { name: "Leo Wang", role: "OEM/ODM Sales", email: "leo@accumeasuretech.com", wa: siteConfig.whatsappDisplay },
+  {
+    name: "International Sales Desk",
+    role: "Quotations, samples, bulk orders",
+    email: siteConfig.email,
+    subject: "Sales inquiry from website",
+    wa: siteConfig.whatsappDisplay,
+  },
+  {
+    name: "OEM/ODM Sales Desk",
+    role: "Private label, custom engineering",
+    email: siteConfig.email,
+    subject: "OEM/ODM inquiry from website",
+    wa: siteConfig.whatsappDisplay,
+  },
 ];
 
 export default function ContactPage({
@@ -162,7 +176,7 @@ export default function ContactPage({
                           <div className="font-medium text-dark">{contact.name}</div>
                           <div className="text-muted text-sm mb-2">{contact.role}</div>
                           <a
-                            href={`mailto:${contact.email}`}
+                            href={`mailto:${contact.email}?subject=${encodeURIComponent(contact.subject)}`}
                             className="text-sm text-primary hover:underline flex items-center gap-2"
                           >
                             <Mail className="w-4 h-4" />

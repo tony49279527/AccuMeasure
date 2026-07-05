@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "Quality Assurance — 5-Stage QC & 72h Aging Test",
     description:
       "Every unit undergoes 72 hours of continuous testing under temperature cycling. 99.8% pass rate. ISO 9001, CE, ATEX certified.",
-    images: [{ url: "/factory/5.jpg", width: 1200, height: 630, alt: "72-Hour Aging Test" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Quality Control" }],
   },
 };
 
