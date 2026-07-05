@@ -1,6 +1,51 @@
 import { NextResponse } from "next/server";
 import { inquirySchema, customizationSchema } from "@/lib/schema";
 
+function formatEmailBody(formType: string, data: Record<string, unknown>): string {
+  const lines = [
+    `New ${formType} submission from accumeasuretech.com`,
+    `Time: ${new Date().toISOString()}`,
+    "",
+    ...Object.entries(data)
+      .filter(([k, v]) => k !== "formType" && v !== undefined && v !== "")
+      .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(", ") : String(v)}`),
+  ];
+  return lines.join("\n");
+}
+
+async function deliverEmail(formType: string, data: Record<string, unknown>): Promise<boolean> {
+  const apiKey = process.env.RESEND_API_KEY;
+  const to = process.env.EMAIL_TO;
+  if (!apiKey || !to) return false;
+
+  const from = process.env.EMAIL_FROM || "AccuMeasure Website <onboarding@resend.dev>";
+  const subjectPrefix = formType === "customization" ? "[CUSTOM REQUEST]" : "[INQUIRY]";
+  const country = typeof data.country === "string" ? ` — ${data.country}` : "";
+  const company = typeof data.company === "string" ? ` — ${data.company}` : "";
+
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from,
+      to: to.split(",").map((s) => s.trim()),
+      reply_to: typeof data.email === "string" ? data.email : undefined,
+      subject: `${subjectPrefix}${company}${country}`,
+      text: formatEmailBody(formType, data),
+    }),
+  });
+
+  if (!res.ok) {
+    const err = await res.text().catch(() => "");
+    console.error(`[${formType.toUpperCase()}] Email delivery failed (${res.status}):`, err);
+    return false;
+  }
+  return true;
+}
+
 export async function POST(request: Request) {
   let body: unknown;
   try {
@@ -29,9 +74,21 @@ export async function POST(request: Request) {
     );
   }
 
-  // TODO: integrate email delivery (Resend/Nodemailer) or persistence (DB).
-  // Inquiry data is logged server-side for now; wire up an email service via env vars.
-  console.log(`[${formType.toUpperCase()}] New submission:`, parsed.data);
+  // Always log server-side so submissions are recoverable from Vercel logs
+  // even if email delivery is unconfigured or fails.
+  console.log(`[${formType.toUpperCase()}] New submission:`, JSON.stringify(parsed.data));
+
+  const delivered = await deliverEmail(formType, parsed.data as Record<string, unknown>).catch(
+    (e) => {
+      console.error(`[${formType.toUpperCase()}] Email delivery error:`, e);
+      return false;
+    }
+  );
+  if (!delivered) {
+    console.warn(
+      `[${formType.toUpperCase()}] Email NOT delivered — set RESEND_API_KEY and EMAIL_TO env vars.`
+    );
+  }
 
   return NextResponse.json({
     success: true,

@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "schema:ci": "node scripts/schema-ci.cjs",
-    "verify": "next build && node scripts/schema-ci.cjs"
+    "verify": "next build && node scripts/schema-ci.cjs",
+    "indexnow": "node scripts/submit-indexnow.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",

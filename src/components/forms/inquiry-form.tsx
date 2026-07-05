@@ -13,6 +13,7 @@ import {
   productInterestOptions,
 } from "@/lib/schema";
 import type { InquiryValues } from "@/lib/schema";
+import { waLinkFor } from "@/lib/site";
 
 interface InquiryFormProps {
   productId?: string;
@@ -85,14 +86,29 @@ export function InquiryForm({
         </div>
         <h3 className="text-2xl font-bold text-dark mb-2">Inquiry Sent!</h3>
         <p className="text-muted mb-6">
-          We&apos;ll get back to you within 24 hours.
+          We&apos;ll get back to you within 24 hours. Need a faster answer?
         </p>
-        <button
-          onClick={() => setStatus("idle")}
-          className="btn-secondary"
-        >
-          Send Another
-        </button>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <a
+            href={waLinkFor(
+              productName
+                ? `Hi AccuMeasure, I just sent an inquiry about the ${productName} on your website. Can we discuss it here?`
+                : "Hi AccuMeasure, I just sent an inquiry on your website. Can we discuss it here?",
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            <MessageSquare className="w-5 h-5" />
+            Continue on WhatsApp
+          </a>
+          <button
+            onClick={() => setStatus("idle")}
+            className="btn-secondary"
+          >
+            Send Another
+          </button>
+        </div>
       </div>
     );
   }

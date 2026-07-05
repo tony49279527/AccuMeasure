@@ -52,6 +52,19 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
             { name: "Products", url: `${siteConfig.url}/products` },
             { name: data.label, url: `${siteConfig.url}/products/${data.slug}` },
           ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "@id": `${siteConfig.url}/products/${data.slug}#itemlist`,
+            name: `AccuMeasure ${data.label}`,
+            numberOfItems: categoryProducts.length,
+            itemListElement: categoryProducts.map((p, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: `${p.model} ${p.name}`,
+              url: `${siteConfig.url}/products/${p.slug}`,
+            })),
+          },
         ]}
       />
 

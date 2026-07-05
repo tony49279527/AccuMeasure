@@ -14,8 +14,6 @@ import {
   ArrowRight,
   MessageSquare,
 } from "lucide-react";
-import { JsonLd } from "@/components/json-ld";
-import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -115,7 +113,6 @@ const homeCaseStudies = [
 export default function Home() {
   return (
     <div>
-      <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
       <section className="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-bg-light">
         <div className="container-max">
           <div className="grid lg:grid-cols-2 gap-12 items-center">

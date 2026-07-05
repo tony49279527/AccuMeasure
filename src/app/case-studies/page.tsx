@@ -53,6 +53,10 @@ export default function CaseStudiesPage() {
                     <span className="text-sm text-muted flex items-center gap-1">
                       <span>{cs.flag}</span> {cs.country}
                     </span>
+                    <span className="text-sm text-muted">•</span>
+                    <time className="text-sm text-muted" dateTime={cs.datePublished}>
+                      Published {cs.datePublished}
+                    </time>
                   </div>
                   <h2 className="text-2xl font-bold text-dark mb-2">{cs.title}</h2>
 

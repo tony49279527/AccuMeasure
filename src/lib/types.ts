@@ -72,6 +72,8 @@ export interface CaseStudy {
   id: string;
   slug: string;
   title: string;
+  datePublished: string;
+  dateModified: string;
   clientType: string;
   country: string;
   flag: string;

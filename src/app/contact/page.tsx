@@ -3,6 +3,8 @@ import { MapPin, Clock, Users, Globe, Mail, MessageSquare } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { InquiryForm } from "@/components/forms/inquiry-form";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { JsonLd } from "@/components/json-ld";
+import { faqPageJsonLd } from "@/lib/seo";
 import { getProductById } from "@/lib/products";
 import { siteConfig, waLink } from "@/lib/site";
 
@@ -43,8 +45,8 @@ const faqs = [
 ];
 
 const salesContacts = [
-  { name: "Sarah Chen", role: "International Sales", email: "sarah@accumeasure.cn", wa: "+86-138-0000-0001" },
-  { name: "Leo Wang", role: "OEM/ODM Sales", email: "leo@accumeasure.cn", wa: "+86-138-0000-0002" },
+  { name: "Sarah Chen", role: "International Sales", email: "sarah@accumeasuretech.com", wa: siteConfig.whatsappDisplay },
+  { name: "Leo Wang", role: "OEM/ODM Sales", email: "leo@accumeasuretech.com", wa: siteConfig.whatsappDisplay },
 ];
 
 export default function ContactPage({
@@ -63,6 +65,19 @@ export default function ContactPage({
 
   return (
     <div>
+      <JsonLd
+        data={[
+          {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "@id": `${siteConfig.url}/contact#contactpage`,
+            name: "Contact AccuMeasure Instruments",
+            url: `${siteConfig.url}/contact`,
+            mainEntity: { "@id": `${siteConfig.url}/#organization` },
+          },
+          faqPageJsonLd(faqs.map((f) => ({ question: f.q, answer: f.a }))),
+        ]}
+      />
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
           <Breadcrumbs items={[{ name: "Contact Us" }]} />

@@ -1,4 +1,5 @@
 import { siteConfig } from "./site";
+import { certificationDetail } from "./certifications";
 import type { Product, CaseStudy } from "./types";
 import type { BlogPost } from "./blog";
 
@@ -84,7 +85,7 @@ export function productJsonLd(product: Product) {
     {
       "@type": "PropertyValue",
       name: "Certifications",
-      value: product.certifications.join(", "),
+      value: product.certifications.map(certificationDetail).join("; "),
     },
     {
       "@type": "PropertyValue",
@@ -178,6 +179,8 @@ export function articleJsonLd(caseStudy: CaseStudy) {
     "@id": `${siteConfig.url}/case-studies#${caseStudy.slug}`,
     headline: caseStudy.title,
     image: [`${siteConfig.url}${caseStudy.image}`],
+    datePublished: caseStudy.datePublished,
+    dateModified: caseStudy.dateModified,
     articleSection: "Case Study",
     author: { "@id": `${siteConfig.url}/#organization` },
     publisher: { "@id": `${siteConfig.url}/#organization` },

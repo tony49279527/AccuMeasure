@@ -19,5 +19,12 @@ export const siteConfig = {
   },
 };
 
-export const waLink = `https://wa.me/${siteConfig.whatsapp}`;
+export const waLink = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
+  "Hi AccuMeasure, I'd like to get a quote for your measurement instruments.",
+)}`;
 export const telLink = `tel:${siteConfig.phone}`;
+
+/** WhatsApp link pre-filled with a product-specific message — lowers the buyer's effort to start a conversation. */
+export function waLinkFor(message: string) {
+  return `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(message)}`;
+}

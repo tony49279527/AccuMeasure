@@ -10,7 +10,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { products, getProductBySlug, getProductById } from "@/lib/products";
 import { getCaseStudiesByProductId } from "@/lib/case-studies";
 import { productJsonLd, faqPageJsonLd } from "@/lib/seo";
-import { waLink } from "@/lib/site";
+import { certificationDetail } from "@/lib/certifications";
+import { waLinkFor } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
 const reservedSlugs = ["level", "flow", "pressure"];
@@ -120,7 +121,9 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                   <MessageSquare className="w-5 h-5" /> Get a Quote for This Product
                 </a>
                 <a
-                  href={waLink}
+                  href={waLinkFor(
+                    `Hi AccuMeasure, I'm interested in the ${product.model} ${product.name}. Please send me a quote and datasheet.`,
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary flex items-center gap-2"
@@ -276,9 +279,17 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
               <div className="w-12 h-12 bg-cta/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-6 h-6 text-cta" />
               </div>
-              <h3 className="font-semibold text-dark mb-2">ISO 9001 · CE · ATEX · RoHS</h3>
-              <p className="text-muted text-sm">
-                ISO 9001 certified factory. Products bear CE, ATEX (where applicable), and RoHS marks. See <Link href="/certificates" className="text-primary underline">full certificates</Link>.
+              <h3 className="font-semibold text-dark mb-2">{product.model} Certifications</h3>
+              <ul className="text-muted text-sm space-y-1 text-left">
+                {product.certifications.map((code) => (
+                  <li key={code} className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-cta mt-0.5 flex-shrink-0" />
+                    <span>{certificationDetail(code)}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-muted text-xs mt-3">
+                Verify any certificate on our <Link href="/certificates" className="text-primary underline">certificates page</Link>.
               </p>
             </div>
           </div>
