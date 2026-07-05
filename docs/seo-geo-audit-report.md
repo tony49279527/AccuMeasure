@@ -28,13 +28,26 @@ and 26 sitemap URLs submitted to IndexNow (202 Accepted).
 
 **P0 blockers for inquiry generation (user action required — code cannot fix these):**
 
-1. **WhatsApp/phone number is fake** (`8613800000000` in `src/lib/site.ts`). Every WhatsApp
-   CTA on the site points to a non-existent number. Replace with the real number.
+1. ~~WhatsApp/phone number is fake~~ **RESOLVED 2026-07-05**: real number +86-183-0928-5711
+   deployed site-wide and verified live.
 2. **Email delivery unconfigured.** Set `RESEND_API_KEY` + `EMAIL_TO` in Vercel env vars,
    otherwise form submissions only land in Vercel logs.
 3. **MX records missing** for info@accumeasuretech.com (see Section 8.3).
 4. **GSC + Bing Webmaster not verified** — blocks index requests and AI Performance
    monitoring (see Sections 8.1 / 8.2).
+
+### Round 2b (2026-07-05 afternoon) — additional issues closed
+
+| Issue | Status | Evidence |
+|-------|--------|----------|
+| Fake phone/WhatsApp number | **Closed** | `wa.me/8618309285711` verified on live homepage |
+| I-04 No Lighthouse/PSI baseline | **Closed** | Lighthouse 12 (mobile emulation): homepage Perf 96 / A11y 96 / BP 100 / SEO 100, LCP 2.1s, CLS 0; AM-RL80 product page Perf 95 / SEO 100, LCP 2.7s, CLS 0. All within CWV "good" thresholds. CrUX field data pending traffic. |
+| I-10 No case study detail routes | **Closed** | `/case-studies/[slug]` SSG routes live (3 pages, HTTP 200) with Article schema, product cross-links, WhatsApp CTA |
+| I-11 No sitemap image extension | **Closed** | Custom `/sitemap.xml` route handler (Next 14 lacks native `images` support); 29 URLs + 12 `image:image` entries verified live |
+| IndexNow re-submission | Done | 29 URLs submitted, 200 OK |
+
+Performance module score updated: 3.0 → **4.5** (lab data excellent; field data pending).
+Info Architecture: 4.5 → **4.6** (case deep-links). **New total: ≈ 3.86 / 5.00 (77.2%)**
 
 ---
 
