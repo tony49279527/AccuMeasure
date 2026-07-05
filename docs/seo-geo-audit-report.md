@@ -1,9 +1,40 @@
 # AccuMeasure SEO + GEO Audit Report
 
-**Audit Date:** 2026-07-04
-**Auditor:** TRAE AI Assistant
-**Site:** accumeasuretech.com (pre-deployment)
+**Audit Date:** 2026-07-04 (Round 1) / 2026-07-05 (Round 2, post-deployment)
+**Auditor:** TRAE AI Assistant / Cursor Agent
+**Site:** accumeasuretech.com (live)
 **Methodology:** 8-module weighted scoring framework
+
+---
+
+## Round 2 Update (2026-07-05, live-site re-audit)
+
+**Total Score: 3.68 / 5.00 (73.6%)** — up from 3.52 (70.3%)
+
+Live checks performed: homepage/product/robots/sitemap all HTTP 200; apex 308 → www;
+canonical, `robots` meta, and JSON-LD verified on live HTML; IndexNow key file live (200)
+and 26 sitemap URLs submitted to IndexNow (202 Accepted).
+
+| # | Module | Weight | Round 1 | Round 2 | What changed |
+|---|--------|--------|---------|---------|--------------|
+| 1 | Technical & Index Health | 18% | 4.2 | 4.5 | Site live; IndexNow key deployed + 26 URLs submitted; hreflang x-default fixed (homepage `alternates` override was dropping it) |
+| 2 | Page & Info Architecture | 16% | 4.5 | 4.5 | ItemList schema added to 3 category pages |
+| 3 | Content Quality & Extractable Facts | 16% | 3.5 | 3.8 | Certificate numbers (ISO/CE/ATEX/RoHS + issuer) now on all 9 product pages — closes I-03; case study dates visible — raises EAR |
+| 4 | Page Experience & Performance | 10% | 3.0 | 3.0 | Still no Lighthouse/PSI baseline (next: run post-deploy) |
+| 5 | Entity Trust & E-E-A-T | 14% | 3.0 | 3.0 | Blocked on real media + real phone number (see P0 below) |
+| 6 | Structured Data | 8% | 4.5 | 4.8 | Duplicate Organization/WebSite on homepage removed; ContactPage + FAQPage on /contact; Article dates added; Schema CI: 121 blocks, 0 errors |
+| 7 | GEO Visibility | 12% | 1.5 | 1.5 | Query Set ready; site now live so testing is unblocked — first round pending |
+| 8 | Conversion Path | 6% | 4.0 | 4.3 | Resend email delivery wired into /api/inquiry; product-prefilled WhatsApp links; post-submit WhatsApp CTA |
+
+**P0 blockers for inquiry generation (user action required — code cannot fix these):**
+
+1. **WhatsApp/phone number is fake** (`8613800000000` in `src/lib/site.ts`). Every WhatsApp
+   CTA on the site points to a non-existent number. Replace with the real number.
+2. **Email delivery unconfigured.** Set `RESEND_API_KEY` + `EMAIL_TO` in Vercel env vars,
+   otherwise form submissions only land in Vercel logs.
+3. **MX records missing** for info@accumeasuretech.com (see Section 8.3).
+4. **GSC + Bing Webmaster not verified** — blocks index requests and AI Performance
+   monitoring (see Sections 8.1 / 8.2).
 
 ---
 
