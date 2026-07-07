@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">AccuMeasure logo mark</title>
+  <desc id="desc">A precision instrument mark combining a gauge dial, measurement needle, and letter A.</desc>
+  <rect width="64" height="64" rx="14" fill="#0C447C"/>
+  <circle cx="32" cy="32" r="21" fill="none" stroke="#B7D7F4" stroke-width="5" opacity=".42"/>
+  <path d="M16 43 32 15l16 28" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5"/>
+  <path d="M24.5 34h15" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-width="5"/>
+  <path d="M32 32 47 22" fill="none" stroke="#C2410C" stroke-linecap="round" stroke-width="3.8"/>
+  <circle cx="32" cy="32" r="3.5" fill="#C2410C"/>
+  <path d="M20 49h24" fill="none" stroke="#B7D7F4" stroke-linecap="round" stroke-width="3" opacity=".68"/>
+</svg>

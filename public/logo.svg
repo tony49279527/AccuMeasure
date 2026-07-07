@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 96" role="img" aria-labelledby="title desc">
+  <title id="title">AccuMeasure logo</title>
+  <desc id="desc">AccuMeasure wordmark with a precision instrument logo mark.</desc>
+  <g transform="translate(12 12)">
+    <rect width="72" height="72" rx="16" fill="#0C447C"/>
+    <circle cx="36" cy="36" r="23.625" fill="none" stroke="#B7D7F4" stroke-width="5.625" opacity=".42"/>
+    <path d="M18 48.375 36 16.875l18 31.5" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.2"/>
+    <path d="M27.6 38.25h16.875" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-width="5.625"/>
+    <path d="M36 36 52.875 24.75" fill="none" stroke="#C2410C" stroke-linecap="round" stroke-width="4.275"/>
+    <circle cx="36" cy="36" r="3.95" fill="#C2410C"/>
+    <path d="M22.5 55.125h27" fill="none" stroke="#B7D7F4" stroke-linecap="round" stroke-width="3.375" opacity=".68"/>
+  </g>
+  <g fill="#2C2C2A">
+    <text x="104" y="47" font-family="Inter, Arial, Helvetica, sans-serif" font-size="34" font-weight="760" letter-spacing="0">AccuMeasure</text>
+    <text x="106" y="70" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="0" fill="#5F5E5A">PRECISION INSTRUMENTS</text>
+  </g>
+</svg>

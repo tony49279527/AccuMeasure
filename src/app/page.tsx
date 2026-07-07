@@ -122,10 +122,10 @@ export default function Home() {
       <section className="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-bg-light">
         <div className="container-max">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-dark tracking-tight mb-6">
+            <div className="min-w-0">
+              <h1 className="max-w-full break-words text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-dark mb-6">
                 Level Sensor, Flow Meter &amp; Pressure Transmitter Manufacturer
-                <span className="text-primary block mt-2">
+                <span className="text-primary block mt-2 break-words">
                   Factory-Direct from Xi&apos;an
                 </span>
               </h1>
@@ -144,7 +144,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="mt-12 grid grid-cols-3 gap-6">
+              <div className="mt-12 grid grid-cols-3 gap-3 sm:gap-6">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary">10+</div>
                   <div className="text-sm text-muted mt-1">Years</div>

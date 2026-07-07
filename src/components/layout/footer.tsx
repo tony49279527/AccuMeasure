@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
+import { BrandLogo } from "@/components/brand/logo";
 
 export function Footer() {
   return (
@@ -7,12 +8,7 @@ export function Footer() {
       <div className="container-max">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-primary font-bold text-xl">A</span>
-              </div>
-              <span className="text-xl font-bold">AccuMeasure</span>
-            </div>
+            <BrandLogo tone="inverse" showDescriptor className="mb-6" />
             <p className="text-white/70 text-sm mb-6">
               Level · Flow · Pressure instruments from Xi&apos;an, China
             </p>

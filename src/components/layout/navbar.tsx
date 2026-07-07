@@ -3,8 +3,9 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, MessageSquare, Factory } from "lucide-react";
+import { Menu, X, ChevronDown, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { BrandLogo } from "@/components/brand/logo";
 
 const navItems = [
   {
@@ -33,11 +34,8 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
       <div className="container-max">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">A</span>
-            </div>
-            <span className="text-xl font-bold text-dark">AccuMeasure</span>
+          <Link href="/" className="flex items-center">
+            <BrandLogo />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">

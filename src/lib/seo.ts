@@ -14,7 +14,9 @@ export function organizationJsonLd() {
     url: siteConfig.url,
     logo: {
       "@type": "ImageObject",
-      url: `${siteConfig.url}/apple-icon.png`,
+      url: `${siteConfig.url}/logo-mark.png`,
+      width: 512,
+      height: 512,
     },
     email: siteConfig.email,
     telephone: siteConfig.phoneDisplay,
