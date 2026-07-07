@@ -39,19 +39,19 @@ export const metadata: Metadata = {
 
 const homeFactoryImages = [
   {
-    src: "/home/factory-assembly.svg",
+    src: "/factory/assembly.jpg",
     alt: "AccuMeasure sensor assembly line for level transmitters and flow meters",
   },
   {
-    src: "/home/factory-calibration.svg",
+    src: "/factory/calibration.jpg",
     alt: "Calibration bench for radar level transmitters and pressure sensors",
   },
   {
-    src: "/home/factory-aging-test.svg",
+    src: "/factory/aging-test.jpg",
     alt: "72-hour aging test racks for industrial measurement instruments",
   },
   {
-    src: "/home/factory-qc-packaging.svg",
+    src: "/factory/qc-packaging.jpg",
     alt: "Quality control and export packaging workflow at AccuMeasure",
   },
 ];
@@ -97,21 +97,21 @@ const homeCaseStudies = [
     client: "Saudi Water Co.",
     product: "Radar Level Sensors",
     result: "Saved 71% vs European brand. 6 months, zero failures.",
-    image: "/home/case-saudi-water.svg",
+    image: "/cases/saudi-water.jpg",
     alt: "Large water storage tanks using radar level sensors in a desert utility site",
   },
   {
     client: "Indonesia PDAM",
     product: "Electromagnetic Flow Meters",
     result: "200 units delivered. Repeat order for 500 more.",
-    image: "/home/case-indonesia-flow.svg",
+    image: "/cases/indonesia-pdam.jpg",
     alt: "Water treatment pipeline with electromagnetic flow meter installation",
   },
   {
     client: "Brazil Integrator",
     product: "OEM Digital Pressure Gauges",
     result: "Custom branded. First order 500, reorder 2,000.",
-    image: "/home/case-brazil-oem.svg",
+    image: "/cases/brazil-oem.jpg",
     alt: "OEM pressure gauge assembly and packaging for a system integrator",
   },
 ];

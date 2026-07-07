@@ -99,10 +99,10 @@ export default function QualityPage() {
             </div>
             <div className="aspect-square bg-white/10 rounded-xl flex items-center justify-center overflow-hidden">
               <Image
-                src="/factory/5.jpg"
+                src="/factory/aging-test.jpg"
                 alt="72-Hour Aging Test Room"
-                width={400}
-                height={400}
+                width={900}
+                height={900}
                 className="object-cover"
               />
             </div>

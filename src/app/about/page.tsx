@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
@@ -34,18 +35,22 @@ const factoryCapabilities = [
   {
     title: "Assembly & Configuration",
     desc: "Model selection, housing assembly, output configuration, and serial-number traceability.",
+    image: "/factory/assembly.jpg",
   },
   {
     title: "Calibration Lab",
     desc: "Pressure, flow, and level calibration records prepared for export shipment documentation.",
+    image: "/factory/calibration.jpg",
   },
   {
     title: "72-Hour Aging Test",
     desc: "Continuous powered testing with post-aging inspection before final release.",
+    image: "/factory/aging-test.jpg",
   },
   {
     title: "Export QC & Packing",
     desc: "Outgoing inspection, calibration certificate matching, carton protection, and shipment labeling.",
+    image: "/factory/qc-packaging.jpg",
   },
 ];
 
@@ -203,12 +208,23 @@ export default function AboutPage() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {factoryCapabilities.map((item) => (
-              <div key={item.title} className="bg-white rounded-xl border border-border p-6">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <span className="text-primary font-bold">✓</span>
+              <div key={item.title} className="bg-white rounded-xl border border-border overflow-hidden">
+                <div className="relative aspect-[4/3] bg-primary/5">
+                  <Image
+                    src={item.image}
+                    alt={`${item.title} at AccuMeasure factory`}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
-                <h3 className="font-semibold text-dark mb-2">{item.title}</h3>
-                <p className="text-muted text-sm leading-6">{item.desc}</p>
+                <div className="p-6">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                    <span className="text-primary font-bold">✓</span>
+                  </div>
+                  <h3 className="font-semibold text-dark mb-2">{item.title}</h3>
+                  <p className="text-muted text-sm leading-6">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
