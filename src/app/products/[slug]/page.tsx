@@ -70,7 +70,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
           <Breadcrumbs
             items={[
               { name: "Products", href: "/products" },
-              { name: categoryLabel, href: `/products?category=${product.category}` },
+              { name: categoryLabel, href: `/products/${product.category}` },
               { name: product.name },
             ]}
           />

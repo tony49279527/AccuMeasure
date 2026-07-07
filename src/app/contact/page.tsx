@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { MapPin, Clock, Users, Globe, Mail, MessageSquare } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { InquiryForm } from "@/components/forms/inquiry-form";
+import { ContactInquiry } from "@/components/forms/contact-inquiry";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { faqPageJsonLd } from "@/lib/seo";
-import { getProductById } from "@/lib/products";
 import { siteConfig, waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -63,22 +63,7 @@ const salesContacts = [
   },
 ];
 
-export default function ContactPage({
-  searchParams,
-}: {
-  searchParams: { product?: string; document?: string; request?: string };
-}) {
-  const productId = searchParams.product;
-  const product = productId ? getProductById(productId) : undefined;
-  const defaultMessage =
-    searchParams.request === "catalog"
-      ? "Please send me your latest product catalog."
-      : product && searchParams.document
-        ? `Please send me the latest ${searchParams.document} for ${product.model} ${product.name}.`
-        : searchParams.document
-          ? `Please send me the latest ${searchParams.document}.`
-        : undefined;
-
+export default function ContactPage() {
   return (
     <div>
       <JsonLd
@@ -111,20 +96,9 @@ export default function ContactPage({
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
               <div className="bg-white rounded-xl p-8 border border-border">
-                <InquiryForm
-                  productId={product?.id}
-                  productName={product?.name}
-                  defaultInterest={
-                    product
-                      ? product.category === "level"
-                        ? "Level Sensors"
-                        : product.category === "flow"
-                        ? "Flow Meters"
-                        : "Pressure Sensors"
-                      : undefined
-                  }
-                  defaultMessage={defaultMessage}
-                />
+                <Suspense fallback={null}>
+                  <ContactInquiry />
+                </Suspense>
               </div>
             </div>
 

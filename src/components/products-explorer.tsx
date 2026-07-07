@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useDeferredValue, useState } from "react";
 import { ArrowRight, Gauge, Waves, Activity, Search, X } from "lucide-react";
 import { products } from "@/lib/products";
@@ -9,7 +10,15 @@ import { cn } from "@/lib/utils";
 
 type Category = "all" | "level" | "flow" | "pressure";
 
-export function ProductsExplorer({ initialCategory }: { initialCategory: Category }) {
+const validCategories: Category[] = ["all", "level", "flow", "pressure"];
+
+export function ProductsExplorer() {
+  // Legacy ?category= links still filter, read client-side so the route
+  // itself stays static and CDN-cached.
+  const searchParams = useSearchParams();
+  const requested = searchParams.get("category") as Category | null;
+  const initialCategory: Category =
+    requested && validCategories.includes(requested) ? requested : "all";
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
   const normalizedQuery = deferredQuery.trim().toLowerCase();

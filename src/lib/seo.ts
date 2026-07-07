@@ -46,6 +46,9 @@ export function organizationJsonLd() {
   };
 }
 
+// No SearchAction: the on-site product search doesn't use a URL parameter,
+// and ?category= URLs are robots-disallowed — declaring a search endpoint
+// that crawlers can't fetch violates schema/visible-behavior consistency.
 export function websiteJsonLd() {
   return {
     "@context": "https://schema.org",
@@ -55,14 +58,6 @@ export function websiteJsonLd() {
     alternateName: siteConfig.shortName,
     url: siteConfig.url,
     publisher: { "@id": `${siteConfig.url}/#organization` },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${siteConfig.url}/products?category={query}`,
-      },
-      "query-input": "required name=query",
-    },
   };
 }
 
