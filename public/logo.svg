@@ -1,15 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 96" role="img" aria-labelledby="title desc">
   <title id="title">AccuMeasure logo</title>
-  <desc id="desc">AccuMeasure wordmark with a precision instrument logo mark.</desc>
-  <g transform="translate(12 12)">
-    <rect width="72" height="72" rx="16" fill="#0C447C"/>
-    <circle cx="36" cy="36" r="23.625" fill="none" stroke="#B7D7F4" stroke-width="5.625" opacity=".42"/>
-    <path d="M18 48.375 36 16.875l18 31.5" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.2"/>
-    <path d="M27.6 38.25h16.875" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-width="5.625"/>
-    <path d="M36 36 52.875 24.75" fill="none" stroke="#C2410C" stroke-linecap="round" stroke-width="4.275"/>
-    <circle cx="36" cy="36" r="3.95" fill="#C2410C"/>
-    <path d="M22.5 55.125h27" fill="none" stroke="#B7D7F4" stroke-linecap="round" stroke-width="3.375" opacity=".68"/>
-  </g>
+  <desc id="desc">AccuMeasure wordmark with a geometric AM calibration logo mark.</desc>
+  <svg x="12" y="12" width="72" height="72" viewBox="0 0 64 64">
+    <path d="M32 2.5 58 17.5v29L32 61.5 6 46.5v-29L32 2.5Z" fill="#0C447C"/>
+    <path d="M15 45 24.5 18 34 45" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.6"/>
+    <path d="M20.5 35.5h10" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-width="4.8"/>
+    <path d="M36 45V20l7.6 14.2L51.2 20v25" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.6"/>
+    <path d="M15.5 51h33" fill="none" stroke="#9CCAF1" stroke-linecap="round" stroke-width="2.4" opacity=".82"/>
+    <circle cx="43.6" cy="34.2" r="3.2" fill="#C2410C"/>
+  </svg>
   <g fill="#2C2C2A">
     <text x="104" y="47" font-family="Inter, Arial, Helvetica, sans-serif" font-size="34" font-weight="760" letter-spacing="0">AccuMeasure</text>
     <text x="106" y="70" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="0" fill="#5F5E5A">PRECISION INSTRUMENTS</text>

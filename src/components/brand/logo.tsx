@@ -15,8 +15,8 @@ export function LogoMark({ className, tone = "default" }: LogoMarkProps) {
   const inverse = tone === "inverse";
   const field = inverse ? "#FFFFFF" : "#0C447C";
   const primaryStroke = inverse ? "#0C447C" : "#FFFFFF";
-  const mutedStroke = inverse ? "#185FA5" : "#B7D7F4";
-  const needle = "#C2410C";
+  const secondaryStroke = inverse ? "#378ADD" : "#9CCAF1";
+  const accent = "#C2410C";
 
   return (
     <svg
@@ -24,47 +24,39 @@ export function LogoMark({ className, tone = "default" }: LogoMarkProps) {
       aria-hidden="true"
       className={cn("h-10 w-10 flex-shrink-0", className)}
     >
-      <rect width="64" height="64" rx="14" fill={field} />
-      <circle
-        cx="32"
-        cy="32"
-        r="21"
-        fill="none"
-        stroke={mutedStroke}
-        strokeWidth="5"
-        opacity={inverse ? 0.35 : 0.42}
-      />
+      <path d="M32 2.5 58 17.5v29L32 61.5 6 46.5v-29L32 2.5Z" fill={field} />
       <path
-        d="M16 43 32 15l16 28"
+        d="M15 45 24.5 18 34 45"
         fill="none"
         stroke={primaryStroke}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="5.5"
+        strokeWidth="5.6"
       />
       <path
-        d="M24.5 34h15"
+        d="M20.5 35.5h10"
         fill="none"
         stroke={primaryStroke}
         strokeLinecap="round"
-        strokeWidth="5"
+        strokeWidth="4.8"
       />
       <path
-        d="M32 32 47 22"
+        d="M36 45V20l7.6 14.2L51.2 20v25"
         fill="none"
-        stroke={needle}
+        stroke={primaryStroke}
         strokeLinecap="round"
-        strokeWidth="3.8"
+        strokeLinejoin="round"
+        strokeWidth="5.6"
       />
-      <circle cx="32" cy="32" r="3.5" fill={needle} />
       <path
-        d="M20 49h24"
+        d="M15.5 51h33"
         fill="none"
-        stroke={mutedStroke}
+        stroke={secondaryStroke}
         strokeLinecap="round"
-        strokeWidth="3"
-        opacity={inverse ? 0.5 : 0.68}
+        strokeWidth="2.4"
+        opacity={inverse ? 0.72 : 0.82}
       />
+      <circle cx="43.6" cy="34.2" r="3.2" fill={accent} />
     </svg>
   );
 }
@@ -82,7 +74,7 @@ export function BrandLogo({
       <div className="leading-none">
         <div
           className={cn(
-            "text-xl font-bold tracking-tight",
+            "text-xl font-bold",
             inverse ? "text-white" : "text-dark",
           )}
         >
