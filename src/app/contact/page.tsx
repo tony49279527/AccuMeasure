@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { MapPin, Clock, Users, Globe, Mail, MessageSquare } from "lucide-react";
+import { MapPin, Clock, Users, Globe, Mail, MessageSquare, ExternalLink } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ContactInquiry } from "@/components/forms/contact-inquiry";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -63,6 +63,56 @@ const salesContacts = [
   },
 ];
 
+function ContactFormFallback() {
+  const fieldBlocks = Array.from({ length: 6 });
+
+  return (
+    <div
+      className="min-h-[920px] animate-pulse space-y-6"
+      aria-hidden="true"
+    >
+      <div className="grid md:grid-cols-2 gap-6">
+        {fieldBlocks.slice(0, 2).map((_, index) => (
+          <div key={index} className="space-y-2">
+            <div className="h-4 w-24 rounded bg-border" />
+            <div className="h-10 rounded-lg bg-bg-light" />
+          </div>
+        ))}
+      </div>
+      <div className="grid md:grid-cols-2 gap-6">
+        {fieldBlocks.slice(2, 4).map((_, index) => (
+          <div key={index} className="space-y-2">
+            <div className="h-4 w-28 rounded bg-border" />
+            <div className="h-10 rounded-lg bg-bg-light" />
+          </div>
+        ))}
+      </div>
+      <div className="grid md:grid-cols-2 gap-6">
+        {fieldBlocks.slice(4, 6).map((_, index) => (
+          <div key={index} className="space-y-2">
+            <div className="h-4 w-32 rounded bg-border" />
+            <div className="h-10 rounded-lg bg-bg-light" />
+          </div>
+        ))}
+      </div>
+      <div className="space-y-2">
+        <div className="h-4 w-32 rounded bg-border" />
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <div key={index} className="h-12 rounded-lg bg-bg-light" />
+          ))}
+        </div>
+      </div>
+      <div className="space-y-2">
+        <div className="h-4 w-40 rounded bg-border" />
+        <div className="h-32 rounded-lg bg-bg-light" />
+      </div>
+      <div className="h-5 w-64 max-w-full rounded bg-bg-light" />
+      <div className="h-12 rounded-lg bg-primary/20" />
+    </div>
+  );
+}
+
 export default function ContactPage() {
   return (
     <div>
@@ -95,8 +145,8 @@ export default function ContactPage() {
         <div className="container-max">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <div className="bg-white rounded-xl p-8 border border-border">
-                <Suspense fallback={null}>
+              <div className="bg-white rounded-xl p-8 border border-border min-h-[1120px] md:min-h-[800px]">
+                <Suspense fallback={<ContactFormFallback />}>
                   <ContactInquiry />
                 </Suspense>
               </div>
@@ -193,14 +243,25 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="aspect-video bg-primary/10 rounded-xl flex items-center justify-center overflow-hidden">
-                <iframe
-                  title="Factory Location"
-                  src="https://www.google.com/maps?q=Xi%27an+High-Tech+Zone&output=embed"
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+              <div className="bg-bg-light rounded-xl border border-border p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-dark mb-2">Factory Location</h3>
+                    <p className="text-sm text-muted mb-4">{siteConfig.address}</p>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Xi%27an%20High-Tech%20Zone%2C%20Shaanxi%2C%20China"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-secondary text-sm py-2 px-4"
+                    >
+                      Open Google Maps
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

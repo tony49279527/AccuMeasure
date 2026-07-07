@@ -196,13 +196,66 @@ visibility testing.
 
 ---
 
+## Round 6 (2026-07-07) — GSC review + contact-page CLS fix
+
+### Google Search Console data read live
+
+| Report | Current data |
+|--------|--------------|
+| Performance | Last update 3 hours ago; 0 clicks, 6 impressions, 0% CTR, average position 2.2; query table still shows no data |
+| Sitemaps | `https://www.accumeasuretech.com/sitemap.xml`; submitted Jul 5, 2026; last read Jul 6, 2026; status Success; 31 discovered pages |
+| Page indexing | Still processing data; examples table not yet available |
+| Core Web Vitals | Chrome UX report last updated Jul 5, 2026; not enough usage data for mobile or desktop |
+| HTTPS | Last update Jul 6, 2026; 8 HTTPS URLs, 0 non-HTTPS URLs; no issues detected |
+| Breadcrumbs | Last update Jul 5, 2026; 9 valid, 0 invalid |
+| Links | Still processing data |
+
+PageSpeed Insights API returned `429 Too Many Requests`, so current performance
+work used Lighthouse CLI lab data instead of PSI API JSON. GSC confirms there is
+still no CrUX field data, so lab data remains the only actionable CWV proxy.
+
+### Fresh Lighthouse data (mobile, lab)
+
+| Page | Perf | FCP | LCP | TBT | CLS | Total size | Notes |
+|------|-----:|----:|----:|----:|----:|-----------:|-------|
+| Homepage | 94 | 1.1s | 2.5s | 70ms | 0 | 335 KiB | Good; only minor unused JS |
+| Products | 99 | 0.9s | 2.1s | 0ms | 0 | 388 KiB | Good |
+| AM-RL80 product | 99 | 1.1s | 1.8s | 30ms | 0 | 330 KiB | Good |
+| Contact, before R6 fix | 77 | 1.9s | 2.6s | 0ms | 0.382 | 734 KiB | Blocking issue on primary conversion page |
+| Contact, after R6 local fix | 94 | 0.8s | 2.9s | 80ms | 0 | 307 KiB | CLS fixed; third-party map JS removed |
+| Contact, after R6 production deploy | 98 | 1.1s | 2.3s | 40ms | 0 | 291 KiB | Verified on live domain; no third-party script summary |
+
+### Fixes shipped in code
+
+1. **Contact page layout shift fixed.** The inquiry form is client-rendered
+   because URL parameters prefill the message. The prior `Suspense fallback`
+   left the form area empty in the initial HTML, so the contact-info column was
+   pushed down after hydration on mobile. The form container now reserves stable
+   height and the fallback renders a skeleton matching the form footprint.
+2. **Embedded Google Maps removed from `/contact`.** Lighthouse showed the
+   embedded map loading several Google Maps scripts and pushing page transfer to
+   734 KiB. The page now uses a static location card with an external Google
+   Maps link, preserving the buyer action without loading third-party map JS.
+
+### Current interpretation
+
+GSC does not show crawl/index errors. The bottleneck is still new-domain data
+maturity: indexing and links reports are processing, CWV has insufficient usage,
+and Performance has only 6 impressions. Code-side issues from the new data were
+limited to the contact-page CLS and map payload, both fixed in this round.
+Production deploy `dpl_CuP5fJUrUr246V916HhiKXkzUxk8` verified the live fix.
+IndexNow was resubmitted for 31 sitemap URLs after deployment and returned
+`200 OK`.
+
+---
+
 ## 1. Executive Summary
 
-**Total Score: 3.91 / 5.00 (78.2%)** — up from baseline 3.05 / 5.00 (61.0%)
+**Total Score: 3.96 / 5.00 (79.2%)** — up from baseline 3.05 / 5.00 (61.0%)
 
 | Metric | Value |
 |--------|-------|
-| Total weighted score | 3.91 / 5.00 |
+| Total weighted score | 3.96 / 5.00 |
 | Modules at ≥4.0 | 6 of 8 |
 | Open issues | 5 (P0: 0, P1: 3, P2: 2, P3: 0) |
 | Pages audited | 36 built HTML pages |
@@ -221,12 +274,12 @@ visibility testing.
 | 1 | Technical & Index Health | 18% | 4.6 | 0.828 | Owner GSC indexing requests still needed |
 | 2 | Page & Info Architecture | 16% | 4.7 | 0.752 | Breadcrumb/current-page schema corrected in R5 |
 | 3 | Content Quality & Extractable Facts | 16% | 4.0 | 0.640 | Product pages strong; `/about` remains fair by EFD proxy |
-| 4 | Page Experience & Performance | 10% | 4.5 | 0.450 | Lighthouse mobile scores good; CrUX still unavailable due to low traffic |
+| 4 | Page Experience & Performance | 10% | 4.8 | 0.480 | Contact CLS fixed in R6; CrUX still unavailable due to low traffic |
 | 5 | Entity Trust & E-E-A-T | 14% | 3.0 | 0.420 | Placeholder media (team/certs/factory); no external consistency check |
 | 6 | Structured Data | 8% | 4.8 | 0.384 | Schema CI now catches breadcrumb and stale product-anchor regressions |
 | 7 | GEO Visibility | 12% | 1.5 | 0.180 | Zero AI query testing done; no GEO Query Set established |
-| 8 | Conversion Path | 6% | 4.2 | 0.252 | CTA destination is now static/CDN cached; A/B variants untested |
-| | **Total** | **100%** | | **3.906** | |
+| 8 | Conversion Path | 6% | 4.5 | 0.270 | CTA destination is static/CDN cached and contact CLS fixed; A/B variants untested |
+| | **Total** | **100%** | | **3.954** | |
 
 **Score interpretation:**
 - 4.0–5.0: Strong — maintain and monitor
@@ -256,6 +309,7 @@ visibility testing.
 | I-14 | Blog has no article content | Blog now includes SSG article detail routes | Long-tail coverage started | P3 | **Closed R3** |
 | I-15 | Breadcrumb/current-page schema mismatch | Built HTML showed non-home breadcrumb items pointing to homepage | Structured-data semantics weakened | P2 | **Closed R5** |
 | I-16 | Article product references used stale `/products#id` anchors | R5 schema audit found anchors that do not exist in page HTML | Weak product/entity association in AI extraction | P2 | **Closed R5** |
+| I-17 | Contact page CLS and third-party map payload | R6 Lighthouse: `/contact` mobile score 77, CLS 0.382, total size 734 KiB before fix | Primary CTA landing page could feel unstable and heavy | P1 | **Closed R6** |
 
 ---
 
