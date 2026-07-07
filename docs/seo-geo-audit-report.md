@@ -119,6 +119,44 @@ indexing) rather than code-side.
 
 ---
 
+## Round 4 (2026-07-07) — PageSpeed-driven fixes + indexing status check
+
+### Fresh Lighthouse data (mobile, simulated)
+
+| Page | Perf | LCP | CLS | TBT | Notes |
+|------|-----:|----:|----:|----:|-------|
+| Homepage | 92 | 2.1s | 0 | 50ms | All CWV "good"; no significant savings opportunities |
+| AM-RL80 product | 90 | 2.3s | 0 | 20ms | 21KB unused JS (minor) |
+
+CrUX field data: **still not available** (insufficient real-user traffic). PSI API
+quota was exhausted for the day; local Lighthouse CLI used instead.
+
+### Fixes shipped
+
+1. **`/contact` and `/products` were dynamically rendered on every request**
+   (they read `searchParams`), bypassing the CDN — observed cold TTFB up to
+   4.4s on the primary conversion page. Prefill/filter params moved to
+   client-side `useSearchParams` in Suspense; both routes now prerendered
+   and served as `x-vercel-cache: HIT` (verified live, TTFB ~0.5s warm).
+2. **Product breadcrumb linked to robots-disallowed `?category=` URLs**;
+   now links static `/products/level|flow|pressure` — internal link equity
+   flows to indexable pages.
+3. **WebSite `SearchAction` removed** — it declared a search endpoint
+   (`/products?category={query}`) that is robots-blocked and not an actual
+   text-search URL. Schema now matches real site behavior.
+
+### Indexing status (day 3 after GSC verification)
+
+| Engine | Status |
+|--------|--------|
+| Google `site:` | 0 results — normal for a ~1-week-old domain; **GSC "Request Indexing" is the strongest available accelerant and requires the owner's login** |
+| Bing `site:` | 0 visible results; IndexNow accepting submissions (31 URLs, 200 OK) |
+
+GSC/Bing dashboards could not be accessed from this environment (Google login
+required). Owner actions listed in Section 8.7 remain the critical path.
+
+---
+
 ## 1. Executive Summary
 
 **Total Score: 3.62 / 5.00 (72.4%)** — up from baseline 3.05 / 5.00 (61.0%)
