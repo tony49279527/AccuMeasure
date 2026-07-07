@@ -22,7 +22,7 @@ export default function ResourcesPage() {
     <div>
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
-          <Breadcrumbs items={[{ name: "Resources" }]} />
+          <Breadcrumbs items={[{ name: "Resources", href: "/resources" }]} />
           <div className="text-center">
             <h1 className="text-4xl font-bold text-dark mb-6">Resources &amp; Technical Documents</h1>
             <p className="text-lg text-muted max-w-2xl mx-auto">

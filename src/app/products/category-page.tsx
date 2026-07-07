@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
-import { breadcrumbJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import { products } from "@/lib/products";
 import type { Product } from "@/lib/types";
@@ -46,26 +45,19 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
   return (
     <div>
       <JsonLd
-        data={[
-          breadcrumbJsonLd([
-            { name: "Home", url: siteConfig.url },
-            { name: "Products", url: `${siteConfig.url}/products` },
-            { name: data.label, url: `${siteConfig.url}/products/${data.slug}` },
-          ]),
-          {
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "@id": `${siteConfig.url}/products/${data.slug}#itemlist`,
-            name: `AccuMeasure ${data.label}`,
-            numberOfItems: categoryProducts.length,
-            itemListElement: categoryProducts.map((p, i) => ({
-              "@type": "ListItem",
-              position: i + 1,
-              name: `${p.model} ${p.name}`,
-              url: `${siteConfig.url}/products/${p.slug}`,
-            })),
-          },
-        ]}
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "@id": `${siteConfig.url}/products/${data.slug}#itemlist`,
+          name: `AccuMeasure ${data.label}`,
+          numberOfItems: categoryProducts.length,
+          itemListElement: categoryProducts.map((p, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: `${p.model} ${p.name}`,
+            url: `${siteConfig.url}/products/${p.slug}`,
+          })),
+        }}
       />
 
       <section className="pt-24 pb-16 bg-bg-light">
@@ -73,7 +65,7 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
           <Breadcrumbs
             items={[
               { name: "Products", href: "/products" },
-              { name: data.label },
+              { name: data.label, href: `/products/${data.slug}` },
             ]}
           />
           <div className="text-center mb-12">

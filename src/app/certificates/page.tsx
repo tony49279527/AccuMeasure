@@ -69,7 +69,7 @@ export default function CertificatesPage() {
     <div>
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
-          <Breadcrumbs items={[{ name: "Certificates" }]} />
+          <Breadcrumbs items={[{ name: "Certificates", href: "/certificates" }]} />
           <div className="text-center">
             <h1 className="text-4xl font-bold text-dark mb-6">Certificates &amp; Compliance</h1>
             <p className="text-lg text-muted max-w-3xl mx-auto">

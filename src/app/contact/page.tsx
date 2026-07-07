@@ -81,7 +81,7 @@ export default function ContactPage() {
       />
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
-          <Breadcrumbs items={[{ name: "Contact Us" }]} />
+          <Breadcrumbs items={[{ name: "Contact Us", href: "/contact" }]} />
           <div className="text-center">
             <h1 className="text-4xl font-bold text-dark mb-6">Contact Us</h1>
             <p className="text-lg text-muted max-w-3xl mx-auto">

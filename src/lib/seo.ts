@@ -1,5 +1,6 @@
 import { siteConfig } from "./site";
 import { certificationDetail } from "./certifications";
+import { getProductById } from "./products";
 import type { Product, CaseStudy } from "./types";
 import type { BlogPost } from "./blog";
 
@@ -167,6 +168,11 @@ export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
   };
 }
 
+function productUrlForId(id: string) {
+  const product = getProductById(id);
+  return product ? `${siteConfig.url}/products/${product.slug}` : `${siteConfig.url}/products`;
+}
+
 export function articleJsonLd(caseStudy: CaseStudy) {
   const caseUrl = `${siteConfig.url}/case-studies/${caseStudy.slug}`;
   return {
@@ -183,9 +189,7 @@ export function articleJsonLd(caseStudy: CaseStudy) {
     publisher: { "@id": `${siteConfig.url}/#organization` },
     about: caseStudy.background,
     mainEntityOfPage: { "@type": "WebPage", "@id": caseUrl },
-    mentions: caseStudy.productIds.map(
-      (id) => `${siteConfig.url}/products#${id}`,
-    ),
+    mentions: caseStudy.productIds.map(productUrlForId),
   };
 }
 
@@ -209,6 +213,6 @@ export function blogArticleJsonLd(post: BlogPost) {
       "@type": "WebPage",
       "@id": postUrl,
     },
-    about: post.relatedProductIds.map((id) => `${siteConfig.url}/products#${id}`),
+    about: post.relatedProductIds.map(productUrlForId),
   };
 }

@@ -50,7 +50,7 @@ export default function CaseStudyDetailPage({ params }: { params: { slug: string
           <Breadcrumbs
             items={[
               { name: "Case Studies", href: "/case-studies" },
-              { name: cs.title.split(" — ")[0] },
+              { name: cs.title.split(" — ")[0], href: `/case-studies/${cs.slug}` },
             ]}
           />
           <div className="flex flex-wrap items-center gap-3 mb-4">

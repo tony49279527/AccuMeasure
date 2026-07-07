@@ -3,15 +3,28 @@ const fs = require("fs");
 const path = require("path");
 
 const BUILD_DIR = path.join(process.cwd(), ".next");
+const SITE_URL = "https://www.accumeasuretech.com";
 const REQUIRED_FIELDS = {
   Organization: ["name", "url", "address"],
   WebSite: ["name", "url"],
   Product: ["name", "offers", "brand"],
   BreadcrumbList: ["itemListElement"],
+  ItemList: ["itemListElement"],
   FAQPage: ["mainEntity"],
   Article: ["headline", "author"],
   Person: ["name", "jobTitle"],
 };
+
+function collectStrings(value, strings = []) {
+  if (typeof value === "string") {
+    strings.push(value);
+  } else if (Array.isArray(value)) {
+    value.forEach((item) => collectStrings(item, strings));
+  } else if (value && typeof value === "object") {
+    Object.values(value).forEach((item) => collectStrings(item, strings));
+  }
+  return strings;
+}
 
 function findHtmlFiles(dir, files = []) {
   if (!fs.existsSync(dir)) return files;
@@ -63,6 +76,21 @@ function validateSchema(schema) {
     if (!schema[field]) {
       errors.push(`${type}: missing required field "${field}"`);
     }
+  }
+
+  if (type === "BreadcrumbList" && Array.isArray(schema.itemListElement)) {
+    for (const item of schema.itemListElement) {
+      if (item.position > 1 && (item.item === SITE_URL || item.item === `${SITE_URL}/`)) {
+        errors.push("BreadcrumbList: non-home item points to homepage");
+      }
+    }
+  }
+
+  const staleProductAnchors = collectStrings(schema).filter((value) =>
+    /^https:\/\/www\.accumeasuretech\.com\/products#\d+$/.test(value),
+  );
+  if (staleProductAnchors.length > 0) {
+    errors.push(`Schema references stale product anchors: ${staleProductAnchors.join(", ")}`);
   }
   return errors;
 }

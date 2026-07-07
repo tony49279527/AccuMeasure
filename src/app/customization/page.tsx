@@ -123,7 +123,7 @@ export default function CustomizationPage() {
     <div>
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
-          <Breadcrumbs items={[{ name: "OEM / ODM Customization" }]} />
+          <Breadcrumbs items={[{ name: "OEM / ODM Customization", href: "/customization" }]} />
           <div className="text-center">
             <h1 className="text-4xl font-bold text-dark mb-6">
               OEM / ODM Custom Manufacturing

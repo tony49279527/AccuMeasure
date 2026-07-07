@@ -21,7 +21,7 @@ export default function QualityPage() {
     <div>
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
-          <Breadcrumbs items={[{ name: "Quality Assurance" }]} />
+          <Breadcrumbs items={[{ name: "Quality Assurance", href: "/quality" }]} />
           <div className="text-center">
             <h1 className="text-4xl font-bold text-dark mb-6">
               Quality You Can Trust

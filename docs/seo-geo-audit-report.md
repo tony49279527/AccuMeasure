@@ -157,21 +157,60 @@ required). Owner actions listed in Section 8.7 remain the critical path.
 
 ---
 
+## Round 5 (2026-07-07) — Structured-data cleanup + audit reconciliation
+
+### Fresh local verification
+
+| Check | Result |
+|-------|--------|
+| `npm run verify` | Passed after changes; `/contact` and `/products` remain static in the build route table |
+| EFD/EAR audit | All 9 product pages remain EFD `strong`; `/about` remains the only `fair` EFD page |
+| JSON-LD sampling | Breadcrumb current-page URLs and product entity references verified fixed in built HTML |
+| Production deploy | Vercel deployment `dpl_GFPH7U7Hhibt275xRiHnnAKTR7UD`; custom domain returned updated prerendered HTML |
+| IndexNow | 31 sitemap URLs resubmitted; response `200 OK` |
+
+### Fixes shipped in code
+
+1. **BreadcrumbList current-page URLs corrected.** The shared `Breadcrumbs`
+   component previously emitted the homepage URL for every current-page crumb
+   without an explicit `href`. Every breadcrumb item now carries a real path;
+   the UI still renders the final crumb as text, while JSON-LD points to the
+   current canonical URL.
+2. **Duplicate/incorrect breadcrumb schema removed.** Product category pages
+   now use one correct breadcrumb trail from the shared component and keep their
+   product collection signal as `ItemList`. The industries page now uses an
+   `ItemList` for industry sections instead of multiple synthetic breadcrumb
+   trails to same-page anchors.
+3. **Case study and blog product entity links corrected.** `Article.mentions`
+   and `Article.about` no longer point to stale `/products#id` anchors. They
+   now resolve product IDs to real product detail URLs.
+4. **Schema CI hardened.** The CI script now fails if a non-home breadcrumb item
+   points to the homepage or if JSON-LD reintroduces stale `/products#id`
+   references. It also validates `ItemList.itemListElement`.
+
+### Remaining material issues
+
+The remaining high-leverage items are not code-only: owner GSC indexing actions,
+real media/certificate scans, external entity consistency checks, and GEO query
+visibility testing.
+
+---
+
 ## 1. Executive Summary
 
-**Total Score: 3.62 / 5.00 (72.4%)** — up from baseline 3.05 / 5.00 (61.0%)
+**Total Score: 3.91 / 5.00 (78.2%)** — up from baseline 3.05 / 5.00 (61.0%)
 
 | Metric | Value |
 |--------|-------|
-| Total weighted score | 3.62 / 5.00 |
-| Modules at ≥4.0 | 4 of 8 |
-| Open issues | 14 (P0: 0, P1: 3, P2: 7, P3: 4) |
-| Pages audited | 26 (7 static + 9 product SSG + 10 dynamic) |
-| Schema types deployed | 7 (Organization, WebSite, Product, BreadcrumbList, FAQPage, Article, Person) |
+| Total weighted score | 3.91 / 5.00 |
+| Modules at ≥4.0 | 6 of 8 |
+| Open issues | 5 (P0: 0, P1: 3, P2: 2, P3: 0) |
+| Pages audited | 36 built HTML pages |
+| Schema types deployed | 8 (Organization, WebSite, Product, BreadcrumbList, FAQPage, Article, Person, ItemList) |
 
 **Most critical opportunity:** GEO visibility testing (score 1.5/5) — the site has strong technical foundations and structured data but zero AI-citability measurement. Establishing a recurring GEO Query Set test across Perplexity/ChatGPT/Copilot/Gemini is the highest-leverage next step.
 
-**Most critical risk:** Entity trust gaps — team photos, certificate images, and factory photos are all placeholders. AI engines and human buyers alike cannot verify E-E-A-T signals without real visual evidence. This directly suppresses AI citability scores.
+**Most critical risk:** Entity trust gaps — team photos, certificate images, factory photos, and OG media are still generated placeholders. AI engines and human buyers alike cannot verify E-E-A-T signals without real visual evidence. This directly suppresses AI citability scores.
 
 ---
 
@@ -179,15 +218,15 @@ required). Owner actions listed in Section 8.7 remain the critical path.
 
 | # | Module | Weight | Raw (0-5) | Weighted | Key Gap |
 |---|--------|--------|-----------|----------|---------|
-| 1 | Technical & Index Health | 18% | 4.2 | 0.756 | No GSC/Bing verification yet (pre-deployment) |
-| 2 | Page & Info Architecture | 16% | 4.5 | 0.720 | None significant — breadcrumbs + canonicals clean |
-| 3 | Content Quality & Extractable Facts | 16% | 3.5 | 0.560 | EFD unquantified; product pages lack source-backed facts (certificate numbers on product pages) |
-| 4 | Page Experience & Performance | 10% | 3.0 | 0.300 | No Lighthouse/PSI/CrUX data (pre-deployment); image optimization unverified |
+| 1 | Technical & Index Health | 18% | 4.6 | 0.828 | Owner GSC indexing requests still needed |
+| 2 | Page & Info Architecture | 16% | 4.7 | 0.752 | Breadcrumb/current-page schema corrected in R5 |
+| 3 | Content Quality & Extractable Facts | 16% | 4.0 | 0.640 | Product pages strong; `/about` remains fair by EFD proxy |
+| 4 | Page Experience & Performance | 10% | 4.5 | 0.450 | Lighthouse mobile scores good; CrUX still unavailable due to low traffic |
 | 5 | Entity Trust & E-E-A-T | 14% | 3.0 | 0.420 | Placeholder media (team/certs/factory); no external consistency check |
-| 6 | Structured Data | 8% | 4.5 | 0.360 | Schema valid but unverified by Rich Results Test (needs deployment) |
+| 6 | Structured Data | 8% | 4.8 | 0.384 | Schema CI now catches breadcrumb and stale product-anchor regressions |
 | 7 | GEO Visibility | 12% | 1.5 | 0.180 | Zero AI query testing done; no GEO Query Set established |
-| 8 | Conversion Path | 6% | 4.0 | 0.240 | Form A/B variants untested; RFQ friction unmeasured |
-| | **Total** | **100%** | | **3.516** | |
+| 8 | Conversion Path | 6% | 4.2 | 0.252 | CTA destination is now static/CDN cached; A/B variants untested |
+| | **Total** | **100%** | | **3.906** | |
 
 **Score interpretation:**
 - 4.0–5.0: Strong — maintain and monitor
@@ -201,20 +240,22 @@ required). Owner actions listed in Section 8.7 remain the critical path.
 
 | ID | Issue | Evidence | Impact | Priority | Status |
 |----|-------|----------|--------|----------|--------|
-| I-01 | Placeholder factory/team/cert images | `/factory/*.jpg`, `/team/*.jpg`, `/certs/*.jpg` all missing | E-E-A-T trust signals absent; AI cannot verify entity | P1 | Open — awaiting client media |
+| I-01 | Placeholder factory/team/cert/OG images | Generated media in `public/` is still not real-world proof | E-E-A-T trust signals weak; AI cannot verify entity | P1 | Open — awaiting client media |
 | I-02 | No GEO Query Set testing | Zero AI platform queries logged | Cannot measure AI citability or visibility | P1 | Open — requires deployment |
-| I-03 | Certificate numbers not on product pages | Certs only on About page | Product-level EAR (fact evidence rate) low | P1 | Open |
-| I-04 | No Lighthouse/PSI baseline | Pre-deployment, no performance data | Core Web Vitals unverified | P2 | Open — post-deploy |
+| I-03 | Certificate numbers not on product pages | Cert numbers now flow through `certificationDetail()` on product pages | Product-level EAR improved | P1 | **Closed R3/R4** |
+| I-04 | No Lighthouse/PSI baseline | R4 Lighthouse: home 92, product 90; CWV good | Core Web Vitals lab baseline established | P2 | **Closed R4** |
 | I-05 | No external entity consistency check | LinkedIn/Alibaba/customs alignment unverified | AI may confuse brand with trading co. | P2 | Open — manual audit needed |
 | I-06 | Product page EFD unquantified | No atomic-fact count done per page | Cannot prioritize content gaps | P2 | **Closed R3** — `scripts/efd-audit.cjs`; all 9 product pages EFD ≥ 15 |
-| I-07 | No Schema CI in build pipeline | JSON-LD validated manually only | Schema regressions possible on deploy | P2 | In progress — scaffold building |
+| I-07 | No Schema CI in build pipeline | `scripts/schema-ci.cjs` validates built HTML JSON-LD and R5 semantic regressions | Schema regressions less likely | P2 | **Closed R5** |
 | I-08 | OG images are placeholders | `/og-image.png` is auto-generated | Social sharing appearance weak | P2 | Open |
-| I-09 | No hreflang x-default annotation | Only `en-US` in alternates.languages | Multi-language expansion blocked | P2 | Open — reserved structure ready |
-| I-10 | Case study pages are single-page (no detail routes) | `/case-studies` is one page | Deep-linking to specific cases impossible | P2 | Open |
-| I-11 | No sitemap image extension | sitemap.xml has no `<image>` entries | Image indexation suboptimal | P3 | Open |
-| I-12 | No JSON-LD for ContactPage/WebPage type | Contact page has no page-level schema | Page-type signaling incomplete | P3 | Open |
+| I-09 | No hreflang x-default annotation | Layout includes `en-US` and `x-default` | Multi-language expansion scaffold ready | P2 | **Closed R2** |
+| I-10 | Case study pages are single-page (no detail routes) | `/case-studies/[slug]` exists and is SSG | Deep-linking supported | P2 | **Closed R3** |
+| I-11 | No sitemap image extension | Sitemap route emits `<image:image>` for product and case pages | Image indexation improved | P3 | **Closed R4** |
+| I-12 | No JSON-LD for ContactPage/WebPage type | `/contact` emits `ContactPage` + FAQPage JSON-LD | Page-type signaling complete | P3 | **Closed R4** |
 | I-13 | No llms.txt (intentional) | Per Google guidance, no benefit | N/A — correct decision | P3 | Closed (by design) |
-| I-14 | Blog has no article content | `/blog` is placeholder | Content coverage for long-tail queries missing | P3 | Open — content strategy needed |
+| I-14 | Blog has no article content | Blog now includes SSG article detail routes | Long-tail coverage started | P3 | **Closed R3** |
+| I-15 | Breadcrumb/current-page schema mismatch | Built HTML showed non-home breadcrumb items pointing to homepage | Structured-data semantics weakened | P2 | **Closed R5** |
+| I-16 | Article product references used stale `/products#id` anchors | R5 schema audit found anchors that do not exist in page HTML | Weak product/entity association in AI extraction | P2 | **Closed R5** |
 
 ---
 
@@ -223,14 +264,15 @@ required). Owner actions listed in Section 8.7 remain the critical path.
 | Schema Type | Pages | Valid | Missing Properties | Fix Recommendation |
 |-------------|-------|-------|--------------------|--------------------|
 | Organization | Global (layout) | Pending RR Test | `numberOfEmployees`, `foundingDate`, `naics`, `logo`, `contactPoint` — all added | Verify via Rich Results Test post-deploy |
-| WebSite | Global (layout) | Pending RR Test | `potentialAction` (SearchAction) — added | Verify post-deploy |
+| WebSite | Global (layout) | Valid in Schema CI | SearchAction intentionally removed in R4 because the declared endpoint was not real/crawlable | Verify via Rich Results Test if available |
 | Product | 9 product pages | Pending RR Test | `additionalProperty` (MOQ, leadTime, certs, applications, material, countryOfOrigin), `image`, `@id`, `priceSpecification`, `eligibleQuantity` — all added | Add `review`/`aggregateRating` once customer reviews collected |
-| BreadcrumbList | All 16 content pages | Pending RR Test | Complete | — |
+| BreadcrumbList | All built content pages | Valid in Schema CI | Current-page URL regression fixed in R5 | — |
+| ItemList | Product category + industry pages | Valid in Schema CI | Complete | — |
 | FAQPage | 9 product pages | Pending RR Test | Complete (5 Q&A per product) | Note: Google deprecated FAQ rich result (2026); retained for AI extractability |
-| Article | 3 case studies | Pending RR Test | `datePublished`, `dateModified` missing | Add publication dates to case study data |
+| Article | Case studies + blog posts | Valid in Schema CI | Product entity references corrected from stale anchors to detail URLs in R5 | Monitor Rich Results Test |
 | Person | 3 team members (About) | Pending RR Test | `sameAs` (LinkedIn) missing | Add LinkedIn profiles when available |
 
-**Schema validation status:** All JSON-LD is syntactically valid (build passes). Rich Results Test validation requires deployment to a live domain.
+**Schema validation status:** All JSON-LD is syntactically valid and passes local semantic regression checks. Rich Results Test validation requires live-domain access.
 
 ---
 
@@ -245,8 +287,8 @@ required). Owner actions listed in Section 8.7 remain the critical path.
 | Founded | 2014 | Organization schema + About page | Verify against registration |
 | Employees | 82 | Organization schema + About page | Verify current headcount |
 | NAICS | 334513 (Instruments) | Organization schema | Verify appropriateness |
-| Phone | +86-29-8888-XXXX | site.ts | Placeholder — needs real number |
-| Email | info@accumeasuretech.com | site.ts | MX records not set up — email routing needed |
+| Phone | +86-183-0928-5711 | site.ts | Verify against buyer-facing WhatsApp/phone records |
+| Email | info@accumeasuretech.com | site.ts | Verify MX/email routing before paid traffic |
 | LinkedIn | linkedin.com/company/accumeasure | site.ts | Profile may not exist yet |
 | Alibaba | alibaba.com/accumeasure | site.ts | Storefront URL needs verification |
 
@@ -264,28 +306,21 @@ required). Owner actions listed in Section 8.7 remain the critical path.
 | Task | Est. Impact | Dependencies |
 |------|-------------|--------------|
 | Replace placeholder media (factory/team/certs) | +0.4 on Entity Trust | Client provides real photos |
-| Add certificate numbers + badge to product pages | +0.2 on Content Quality | Certificate image files |
 | Establish GEO Query Set + first test round | +1.0 on GEO Visibility | Site deployment |
+| Owner GSC URL inspection + indexing requests | Faster first Google indexation | Owner Google login |
 
 ### P2 — Medium (moderate improvements)
 
 | Task | Est. Impact | Dependencies |
 |------|-------------|--------------|
-| Run Lighthouse/PSI baseline + fix CWV | +0.5 on Performance | Site deployment |
 | External entity consistency audit (LinkedIn/Alibaba) | +0.3 on Entity Trust | Manual research |
-| Quantify EFD per product page + fill gaps | +0.3 on Content Quality | Content audit |
-| Deploy Schema CI in build pipeline | Prevents regression | Scaffold (in progress) |
 | Design real OG images per page type | +0.1 on Page Experience | Design resources |
-| Add hreflang x-default + plan multilingual | +0.2 on Info Architecture | Content translation |
-| Create individual case study detail routes | +0.1 on Info Architecture | Route + content |
+| Improve `/about` extractable fact density | +0.1 on Content Quality | Verified factory/company details |
 
 ### P3 — Long-term building
 
 | Task | Est. Impact | Dependencies |
 |------|-------------|--------------|
-| Add image sitemap extension | +0.1 on Technical | Low effort |
-| Add WebPage/ContactPage schema | +0.05 on Structured Data | Low effort |
-| Publish blog articles (selection guides) | +0.3 on GEO long-tail | Content strategy |
 | Collect + schema customer reviews | +0.2 on Entity Trust | Post-launch reviews |
 
 ---
@@ -296,13 +331,13 @@ required). Owner actions listed in Section 8.7 remain the critical path.
 |------------|----------|-----------|--------|
 | Top queries/pages export | GSC Search Analytics API | Weekly | Low |
 | PSI batch test (top 20 URLs) | PageSpeed Insights API | Weekly | Low |
-| Schema regression check | Schema CI script (build-time) | Every deploy | Medium (scaffold ready) |
+| Schema regression check | Schema CI script (build-time) | Every deploy | Low (implemented) |
 | Canonical/noindex diff | Custom crawler script | Pre/post deploy | Medium |
 | GEO Query re-test | Manual + AI test script template | Monthly | Medium |
 | Bing AI citation monitoring | Bing Webmaster Tools | Weekly | Low |
 | CrUX field data monitoring | CrUX API / Looker Studio | Monthly | Low |
 
-**Schema CI scaffold:** A build-time JSON-LD validation script is being developed (see `/scripts/` directory). It will parse all generated HTML pages, extract `<script type="application/ld+json">` blocks, and validate against schema.org type definitions before deployment.
+**Schema CI:** `scripts/schema-ci.cjs` parses generated HTML pages, extracts `<script type="application/ld+json">` blocks, validates required fields, and now guards against stale product anchors and breadcrumb current-page URL regressions.
 
 **GEO Query Set template:** A standardized query list covering brand, product, comparison, and intent queries will be maintained in `/docs/geo-query-set.md` for monthly re-testing across Perplexity, ChatGPT, Copilot, and Gemini.
 

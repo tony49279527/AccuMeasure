@@ -67,7 +67,7 @@ export default function AboutPage() {
     <div>
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
-          <Breadcrumbs items={[{ name: "About Us" }]} />
+          <Breadcrumbs items={[{ name: "About Us", href: "/about" }]} />
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl font-bold text-dark mb-6">

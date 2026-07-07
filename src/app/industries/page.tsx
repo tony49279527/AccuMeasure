@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Beef, Droplets, Factory, Gauge, Microscope, Shield, ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
-import { breadcrumbJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -83,20 +82,28 @@ export default function IndustriesPage() {
   return (
     <div>
       <JsonLd
-        data={[
-          ...industries.map((ind, idx) =>
-            breadcrumbJsonLd([
-              { name: "Home", url: siteConfig.url },
-              { name: "Industries", url: `${siteConfig.url}/industries` },
-              { name: ind.name, url: `${siteConfig.url}/industries#${ind.name.toLowerCase().replace(/\s+/g, "-")}` },
-            ]),
-          ),
-        ]}
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "@id": `${siteConfig.url}/industries#industry-list`,
+          name: "AccuMeasure industry measurement applications",
+          numberOfItems: industries.length,
+          itemListElement: industries.map((ind, idx) => ({
+            "@type": "ListItem",
+            position: idx + 1,
+            item: {
+              "@type": "Thing",
+              name: ind.name,
+              description: ind.description,
+              url: `${siteConfig.url}/industries#${ind.name.toLowerCase().replace(/\s+/g, "-")}`,
+            },
+          })),
+        }}
       />
 
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
-          <Breadcrumbs items={[{ name: "Industries" }]} />
+          <Breadcrumbs items={[{ name: "Industries", href: "/industries" }]} />
           <div className="text-center">
             <h1 className="text-4xl font-bold text-dark mb-6">
               Measurement Solutions by Industry

@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site";
 
 interface BreadcrumbItem {
   name: string;
-  href?: string;
+  href: string;
 }
 
 export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
@@ -13,7 +13,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
     { name: "Home", url: siteConfig.url },
     ...items.map((it) => ({
       name: it.name,
-      url: it.href ? `${siteConfig.url}${it.href}` : siteConfig.url,
+      url: it.href === "/" ? siteConfig.url : `${siteConfig.url}${it.href}`,
     })),
   ];
 
@@ -25,7 +25,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
         {items.map((it, i) => (
           <span key={i}>
             <span className="mx-2">›</span>
-            {it.href ? (
+            {i < items.length - 1 ? (
               <Link href={it.href} className="hover:text-primary">{it.name}</Link>
             ) : (
               <span className="text-dark">{it.name}</span>

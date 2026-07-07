@@ -71,7 +71,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
             items={[
               { name: "Products", href: "/products" },
               { name: categoryLabel, href: `/products/${product.category}` },
-              { name: product.name },
+              { name: product.name, href: `/products/${product.slug}` },
             ]}
           />
 

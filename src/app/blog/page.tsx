@@ -22,7 +22,7 @@ export default function BlogPage() {
     <div>
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
-          <Breadcrumbs items={[{ name: "Blog" }]} />
+          <Breadcrumbs items={[{ name: "Blog", href: "/blog" }]} />
           <div className="text-center">
             <h1 className="text-4xl font-bold text-dark mb-6">
               Measurement Instrument Insights

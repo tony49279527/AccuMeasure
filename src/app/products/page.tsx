@@ -23,7 +23,7 @@ export default function ProductsPage() {
     <div>
       <section className="pt-24 pb-12 bg-bg-light">
         <div className="container-max">
-          <Breadcrumbs items={[{ name: "Products" }]} />
+          <Breadcrumbs items={[{ name: "Products", href: "/products" }]} />
           <div className="text-center">
             <h1 className="text-4xl font-bold text-dark mb-4">
               Industrial Measurement Products: Level Sensors, Flow Meters &amp; Pressure Transmitters

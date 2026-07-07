@@ -30,7 +30,7 @@ export default function CaseStudiesPage() {
       />
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
-          <Breadcrumbs items={[{ name: "Case Studies" }]} />
+          <Breadcrumbs items={[{ name: "Case Studies", href: "/case-studies" }]} />
           <div className="text-center">
             <h1 className="text-4xl font-bold text-dark mb-6">Case Studies</h1>
             <p className="text-lg text-muted max-w-3xl mx-auto">

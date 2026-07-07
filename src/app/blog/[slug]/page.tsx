@@ -73,7 +73,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <Breadcrumbs
             items={[
               { name: "Blog", href: "/blog" },
-              { name: post.title },
+              { name: post.title, href: `/blog/${post.slug}` },
             ]}
           />
           <div className="max-w-4xl">
