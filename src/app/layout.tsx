@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "AccuMeasure Instruments",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "AccuMeasure Instruments Co., Ltd.",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "AccuMeasure | Level Sensor, Flow Meter & Pressure Transmitter Manufacturer",
     description:
       "Factory-direct industrial measurement instruments from Xi'an, China. ISO9001 certified. 10+ years exporting to 40+ countries.",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,

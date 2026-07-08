@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "OEM / ODM Custom Manufacturing — 7-Day Solution",
     description:
       "Send your specs. Get a solution in 7 days. From sample approval to first custom order in 45-60 days. MOQ from 1 unit for non-standard builds.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Custom Manufacturing" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Custom Manufacturing" }],
   },
 };
 

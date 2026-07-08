@@ -63,7 +63,7 @@ const factoryFacts = [
   {
     label: "Production Scope",
     value: "Level, flow, and pressure instruments",
-    detail: "Core product lines cover 0-80m radar level measurement, DN6-DN1000 flow measurement, and 0-100MPa pressure measurement.",
+    detail: "Core product lines cover radar level measurement up to 80 m, DN6-DN1000 flow measurement, and 0-100MPa pressure measurement.",
   },
   {
     label: "Signal Options",
@@ -87,8 +87,8 @@ const factoryFacts = [
   },
   {
     label: "Ordering Range",
-    value: "MOQ 10-50 units · 15-25 days",
-    detail: "Typical MOQ ranges from 10 units to 50 units depending on model; standard production lead time is 15-25 days.",
+    value: "MOQ 1 sample · 50 units bulk",
+    detail: "Samples ship from 1 unit; bulk pricing starts at 50 units. Standard production lead time is 15-20 days, custom orders 25-35 days.",
   },
   {
     label: "Export Handling",
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     title: "About AccuMeasure — Measurement Instrument Factory in Xi'an",
     description:
       "Founded in 2014 by Xi'an Jiaotong University and aerospace engineers. 82 employees, 2,600 sqm facility, exporting to 40+ countries.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Instruments" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Instruments" }],
   },
 };
 

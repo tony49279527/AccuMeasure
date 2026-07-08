@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Resources — Datasheets, Manuals & Technical Documents | AccuMeasureTech",
     description:
       "Request controlled product datasheets, installation manuals, and technical documentation for AccuMeasure measurement instruments.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Resources" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Resources" }],
   },
 };
 

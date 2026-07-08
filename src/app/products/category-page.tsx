@@ -32,7 +32,7 @@ export function generateCategoryMetadata(data: CategoryPageData): Metadata {
     openGraph: {
       title: data.label,
       description: data.description,
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `AccuMeasure ${data.label}` }],
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: `AccuMeasure ${data.label}` }],
     },
   };
 }

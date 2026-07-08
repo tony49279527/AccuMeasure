@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Industries — Measurement Solutions by Application | AccuMeasureTech",
     description:
       "From water treatment to oil & gas, chemical processing to pharmaceuticals — find the right measurement instrument for your industry.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Industries" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Industries" }],
   },
 };
 

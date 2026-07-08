@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "Certificates — ISO 9001, CE, ATEX, RoHS | AccuMeasureTech",
     description:
       "Request and verify AccuMeasure quality certifications. ISO 9001, CE, ATEX, RoHS. Every instrument ships with an individual calibration certificate.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Certificates" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Certificates" }],
   },
 };
 

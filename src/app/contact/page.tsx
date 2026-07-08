@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "Contact AccuMeasure — Get a Quote Within 24 Hours",
     description:
       "Factory-direct measurement instruments. Email, WhatsApp, or use our inquiry form. Response within 24 hours.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure" }],
   },
 };
 

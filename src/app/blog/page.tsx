@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "AccuMeasure Blog — Measurement Instrument Insights",
     description:
       "Selection guides, application notes, and engineering best practices for industrial measurement instruments.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AccuMeasure Blog" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Blog" }],
   },
 };
 
