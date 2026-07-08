@@ -249,6 +249,35 @@ IndexNow was resubmitted for 31 sitemap URLs after deployment and returned
 
 ---
 
+## Round 7 (2026-07-08) — post-Codex review pass
+
+Reviewed the R5/R6 Codex work (realistic imagery set, brand logo, HSTS +
+Permissions-Policy headers, contact CLS skeleton, breadcrumb schema hardening,
+PII scrubbed from inquiry logs — all verified good). Found and fixed three
+leftovers:
+
+| Issue | Priority | Fix |
+|-------|----------|-----|
+| `og-image.png` was **1.08MB** — WhatsApp/LinkedIn cap OG preview images (~300-600KB), so shared links rendered no preview | P1 | Converted to 190KB JPEG (1200×630), all 13 references updated, old PNG removed; verified live (`image/jpeg`, 189,696 bytes) — closes I-08 |
+| About "Factory Facts" (added R5) contradicted homepage/contact FAQ: "MOQ 10-50 units · 15-25 days" vs site-wide "1 sample · 50 units bulk · 15-20 days"; radar range "0-80m" vs product "0.3-80m" | P1 | Unified to canonical facts — cross-page consistency is what AI extraction trusts |
+| 9 orphan product images (`am-*.jpg`) committed in R5 but never referenced; live pages use the higher-res `-v2` set | P2 | Deleted |
+
+EFD re-run: `/about` jumped 8.7 → **20.2** (R5's Factory Facts grid + R7
+consistency fixes) — every audited page now clears the ≥15 "strong" threshold.
+Build 36 pages, Schema CI 143 blocks / 0 errors, IndexNow resubmitted (200 OK).
+
+Score movement: Content Quality 4.0 → **4.3** (About EFD strong, facts
+consistent), Entity Trust 3.0 → **3.4** (consistent facts + working social
+previews; real media still pending). **New total: ≈ 4.06 / 5.00 (81.2%)**.
+
+GSC (per R6 readout) confirms the pipeline is healthy: sitemap processed,
+6 impressions at avg position 2.2, zero errors. The remaining levers are
+owner-side: GSC per-URL "Request Indexing", LinkedIn company page (brand
+collision with MTI "Accumeasure" makes this urgent), GA4 ID, real factory
+photos and certificate scans.
+
+---
+
 ## 1. Executive Summary
 
 **Total Score: 3.96 / 5.00 (79.2%)** — up from baseline 3.05 / 5.00 (61.0%)
@@ -300,7 +329,7 @@ IndexNow was resubmitted for 31 sitemap URLs after deployment and returned
 | I-05 | No external entity consistency check | LinkedIn/Alibaba/customs alignment unverified | AI may confuse brand with trading co. | P2 | Open — manual audit needed |
 | I-06 | Product page EFD unquantified | No atomic-fact count done per page | Cannot prioritize content gaps | P2 | **Closed R3** — `scripts/efd-audit.cjs`; all 9 product pages EFD ≥ 15 |
 | I-07 | No Schema CI in build pipeline | `scripts/schema-ci.cjs` validates built HTML JSON-LD and R5 semantic regressions | Schema regressions less likely | P2 | **Closed R5** |
-| I-08 | OG images are placeholders | `/og-image.png` is auto-generated | Social sharing appearance weak | P2 | Open |
+| I-08 | OG images are placeholders / oversized | 1.08MB PNG broke WhatsApp/LinkedIn previews | Social sharing appearance weak | P2 | **Closed R7** — 190KB JPEG live; realistic render (real photo still preferable long-term) |
 | I-09 | No hreflang x-default annotation | Layout includes `en-US` and `x-default` | Multi-language expansion scaffold ready | P2 | **Closed R2** |
 | I-10 | Case study pages are single-page (no detail routes) | `/case-studies/[slug]` exists and is SSG | Deep-linking supported | P2 | **Closed R3** |
 | I-11 | No sitemap image extension | Sitemap route emits `<image:image>` for product and case pages | Image indexation improved | P3 | **Closed R4** |
