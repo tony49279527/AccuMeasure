@@ -81,9 +81,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true, message: "Inquiry received." });
   }
 
-  // Always log server-side so submissions are recoverable from Vercel logs
-  // even if email delivery is unconfigured or fails.
-  console.log(`[${formType.toUpperCase()}] New submission:`, JSON.stringify(parsed.data));
+  // Avoid putting personal contact details into platform logs.
+  console.info(`[${formType.toUpperCase()}] New valid submission received.`);
 
   const delivered = await deliverEmail(formType, parsed.data as Record<string, unknown>).catch(
     (e) => {

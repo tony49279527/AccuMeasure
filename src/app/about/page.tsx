@@ -54,6 +54,54 @@ const factoryCapabilities = [
   },
 ];
 
+const factoryFacts = [
+  {
+    label: "Factory Scale",
+    value: "82 employees · 2,600 sqm facility",
+    detail: "The team includes 15 R&D engineers, 5 QC inspectors, export sales, assembly technicians, and calibration staff in Xi'an.",
+  },
+  {
+    label: "Production Scope",
+    value: "Level, flow, and pressure instruments",
+    detail: "Core product lines cover 0-80m radar level measurement, DN6-DN1000 flow measurement, and 0-100MPa pressure measurement.",
+  },
+  {
+    label: "Signal Options",
+    value: "4-20 mA · RS485 · HART",
+    detail: "Common outputs include 4-20 mA, RS485 Modbus, HART, and 0-10 V depending on product model and PLC/DCS requirement.",
+  },
+  {
+    label: "Environmental Ratings",
+    value: "IP65/IP67 · -40°C to +200°C",
+    detail: "Selected models support IP65, IP67, ATEX Ex d IIC T6, and process temperature ratings up to +200°C.",
+  },
+  {
+    label: "Quality Control",
+    value: "5-stage QC · 72 hours aging",
+    detail: "Inspection flow covers IQC, IPQC, 72 hours powered aging, OQC, and calibration certificate matching before export packing.",
+  },
+  {
+    label: "Certificates",
+    value: "ISO 9001 · CE · ATEX · RoHS",
+    detail: "Certificate issuers listed on the site include SGS, TÜV Rheinland, DEKRA, Intertek, and Alibaba.com supplier verification.",
+  },
+  {
+    label: "Ordering Range",
+    value: "MOQ 10-50 units · 15-25 days",
+    detail: "Typical MOQ ranges from 10 units to 50 units depending on model; standard production lead time is 15-25 days.",
+  },
+  {
+    label: "Export Handling",
+    value: "DHL/FedEx 3-7 days for samples",
+    detail: "Bulk orders ship by air or sea freight using export cartons, foam protection, and optional wooden cases.",
+  },
+  {
+    label: "Warranty",
+    value: "2-year product warranty",
+    detail: "AccuMeasure backs standard instruments with a 2-year warranty and serial-number traceability for after-sales support.",
+  },
+];
+
 export const metadata: Metadata = {
   title: "About AccuMeasureTech | Precision Measurement Instrument Factory in Xi'an, China",
   description:
@@ -149,6 +197,30 @@ export default function AboutPage() {
       </section>
 
       <section className="py-16 bg-bg-light">
+        <div className="container-max">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-dark mb-4">
+              Factory Facts Buyers Can Verify
+            </h2>
+            <p className="text-muted max-w-2xl mx-auto">
+              AccuMeasure is positioned as a source factory, not a catalog-only trader.
+              These operating facts are the basis for quotation, customization, QC,
+              and export documentation.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {factoryFacts.map((fact) => (
+              <div key={fact.label} className="bg-white rounded-xl border border-border p-6">
+                <div className="text-sm font-medium text-cta mb-2">{fact.label}</div>
+                <h3 className="text-xl font-semibold text-dark mb-3">{fact.value}</h3>
+                <p className="text-sm leading-6 text-muted">{fact.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
         <div className="container-max">
           <div className="grid md:grid-cols-3 gap-8">
             {[

@@ -241,7 +241,6 @@ export function InquiryForm({
         <Textarea
           id="message"
           rows={5}
-          defaultValue={defaultMessage}
           placeholder="Tell us about your application and requirements..."
           {...register("message")}
         />

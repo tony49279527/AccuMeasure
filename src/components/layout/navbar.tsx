@@ -41,7 +41,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => {
               const hasChildren = item.children && item.children.length > 0;
-              const isActive = pathname === item.href || (hasChildren && item.children.some(c => pathname.startsWith(c.href.split('?')[0])));
+              const isActive = pathname === item.href || (hasChildren && item.children.some(c => pathname.startsWith((c.href.split('?')[0] ?? c.href))));
 
               return (
                 <div key={item.label} className="relative group">
