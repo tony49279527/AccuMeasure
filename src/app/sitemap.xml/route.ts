@@ -40,28 +40,29 @@ function renderEntry(entry: SitemapEntry): string {
 }
 
 export function GET() {
-  const now = new Date().toISOString();
+  const staticContentLastModified = "2026-07-09T00:00:00.000Z";
+  const productCatalogLastModified = "2026-07-09T00:00:00.000Z";
 
   const staticPages: SitemapEntry[] = [
-    { url: siteConfig.url, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: `${siteConfig.url}/products`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${siteConfig.url}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${siteConfig.url}/quality`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${siteConfig.url}/certificates`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${siteConfig.url}/industries`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${siteConfig.url}/resources`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${siteConfig.url}/case-studies`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${siteConfig.url}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
-    { url: `${siteConfig.url}/customization`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${siteConfig.url}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${siteConfig.url}/products/level`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${siteConfig.url}/products/flow`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${siteConfig.url}/products/pressure`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: siteConfig.url, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 1 },
+    { url: `${siteConfig.url}/products`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteConfig.url}/about`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${siteConfig.url}/quality`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${siteConfig.url}/certificates`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${siteConfig.url}/industries`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${siteConfig.url}/resources`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${siteConfig.url}/case-studies`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${siteConfig.url}/blog`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.6 },
+    { url: `${siteConfig.url}/customization`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteConfig.url}/contact`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteConfig.url}/products/level`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${siteConfig.url}/products/flow`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${siteConfig.url}/products/pressure`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
   ];
 
   const productPages: SitemapEntry[] = products.map((p) => ({
     url: `${siteConfig.url}/products/${p.slug}`,
-    lastModified: now,
+    lastModified: productCatalogLastModified,
     changeFrequency: "monthly",
     priority: 0.8,
     // Only the main image is a real file; gallery paths are placeholders not yet on disk.
