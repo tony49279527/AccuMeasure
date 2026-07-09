@@ -72,9 +72,11 @@ The `/api/inquiry` route validates submissions with Zod, drops honeypot bot subm
 RESEND_API_KEY=re_xxx
 EMAIL_FROM=AccuMeasure Website <info@accumeasuretech.com>
 EMAIL_TO=info@accumeasuretech.com
+LEAD_WEBHOOK_URL=https://example.com/lead-webhook
+LEAD_WEBHOOK_SECRET=optional-shared-secret
 ```
 
-`EMAIL_FROM` is optional; without it, the route falls back to Resend's onboarding sender. Production delivery requires `RESEND_API_KEY` and `EMAIL_TO` in Vercel.
+`EMAIL_FROM` is optional; without it, the route falls back to Resend's onboarding sender. Production email delivery requires `RESEND_API_KEY` and `EMAIL_TO` in Vercel. `LEAD_WEBHOOK_URL` is optional and posts each valid human submission to a CRM, Google Apps Script, Airtable, or automation endpoint before email delivery. Webhook failures are logged but do not block the buyer-facing success response.
 
 ## Media Assets
 

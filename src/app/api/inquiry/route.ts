@@ -13,6 +13,19 @@ function formatEmailBody(formType: string, data: Record<string, unknown>): strin
   return lines.join("\n");
 }
 
+function leadPayload(formType: string, data: Record<string, unknown>) {
+  const cleanData = Object.fromEntries(
+    Object.entries(data).filter(([key]) => key !== "website" && key !== "formType")
+  );
+
+  return {
+    source: "accumeasuretech.com",
+    formType,
+    submittedAt: new Date().toISOString(),
+    data: cleanData,
+  };
+}
+
 async function deliverEmail(formType: string, data: Record<string, unknown>): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.EMAIL_TO;
@@ -44,6 +57,42 @@ async function deliverEmail(formType: string, data: Record<string, unknown>): Pr
     return false;
   }
   return true;
+}
+
+async function backupLead(formType: string, data: Record<string, unknown>): Promise<boolean> {
+  const webhookUrl = process.env.LEAD_WEBHOOK_URL;
+  if (!webhookUrl) return false;
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+
+  try {
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
+    if (process.env.LEAD_WEBHOOK_SECRET) {
+      headers["X-Lead-Webhook-Secret"] = process.env.LEAD_WEBHOOK_SECRET;
+    }
+
+    const res = await fetch(webhookUrl, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(leadPayload(formType, data)),
+      signal: controller.signal,
+    });
+
+    if (!res.ok) {
+      console.error(`[${formType.toUpperCase()}] Lead backup failed (${res.status}).`);
+      return false;
+    }
+    return true;
+  } catch (e) {
+    const reason = e instanceof Error ? e.name : "UnknownError";
+    console.error(`[${formType.toUpperCase()}] Lead backup error:`, reason);
+    return false;
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 export async function POST(request: Request) {
@@ -84,7 +133,18 @@ export async function POST(request: Request) {
   // Avoid putting personal contact details into platform logs.
   console.info(`[${formType.toUpperCase()}] New valid submission received.`);
 
-  const delivered = await deliverEmail(formType, parsed.data as Record<string, unknown>).catch(
+  const leadData = parsed.data as Record<string, unknown>;
+
+  const backedUp = await backupLead(formType, leadData).catch((e) => {
+    const reason = e instanceof Error ? e.name : "UnknownError";
+    console.error(`[${formType.toUpperCase()}] Lead backup error:`, reason);
+    return false;
+  });
+  if (!backedUp && process.env.LEAD_WEBHOOK_URL) {
+    console.warn(`[${formType.toUpperCase()}] Lead backup NOT delivered.`);
+  }
+
+  const delivered = await deliverEmail(formType, leadData).catch(
     (e) => {
       console.error(`[${formType.toUpperCase()}] Email delivery error:`, e);
       return false;
