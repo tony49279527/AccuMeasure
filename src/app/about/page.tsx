@@ -87,8 +87,8 @@ const factoryFacts = [
   },
   {
     label: "Ordering Range",
-    value: "MOQ 1 sample · 50 units bulk",
-    detail: "Samples ship from 1 unit; bulk pricing starts at 50 units. Standard production lead time is 15-20 days, custom orders 25-35 days.",
+    value: "MOQ 1 sample · bulk by model",
+    detail: "Samples ship from 1 unit at unit price (refundable against first bulk order). Bulk MOQ ranges from 5 to 100 units by model. Standard production lead time is 15-20 days, custom orders 25-35 days.",
   },
   {
     label: "Export Handling",

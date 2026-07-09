@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { ProductsExplorer } from "@/components/products-explorer";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { companyFacts } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "Products — Level Sensors, Flow Meters & Pressure Transmitters",
   description:
-    "Browse 9 factory-direct industrial measurement instruments: capacitive & 80GHz radar level sensors, electromagnetic & ultrasonic flow meters, piezoresistive pressure transmitters. From $15.",
+    `Browse 9 factory-direct industrial measurement instruments: capacitive & 80GHz radar level sensors, electromagnetic & ultrasonic flow meters, piezoresistive pressure transmitters. From $${companyFacts.priceFrom}.`,
   alternates: { canonical: "/products" },
   robots: { index: true, follow: true },
   keywords: [

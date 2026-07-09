@@ -41,7 +41,7 @@ const certifications = [
     issuer: "DEKRA",
     description:
       "Explosion-proof certification per ATEX Directive 2014/34/EU. Ex d IIC T6 protection level for hazardous area installations in oil & gas, chemical, and LPG/LNG applications.",
-    scope: "80GHz radar level transmitters (AM-RL80) and explosion-proof pressure transmitters (AM-PT300).",
+    scope: "80GHz radar level transmitters (AM-RL80), electromagnetic flow meters (AM-EMF100), and explosion-proof pressure transmitters (AM-PT300).",
     validUntil: "2027",
   },
   {
@@ -185,7 +185,7 @@ export default function CertificatesPage() {
               {
                 icon: Award,
                 title: "99.8% Pass Rate",
-                desc: "Less than 0.3% field failure rate across 40+ countries over 10+ years of exports.",
+                desc: "Less than 0.3% field failure rate across 40+ countries since 2014.",
               },
               {
                 icon: FileCheck,

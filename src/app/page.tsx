@@ -14,12 +14,12 @@ import {
   ArrowRight,
   MessageSquare,
 } from "lucide-react";
-import { waLink } from "@/lib/site";
+import { waLink, siteConfig } from "@/lib/site";
+import { companyFacts } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "AccuMeasureTech | Level Sensor, Flow Meter & Pressure Transmitter Manufacturer",
-  description:
-    "Factory-direct industrial measurement instruments from Xi'an, China. Capacitive & radar level sensors, electromagnetic flow meters, pressure transmitters. ISO9001 certified. 10+ years exporting to 40+ countries.",
+  description: siteConfig.description,
   alternates: {
     canonical: "/",
     languages: {
@@ -99,6 +99,7 @@ const homeCaseStudies = [
     result: "Saved 71% vs European brand. 6 months, zero failures.",
     image: "/cases/saudi-water.jpg",
     alt: "Large water storage tanks using radar level sensors in a desert utility site",
+    slug: "saudi-water-radar-level",
   },
   {
     client: "Indonesia PDAM",
@@ -106,6 +107,7 @@ const homeCaseStudies = [
     result: "200 units delivered. Repeat order for 500 more.",
     image: "/cases/indonesia-pdam.jpg",
     alt: "Water treatment pipeline with electromagnetic flow meter installation",
+    slug: "indonesia-pdam-electromagnetic-flow",
   },
   {
     client: "Brazil Integrator",
@@ -113,6 +115,7 @@ const homeCaseStudies = [
     result: "Custom branded. First order 500, reorder 2,000.",
     image: "/cases/brazil-oem.jpg",
     alt: "OEM pressure gauge assembly and packaging for a system integrator",
+    slug: "brazil-integrator-oem-pressure-gauge",
   },
 ];
 
@@ -131,7 +134,7 @@ export default function Home() {
               </h1>
               <p className="text-lg text-muted mb-8 max-w-xl">
                 Factory-direct level sensors, flow meters, and pressure transmitters
-                from Xi&apos;an, China. 10 years exporting to 40+ countries.
+                from Xi&apos;an, China. Exporting {companyFacts.yearsExportingLabel.toLowerCase()} to {companyFacts.exportMarkets} countries.
                 Aerospace-grade quality at 1/3 the cost.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -146,15 +149,15 @@ export default function Home() {
 
               <div className="mt-12 grid grid-cols-3 gap-3 sm:gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">10+</div>
+                  <div className="text-3xl font-bold text-primary">{companyFacts.yearsExportingShort.split(" ")[0]}+</div>
                   <div className="text-sm text-muted mt-1">Years</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">40+</div>
+                  <div className="text-3xl font-bold text-primary">{companyFacts.exportMarkets}</div>
                   <div className="text-sm text-muted mt-1">Countries</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">72h</div>
+                  <div className="text-3xl font-bold text-primary">{companyFacts.agingHours}h</div>
                   <div className="text-sm text-muted mt-1">Aging Test</div>
                 </div>
               </div>
@@ -182,10 +185,10 @@ export default function Home() {
             {[
               { icon: Shield, label: "ISO 9001" },
               { icon: Award, label: "CE & ATEX" },
-              { icon: Clock, label: "72h Test" },
-              { icon: Users, label: "15 R&D" },
+              { icon: Clock, label: `${companyFacts.agingHours}h Test` },
+              { icon: Users, label: `${companyFacts.rdEngineers} R&D` },
               { icon: Calendar, label: "7-Day Custom" },
-              { icon: Globe, label: "40+ Country" },
+              { icon: Globe, label: `${companyFacts.exportMarkets} Country` },
             ].map((item, idx) => (
               <div key={idx} className="flex items-center gap-3 text-white">
                 <item.icon className="w-6 h-6" />
@@ -323,7 +326,7 @@ export default function Home() {
                     {cs.client}
                   </h3>
                   <p className="text-muted mb-6">{cs.result}</p>
-                  <Link href="/case-studies" className="text-accent font-medium inline-flex items-center gap-2">
+                  <Link href={`/case-studies/${cs.slug}`} className="text-accent font-medium inline-flex items-center gap-2">
                     Read case study <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -409,18 +412,18 @@ export default function Home() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
             {[
-              { label: "Founded", value: "2014, Xi'an, China" },
-              { label: "Facility", value: "2,600 sqm, High-Tech Zone" },
-              { label: "Team", value: "82 staff, 15 R&D engineers" },
+              { label: "Founded", value: `${companyFacts.foundedYear}, Xi'an, China` },
+              { label: "Facility", value: `${companyFacts.facilitySqm.toLocaleString()} sqm, High-Tech Zone` },
+              { label: "Team", value: `${companyFacts.employees} staff, ${companyFacts.rdEngineers} R&D engineers` },
               { label: "Quality System", value: "ISO 9001:2015 (SGS)" },
-              { label: "Product Certifications", value: "CE, ATEX, RoHS, IECEx" },
-              { label: "Price Range", value: "From $35 (FOB Xi'an)" },
-              { label: "MOQ", value: "1 sample · 50 units bulk" },
-              { label: "Standard Lead Time", value: "15-20 days" },
-              { label: "Burn-in Testing", value: "72-hour aging, every unit" },
+              { label: "Product Certifications", value: companyFacts.certificationsPublic.filter((c) => c !== "ISO 9001").join(", ") },
+              { label: "Price Range", value: companyFacts.priceFromLabel },
+              { label: "MOQ", value: companyFacts.moqRangeLabel },
+              { label: "Standard Lead Time", value: companyFacts.leadTimeStandard },
+              { label: "Burn-in Testing", value: `${companyFacts.agingHours}-hour aging, every unit` },
               { label: "Documentation", value: "Calibration cert per unit" },
-              { label: "Warranty", value: "2 years" },
-              { label: "Export Markets", value: "40+ countries" },
+              { label: "Warranty", value: companyFacts.warrantyLabel },
+              { label: "Export Markets", value: `${companyFacts.exportMarkets} countries` },
             ].map((fact) => (
               <div key={fact.label} className="bg-bg-light rounded-lg border border-border p-4">
                 <div className="text-xs text-muted uppercase tracking-wide mb-1">{fact.label}</div>

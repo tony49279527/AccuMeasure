@@ -11,12 +11,12 @@ export const siteConfig = {
   address: "High-Tech Zone, Xi'an, Shaanxi, China",
   officeHours: "Mon-Fri 9:00-18:00 (UTC+8)",
   description:
-    "Factory-direct industrial measurement instruments from Xi'an, China. Capacitive & radar level sensors, electromagnetic flow meters, pressure transmitters. ISO9001 certified. 10+ years exporting to 40+ countries.",
+    "Factory-direct industrial measurement instruments from Xi'an, China. Capacitive & radar level sensors, electromagnetic flow meters, pressure transmitters. ISO9001 certified. Exporting since 2014 to 40+ countries.",
   social: {
-    linkedin: "https://www.linkedin.com/company/accumeasure",
-    youtube: "https://youtube.com/@accumeasure",
+    // Only keep profiles we own. Wrong LinkedIn/YouTube sameAs links poison
+    // entity trust (the previous LinkedIn URL pointed at an unrelated US firm).
     alibaba: "https://accumeasure.en.alibaba.com",
-  },
+  } as { linkedin?: string; youtube?: string; alibaba?: string },
 };
 
 export const waLink = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(

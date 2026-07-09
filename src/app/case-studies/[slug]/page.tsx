@@ -8,7 +8,7 @@ import { getProductById } from "@/lib/products";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { articleJsonLd } from "@/lib/seo";
-import { waLinkFor } from "@/lib/site";
+import { siteConfig, waLinkFor } from "@/lib/site";
 
 export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
@@ -28,7 +28,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       type: "article",
       publishedTime: cs.datePublished,
       modifiedTime: cs.dateModified,
-      images: [{ url: cs.image, width: 600, height: 400, alt: cs.title }],
+      images: [{ url: `${siteConfig.url}${cs.image}`, width: 1200, height: 630, alt: cs.title }],
     },
   };
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { CheckCircle, Thermometer, Gauge, Clock, Award } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
@@ -77,7 +78,7 @@ export default function QualityPage() {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-cta flex-shrink-0 mt-0.5" />
-                    <span>Temperature cycling: -20°C to +70°C, 3 cycles</span>
+                    <span>Temperature cycling: 0°C to 50°C, 3 cycles</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-cta flex-shrink-0 mt-0.5" />
@@ -167,6 +168,25 @@ export default function QualityPage() {
                 <div className="text-muted">{item.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-primary">
+        <div className="container-max text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Need Calibration Records or a Factory Audit Pack?
+          </h2>
+          <p className="text-white/80 max-w-2xl mx-auto mb-8">
+            Ask for our QC flow, aging-test profile, and sample calibration certificate with your RFQ.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" className="btn-primary">
+              Request QC Documents
+            </Link>
+            <Link href="/certificates" className="border border-white text-white hover:bg-white hover:text-primary px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center gap-2 transition-colors">
+              View Certificates
+            </Link>
           </div>
         </div>
       </section>

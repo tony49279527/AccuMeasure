@@ -43,7 +43,7 @@ export const caseStudies: CaseStudy[] = [
     background:
       "A regional Indonesian water utility (PDAM) needed accurate flow measurement for treated water distribution across a growing municipal network.",
     challenge:
-      "Source 200 electromagnetic flow meters with PTFE liners within a tight budget and a 3-week deadline for a government-funded project.",
+      "Source 200 electromagnetic flow meters with PTFE liners within a tight budget and a 15-day delivery window for a government-funded project.",
     solution: [
       "Delivered 200 units of AM-EMF100 electromagnetic flow meters, DN50-DN300.",
       "PTFE liners and 316L electrodes for treated water compatibility.",
@@ -55,7 +55,7 @@ export const caseStudies: CaseStudy[] = [
       { metric: "Lead Time", value: "15 days" },
     ],
     testimonial:
-      "The team is incredibly responsive. We had custom requirements, and they delivered in just 2 weeks. We've already placed a repeat order for 500 more.",
+      "The team is incredibly responsive. We had custom requirements, and they delivered in 15 days. We've already placed a repeat order for 500 more.",
     testimonialAuthor: "Engineering Director",
     image: "/cases/indonesia-pdam.jpg",
   },
@@ -90,20 +90,14 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
-export const clientLogos = [
-  "Saudi Water Co.",
-  "Indonesia PDAM",
-  "Brazil Integrator",
-  "Dubai Energy",
-  "Vietnam Water",
-  "Turkey Chemicals",
-  "Kenya Mining",
-  "Mexico Oil & Gas",
-  "Philippines Utility",
-  "Kuwait Refinery",
-  "Chile Mining",
-  "UAE EPC",
-];
+/** Only names backed by published case studies — unverified logos erode trust. */
+export const clientLogos = caseStudies.map((cs) =>
+  cs.country === "Saudi Arabia"
+    ? "Saudi Water Co."
+    : cs.country === "Indonesia"
+      ? "Indonesia PDAM"
+      : "Brazil Integrator",
+);
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug);

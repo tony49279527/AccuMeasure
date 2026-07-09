@@ -156,6 +156,22 @@ export async function POST(request: Request) {
     );
   }
 
+  // If neither email nor webhook accepted the lead, surface a failure so the
+  // buyer can fall back to WhatsApp instead of believing the inquiry landed.
+  const webhookConfigured = Boolean(process.env.LEAD_WEBHOOK_URL);
+  const leadCaptured = delivered || (webhookConfigured && backedUp);
+  if (!leadCaptured) {
+    return NextResponse.json(
+      {
+        success: false,
+        error: "delivery_failed",
+        message:
+          "We could not deliver your inquiry just now. Please try WhatsApp or email us directly at info@accumeasuretech.com.",
+      },
+      { status: 503 }
+    );
+  }
+
   return NextResponse.json({
     success: true,
     message:

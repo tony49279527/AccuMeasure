@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { faqPageJsonLd } from "@/lib/seo";
 import { siteConfig, waLink } from "@/lib/site";
+import { contactFaqs } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "Contact AccuMeasureTech | Get a Quote Within 24 Hours — Level, Flow & Pressure Instruments",
@@ -21,44 +22,15 @@ export const metadata: Metadata = {
   },
 };
 
-const faqs = [
-  {
-    q: "What's your MOQ?",
-    a: "1 unit for samples, 50+ for bulk pricing. Contact us for details.",
-  },
-  {
-    q: "How long is the lead time?",
-    a: "15-20 days standard, 25-35 days for custom orders.",
-  },
-  {
-    q: "Do you provide calibration certificates?",
-    a: "Yes! Every unit ships with a calibration certificate.",
-  },
-  {
-    q: "Can I visit your factory?",
-    a: "Yes, welcome! Video tour is also available.",
-  },
-  {
-    q: "What payment methods do you accept?",
-    a: "T/T, PayPal, L/C, Alibaba Trade Assurance.",
-  },
-];
+const faqs = contactFaqs;
 
-// Both desks route to the monitored info@ mailbox — sarah@/leo@ style aliases
-// don't exist in email routing and would bounce buyer emails.
+// One monitored desk — subject lines route OEM vs standard inquiries.
 const salesContacts = [
   {
-    name: "International Sales Desk",
-    role: "Quotations, samples, bulk orders",
+    name: "Sales & OEM Desk",
+    role: "Quotations, samples, bulk orders, private label, custom engineering",
     email: siteConfig.email,
-    subject: "Sales inquiry from website",
-    wa: siteConfig.whatsappDisplay,
-  },
-  {
-    name: "OEM/ODM Sales Desk",
-    role: "Private label, custom engineering",
-    email: siteConfig.email,
-    subject: "OEM/ODM inquiry from website",
+    subject: "Website inquiry",
     wa: siteConfig.whatsappDisplay,
   },
 ];
@@ -226,18 +198,24 @@ export default function ContactPage() {
                       Find Us On
                     </div>
                     <div className="flex flex-wrap gap-3">
-                      <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm py-2 px-4">
-                        LinkedIn
-                      </a>
                       <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm py-2 px-4">
                         WhatsApp
                       </a>
-                      <a href={siteConfig.social.alibaba} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm py-2 px-4">
-                        Alibaba
-                      </a>
-                      <a href={siteConfig.social.youtube} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm py-2 px-4">
-                        YouTube
-                      </a>
+                      {siteConfig.social.alibaba && (
+                        <a href={siteConfig.social.alibaba} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm py-2 px-4">
+                          Alibaba
+                        </a>
+                      )}
+                      {siteConfig.social.linkedin && (
+                        <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm py-2 px-4">
+                          LinkedIn
+                        </a>
+                      )}
+                      {siteConfig.social.youtube && (
+                        <a href={siteConfig.social.youtube} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm py-2 px-4">
+                          YouTube
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>

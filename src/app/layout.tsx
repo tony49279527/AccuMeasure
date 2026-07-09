@@ -7,6 +7,7 @@ import { FloatingButtons } from "@/components/layout/floating-buttons";
 import { JsonLd } from "@/components/json-ld";
 import { Analytics } from "@/components/analytics";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,8 +26,7 @@ export const metadata: Metadata = {
     default: "AccuMeasureTech | Precision Measurement Sensors & Industrial Measuring Solutions",
     template: "%s",
   },
-  description:
-    "Factory-direct industrial measurement instruments from Xi'an, China. Capacitive & radar level sensors, electromagnetic flow meters, pressure transmitters. ISO9001 certified. 10+ years exporting to 40+ countries.",
+  description: siteConfig.description,
   keywords: [
     "level sensor manufacturer",
     "radar level transmitter",
@@ -59,8 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AccuMeasure | Level Sensor, Flow Meter & Pressure Transmitter Manufacturer",
-    description:
-      "Factory-direct industrial measurement instruments from Xi'an, China. ISO9001 certified. 10+ years exporting to 40+ countries.",
+    description: siteConfig.description,
     images: ["/og-image.jpg"],
   },
   robots: {

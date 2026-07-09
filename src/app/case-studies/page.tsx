@@ -6,7 +6,6 @@ import { caseStudies, clientLogos } from "@/lib/case-studies";
 import { getProductById } from "@/lib/products";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
-import { articleJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -26,7 +25,17 @@ export default function CaseStudiesPage() {
   return (
     <div>
       <JsonLd
-        data={caseStudies.map((cs) => articleJsonLd(cs))}
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "AccuMeasure Case Studies",
+          itemListElement: caseStudies.map((cs, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: cs.title,
+            url: `${siteConfig.url}/case-studies/${cs.slug}`,
+          })),
+        }}
       />
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">

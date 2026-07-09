@@ -1,5 +1,6 @@
 import { siteConfig } from "./site";
 import { certificationDetail } from "./certifications";
+import { companyFacts } from "./facts";
 import { getProductById } from "./products";
 import type { Product, CaseStudy } from "./types";
 import type { BlogPost } from "./blog";
@@ -45,7 +46,7 @@ export function organizationJsonLd() {
       siteConfig.social.linkedin,
       siteConfig.social.youtube,
       siteConfig.social.alibaba,
-    ],
+    ].filter((url): url is string => Boolean(url)),
   };
 }
 
@@ -138,6 +139,14 @@ export function productJsonLd(product: Product) {
         minValue: product.moq,
         unitText: "unit",
       },
+      warranty: {
+        "@type": "WarrantyPromise",
+        durationOfWarranty: {
+          "@type": "QuantitativeValue",
+          value: companyFacts.warrantyYears,
+          unitCode: "ANN",
+        },
+      },
     },
   };
 }
@@ -205,6 +214,7 @@ export function blogArticleJsonLd(post: BlogPost) {
     headline: post.title,
     description: post.description,
     url: postUrl,
+    image: [`${siteConfig.url}/og-image.jpg`],
     datePublished: post.datePublished,
     dateModified: post.dateModified,
     articleSection: post.category,
@@ -215,6 +225,7 @@ export function blogArticleJsonLd(post: BlogPost) {
       "@type": "WebPage",
       "@id": postUrl,
     },
-    about: post.relatedProductIds.map(productUrlForId),
+    about: post.description,
+    mentions: post.relatedProductIds.map(productUrlForId),
   };
 }
