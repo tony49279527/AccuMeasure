@@ -8,7 +8,7 @@ The official B2B website for **AccuMeasure Instruments Co., Ltd.** (西安精准
 - **Styling**: Tailwind CSS + shadcn-style components (Radix UI)
 - **Forms**: React Hook Form + Zod validation
 - **Icons**: Lucide React
-- **SEO**: Native metadata API, `sitemap.ts`, `robots.ts`, JSON-LD structured data
+- **SEO**: Native metadata API, dynamic `sitemap.xml`/`robots.txt`, JSON-LD structured data
 
 ## Getting Started
 
@@ -24,9 +24,9 @@ Open [http://localhost:3000](http://localhost:3000).
 ```
 src/
 ├── app/                    # App Router pages
-│   ├── (routes)/           # 8 main pages + 9 product detail pages
+│   ├── (routes)/           # Main pages, category pages, blog/case routes, and product detail pages
 │   ├── api/inquiry/        # Inquiry submission endpoint
-│   ├── sitemap.ts          # Dynamic sitemap
+│   ├── sitemap.xml/        # Dynamic sitemap route
 │   └── robots.ts           # Robots rules
 ├── components/
 │   ├── forms/              # Inquiry & customization forms (RHF + Zod)
@@ -66,23 +66,27 @@ src/
 
 ## Forms & Backend
 
-The `/api/inquiry` route validates submissions with Zod and logs them server-side. To enable email delivery, wire up a provider (e.g. Resend, Nodemailer) in `src/app/api/inquiry/route.ts` and configure credentials in `.env.local`:
+The `/api/inquiry` route validates submissions with Zod, drops honeypot bot submissions, avoids logging personal contact details, and sends email through Resend when credentials are configured:
 
 ```
-EMAIL_FROM=info@accumeasuretech.com
+RESEND_API_KEY=re_xxx
+EMAIL_FROM=AccuMeasure Website <info@accumeasuretech.com>
 EMAIL_TO=info@accumeasuretech.com
 ```
 
-## Placeholder Media
+`EMAIL_FROM` is optional; without it, the route falls back to Resend's onboarding sender. Production delivery requires `RESEND_API_KEY` and `EMAIL_TO` in Vercel.
 
-All images in `public/` are generated placeholders (gray backgrounds with text). Replace them with real photography while keeping the same filenames and dimensions:
+## Media Assets
 
-- `public/products/am-*.jpg` (600×400) — product photos
-- `public/cases/*.jpg` (600×400) — case study photos
-- `public/factory/*.jpg` (400×300) — factory floor photos
-- `public/og-image.png` (1200×630) — social share image
+The site now uses optimized JPEG assets for product, factory, industry, case study, and Open Graph media. Keep filenames stable when replacing assets so existing page data continues to resolve:
 
-Regenerate placeholders with `node scripts/generate-placeholders.cjs`.
+- `public/products/am-*-v2.jpg` (1200×800) — product photos
+- `public/cases/*.jpg` (1200×800) — case study photos
+- `public/factory/*.jpg` (900×900) — factory/process photos
+- `public/industries/*.jpg` (1200×900) — industry photos
+- `public/og-image.jpg` (1200×630) — social share image
+
+Real factory photos and certificate scans are still the highest-value trust upgrade when available.
 
 ## Deployment
 
