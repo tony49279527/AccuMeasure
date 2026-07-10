@@ -12,7 +12,7 @@ const config: Config = {
           DEFAULT: "#0C447C",
           light: "#185FA5",
         },
-        accent: "#378ADD",
+        accent: "#1F6FB8",
         cta: {
           DEFAULT: "#C2410C",
           hover: "#9A3412",
@@ -22,7 +22,7 @@ const config: Config = {
         muted: "#5F5E5A",
         "bg-light": "#F1EFE8",
         "bg-white": "#FFFFFF",
-        success: "#1D9E75",
+        success: "#087854",
         danger: "#E24B4A",
         border: "rgba(0, 0, 0, 0.08)",
       },

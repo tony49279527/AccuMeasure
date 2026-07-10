@@ -126,9 +126,9 @@ export default function ContactPage() {
 
             <div className="space-y-8">
               <div className="bg-white rounded-xl p-8 border border-border">
-                <h3 className="text-xl font-semibold text-dark mb-6">
+                <h2 className="text-xl font-semibold text-dark mb-6">
                   Contact Information
-                </h3>
+                </h2>
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -173,7 +173,7 @@ export default function ContactPage() {
                           <div className="text-muted text-sm mb-2">{contact.role}</div>
                           <a
                             href={`mailto:${contact.email}?subject=${encodeURIComponent(contact.subject)}`}
-                            className="text-sm text-primary hover:underline flex items-center gap-2"
+                            className="min-h-6 text-sm text-primary hover:underline flex items-center gap-2"
                           >
                             <Mail className="w-4 h-4" />
                             {contact.email}
@@ -182,7 +182,7 @@ export default function ContactPage() {
                             href={waLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm text-success hover:underline flex items-center gap-2"
+                            className="min-h-6 text-sm text-success hover:underline flex items-center gap-2"
                           >
                             <MessageSquare className="w-4 h-4" />
                             {contact.wa}
