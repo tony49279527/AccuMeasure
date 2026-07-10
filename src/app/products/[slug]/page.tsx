@@ -409,7 +409,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
             <h2 className="text-2xl font-bold text-dark mb-8 text-center">
               {product.model} FAQ
             </h2>
-            <Accordion type="single" collapsible className="bg-white rounded-xl border border-border">
+            <Accordion type="single" collapsible defaultValue="item-0" className="bg-white rounded-xl border border-border">
               {product.faq.map((item, idx) => (
                 <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-border last:border-0">
                   <AccordionTrigger className="px-6 py-4 text-left font-medium text-dark hover:no-underline">

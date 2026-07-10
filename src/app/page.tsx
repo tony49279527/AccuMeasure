@@ -18,7 +18,8 @@ import { waLink, siteConfig } from "@/lib/site";
 import { companyFacts } from "@/lib/facts";
 
 export const metadata: Metadata = {
-  title: "AccuMeasureTech | Level Sensor, Flow Meter & Pressure Transmitter Manufacturer",
+  title:
+    "Level Sensor & Flow Meter Manufacturer | Factory-Direct from China | AccuMeasureTech",
   description: siteConfig.description,
   alternates: {
     canonical: "/",
@@ -34,6 +35,7 @@ export const metadata: Metadata = {
     "pressure transmitter",
     "industrial measurement instruments",
     "China factory",
+    "factory-direct level sensor",
   ],
 };
 
@@ -132,11 +134,23 @@ export default function Home() {
                   Factory-Direct from Xi&apos;an
                 </span>
               </h1>
-              <p className="text-lg text-muted mb-8 max-w-xl">
+              <p className="text-lg text-muted mb-6 max-w-xl">
                 Factory-direct level sensors, flow meters, and pressure transmitters
                 from Xi&apos;an, China. Exporting {companyFacts.yearsExportingLabel.toLowerCase()} to {companyFacts.exportMarkets} countries.
-                Aerospace-grade quality at 1/3 the cost.
+                Process-instrument quality at about 1/3 typical European brand pricing —
+                backed by ISO 9001, CE, ATEX, and RoHS.
               </p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {["ISO 9001 (SGS)", "CE (TÜV)", "ATEX (DEKRA)", "RoHS (Intertek)"].map((badge) => (
+                  <Link
+                    key={badge}
+                    href="/certificates"
+                    className="inline-flex items-center rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-dark hover:border-primary hover:text-primary transition-colors"
+                  >
+                    {badge}
+                  </Link>
+                ))}
+              </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/contact" className="btn-primary">
                   <MessageSquare className="w-5 h-5" />
@@ -150,7 +164,7 @@ export default function Home() {
               <div className="mt-12 grid grid-cols-3 gap-3 sm:gap-6">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary">{companyFacts.yearsExportingShort.split(" ")[0]}+</div>
-                  <div className="text-sm text-muted mt-1">Years</div>
+                  <div className="text-sm text-muted mt-1">Years Exporting</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary">{companyFacts.exportMarkets}</div>
@@ -161,18 +175,28 @@ export default function Home() {
                   <div className="text-sm text-muted mt-1">Aging Test</div>
                 </div>
               </div>
+              <p className="mt-4 text-xs text-muted max-w-xl">
+                {companyFacts.agingHours}h aging test = every unit runs continuous powered burn-in
+                ({companyFacts.agingSpec}) before OQC and calibration certificate release.
+              </p>
             </div>
 
             <div className="relative">
               <div className="aspect-square bg-primary/10 rounded-2xl flex items-center justify-center overflow-hidden">
                 <Image
                   src="/products/am-rl80-v2.jpg"
-                  alt="80GHz Radar Level Transmitter"
+                  alt="AM-RL80 80GHz radar level transmitter manufactured in Xi'an"
                   width={600}
                   height={600}
                   className="h-full w-full object-cover"
                   priority
                 />
+              </div>
+              <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white/95 border border-border px-4 py-3 shadow-sm">
+                <div className="text-sm font-semibold text-dark">AM-RL80 · 80GHz Radar</div>
+                <div className="text-xs text-muted mt-1">
+                  ±2mm · up to 80m · ATEX option · From $380 FOB Xi&apos;an
+                </div>
               </div>
             </div>
           </div>
@@ -295,6 +319,54 @@ export default function Home() {
                 </h3>
                 <p className="text-muted text-sm">{item.description}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-bg-light">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-dark mb-4">
+              Start From Your Application
+            </h2>
+            <p className="text-muted max-w-2xl mx-auto">
+              Buyer-job pages that map real industrial needs to the right AccuMeasure model —
+              with RFQ checklists, not brochure fluff.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                href: "/applications/radar-level-sensor-for-oil-tank",
+                title: "Radar level for oil tanks",
+                desc: "80GHz non-contact measurement with ATEX options",
+              },
+              {
+                href: "/applications/electromagnetic-flow-meter-for-water-treatment",
+                title: "Magmeters for water treatment",
+                desc: "DN15–DN1000 utility and plant flow measurement",
+              },
+              {
+                href: "/applications/pressure-transmitter-for-oem-equipment",
+                title: "OEM pressure & private label",
+                desc: "Branding from MOQ 100, integrator-ready docs",
+              },
+              {
+                href: "/applications/radar-vs-ultrasonic-level-sensor",
+                title: "Radar vs ultrasonic selection",
+                desc: "Choose the right level technology before you RFQ",
+              },
+            ].map((item) => (
+              <Link key={item.href} href={item.href} className="card group">
+                <h3 className="text-lg font-semibold text-dark mb-2 group-hover:text-primary transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted mb-4">{item.desc}</p>
+                <span className="inline-flex items-center gap-2 text-accent font-medium text-sm">
+                  Open guide <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
             ))}
           </div>
         </div>

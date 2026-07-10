@@ -40,8 +40,8 @@ function renderEntry(entry: SitemapEntry): string {
 }
 
 export function GET() {
-  const staticContentLastModified = "2026-07-09T00:00:00.000Z";
-  const productCatalogLastModified = "2026-07-09T00:00:00.000Z";
+  const staticContentLastModified = "2026-07-10T00:00:00.000Z";
+  const productCatalogLastModified = "2026-07-10T00:00:00.000Z";
 
   const staticPages: SitemapEntry[] = [
     { url: siteConfig.url, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 1 },
@@ -58,7 +58,20 @@ export function GET() {
     { url: `${siteConfig.url}/products/level`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/products/flow`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/products/pressure`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${siteConfig.url}/applications`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.8 },
   ];
+
+  const applicationPagesEntries: SitemapEntry[] = [
+    "radar-level-sensor-for-oil-tank",
+    "electromagnetic-flow-meter-for-water-treatment",
+    "pressure-transmitter-for-oem-equipment",
+    "radar-vs-ultrasonic-level-sensor",
+  ].map((slug) => ({
+    url: `${siteConfig.url}/applications/${slug}`,
+    lastModified: staticContentLastModified,
+    changeFrequency: "monthly",
+    priority: 0.75,
+  }));
 
   const productPages: SitemapEntry[] = products.map((p) => ({
     url: `${siteConfig.url}/products/${p.slug}`,
@@ -84,7 +97,7 @@ export function GET() {
     priority: 0.65,
   }));
 
-  const entries = [...staticPages, ...productPages, ...casePages, ...blogPages];
+  const entries = [...staticPages, ...applicationPagesEntries, ...productPages, ...casePages, ...blogPages];
 
   const xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',

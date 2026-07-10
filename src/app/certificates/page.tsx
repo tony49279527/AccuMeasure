@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Shield, Award, FileCheck, ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { waLinkFor } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Certificates — ISO 9001, CE, ATEX, RoHS Certified | AccuMeasureTech",
@@ -75,6 +76,8 @@ export default function CertificatesPage() {
             <p className="text-lg text-muted max-w-3xl mx-auto">
               Every AccuMeasure instrument ships with an individual calibration certificate.
               Our manufacturing facility is ISO 9001 certified. Our products hold CE, ATEX, and RoHS certifications.
+              Certificate numbers and issuers are published below so buyers can verify independently;
+              official PDF scans are sent on request (email or WhatsApp) to keep controlled documents current.
             </p>
           </div>
         </div>
@@ -95,19 +98,35 @@ export default function CertificatesPage() {
                         <FileCheck className="w-6 h-6 text-primary" />
                       </div>
                       <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">
-                        Controlled Certificate
+                        Verifiable Credential
                       </p>
                       <h3 className="text-xl font-bold text-dark">{cert.name}</h3>
-                      <p className="text-sm text-muted mt-2">
-                        Official scan and issuer verification documents are available on request.
+                      <p className="text-sm text-dark mt-3 font-mono-num font-semibold">
+                        {cert.number}
+                      </p>
+                      <p className="text-sm text-muted mt-1">Issuer: {cert.issuer}</p>
+                      <p className="text-sm text-muted mt-3">
+                        Official scan available by email or WhatsApp — usually within one business day.
                       </p>
                     </div>
-                    <Link
-                      href={`/contact?document=${encodeURIComponent(`${cert.name} certificate scan`)}`}
-                      className="btn-secondary w-full justify-center mt-6"
-                    >
-                      Request Scan
-                    </Link>
+                    <div className="mt-6 space-y-3">
+                      <Link
+                        href={`/contact?document=${encodeURIComponent(`${cert.name} certificate scan`)}`}
+                        className="btn-secondary w-full justify-center"
+                      >
+                        Request Scan by Email
+                      </Link>
+                      <a
+                        href={waLinkFor(
+                          `Hi AccuMeasure, please send the ${cert.name} certificate scan (${cert.number}).`,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary w-full justify-center"
+                      >
+                        Request via WhatsApp
+                      </a>
+                    </div>
                   </div>
                 </div>
 
