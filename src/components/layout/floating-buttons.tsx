@@ -27,7 +27,7 @@ export function FloatingButtons() {
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center justify-center w-1/3 h-full transition-colors"
-          style={{ color: "#25D366" }}
+          style={{ color: "#128C47" }}
         >
           <MessageCircle className="w-5 h-5 mb-0.5" />
           <span className="text-xs">WhatsApp</span>
