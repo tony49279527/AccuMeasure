@@ -1,0 +1,5 @@
+name,url,type,relevance,editorial_review,buyer_intent,evidence_readiness,cost_risk,status,next_action
+Instrumentation Directory,https://directory.instrumentation.co.uk/,industry-directory,3,1,2,1,1,eligibility-check,Verify supplier listing ownership eligibility pricing and editorial review before preparing a profile
+ISWM,https://www.iswm.org/,trade-association,2,3,2,1,2,cost-review,Review 2026 membership eligibility fees geographic fit and member directory benefits
+GAMBICA,https://www.gambica.org.uk/,trade-association,3,3,2,1,2,eligibility-check,Confirm non-UK manufacturer eligibility evidence requirements and member profile terms
+Control Trade Fair,https://www.control-messe.de/en/for-exhibitors/exhibitor-information/,trade-show,2,3,3,1,3,cost-review,Assess 2027 exhibitor package buyer fit total cost and required product evidence

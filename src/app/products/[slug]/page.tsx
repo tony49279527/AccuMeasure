@@ -13,6 +13,7 @@ import { productJsonLd, faqPageJsonLd } from "@/lib/seo";
 import { certificationDetail } from "@/lib/certifications";
 import { waLinkFor } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { getComparisonsForProduct } from "@/lib/comparisons";
 
 const reservedSlugs = ["level", "flow", "pressure"];
 
@@ -27,14 +28,17 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!product || reservedSlugs.includes(params.slug)) {
     return { title: "Product Not Found" };
   }
+  const primarySpec = product.keySpecs.slice(0, 2).map((spec) => spec.value).join(", ");
   return {
-    title: `${product.model} ${product.name} | Measurement Range, Accuracy, Applications | AccuMeasureTech`,
-    description: `${product.tagline} Measurement range: ${product.keySpecs.find(s => s.label.toLowerCase().includes('range') || s.label.toLowerCase().includes('accuracy'))?.value || product.keySpecs[0]?.value || 'various'}. From $${product.priceFrom} (FOB Xi'an). Factory-direct from AccuMeasure, ISO 9001 certified.`,
+    title: `${product.model} ${product.name} | From $${product.priceFrom}`,
+    description: `${product.model} ${product.name}: ${primarySpec}. From $${product.priceFrom} FOB Xi'an, MOQ ${product.moq}, lead time ${product.leadTime}. Request a factory quote.`,
     alternates: { canonical: `/products/${product.slug}` },
     openGraph: {
+      url: `/products/${product.slug}`,
       title: `${product.model} ${product.name}`,
       description: product.tagline,
       type: "website",
+      images: [{ url: product.image, width: 1200, height: 630, alt: `${product.model} ${product.name}` }],
     },
   };
 }
@@ -48,6 +52,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
   const productCases = getCaseStudiesByProductId(product.id);
+  const productComparisons = getComparisonsForProduct(product.id);
 
   const categoryLabel =
     product.category === "level"
@@ -319,6 +324,37 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                   ))}
                 </tbody>
               </table>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {productComparisons.length > 0 && (
+        <section className="py-16 bg-bg-light">
+          <div className="container-max">
+            <h2 className="text-2xl font-bold text-dark mb-3 text-center">
+              Compare Before You Specify
+            </h2>
+            <p className="text-muted text-center max-w-2xl mx-auto mb-8">
+              Review application fit, installation constraints, published specifications,
+              price, MOQ, and lead time side by side.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {productComparisons.map((comparison) => (
+                <Link
+                  key={comparison.slug}
+                  href={`/compare/${comparison.slug}`}
+                  className="bg-white border border-border rounded-lg p-6 group"
+                >
+                  <h3 className="font-semibold text-dark group-hover:text-primary transition-colors mb-2">
+                    {comparison.h1}
+                  </h3>
+                  <p className="text-sm text-muted mb-4">{comparison.directAnswer}</p>
+                  <span className="text-primary font-medium inline-flex items-center gap-2 text-sm">
+                    Open comparison <ArrowRight className="w-4 h-4" />
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>

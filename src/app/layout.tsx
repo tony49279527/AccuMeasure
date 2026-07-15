@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    url: "/",
     type: "website",
     locale: "en_US",
     siteName: "AccuMeasure Instruments",

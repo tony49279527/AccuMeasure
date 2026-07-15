@@ -2,6 +2,7 @@ import { blogPosts } from "@/lib/blog";
 import { caseStudies } from "@/lib/case-studies";
 import { products } from "@/lib/products";
 import { siteConfig } from "@/lib/site";
+import { comparisonPages } from "@/lib/comparisons";
 
 export const dynamic = "force-static";
 
@@ -59,6 +60,7 @@ export function GET() {
     { url: `${siteConfig.url}/products/flow`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/products/pressure`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/applications`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${siteConfig.url}/compare`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.8 },
   ];
 
   const applicationPagesEntries: SitemapEntry[] = [
@@ -82,6 +84,13 @@ export function GET() {
     images: [`${siteConfig.url}${p.image}`],
   }));
 
+  const comparisonPageEntries: SitemapEntry[] = comparisonPages.map((page) => ({
+    url: `${siteConfig.url}/compare/${page.slug}`,
+    lastModified: staticContentLastModified,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   const casePages: SitemapEntry[] = caseStudies.map((cs) => ({
     url: `${siteConfig.url}/case-studies/${cs.slug}`,
     lastModified: new Date(`${cs.dateModified}T00:00:00Z`).toISOString(),
@@ -97,7 +106,14 @@ export function GET() {
     priority: 0.65,
   }));
 
-  const entries = [...staticPages, ...applicationPagesEntries, ...productPages, ...casePages, ...blogPages];
+  const entries = [
+    ...staticPages,
+    ...applicationPagesEntries,
+    ...comparisonPageEntries,
+    ...productPages,
+    ...casePages,
+    ...blogPages,
+  ];
 
   const xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',

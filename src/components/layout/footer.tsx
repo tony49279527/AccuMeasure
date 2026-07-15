@@ -49,6 +49,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/compare" className="text-white/70 hover:text-white transition-colors text-sm">
+                  Comparison Guides
+                </Link>
+              </li>
+              <li>
                 <Link href="/industries" className="text-white/70 hover:text-white transition-colors text-sm">
                   Industries
                 </Link>

@@ -16,9 +16,10 @@ import { waLink } from "@/lib/site";
 export const metadata: Metadata = {
   title: "OEM / ODM Custom Manufacturing | AccuMeasureTech",
   description:
-    "OEM branding, ODM custom design, and non-standard engineering for level sensors, flow meters, and pressure transmitters. Get a solution in 7 days, first custom order in 45-60 days.",
+    "OEM branding, ODM design, and non-standard engineering for level, flow, and pressure instruments. Send specifications for feasibility, MOQ, and lead time.",
   alternates: { canonical: "/customization" },
   openGraph: {
+    url: "/customization",
     title: "OEM / ODM Custom Manufacturing — 7-Day Solution",
     description:
       "Send your specs. Get a solution in 7 days. From sample approval to first custom order in 45-60 days. MOQ from 1 unit for non-standard builds.",

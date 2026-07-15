@@ -10,11 +10,12 @@ import { siteConfig, waLink } from "@/lib/site";
 import { contactFaqs } from "@/lib/facts";
 
 export const metadata: Metadata = {
-  title: "Contact AccuMeasureTech | Get a Quote Within 24 Hours — Level, Flow & Pressure Instruments",
+  title: "Get an Industrial Sensor Quote | AccuMeasure",
   description:
     "Get a quote within 24 hours. Contact AccuMeasure for level sensors, flow meters, and pressure transmitters. Email, WhatsApp, or request a callback.",
   alternates: { canonical: "/contact" },
   openGraph: {
+    url: "/contact",
     title: "Contact AccuMeasure — Get a Quote Within 24 Hours",
     description:
       "Factory-direct measurement instruments. Email, WhatsApp, or use our inquiry form. Response within 24 hours.",

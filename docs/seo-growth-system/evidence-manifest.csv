@@ -1,0 +1,4 @@
+asset_id,asset_type,title,claim_supported,source_date,expiry_date,owner,public_scope,redaction_required,approval_status,file_path
+E-001,product-photo,Published product image set,Shows representative AccuMeasure instrument products,2026-07-15,n/a,Marketing,website,no,unreviewed,public/products
+E-002,case-photo,Published application case image set,Shows representative industrial application scenes,2026-07-15,n/a,Marketing,website,no,unreviewed,public/cases
+E-003,factory-photo,Published factory image set,Shows representative factory and process scenes,2026-07-15,n/a,Operations,website,no,unreviewed,public/factory

@@ -5,11 +5,12 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { waLinkFor } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Certificates — ISO 9001, CE, ATEX, RoHS Certified | AccuMeasureTech",
+  title: "ISO 9001, CE & ATEX Certificates | AccuMeasure",
   description:
-    "AccuMeasure certificates and quality credentials. ISO 9001:2015 certified factory (SGS), CE Marking (TÜV Rheinland), ATEX Ex d IIC T6 (DEKRA), RoHS 3.0 (Intertek). 2-year warranty on every instrument.",
+    "Review AccuMeasure ISO 9001, CE, ATEX, and RoHS credentials, certificate details, calibration records, and verification steps before ordering.",
   alternates: { canonical: "/certificates" },
   openGraph: {
+    url: "/certificates",
     title: "Certificates — ISO 9001, CE, ATEX, RoHS | AccuMeasureTech",
     description:
       "Request and verify AccuMeasure quality certifications. ISO 9001, CE, ATEX, RoHS. Every instrument ships with an individual calibration certificate.",

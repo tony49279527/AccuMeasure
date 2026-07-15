@@ -7,11 +7,12 @@ import { JsonLd } from "@/components/json-ld";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Industries — Measurement Solutions by Application | AccuMeasureTech",
+  title: "Industrial Measurement Solutions by Industry | AccuMeasure",
   description:
-    "Level, flow, and pressure measurement solutions for water treatment, oil & gas, chemical processing, food & beverage, pharmaceutical, and manufacturing industries. Factory-direct from Xi'an, China.",
+    "Find level, flow, and pressure instruments for water, oil and gas, chemicals, food, pharmaceutical, and manufacturing applications. Request model advice.",
   alternates: { canonical: "/industries" },
   openGraph: {
+    url: "/industries",
     title: "Industries — Measurement Solutions by Application | AccuMeasureTech",
     description:
       "From water treatment to oil & gas, chemical processing to pharmaceuticals — find the right measurement instrument for your industry.",

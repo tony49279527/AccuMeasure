@@ -17,12 +17,14 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const cs = getCaseStudyBySlug(params.slug);
   if (!cs) return { title: "Case Study Not Found" };
-  const resultSummary = cs.results.map((r) => `${r.metric}: ${r.value}`).join(", ");
+  const product = cs.productIds.map((id) => getProductById(id)).find(Boolean);
+  const resultSummary = cs.results.slice(0, 2).map((r) => `${r.metric}: ${r.value}`).join(", ");
   return {
-    title: `${cs.title} | Case Study | AccuMeasureTech`,
-    description: `${cs.clientType} in ${cs.country}. ${cs.challenge} Results — ${resultSummary}.`,
+    title: `${cs.country} ${product?.model ?? "Instrument"} Case Study | AccuMeasure`,
+    description: `${cs.clientType} in ${cs.country} used ${product?.model ?? "AccuMeasure instruments"}. Results: ${resultSummary}. Review the supplied configuration and project outcome.`,
     alternates: { canonical: `/case-studies/${cs.slug}` },
     openGraph: {
+      url: `/case-studies/${cs.slug}`,
       title: cs.title,
       description: cs.challenge,
       type: "article",

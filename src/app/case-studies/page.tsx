@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     "Real projects from Saudi Arabia, Indonesia, and Brazil. 71% cost savings, 200-unit deliveries, OEM branding. See how global buyers use AccuMeasure instruments.",
   alternates: { canonical: "/case-studies" },
   openGraph: {
+    url: "/case-studies",
     title: "Case Studies — Global Buyers Trust AccuMeasure",
     description:
       "Saudi Water Co. saved 71%. Indonesia PDAM reordered 500 units. Brazil integrator OEM branded 2,000 gauges. Real results.",
