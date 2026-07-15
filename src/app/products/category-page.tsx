@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/json-ld";
 import { siteConfig } from "@/lib/site";
 import { products } from "@/lib/products";
 import type { Product } from "@/lib/types";
+import { comparisonPages, getComparisonProducts } from "@/lib/comparisons";
 
 export interface CategoryPageData {
   slug: string;
@@ -30,6 +31,7 @@ export function generateCategoryMetadata(data: CategoryPageData): Metadata {
     alternates: { canonical: `/products/${data.slug}` },
     robots: { index: true, follow: true },
     openGraph: {
+      url: `/products/${data.slug}`,
       title: data.label,
       description: data.description,
       images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: `AccuMeasure ${data.label}` }],
@@ -41,6 +43,9 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
   const categoryProducts = products.filter(
     (p) => p.category === data.slug,
   ) as Product[];
+  const categoryComparisons = comparisonPages.filter((comparison) =>
+    getComparisonProducts(comparison).some((product) => product.category === data.slug),
+  );
 
   return (
     <div>
@@ -122,6 +127,23 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
               </Link>
             ))}
           </div>
+          {categoryComparisons.length > 0 && (
+            <div className="mt-12 border-t border-border pt-8">
+              <h2 className="text-xl font-bold text-dark mb-4">Compare Technologies</h2>
+              <div className="flex flex-wrap gap-3">
+                {categoryComparisons.map((comparison) => (
+                  <Link
+                    key={comparison.slug}
+                    href={`/compare/${comparison.slug}`}
+                    className="btn-secondary"
+                  >
+                    {comparison.h1.replace(": B2B Comparison", "")}
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

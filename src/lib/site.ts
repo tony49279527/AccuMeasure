@@ -11,7 +11,7 @@ export const siteConfig = {
   address: "High-Tech Zone, Xi'an, Shaanxi, China",
   officeHours: "Mon-Fri 9:00-18:00 (UTC+8)",
   description:
-    "Factory-direct industrial measurement instruments from Xi'an, China. Capacitive & radar level sensors, electromagnetic flow meters, pressure transmitters. ISO9001 certified. Exporting since 2014 to 40+ countries.",
+    "Factory-direct level sensors, flow meters, and pressure transmitters from Xi'an. ISO 9001, calibration certificates, and OEM support. Request a quote.",
   social: {
     // Only keep profiles we own. Wrong LinkedIn/YouTube sameAs links poison
     // entity trust (the previous LinkedIn URL pointed at an unrelated US firm).

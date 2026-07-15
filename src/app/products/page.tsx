@@ -6,10 +6,17 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { companyFacts } from "@/lib/facts";
 
 export const metadata: Metadata = {
-  title: "Products — Level Sensors, Flow Meters & Pressure Transmitters",
+  title: "Industrial Sensors & Flow Meters | AccuMeasure",
   description:
-    `Browse 9 factory-direct industrial measurement instruments: capacitive & 80GHz radar level sensors, electromagnetic & ultrasonic flow meters, piezoresistive pressure transmitters. From $${companyFacts.priceFrom}.`,
+    `Compare 9 factory-direct level sensors, flow meters, and pressure instruments from $${companyFacts.priceFrom}. Review specs, MOQ, lead time, and request a quote.`,
   alternates: { canonical: "/products" },
+  openGraph: {
+    url: "/products",
+    title: "Industrial Sensors & Flow Meters | AccuMeasure",
+    description:
+      `Compare 9 factory-direct level sensors, flow meters, and pressure instruments from $${companyFacts.priceFrom}. Review specs, MOQ, lead time, and request a quote.`,
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Industrial Sensors" }],
+  },
   robots: { index: true, follow: true },
   keywords: [
     "level sensor",

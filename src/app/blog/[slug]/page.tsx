@@ -7,6 +7,35 @@ import { JsonLd } from "@/components/json-ld";
 import { blogPosts, getBlogPostBySlug } from "@/lib/blog";
 import { getProductById } from "@/lib/products";
 import { blogArticleJsonLd, faqPageJsonLd } from "@/lib/seo";
+import { getComparisonsForProduct } from "@/lib/comparisons";
+
+const blogSeo: Record<string, { title: string; description: string }> = {
+  "how-to-choose-radar-level-sensor": {
+    title: "How to Choose a Radar Level Sensor | Buyer Guide",
+    description:
+      "Choose a radar level sensor by range, beam angle, tank geometry, media, output, and approval. Use the checklist, compare models, and request advice.",
+  },
+  "80ghz-vs-26ghz-radar-level-sensor": {
+    title: "80GHz vs 26GHz Radar Level Sensor | Comparison",
+    description:
+      "Compare 80GHz and 26GHz radar level sensors by beam angle, accuracy, dust, tank geometry, installation, and cost before specifying a transmitter.",
+  },
+  "electromagnetic-vs-ultrasonic-flow-meter": {
+    title: "Electromagnetic vs Ultrasonic Flow Meter | Guide",
+    description:
+      "Compare electromagnetic and ultrasonic flow meters by conductivity, pipe work, accuracy, maintenance, and installation. Choose the right technology.",
+  },
+  "how-to-choose-level-sensor-supplier-china": {
+    title: "How to Choose a Level Sensor Supplier in China",
+    description:
+      "Audit a China level sensor supplier using factory, certificate, sample, MOQ, payment, and quality checks. Review sourcing red flags before ordering.",
+  },
+  "pressure-transmitter-selection-guide": {
+    title: "Pressure Transmitter Selection Guide | B2B Buyer",
+    description:
+      "Specify a pressure transmitter by range, overload margin, accuracy, output, process connection, material, and hazardous-area approval. Get model advice.",
+  },
+};
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -21,13 +50,15 @@ export function generateMetadata({
   if (!post) {
     return { title: "Article Not Found" };
   }
+  const seo = blogSeo[post.slug] ?? { title: post.title, description: post.description };
 
   return {
-    title: `${post.title} | AccuMeasureTech Blog`,
-    description: post.description,
+    title: seo.title,
+    description: seo.description,
     alternates: { canonical: `/blog/${post.slug}` },
     keywords: post.keywords,
     openGraph: {
+      url: `/blog/${post.slug}`,
       title: post.title,
       description: post.description,
       type: "article",
@@ -63,6 +94,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     .filter((product): product is NonNullable<typeof product> => Boolean(product));
 
   const relatedPosts = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 2);
+  const relatedComparisons = Array.from(
+    new Map(
+      post.relatedProductIds
+        .flatMap((productId) => getComparisonsForProduct(productId))
+        .map((comparison) => [comparison.slug, comparison]),
+    ).values(),
+  );
 
   return (
     <div>
@@ -178,6 +216,23 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   Ask an Engineer <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
+
+              {relatedComparisons.length > 0 && (
+                <div className="bg-white rounded-xl border border-border p-6">
+                  <h2 className="font-semibold text-dark mb-4">Compare Technologies</h2>
+                  <div className="space-y-3">
+                    {relatedComparisons.map((comparison) => (
+                      <Link
+                        key={comparison.slug}
+                        href={`/compare/${comparison.slug}`}
+                        className="block text-sm text-muted hover:text-primary"
+                      >
+                        {comparison.h1.replace(": B2B Comparison", "")}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="bg-bg-light rounded-xl p-6">
                 <h2 className="font-semibold text-dark mb-4">More Guides</h2>

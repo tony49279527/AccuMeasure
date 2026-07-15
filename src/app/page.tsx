@@ -18,8 +18,7 @@ import { waLink, siteConfig } from "@/lib/site";
 import { companyFacts } from "@/lib/facts";
 
 export const metadata: Metadata = {
-  title:
-    "Level Sensor & Flow Meter Manufacturer | Factory-Direct from China | AccuMeasureTech",
+  title: "Level Sensor & Flow Meter Manufacturer | AccuMeasure",
   description: siteConfig.description,
   alternates: {
     canonical: "/",

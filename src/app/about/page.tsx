@@ -103,11 +103,12 @@ const factoryFacts = [
 ];
 
 export const metadata: Metadata = {
-  title: "About AccuMeasureTech | Precision Measurement Instrument Factory in Xi'an, China",
+  title: "Industrial Sensor Manufacturer in China | AccuMeasure",
   description:
-    "Founded in 2014, AccuMeasureTech is an 82-person measurement instrument factory in Xi'an, China. ISO 9001 certified. From 3 people to exporting level sensors, flow meters, and pressure transmitters to 40+ countries.",
+    "Meet AccuMeasure: an 82-person industrial sensor factory in Xi'an, exporting level, flow, and pressure instruments to 40+ countries since 2014.",
   alternates: { canonical: "/about" },
   openGraph: {
+    url: "/about",
     title: "About AccuMeasure — Measurement Instrument Factory in Xi'an",
     description:
       "Founded in 2014 by Xi'an Jiaotong University and aerospace engineers. 82 employees, 2,600 sqm facility, exporting to 40+ countries.",

@@ -30,6 +30,7 @@ export function generateMetadata({
     description: page.description,
     alternates: { canonical: `/applications/${page.slug}` },
     openGraph: {
+      url: `/applications/${page.slug}`,
       title: page.h1,
       description: page.description,
       images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: page.h1 }],

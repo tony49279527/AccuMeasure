@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     "Technical articles on level, flow, and pressure measurement: selection guides, application notes, and industry best practices from AccuMeasure engineers.",
   alternates: { canonical: "/blog" },
   openGraph: {
+    url: "/blog",
     title: "AccuMeasure Blog — Measurement Instrument Insights",
     description:
       "Selection guides, application notes, and engineering best practices for industrial measurement instruments.",

@@ -5,11 +5,12 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { applicationPages } from "@/lib/applications";
 
 export const metadata: Metadata = {
-  title: "Application Guides — Level, Flow & Pressure Solutions | AccuMeasure",
+  title: "Industrial Sensor Application Guides | AccuMeasure",
   description:
     "Application landing pages for oil-tank radar level, water-treatment flow meters, OEM pressure transmitters, and radar vs ultrasonic selection.",
   alternates: { canonical: "/applications" },
   openGraph: {
+    url: "/applications",
     title: "Application Guides | AccuMeasure",
     description:
       "Buyer-focused application pages linking AccuMeasure instruments to real industrial use cases.",

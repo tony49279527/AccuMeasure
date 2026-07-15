@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     "5-stage quality control, 72-hour aging test on every unit, calibration certificate with every shipment. 99.8% pass rate, <0.3% field failure rate. ISO 9001 certified.",
   alternates: { canonical: "/quality" },
   openGraph: {
+    url: "/quality",
     title: "Quality Assurance — 5-Stage QC & 72h Aging Test",
     description:
       "Every unit undergoes 72 hours of continuous testing under temperature cycling. 99.8% pass rate. ISO 9001, CE, ATEX certified.",

@@ -2,8 +2,16 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Terms governing the use of the AccuMeasure website.",
+  description:
+    "Terms governing use of the AccuMeasure website, product information, quotations, intellectual property, and business inquiries.",
   alternates: { canonical: "/terms" },
+  openGraph: {
+    url: "/terms",
+    title: "Terms of Service | AccuMeasure",
+    description:
+      "Terms governing use of the AccuMeasure website, product information, quotations, intellectual property, and business inquiries.",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure" }],
+  },
   robots: { index: false, follow: true },
 };
 

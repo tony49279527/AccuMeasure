@@ -34,6 +34,7 @@ const navItems = [
     children: [
       { label: "Industries", href: "/industries" },
       { label: "Applications", href: "/applications" },
+      { label: "Comparison Guides", href: "/compare" },
       { label: "Case Studies", href: "/case-studies" },
       { label: "Customization / OEM", href: "/customization" },
       { label: "Resources", href: "/resources" },
@@ -209,6 +210,7 @@ export function Navbar() {
                               { label: "Flow Meters", href: "/products/flow" },
                               { label: "Pressure Sensors", href: "/products/pressure" },
                               { label: "Application Guides", href: "/applications" },
+                              { label: "Comparison Guides", href: "/compare" },
                             ]
                           : item.children
                         ).map((child) => (
