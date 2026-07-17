@@ -311,7 +311,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                   <tr className="border-b border-border">
                     <th className="text-left py-4 px-4 text-muted font-medium">Parameter</th>
                     <th className="text-left py-4 px-4 text-primary font-semibold bg-primary/5">AccuMeasure</th>
-                    <th className="text-left py-4 px-4 text-muted font-medium">European Brand</th>
+                    <th className="text-left py-4 px-4 text-muted font-medium">Typical import brand*</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -325,6 +325,9 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                 </tbody>
               </table>
             </div>
+            <p className="text-muted text-xs mt-4 max-w-3xl mx-auto text-center">
+              *Indicative orientation for buyers, not a claim about any named competitor. Confirm project pricing, MOQ, and certification scope in your RFQ.
+            </p>
           </div>
         </section>
       )}

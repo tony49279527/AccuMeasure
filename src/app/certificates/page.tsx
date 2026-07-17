@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/certificates" },
   openGraph: {
     url: "/certificates",
-    title: "Certificates — ISO 9001, CE, ATEX, RoHS | AccuMeasureTech",
+    title: "Certificates — ISO 9001, CE, ATEX, RoHS | AccuMeasure",
     description:
       "Request and verify AccuMeasure quality certifications. ISO 9001, CE, ATEX, RoHS. Every instrument ships with an individual calibration certificate.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Certificates" }],
@@ -204,8 +204,8 @@ export default function CertificatesPage() {
               },
               {
                 icon: Award,
-                title: "99.8% Pass Rate",
-                desc: "Less than 0.3% field failure rate across 40+ countries since 2014.",
+                title: "72-Hour Aging Test",
+                desc: "Every unit completes continuous aging with temperature cycling before shipment.",
               },
               {
                 icon: FileCheck,

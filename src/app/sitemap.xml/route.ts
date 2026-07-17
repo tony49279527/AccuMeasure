@@ -3,6 +3,7 @@ import { caseStudies } from "@/lib/case-studies";
 import { products } from "@/lib/products";
 import { siteConfig } from "@/lib/site";
 import { comparisonPages } from "@/lib/comparisons";
+import { applicationPages } from "@/lib/applications";
 
 export const dynamic = "force-static";
 
@@ -41,8 +42,8 @@ function renderEntry(entry: SitemapEntry): string {
 }
 
 export function GET() {
-  const staticContentLastModified = "2026-07-10T00:00:00.000Z";
-  const productCatalogLastModified = "2026-07-10T00:00:00.000Z";
+  const staticContentLastModified = "2026-07-17T00:00:00.000Z";
+  const productCatalogLastModified = "2026-07-17T00:00:00.000Z";
 
   const staticPages: SitemapEntry[] = [
     { url: siteConfig.url, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 1 },
@@ -63,13 +64,8 @@ export function GET() {
     { url: `${siteConfig.url}/compare`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.8 },
   ];
 
-  const applicationPagesEntries: SitemapEntry[] = [
-    "radar-level-sensor-for-oil-tank",
-    "electromagnetic-flow-meter-for-water-treatment",
-    "pressure-transmitter-for-oem-equipment",
-    "radar-vs-ultrasonic-level-sensor",
-  ].map((slug) => ({
-    url: `${siteConfig.url}/applications/${slug}`,
+  const applicationPagesEntries: SitemapEntry[] = applicationPages.map((page) => ({
+    url: `${siteConfig.url}/applications/${page.slug}`,
     lastModified: staticContentLastModified,
     changeFrequency: "monthly",
     priority: 0.75,

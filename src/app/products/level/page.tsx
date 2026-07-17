@@ -11,7 +11,7 @@ const data: CategoryPageData = {
   description: `Compare capacitive, 80GHz radar, ultrasonic, and IoT level sensors from $${priceFrom}. Review 0.3-80m ranges, approvals, MOQ, and request a factory quote.`,
   h1: "Level Sensors for Industrial Tanks & Silos",
   lead: "Non-contact and contact level measurement from 0.3m to 80m range. Capacitive, radar, ultrasonic, and IoT technologies. Factory-calibrated with 72-hour aging test on every unit.",
-  overview: "AccuMeasureTech level sensors cover every industrial level measurement scenario: capacitive for aggressive chemicals, 80GHz FMCW radar for high-accuracy non-contact measurement up to 80m, ultrasonic for economical non-contact applications, and IoT WiFi smart sensors for remote tank monitoring. Each sensor is factory-calibrated with a calibration certificate and backed by a 2-year warranty.",
+  overview: "AccuMeasure level sensors cover every industrial level measurement scenario: capacitive for aggressive chemicals, 80GHz FMCW radar for high-accuracy non-contact measurement up to 80m, ultrasonic for economical non-contact applications, and IoT WiFi smart sensors for remote tank monitoring. Each sensor is factory-calibrated with a calibration certificate and backed by a 2-year warranty.",
   selectionGuide: [
     {
       title: "Match technology to media",

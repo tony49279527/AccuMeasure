@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Home, MessageSquare, Search } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Page Not Found | AccuMeasure",
+  description:
+    "This AccuMeasure page is not available. Browse level sensors, flow meters, and pressure transmitters, or contact our engineers for a recommendation.",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 const quickLinks = [
   { label: "Level Sensors", href: "/products/level" },

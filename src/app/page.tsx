@@ -27,6 +27,19 @@ export const metadata: Metadata = {
       "x-default": "/",
     },
   },
+  openGraph: {
+    url: "/",
+    title: "Level Sensor & Flow Meter Manufacturer | AccuMeasure",
+    description: siteConfig.description,
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AccuMeasure Instruments Co., Ltd.",
+      },
+    ],
+  },
   keywords: [
     "level sensor manufacturer",
     "radar level transmitter",
@@ -291,22 +304,22 @@ export default function Home() {
                   "Every sensor runs 72 hours continuous testing under temperature cycling before shipping. Zero shortcuts.",
               },
               {
-                number: "1/3",
-                title: "European Brand Pricing",
+                number: "FOB",
+                title: "Factory-Direct Pricing",
                 description:
-                  "Same sensor core technology. We skip the European office and 40% brand markup. You get the saving.",
+                  "Buy from the Xi'an manufacturer, not a rebranded import channel. Compare specs and request a project quote.",
               },
               {
-                number: "7 Days",
+                number: "7d",
                 title: "Custom Solution Turnaround",
                 description:
-                  "15-engineer R&D team. Send your specs, get a solution and quote in 7 days.",
+                  `${companyFacts.rdEngineers}-engineer R&D team. Send your specs for a solution outline and quote timeline.`,
               },
               {
-                number: "24h",
-                title: "Inquiry Response Time",
+                number: "1d",
+                title: "Inquiry Response Target",
                 description:
-                  "We reply within 24 hours. Often faster. The factory owner picks up WhatsApp at 3am.",
+                  "We aim to reply within one business day (UTC+8). WhatsApp and email remain available if the form is delayed.",
               },
             ].map((item, idx) => (
               <div key={idx} className="bg-white p-8 rounded-xl border border-border">

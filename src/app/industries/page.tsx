@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/industries" },
   openGraph: {
     url: "/industries",
-    title: "Industries — Measurement Solutions by Application | AccuMeasureTech",
+    title: "Industries — Measurement Solutions by Application | AccuMeasure",
     description:
       "From water treatment to oil & gas, chemical processing to pharmaceuticals — find the right measurement instrument for your industry.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Industries" }],
@@ -73,7 +73,7 @@ const industries = [
       "Pressure transmitters for hydraulic systems and pneumatic control. IoT WiFi level sensors for remote tank monitoring across facilities. Electromagnetic flow meters for coolant and lubricant distribution systems.",
     products: ["4", "5", "8"],
     image: "/industries/manufacturing.jpg",
-    highlight: "Aerospace-grade vibration resistance; IoT sensors with 6-month battery life.",
+    highlight: "High vibration resistance for hydraulics; IoT sensors with 6-month battery life.",
   },
 ];
 

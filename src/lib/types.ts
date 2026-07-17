@@ -40,7 +40,6 @@ export interface Product {
   downloads: {
     name: string;
     type: 'pdf' | 'doc' | '3d';
-    url: string;
   }[];
   procurement?: {
     packaging: string;

@@ -7,13 +7,13 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 export const metadata: Metadata = {
   title: "Quality Assurance — 5-Stage QC & 72h Aging Test",
   description:
-    "5-stage quality control, 72-hour aging test on every unit, calibration certificate with every shipment. 99.8% pass rate, <0.3% field failure rate. ISO 9001 certified.",
+    "5-stage quality control, 72-hour aging test on every unit, and a calibration certificate with every shipment. ISO 9001 certified industrial measurement instruments.",
   alternates: { canonical: "/quality" },
   openGraph: {
     url: "/quality",
     title: "Quality Assurance — 5-Stage QC & 72h Aging Test",
     description:
-      "Every unit undergoes 72 hours of continuous testing under temperature cycling. 99.8% pass rate. ISO 9001, CE, ATEX certified.",
+      "Every unit undergoes 72 hours of continuous testing under temperature cycling. Calibration certificate included. ISO 9001, CE, ATEX certified.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Quality Control" }],
   },
 };
@@ -155,14 +155,17 @@ export default function QualityPage() {
       <section className="py-16 bg-bg-light">
         <div className="container-max">
           <h2 className="text-3xl font-bold text-dark mb-12 text-center">
-            Quality Statistics
+            Quality Commitments
           </h2>
+          <p className="text-muted text-center max-w-2xl mx-auto mb-10">
+            These are process commitments buyers can verify in an RFQ package — not unverified field-performance percentages.
+          </p>
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { number: "99.8%", label: "Pass Rate" },
-              { number: "<0.3%", label: "Field Failure Rate (1 year)" },
-              { number: "<0.1%", label: "Return Rate" },
-              { number: "100%", label: "Calibration Certificate Coverage" },
+              { number: "5", label: "QC Stages on Every Order" },
+              { number: "72h", label: "Aging Test on Every Unit" },
+              { number: "100%", label: "Calibration Certificate With Shipment" },
+              { number: "2yr", label: "Factory Warranty" },
             ].map((item, idx) => (
               <div key={idx} className="bg-white p-8 rounded-xl border border-border text-center">
                 <div className="text-4xl font-bold text-cta mb-2">{item.number}</div>

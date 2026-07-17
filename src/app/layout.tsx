@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "AccuMeasureTech | Precision Measurement Sensors & Industrial Measuring Solutions",
+    default: "AccuMeasure | Precision Measurement Sensors & Industrial Measuring Solutions",
     template: "%s",
   },
   description: siteConfig.description,
@@ -36,15 +36,9 @@ export const metadata: Metadata = {
     "AccuMeasure",
   ],
   metadataBase: new URL("https://www.accumeasuretech.com"),
-  alternates: {
-    canonical: "/",
-    languages: {
-      "en-US": "/",
-      "x-default": "/",
-    },
-  },
+  // Do not set a site-wide canonical here — it would leak onto 404/not-found
+  // and other pages that inherit root metadata. Homepage sets its own in page.tsx.
   openGraph: {
-    url: "/",
     type: "website",
     locale: "en_US",
     siteName: "AccuMeasure Instruments",

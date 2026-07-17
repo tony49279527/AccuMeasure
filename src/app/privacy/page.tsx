@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How AccuMeasure collects, uses, and protects your personal information.",
+  description:
+    "How AccuMeasure Instruments collects, uses, and protects personal information submitted through inquiry forms on this website.",
   alternates: { canonical: "/privacy" },
   openGraph: {
     url: "/privacy",
     title: "Privacy Policy | AccuMeasure",
-    description: "How AccuMeasure collects, uses, and protects your personal information.",
+    description:
+      "How AccuMeasure Instruments collects, uses, and protects personal information submitted through inquiry forms on this website.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure" }],
   },
   robots: { index: false, follow: true },

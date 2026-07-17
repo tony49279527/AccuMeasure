@@ -84,8 +84,8 @@ export const products: Product[] = [
     ],
     certifications: ['ISO9001', 'CE'],
     downloads: [
-      { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-cl100-datasheet.pdf' },
-      { name: 'Installation Manual', type: 'pdf', url: '/downloads/am-cl100-manual.pdf' },
+      { name: 'Product Datasheet', type: 'pdf' },
+      { name: 'Installation Manual', type: 'pdf' },
     ],
     procurement: defaultProcurement,
     faq: [
@@ -165,9 +165,9 @@ export const products: Product[] = [
     ],
     certifications: ['ISO9001', 'CE', 'ATEX', 'IECEx'],
     downloads: [
-      { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-rl80-datasheet.pdf' },
-      { name: 'Installation Manual', type: 'pdf', url: '/downloads/am-rl80-manual.pdf' },
-      { name: '3D Model', type: '3d', url: '/downloads/am-rl80-3d.step' },
+      { name: 'Product Datasheet', type: 'pdf' },
+      { name: 'Installation Manual', type: 'pdf' },
+      { name: '3D Model', type: '3d' },
     ],
     procurement: defaultProcurement,
     faq: [
@@ -241,7 +241,7 @@ export const products: Product[] = [
     ],
     certifications: ['ISO9001', 'CE'],
     downloads: [
-      { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-ul20-datasheet.pdf' },
+      { name: 'Product Datasheet', type: 'pdf' },
     ],
     procurement: defaultProcurement,
     faq: [
@@ -312,7 +312,7 @@ export const products: Product[] = [
     ],
     certifications: ['ISO9001', 'CE', 'FCC'],
     downloads: [
-      { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-wl50-datasheet.pdf' },
+      { name: 'Product Datasheet', type: 'pdf' },
     ],
     procurement: defaultProcurement,
     faq: [
@@ -388,7 +388,7 @@ export const products: Product[] = [
     ],
     certifications: ['ISO9001', 'CE', 'ATEX'],
     downloads: [
-      { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-emf100-datasheet.pdf' },
+      { name: 'Product Datasheet', type: 'pdf' },
     ],
     procurement: defaultProcurement,
     faq: [
@@ -450,7 +450,7 @@ export const products: Product[] = [
     ],
     certifications: ['ISO9001', 'CE'],
     downloads: [
-      { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-uf200-datasheet.pdf' },
+      { name: 'Product Datasheet', type: 'pdf' },
     ],
     procurement: defaultProcurement,
     faq: [
@@ -512,7 +512,7 @@ export const products: Product[] = [
     ],
     certifications: ['ISO9001', 'CE'],
     downloads: [
-      { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-mf50-datasheet.pdf' },
+      { name: 'Product Datasheet', type: 'pdf' },
     ],
     procurement: defaultProcurement,
     faq: [
@@ -530,8 +530,8 @@ export const products: Product[] = [
     model: 'AM-PT300',
     name: 'Piezoresistive Pressure Transmitter',
     category: 'pressure',
-    tagline: 'Aerospace-grade vibration resistance. Industrial pressure workhorse.',
-    description: 'Rugged pressure transmitter with aerospace-grade components. High vibration resistance for demanding industrial applications.',
+    tagline: 'High vibration resistance for hydraulic and industrial duty.',
+    description: 'Rugged piezoresistive pressure transmitter built for high-vibration industrial environments such as hydraulics, pumps, and heavy machinery.',
     image: '/products/am-pt300-v2.jpg',
     gallery: [
       '/products/am-pt300-v2.jpg',
@@ -575,7 +575,7 @@ export const products: Product[] = [
       { icon: 'Droplets', name: 'Pumps', description: 'Pump discharge and line pressure' },
     ],
     advantages: [
-      { title: 'Rugged', description: 'Aerospace-grade vibration resistance' },
+      { title: 'Rugged', description: 'High vibration resistance for industrial duty' },
       { title: 'Wide Range', description: 'From vacuum to 100MPa' },
       { title: 'Stable', description: 'Excellent long-term stability' },
     ],
@@ -585,12 +585,12 @@ export const products: Product[] = [
     ],
     certifications: ['ISO9001', 'CE', 'ATEX'],
     downloads: [
-      { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-pt300-datasheet.pdf' },
+      { name: 'Product Datasheet', type: 'pdf' },
     ],
     procurement: defaultProcurement,
     faq: [
       { question: 'What pressure range does the AM-PT300 cover?', answer: 'The AM-PT300 covers 0-10kPa to 0-100MPa with ±0.25% FS accuracy, using piezoresistive sensing technology.' },
-      { question: 'What does aerospace-grade vibration resistance mean in practice?', answer: 'The sensor uses aerospace-grade components and construction that withstand high vibration environments, making it suitable for hydraulic systems, pumps, and heavy industrial machinery where standard sensors fail prematurely.' },
+      { question: 'Is the AM-PT300 suitable for high-vibration environments?', answer: 'Yes. It is designed for high-vibration industrial duty such as hydraulic systems, pumps, and heavy machinery. Share your vibration profile with the RFQ and our engineers will confirm suitability or recommend an alternative.' },
       { question: 'Is the AM-PT300 explosion-proof certified?', answer: 'Yes, it carries ATEX Ex d IIC T6 explosion-proof certification and IP65 protection for harsh environments.' },
       { question: 'What is the operating temperature range?', answer: 'It operates from -40°C to +125°C, suitable for both cold outdoor and high-temperature industrial applications.' },
       { question: 'What output signals are supported?', answer: '4-20mA and RS485 Modbus outputs are standard, powered by 12-36V DC supply.' },
@@ -654,7 +654,7 @@ export const products: Product[] = [
     ],
     certifications: ['ISO9001', 'CE'],
     downloads: [
-      { name: 'Product Datasheet', type: 'pdf', url: '/downloads/am-pg200-datasheet.pdf' },
+      { name: 'Product Datasheet', type: 'pdf' },
     ],
     procurement: defaultProcurement,
     faq: [

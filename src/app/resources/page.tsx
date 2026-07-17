@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/resources" },
   openGraph: {
     url: "/resources",
-    title: "Resources — Datasheets, Manuals & Technical Documents | AccuMeasureTech",
+    title: "Resources — Datasheets, Manuals & Technical Documents | AccuMeasure",
     description:
       "Request controlled product datasheets, installation manuals, and technical documentation for AccuMeasure measurement instruments.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Resources" }],
