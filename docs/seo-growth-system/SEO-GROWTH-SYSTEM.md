@@ -1,17 +1,17 @@
 # AccuMeasure B2B SEO 长期增长系统
 
-## 当前项目基线（2026-07-15，Asia/Shanghai）
+## 当前项目基线（2026-07-16，Asia/Shanghai）
 
 - 品牌：AccuMeasure Instruments Co., Ltd.（西安精准测量仪器有限公司）。
 - 线上域名：`https://www.accumeasuretech.com`；本地项目：`/Users/liangxile/project/AccuMeasure`。
 - 技术栈：Next.js 14 App Router、TypeScript、Tailwind、React Hook Form、Zod；Vercel 线上运行。
 - 产品：液位传感器/仪表、流量计、压力变送器及 OEM/定制测量方案。
 - 推定买家（来自站点定位，仍需用询盘/CRM 验证）：工业品牌商、进口商、经销商、系统集成商、设备 OEM、工程与采购团队。
-- 目标市场暂不定论：当前仓库没有可用 GSC 国家报告、合格询盘或客户国家数据，季度任务必须先取证，不能因少量展示创建多语言站。
-- 线上 smoke：主页、`robots.txt`、`sitemap.xml`、Contact 均返回 HTTP 200；robots 允许站点抓取、屏蔽 API/参数页并声明正确 Host 与 sitemap；Contact 有 canonical、JSON-LD、询盘表单和邮件 fallback。
-- 线上 sitemap 当前列出 39 个 URL（本次实时读取）；关键产品、应用、案例、博客和转化页面均纳入。
-- PSI API 本次返回 429 `RESOURCE_EXHAUSTED`，因此不能把 PSI 分数写成当前值；本地 production build 的移动 Lighthouse fallback 为 Performance 95、Accessibility 100、Best Practices 100、SEO 100，FCP 1.2s、LCP 2.1s、CLS 0、TBT 230ms。它是本地实验室数据，不冒充线上 PSI/CrUX。
-- GSC：仓库本次无可用 query/page/country/device 导出；不得声称完成 28/7 天增长判断。自动化应在权限可用时采集，并在低样本时保持观察。
+- 目标市场暂不定论：GSC 2026-07-08 至 07-14 的 170 次展示中，美国占 106 次、桌面占 152 次，但样本和点击量仍不足；在取得合格询盘、客户国家或更稳定的搜索数据前，不据此创建多语言站。
+- 线上 smoke：39/39 个 sitemap 页面、65 个唯一内部链接和 27 个解码后图片 URL 均通过；robots 声明正确 Host 与 sitemap，Contact 有 canonical、JSON-LD、可用询盘表单和邮件 fallback。
+- 线上 sitemap 当前列出 39 个 URL；Google 与 Bing 均读取成功且无 sitemap 错误或警告。Bing 已发现 39 个 URL，IndexNow 面板累计记录 568 次提交。
+- PSI API 当前仍返回 429 `RESOURCE_EXHAUSTED`，但 PageSpeed 网页端于 2026-07-16 14:39 成功生成报告：移动 98/100/100/100（FCP 1.0s、LCP 2.3s、TBT 0、CLS 0），桌面 100/100/100/100（FCP 0.3s、LCP 0.5s、TBT 10ms、CLS 0）；无 CrUX 真实用户数据，实验室结果不冒充现场指标。
+- GSC 最新完整日期为 2026-07-14：最近 28 天 1 点击、238 展示、CTR 0.42%、平均排名 53.43；最近 7 天 0 点击、170 展示。39 个 sitemap URL 的 URL Inspection 结果为 32 个已提交并收录、5 个旧 duplicate-canonical 记录正在验证、Contact 已抓取但未收录、Applications 已发现但未抓取；Contact 和 Applications 的实时测试均显示可编入索引，Applications 的手动请求因 GSC 当日配额用尽而需次日重试。
 
 ## Skills 与自然语言用法
 
