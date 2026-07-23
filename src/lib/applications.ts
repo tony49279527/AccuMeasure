@@ -1,4 +1,5 @@
 import { products } from "./products";
+import { siteConfig } from "./site";
 
 export interface ApplicationPage {
   slug: string;
@@ -147,7 +148,7 @@ export const applicationPages: ApplicationPage[] = [
       {
         question: "How fast can you quote a custom range?",
         answer:
-          "Standard ranges quote within 24 hours. Non-standard ranges or housings usually get a solution outline within 7 days.",
+          `We aim to quote standard ranges within ${siteConfig.responseTarget}. Non-standard ranges or housings usually get a solution outline within 7 days.`,
       },
     ],
   },
@@ -166,7 +167,7 @@ export const applicationPages: ApplicationPage[] = [
       "Both technologies in one factory catalog — unbiased selection help",
       "AM-UL20 for economical water/tank duty; AM-RL80 for harsh process duty",
       "Side-by-side specs, MOQ, and lead time on each product page",
-      "Application engineers reply within 24 hours with a model recommendation",
+      `Application engineers aim to reply within ${siteConfig.responseTarget} with a model recommendation`,
     ],
     checklist: [
       "Medium and vapor/dust conditions",

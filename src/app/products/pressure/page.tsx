@@ -12,6 +12,18 @@ const data: CategoryPageData = {
   h1: "Pressure Sensors for Industrial & Hazardous Applications",
   lead: "Piezoresistive pressure transmitters and battery-powered digital gauges. 0–10kPa to 0–100MPa. ±0.25% FS accuracy. ATEX explosion-proof. Built for high-vibration industrial duty.",
   overview: "AccuMeasure pressure sensors cover the full spectrum of industrial pressure measurement: ATEX-certified transmitters for hazardous areas, battery-powered digital gauges as drop-in replacements for mechanical gauges, and high-accuracy piezoresistive sensors for hydraulic and process control applications. Every unit undergoes 72-hour temperature cycling with a calibration certificate.",
+  relatedGuides: [
+    {
+      title: "Pressure Transmitters for OEM Equipment",
+      description: "Define range, connection, output, housing, branding, documentation, and annual volume for OEM projects.",
+      href: "/applications/pressure-transmitter-for-oem-equipment",
+    },
+    {
+      title: "Pressure Transmitter Selection Guide",
+      description: "Review pressure type, range, overload, wetted material, process connection, signal, and environment.",
+      href: "/blog/pressure-transmitter-selection-guide",
+    },
+  ],
   selectionGuide: [
     {
       title: "Set the pressure range",

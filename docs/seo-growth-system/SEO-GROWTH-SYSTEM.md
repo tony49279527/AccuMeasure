@@ -1,17 +1,20 @@
 # AccuMeasure B2B SEO 长期增长系统
 
-## 当前项目基线（2026-07-16，Asia/Shanghai）
+## 当前项目基线（2026-07-24，Asia/Shanghai）
 
 - 品牌：AccuMeasure Instruments Co., Ltd.（西安精准测量仪器有限公司）。
-- 线上域名：`https://www.accumeasuretech.com`；本地项目：`/Users/liangxile/project/AccuMeasure`。
+- 线上域名：`https://www.accumeasuretech.com`；唯一开发 target：`/Users/liangxile/project/AccuMeasure`。
 - 技术栈：Next.js 14 App Router、TypeScript、Tailwind、React Hook Form、Zod；Vercel 线上运行。
-- 产品：液位传感器/仪表、流量计、压力变送器及 OEM/定制测量方案。
-- 推定买家（来自站点定位，仍需用询盘/CRM 验证）：工业品牌商、进口商、经销商、系统集成商、设备 OEM、工程与采购团队。
-- 目标市场暂不定论：GSC 2026-07-08 至 07-14 的 170 次展示中，美国占 106 次、桌面占 152 次，但样本和点击量仍不足；在取得合格询盘、客户国家或更稳定的搜索数据前，不据此创建多语言站。
-- 线上 smoke：39/39 个 sitemap 页面、65 个唯一内部链接和 27 个解码后图片 URL 均通过；robots 声明正确 Host 与 sitemap，Contact 有 canonical、JSON-LD、可用询盘表单和邮件 fallback。
-- 线上 sitemap 当前列出 39 个 URL；Google 与 Bing 均读取成功且无 sitemap 错误或警告。Bing 已发现 39 个 URL，IndexNow 面板累计记录 568 次提交。
-- PSI API 当前仍返回 429 `RESOURCE_EXHAUSTED`，但 PageSpeed 网页端于 2026-07-16 14:39 成功生成报告：移动 98/100/100/100（FCP 1.0s、LCP 2.3s、TBT 0、CLS 0），桌面 100/100/100/100（FCP 0.3s、LCP 0.5s、TBT 10ms、CLS 0）；无 CrUX 真实用户数据，实验室结果不冒充现场指标。
-- GSC 最新完整日期为 2026-07-14：最近 28 天 1 点击、238 展示、CTR 0.42%、平均排名 53.43；最近 7 天 0 点击、170 展示。39 个 sitemap URL 的 URL Inspection 结果为 32 个已提交并收录、5 个旧 duplicate-canonical 记录正在验证、Contact 已抓取但未收录、Applications 已发现但未抓取；Contact 和 Applications 的实时测试均显示可编入索引，Applications 的手动请求因 GSC 当日配额用尽而需次日重试。
+- 产品与买家：液位传感器、流量计、压力变送器和 OEM/定制测量方案；面向进口商、经销商、系统集成商、设备 OEM、工程与采购团队。买家画像仍需用真实询盘或 CRM 结果验证。
+- 公开技术基线：sitemap 39 个 URL 均返回 200；逐页未发现 title、description、canonical、`og:url`、H1、JSON-LD 或图片 alt 缺失。robots、sitemap、canonical、安全头和匿名表单失败路径可用。
+- Lighthouse 实验室基线：首页移动端 99/100/100/100，FCP 1.2s、LCP 1.5s、TBT 30ms、CLS 0；桌面端 98/100/100/100，FCP 0.3s、LCP 0.5s、TBT 0、CLS 0。当前无 CrUX 现场数据，实验室结果不冒充真实用户指标。
+- PSI API 阻塞：公开 API 返回 429 `RESOURCE_EXHAUSTED`，配额 limit 为 0；巡检使用本地 Lighthouse 兜底并保留精确错误。
+- GSC 最新完整日期为 2026-07-21。最近 28 天（06-24 至 07-21）3 点击、479 展示、CTR 0.626%、平均排名 55.00；前一等长窗口无可用行，不能计算可靠环比。最近 7 天 2 点击、241 展示、CTR 0.83%、平均排名 56.55；此前 7 天 0 点击、170 展示、平均排名 53.18。展示增长但样本仍低，暂不因单周数据批量改 title 或扩页。
+- GSC 国家与设备：最近 28 天美国 319 展示、3 点击；加拿大 55 展示；澳大利亚 17 展示；阿联酋 5 展示；德国 1 展示。最近 7 天桌面 211 展示、2 点击，移动 24 展示。尚无合格询盘、成交或市场准备度证据，因此不创建多语言或国家落地页。
+- URL Inspection 抽样：主页、Products、Level、Flow、Pressure、Compare、Resources、Blog 已收录；`/applications` 为 `URL is unknown to Google`；`/contact` 为 `Crawled - currently not indexed`。sitemap API 无错误或警告，但其计数与 URL Inspection 不一致，继续观察而不自动请求索引。
+- 内容与内链：`/applications` 原线上正文约 301 词且 Google 未识别；两篇选型文章只有 1 条内部入链。2026-07-24 本地优化将应用中心改为测量任务/选型/RFQ 决策页，并从三个产品分类页增加相关应用、比较与选型指南链接。
+- 分析与转化：生产环境没有 `NEXT_PUBLIC_GA_ID` 或 `NEXT_PUBLIC_CLARITY_ID`，页面也未加载 GA/Clarity；因此目前只能证明搜索曝光、抓取与技术质量，不能证明询盘或收入增量。未经隐私、同意、事件定义和外部授权，不自动安装分析脚本。
+- 证据治理：`evidence-manifest.csv` 只有 3 组未审批图片，覆盖度不足以证明站内全部证书编号、客户名称、订单、测试和量化结果。后续新增案例或强声明前必须补来源、授权、日期、适用范围与审批状态。
 
 ## Skills 与自然语言用法
 
@@ -25,12 +28,12 @@
 
 ## 自动化节奏
 
-- 每日技术巡检：每日 09:20（Asia/Shanghai）。读取自己的 memory；检查 live/GSC/PSI/索引/robots/sitemap/状态码/canonical/schema/内链/图片/移动/安全头/表单；仅修复证据充分、低风险、可验证的本地问题。
+- 每日技术巡检：每日 14:30（Asia/Shanghai）。读取自己的 memory；检查 live/GSC/PSI/索引/robots/sitemap/状态码/canonical/schema/内链/图片/移动/安全头/表单；仅修复证据充分、低风险、可验证且能与已有工作隔离的问题。
 - 每周站外权威：周一 10:10；最多 3-5 个值得人工执行的行动。
 - 每月内容、证据与转化：每月 2 日 10:40；最多 3-5 个内容/转化行动和 1 个案例/证据包，低样本时观察。
 - 每季度竞争与国际市场：1/4/7/10 月 8 日 11:20；调查 1-2 个市场/语言，2-3 个证据化改进，最多 1 个渠道实验。
 
-以上时间已避开现有多个项目集中在每日 09:00、YUJI 周一 09:30/月初 10:30/季度 11:00 的任务。
+漏跑补偿以各 automation 的 RRULE、Asia/Shanghai 实际日期和对应 memory 的成功摘要为准；同周期已有成功记录不重跑，最多补最近一个遗漏周期，证据不清时列为待确认。
 
 ## 确定性脚本
 
@@ -44,10 +47,14 @@ python3 /Users/liangxile/.codex/skills/accumeasure-competitive-market-intelligen
 
 ## 自动化边界
 
-可直接完成：只读采集、当前官方页面核验、本地报告/CSV/模板/文案、保护脏工作区的小型低风险代码修复及本地验证。必须把“已采集数据、本地修复、验证、外部授权、未执行动作”分开报告。
+可直接完成：只读采集、当前官方页面核验、本地报告/CSV/模板/文案，以及不冲突、低风险、可验证的代码或配置修复。
 
-必须等待对具体动作的确认：注册/提交档案，邮件/投稿/社交发布/伙伴联系，付费工具/会员/广告/展位，公开证书/客户/订单/检测/评价，安装分析/Cookie/像素/CRM或改留存，请求索引/提交 sitemap，DNS/Cloudflare/GSC 权限，commit/push/生产部署，删除数据或修改外部账号。
+每日巡检的持续授权：若本次巡检产生并验证了可安全隔离的改动，精确暂存本次文件，提交并正常 push 当前 `main`，等待现有生产部署完成，再执行匿名生产 smoke。不得混入巡检前已有的改动，不得 force push。
 
-## KPI
+仍需外部授权或保持禁止：注册或提交第三方档案，邮件、投稿、社交发布或伙伴联系，付费工具、会员、广告或展位，公开尚未批准的证书/客户/订单/检测/评价，安装分析/Cookie/像素/CRM或改变留存，主动请求索引或提交 sitemap，DNS/Cloudflare/GSC 权限、付款/计费、密钥轮换、账号创建删除、域名转移和不可逆数据删除。
+
+## KPI 与判断规则
 
 最终 KPI：有效询盘、销售合格线索、样品请求、报价、成交、首次响应时间和未处理询盘。中间指标：GSC 展示/点击/排名/收录、相关引荐访问、相关引用域名、CTA/Contact/RFQ 阶段（仅在定义和采集经批准且稳定时）。任何转化率都必须有明确分母、窗口和事件交付验证。
+
+低样本或站点技术健康时只观察，不强行改 title、扩写页面、建国家站或制造空提交。先证明索引与搜索意图，再证明询盘与收入影响。

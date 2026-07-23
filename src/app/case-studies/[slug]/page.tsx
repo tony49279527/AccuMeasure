@@ -143,7 +143,7 @@ export default function CaseStudyDetailPage({ params }: { params: { slug: string
             <div className="bg-cta/5 rounded-xl border border-cta/20 p-6">
               <h2 className="font-semibold text-dark mb-2">Have a similar project?</h2>
               <p className="text-muted text-sm mb-4">
-                Tell us your application, quantity, and destination — we&apos;ll reply with a quote within 24 hours.
+                Tell us your application, quantity, and destination. We&apos;ll aim to reply within {siteConfig.responseTarget}.
               </p>
               <div className="flex flex-col gap-3">
                 <Link href="/contact" className="btn-primary text-sm justify-center">

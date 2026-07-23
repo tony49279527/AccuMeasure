@@ -10,6 +10,7 @@ export const siteConfig = {
   phoneDisplay: "+86-183-0928-5711",
   address: "High-Tech Zone, Xi'an, Shaanxi, China",
   officeHours: "Mon-Fri 9:00-18:00 (UTC+8)",
+  responseTarget: "one business day (UTC+8)",
   description:
     "Factory-direct level sensors, flow meters, and pressure transmitters from Xi'an. ISO 9001, calibration certificates, and OEM support. Request a quote.",
   social: {

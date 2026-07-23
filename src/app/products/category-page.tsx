@@ -22,6 +22,11 @@ export interface CategoryPageData {
     title: string;
     description: string;
   }[];
+  relatedGuides?: {
+    title: string;
+    description: string;
+    href: string;
+  }[];
 }
 
 export function generateCategoryMetadata(data: CategoryPageData): Metadata {
@@ -147,6 +152,33 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
         </div>
       </section>
 
+      {data.relatedGuides && data.relatedGuides.length > 0 && (
+        <section className="py-16 border-t border-border">
+          <div className="container-max">
+            <div className="max-w-3xl mb-10">
+              <h2 className="text-2xl font-bold text-dark mb-3">Buyer Guides &amp; Applications</h2>
+              <p className="text-muted">
+                Use these application and comparison guides to narrow the technology,
+                installation, and specification before requesting a quotation.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {data.relatedGuides.map((guide) => (
+                <Link key={guide.href} href={guide.href} className="card group">
+                  <h3 className="font-semibold text-dark mb-2 group-hover:text-primary transition-colors">
+                    {guide.title}
+                  </h3>
+                  <p className="text-muted text-sm leading-6 mb-5">{guide.description}</p>
+                  <span className="inline-flex items-center gap-2 text-primary font-medium text-sm">
+                    Read guide <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="py-16 bg-bg-light">
         <div className="container-max">
           <div className="text-center mb-10">
@@ -180,7 +212,7 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
             </h2>
             <p className="text-muted mb-8 max-w-lg mx-auto">
               Our engineers can recommend the best sensor for your application, medium, and budget.
-              Describe your project and we&apos;ll respond within 24 hours.
+              Describe your project and we&apos;ll aim to respond within {siteConfig.responseTarget}.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/customization" className="btn-primary">

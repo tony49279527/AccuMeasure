@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { inquirySchema, customizationSchema } from "@/lib/schema";
+import { siteConfig } from "@/lib/site";
 
 function formatEmailBody(formType: string, data: Record<string, unknown>): string {
   const lines = [
@@ -176,7 +177,7 @@ export async function POST(request: Request) {
     success: true,
     message:
       formType === "customization"
-        ? "Custom request received. Our team will reply within 24 hours."
-        : "Inquiry received. We will reply within 24 hours.",
+        ? `Custom request received. Our team aims to reply within ${siteConfig.responseTarget}.`
+        : `Inquiry received. We aim to reply within ${siteConfig.responseTarget}.`,
   });
 }

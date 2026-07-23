@@ -8,6 +8,7 @@ import { blogPosts, getBlogPostBySlug } from "@/lib/blog";
 import { getProductById } from "@/lib/products";
 import { blogArticleJsonLd, faqPageJsonLd } from "@/lib/seo";
 import { getComparisonsForProduct } from "@/lib/comparisons";
+import { siteConfig } from "@/lib/site";
 
 const blogSeo: Record<string, { title: string; description: string }> = {
   "how-to-choose-radar-level-sensor": {
@@ -210,7 +211,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <h2 className="font-semibold mb-3">Need model selection help?</h2>
                 <p className="text-white/80 text-sm mb-5">
                   Send your medium, tank or pipe size, output signal, and target quantity.
-                  We&apos;ll recommend a configuration within 24 hours.
+                  We&apos;ll aim to recommend a configuration within {siteConfig.responseTarget}.
                 </p>
                 <Link href="/contact" className="btn-outline-white w-full">
                   Ask an Engineer <ArrowRight className="w-4 h-4" />

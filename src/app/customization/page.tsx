@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { CustomizationForm } from "@/components/forms/customization-form";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { waLink } from "@/lib/site";
+import { siteConfig, waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "OEM / ODM Custom Manufacturing | AccuMeasure",
@@ -247,7 +247,7 @@ export default function CustomizationPage() {
               Submit Your Custom Request
             </h2>
             <p className="text-muted">
-              Tell us what you need. Our engineers will reply within 24 hours.
+              Tell us what you need. Our engineers aim to reply within {siteConfig.responseTarget}.
             </p>
           </div>
           <div className="bg-white rounded-xl p-8 border border-border">

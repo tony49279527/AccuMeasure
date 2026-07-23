@@ -9,6 +9,23 @@ const data: CategoryPageData = {
   h1: "Flow Meters for Liquids & Gases",
   lead: "Electromagnetic, ultrasonic, and thermal mass flow measurement from DN6 to DN1000. ±0.5% FS accuracy. ATEX explosion-proof options. RS485/4-20mA/EtherNet/IP outputs.",
   overview: "AccuMeasure flow meters provide reliable measurement for conductive liquids, non-conductive fluids, and gases across water treatment, chemical processing, oil & gas, food & beverage, and pharmaceutical industries. Choose electromagnetic for high-accuracy conductive fluids, clamp-on ultrasonic for non-invasive installation, or thermal mass for gas flow control.",
+  relatedGuides: [
+    {
+      title: "Electromagnetic Flow Meter for Water Treatment",
+      description: "Define conductivity, pipe size, liner, flange, grounding, signal, and utility project requirements.",
+      href: "/applications/electromagnetic-flow-meter-for-water-treatment",
+    },
+    {
+      title: "Electromagnetic vs Ultrasonic Flow Meter",
+      description: "Compare media limits, installation work, accuracy, maintenance, and lifecycle tradeoffs.",
+      href: "/compare/electromagnetic-vs-ultrasonic-flow-meter",
+    },
+    {
+      title: "Magmeter vs Ultrasonic Selection Guide",
+      description: "Use practical pipe, process, and installation questions to shortlist the right flow technology.",
+      href: "/blog/electromagnetic-vs-ultrasonic-flow-meter",
+    },
+  ],
   selectionGuide: [
     {
       title: "Check conductivity first",

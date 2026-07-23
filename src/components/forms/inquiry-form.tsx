@@ -13,7 +13,7 @@ import {
   productInterestOptions,
 } from "@/lib/schema";
 import type { InquiryValues } from "@/lib/schema";
-import { waLinkFor } from "@/lib/site";
+import { siteConfig, waLinkFor } from "@/lib/site";
 
 interface InquiryFormProps {
   productId?: string;
@@ -80,13 +80,13 @@ export function InquiryForm({
 
   if (status === "success") {
     return (
-      <div className="text-center py-12">
+      <div className="text-center py-12" role="status" aria-live="polite">
         <div className="w-20 h-20 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle className="w-10 h-10 text-success" />
         </div>
         <h3 className="text-2xl font-bold text-dark mb-2">Inquiry Sent!</h3>
         <p className="text-muted mb-6">
-          We&apos;ll get back to you within 24 hours. Need a faster answer?
+          We aim to reply within {siteConfig.responseTarget}. Need a faster answer?
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <a
@@ -123,7 +123,7 @@ export function InquiryForm({
       )}
 
       {status === "error" && (
-        <div className="flex items-center gap-2 bg-danger/10 border border-danger/20 text-danger rounded-lg p-4 text-sm">
+        <div role="alert" className="flex items-center gap-2 bg-danger/10 border border-danger/20 text-danger rounded-lg p-4 text-sm">
           <AlertCircle className="w-5 h-5 flex-shrink-0" />
           {errorMsg}
         </div>

@@ -319,7 +319,7 @@ export default function Home() {
                 number: "1d",
                 title: "Inquiry Response Target",
                 description:
-                  "We aim to reply within one business day (UTC+8). WhatsApp and email remain available if the form is delayed.",
+                  `We aim to reply within ${siteConfig.responseTarget}. WhatsApp and email remain available if the form is delayed.`,
               },
             ].map((item, idx) => (
               <div key={idx} className="bg-white p-8 rounded-xl border border-border">
@@ -524,7 +524,7 @@ export default function Home() {
             Ready to Source Reliable Measurement Instruments?
           </h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-8">
-            Get a quote within 24 hours. No pressure, just specs and pricing.
+            Request a quote. We aim to reply within {siteConfig.responseTarget} with specs and pricing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary">

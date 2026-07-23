@@ -11,14 +11,12 @@ import { contactFaqs } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "Get an Industrial Sensor Quote | AccuMeasure",
-  description:
-    "Get a quote within 24 hours. Contact AccuMeasure for level sensors, flow meters, and pressure transmitters. Email, WhatsApp, or request a callback.",
+  description: `Request a quote for AccuMeasure level sensors, flow meters, and pressure transmitters. Email, WhatsApp, or use the form; response target ${siteConfig.responseTarget}.`,
   alternates: { canonical: "/contact" },
   openGraph: {
     url: "/contact",
-    title: "Contact AccuMeasure — Get a Quote Within 24 Hours",
-    description:
-      "Factory-direct measurement instruments. Email, WhatsApp, or use our inquiry form. Response within 24 hours.",
+    title: "Contact AccuMeasure — Request an Industrial Sensor Quote",
+    description: `Factory-direct measurement instruments. Email, WhatsApp, or use our inquiry form. We aim to reply within ${siteConfig.responseTarget}.`,
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure" }],
   },
 };
@@ -108,7 +106,7 @@ export default function ContactPage() {
           <div className="text-center">
             <h1 className="text-4xl font-bold text-dark mb-6">Contact Us</h1>
             <p className="text-lg text-muted max-w-3xl mx-auto">
-              Get a quote within 24 hours. Or just say hi.
+              Request a quote or ask a technical question. We aim to reply within {siteConfig.responseTarget}.
             </p>
           </div>
         </div>

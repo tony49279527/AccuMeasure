@@ -11,7 +11,7 @@ import { products, getProductBySlug, getProductById } from "@/lib/products";
 import { getCaseStudiesByProductId } from "@/lib/case-studies";
 import { productJsonLd, faqPageJsonLd } from "@/lib/seo";
 import { certificationDetail } from "@/lib/certifications";
-import { waLinkFor } from "@/lib/site";
+import { siteConfig, waLinkFor } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { getComparisonsForProduct } from "@/lib/comparisons";
 
@@ -498,7 +498,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
               Get a Quote: {product.name}
             </h2>
             <p className="text-muted">
-              Fill out the form below and we&apos;ll reply within 24 hours.
+              Fill out the form below and we&apos;ll aim to reply within {siteConfig.responseTarget}.
             </p>
           </div>
           <div className="bg-white rounded-xl p-8 border border-border">

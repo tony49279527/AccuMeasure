@@ -13,6 +13,7 @@ import {
   productCategories,
 } from "@/lib/schema";
 import type { CustomizationValues } from "@/lib/schema";
+import { siteConfig } from "@/lib/site";
 
 export function CustomizationForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -54,13 +55,13 @@ export function CustomizationForm() {
 
   if (status === "success") {
     return (
-      <div className="text-center py-12">
+      <div className="text-center py-12" role="status" aria-live="polite">
         <div className="w-20 h-20 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle className="w-10 h-10 text-success" />
         </div>
         <h3 className="text-2xl font-bold text-dark mb-2">Request Sent!</h3>
         <p className="text-muted mb-6">
-          Our engineering team will review your requirements and reply within 24 hours.
+          Our engineering team will review your requirements and aim to reply within {siteConfig.responseTarget}.
         </p>
         <button onClick={() => setStatus("idle")} className="btn-secondary">
           Submit Another
@@ -72,7 +73,7 @@ export function CustomizationForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       {status === "error" && (
-        <div className="flex items-center gap-2 bg-danger/10 border border-danger/20 text-danger rounded-lg p-4 text-sm">
+        <div role="alert" className="flex items-center gap-2 bg-danger/10 border border-danger/20 text-danger rounded-lg p-4 text-sm">
           <AlertCircle className="w-5 h-5 flex-shrink-0" />
           {errorMsg}
         </div>
