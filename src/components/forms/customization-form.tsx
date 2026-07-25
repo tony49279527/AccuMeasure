@@ -14,6 +14,7 @@ import {
 } from "@/lib/schema";
 import type { CustomizationValues } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
+import { trackLeadEvent } from "@/lib/analytics";
 
 export function CustomizationForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -46,6 +47,10 @@ export function CustomizationForm() {
         throw new Error(data.message || "Submission failed. Please try again.");
       }
       setStatus("success");
+      trackLeadEvent({
+        formType: "customization",
+        category: values.productCategory,
+      });
       reset();
     } catch (e) {
       setStatus("error");

@@ -14,6 +14,7 @@ import {
 } from "@/lib/schema";
 import type { InquiryValues } from "@/lib/schema";
 import { siteConfig, waLinkFor } from "@/lib/site";
+import { trackLeadEvent, trackContactClick } from "@/lib/analytics";
 
 interface InquiryFormProps {
   productId?: string;
@@ -71,6 +72,12 @@ export function InquiryForm({
         throw new Error(data.message || "Submission failed. Please try again.");
       }
       setStatus("success");
+      trackLeadEvent({
+        formType: "inquiry",
+        productId: productId,
+        productName: productName,
+        country: values.country,
+      });
       reset();
     } catch (e) {
       setStatus("error");
@@ -97,6 +104,7 @@ export function InquiryForm({
             )}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackContactClick("whatsapp", "inquiry_success_redirect")}
             className="btn-primary"
           >
             <MessageSquare className="w-5 h-5" />

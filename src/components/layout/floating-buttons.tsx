@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { MessageCircle, Phone, Mail } from "lucide-react";
 import { waLink, telLink } from "@/lib/site";
+import { trackContactClick } from "@/lib/analytics";
 
 export function FloatingButtons() {
   return (
@@ -11,6 +12,7 @@ export function FloatingButtons() {
         href={waLink}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackContactClick("whatsapp", "desktop_floating_button")}
         className="hidden md:flex fixed right-6 bottom-6 z-50 w-14 h-14 rounded-full items-center justify-center shadow-lg hover:scale-110 transition-transform group"
         style={{ background: "#25D366" }}
         aria-label="Chat on WhatsApp"
@@ -26,6 +28,7 @@ export function FloatingButtons() {
           href={waLink}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackContactClick("whatsapp", "mobile_bottom_bar")}
           className="flex flex-col items-center justify-center w-1/3 h-full transition-colors"
           style={{ color: "#0B6B36" }}
         >
@@ -34,6 +37,7 @@ export function FloatingButtons() {
         </a>
         <a
           href={telLink}
+          onClick={() => trackContactClick("phone", "mobile_bottom_bar")}
           className="flex flex-col items-center justify-center w-1/3 h-full text-primary hover:bg-primary/5 transition-colors"
         >
           <Phone className="w-5 h-5 mb-0.5" />
@@ -41,6 +45,7 @@ export function FloatingButtons() {
         </a>
         <Link
           href="/contact"
+          onClick={() => trackContactClick("email", "mobile_bottom_bar_quote")}
           className="flex flex-col items-center justify-center w-1/3 h-full text-cta hover:bg-cta/5 transition-colors"
         >
           <Mail className="w-5 h-5 mb-0.5" />

@@ -118,6 +118,33 @@ export function ProductsExplorer() {
                 </button>
               )}
             </div>
+
+            {/* Application Quick Filter Presets */}
+            <div className="flex flex-wrap items-center justify-center gap-2 mt-4">
+              <span className="text-xs text-muted font-medium mr-1">Quick Filters:</span>
+              {[
+                "Water & Wastewater",
+                "Chemical & Corrosive",
+                "ATEX",
+                "Modbus",
+                "High Temperature",
+              ].map((preset) => (
+                <button
+                  key={preset}
+                  type="button"
+                  onClick={() => setQuery(preset)}
+                  className={cn(
+                    "text-xs px-3 py-1 rounded-full border border-border transition-colors",
+                    normalizedQuery === preset.toLowerCase()
+                      ? "bg-primary text-white border-primary"
+                      : "bg-white text-muted hover:text-dark hover:border-primary/40"
+                  )}
+                >
+                  {preset}
+                </button>
+              ))}
+            </div>
+
             <p className="text-sm text-muted text-center mt-3">
               Showing {filteredProducts.length} of {categoryProducts.length} products
               {normalizedQuery ? ` for "${deferredQuery.trim()}"` : ""}.
