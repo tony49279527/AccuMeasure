@@ -5,15 +5,15 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { blogPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog — Measurement Instrument Insights",
+  title: "Level, Flow & Pressure Sensor Guides | AccuMeasure Blog",
   description:
-    "Technical articles on level, flow, and pressure measurement: selection guides, application notes, and industry best practices from AccuMeasure engineers.",
+    "Selection guides for industrial buyers: how to choose radar level sensors, 80GHz vs 26GHz radar compared, electromagnetic vs ultrasonic flow meters, and pressure transmitter specs.",
   alternates: { canonical: "/blog" },
   openGraph: {
     url: "/blog",
-    title: "AccuMeasure Blog — Measurement Instrument Insights",
+    title: "Level, Flow & Pressure Sensor Guides | AccuMeasure Blog",
     description:
-      "Selection guides, application notes, and engineering best practices for industrial measurement instruments.",
+      "Selection guides and comparisons for industrial measurement: radar level sensors, flow meters, and pressure transmitters.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Blog" }],
   },
 };
