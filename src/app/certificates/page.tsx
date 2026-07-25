@@ -7,7 +7,7 @@ import { waLinkFor } from "@/lib/site";
 export const metadata: Metadata = {
   title: "ISO 9001, CE & ATEX Certificates | AccuMeasure",
   description:
-    "Review AccuMeasure ISO 9001, CE, ATEX, and RoHS credentials, certificate details, calibration records, and verification steps before ordering.",
+    "ISO 9001 (SGS), CE (TÜV Rheinland), ATEX Ex d IIC T6 (DEKRA), RoHS 3.0 (Intertek). Certificate numbers, scope, validity, and how to verify each one.",
   alternates: { canonical: "/certificates" },
   openGraph: {
     url: "/certificates",

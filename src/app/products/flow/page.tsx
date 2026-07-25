@@ -4,8 +4,8 @@ import { CategoryPage, generateCategoryMetadata, type CategoryPageData } from ".
 const data: CategoryPageData = {
   slug: "flow",
   label: "Flow Meters",
-  title: "Industrial Flow Meter Manufacturer | AccuMeasure",
-  description: "Compare electromagnetic, clamp-on ultrasonic, and thermal mass flow meters for DN6-DN1000 pipes. Review accuracy, outputs, MOQ, and factory pricing.",
+  title: "Flow Meter Manufacturer: Electromagnetic, Ultrasonic, ATEX",
+  description: "Compare electromagnetic, clamp-on ultrasonic, and thermal mass flow meters for DN6-DN1000 pipes. ATEX explosion-proof options. Accuracy, outputs, MOQ, factory pricing.",
   h1: "Flow Meters for Liquids & Gases",
   lead: "Electromagnetic, ultrasonic, and thermal mass flow measurement from DN6 to DN1000. ±0.5% FS accuracy. ATEX explosion-proof options. RS485/4-20mA/EtherNet/IP outputs.",
   overview: "AccuMeasure flow meters provide reliable measurement for conductive liquids, non-conductive fluids, and gases across water treatment, chemical processing, oil & gas, food & beverage, and pharmaceutical industries. Choose electromagnetic for high-accuracy conductive fluids, clamp-on ultrasonic for non-invasive installation, or thermal mass for gas flow control.",
@@ -41,6 +41,11 @@ const data: CategoryPageData = {
       title: "Plan signal integration",
       description:
         "Select 4-20mA, pulse, RS485 Modbus, HART, or EtherNet/IP based on the PLC, SCADA, or data logger used by the plant.",
+    },
+    {
+      title: "Specify hazardous-area approval",
+      description:
+        "For oil & gas, chemical, and LPG/LNG service, order the AM-EMF100 with ATEX Ex d IIC T6 explosion-proof certification and verify the certificate names the model.",
     },
   ],
 };

@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 export const metadata: Metadata = {
   title: "Quality Assurance — 5-Stage QC & 72h Aging Test",
   description:
-    "5-stage quality control, 72-hour aging test on every unit, and a calibration certificate with every shipment. ISO 9001 certified industrial measurement instruments.",
+    "Every unit passes 5-stage QC, a 72-hour aging test with temperature cycling, and final calibration with an individual certificate. ISO 9001, CE, ATEX factory.",
   alternates: { canonical: "/quality" },
   openGraph: {
     url: "/quality",

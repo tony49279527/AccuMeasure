@@ -12,14 +12,14 @@ import { siteConfig } from "@/lib/site";
 
 const blogSeo: Record<string, { title: string; description: string }> = {
   "how-to-choose-radar-level-sensor": {
-    title: "How to Choose a Radar Level Sensor | Buyer Guide",
+    title: "How to Choose a Radar Level Sensor (7 Buyer Checks)",
     description:
-      "Choose a radar level sensor by range, beam angle, tank geometry, media, output, and approval. Use the checklist, compare models, and request advice.",
+      "Checklist for water tanks and silos: measuring range, beam angle, 4-20mA/HART/RS485 outputs, ATEX needs, and what to send a factory before quoting.",
   },
   "80ghz-vs-26ghz-radar-level-sensor": {
-    title: "80GHz vs 26GHz Radar Level Sensor | Comparison",
+    title: "80GHz vs 26GHz Radar Level Sensors: Buyer Comparison",
     description:
-      "Compare 80GHz and 26GHz radar level sensors by beam angle, accuracy, dust, tank geometry, installation, and cost before specifying a transmitter.",
+      "Beam angle, accuracy, dust tolerance, silo performance, installation space, and total project cost. See when 80GHz is worth it and when 26GHz is enough.",
   },
   "electromagnetic-vs-ultrasonic-flow-meter": {
     title: "Electromagnetic vs Ultrasonic Flow Meter | Guide",

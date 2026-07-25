@@ -20,7 +20,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const product = cs.productIds.map((id) => getProductById(id)).find(Boolean);
   const resultSummary = cs.results.slice(0, 2).map((r) => `${r.metric}: ${r.value}`).join(", ");
   return {
-    title: `${cs.country} ${product?.model ?? "Instrument"} Case Study | AccuMeasure`,
+    title: `${cs.country} ${product?.model ?? "Instrument"} Case Study: ${cs.results[0]?.value} ${cs.results[0]?.metric} | AccuMeasure`,
     description: `${cs.clientType} in ${cs.country} used ${product?.model ?? "AccuMeasure instruments"}. Results: ${resultSummary}. Review the supplied configuration and project outcome.`,
     alternates: { canonical: `/case-studies/${cs.slug}` },
     openGraph: {
