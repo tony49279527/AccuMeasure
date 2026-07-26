@@ -19,9 +19,15 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!cs) return { title: "Case Study Not Found" };
   const product = cs.productIds.map((id) => getProductById(id)).find(Boolean);
   const resultSummary = cs.results.slice(0, 2).map((r) => `${r.metric}: ${r.value}`).join(", ");
+  const title =
+    cs.seoTitle ??
+    `${cs.country} ${product?.model ?? "Instrument"} Case Study: ${cs.results[0]?.value} ${cs.results[0]?.metric} | AccuMeasure`;
+  const description =
+    cs.seoDescription ??
+    `${cs.clientType} in ${cs.country} used ${product?.model ?? "AccuMeasure instruments"}. Results: ${resultSummary}. Review the supplied configuration and project outcome.`;
   return {
-    title: `${cs.country} ${product?.model ?? "Instrument"} Case Study: ${cs.results[0]?.value} ${cs.results[0]?.metric} | AccuMeasure`,
-    description: `${cs.clientType} in ${cs.country} used ${product?.model ?? "AccuMeasure instruments"}. Results: ${resultSummary}. Review the supplied configuration and project outcome.`,
+    title,
+    description,
     alternates: { canonical: `/case-studies/${cs.slug}` },
     openGraph: {
       url: `/case-studies/${cs.slug}`,

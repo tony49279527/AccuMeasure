@@ -28,7 +28,7 @@ export const blogPosts: BlogPost[] = [
       "A practical B2B guide to selecting radar level sensors by range, beam angle, tank geometry, media condition, output signal, certification, and installation constraints.",
     category: "Level Measurement",
     datePublished: "2026-07-04",
-    dateModified: "2026-07-04",
+    dateModified: "2026-07-26",
     readTime: "8 min read",
     keywords: [
       "radar level sensor",

@@ -12,9 +12,9 @@ import { siteConfig } from "@/lib/site";
 
 const blogSeo: Record<string, { title: string; description: string }> = {
   "how-to-choose-radar-level-sensor": {
-    title: "How to Choose a Radar Level Sensor (7 Buyer Checks)",
+    title: "How to Choose a Radar Level Sensor: 7 Buyer Checks",
     description:
-      "Checklist for water tanks and silos: measuring range, beam angle, 4-20mA/HART/RS485 outputs, ATEX needs, and what to send a factory before quoting.",
+      "Water tank and silo checklist: real measuring range, beam angle, tank geometry, 4-20mA/HART/RS485, ATEX, and the RFQ details a factory needs before quoting.",
   },
   "80ghz-vs-26ghz-radar-level-sensor": {
     title: "80GHz vs 26GHz Radar Level Sensors: Buyer Comparison",

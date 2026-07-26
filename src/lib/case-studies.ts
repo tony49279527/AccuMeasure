@@ -5,8 +5,11 @@ export const caseStudies: CaseStudy[] = [
     id: "1",
     slug: "saudi-water-radar-level",
     title: "Saudi Water Co. — Radar Level Sensors",
+    seoTitle: "Saudi Water Utility: AM-RL80 Radar for 55°C+ Tanks",
+    seoDescription:
+      "Water utility case for AM-RL80 80GHz radar on storage tanks in high ambient heat. Review configuration, delivery window, and what to send for a similar RFQ.",
     datePublished: "2025-11-12",
-    dateModified: "2026-06-20",
+    dateModified: "2026-07-26",
     clientType: "Water Utility",
     country: "Saudi Arabia",
     flag: "🇸🇦",

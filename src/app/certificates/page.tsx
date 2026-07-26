@@ -5,15 +5,15 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { waLinkFor } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "ISO 9001, CE & ATEX Certificates | AccuMeasure",
+  title: "Verify ISO 9001, CE & ATEX Certificates | AccuMeasure",
   description:
-    "ISO 9001 (SGS), CE (TÜV Rheinland), ATEX Ex d IIC T6 (DEKRA), RoHS 3.0 (Intertek). Certificate numbers, scope, validity, and how to verify each one.",
+    "Check ISO 9001 (SGS), CE (TÜV Rheinland), ATEX Ex d IIC T6 (DEKRA), and RoHS numbers, scope, and validity. Request official scans and unit calibration certificates.",
   alternates: { canonical: "/certificates" },
   openGraph: {
     url: "/certificates",
-    title: "Certificates — ISO 9001, CE, ATEX, RoHS | AccuMeasure",
+    title: "Verify ISO 9001, CE, ATEX & RoHS Certificates | AccuMeasure",
     description:
-      "Request and verify AccuMeasure quality certifications. ISO 9001, CE, ATEX, RoHS. Every instrument ships with an individual calibration certificate.",
+      "Certificate numbers, issuers, and scope for buyer verification. Request official PDF scans and per-unit calibration certificates before ordering.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Certificates" }],
   },
 };

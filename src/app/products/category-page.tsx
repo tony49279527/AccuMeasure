@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle } from "lucide-react";
@@ -9,6 +8,7 @@ import { siteConfig } from "@/lib/site";
 import { products } from "@/lib/products";
 import type { Product } from "@/lib/types";
 import { comparisonPages, getComparisonProducts } from "@/lib/comparisons";
+import { faqPageJsonLd } from "@/lib/seo";
 
 export interface CategoryPageData {
   slug: string;
@@ -27,6 +27,14 @@ export interface CategoryPageData {
     description: string;
     href: string;
   }[];
+  /** Buyer decision blocks for content refresh experiments. */
+  decisionBlocks?: {
+    title: string;
+    body: string;
+    links?: { label: string; href: string }[];
+  }[];
+  faqs?: { question: string; answer: string }[];
+  lastReviewed?: string;
 }
 
 export function generateCategoryMetadata(data: CategoryPageData): Metadata {
@@ -51,24 +59,26 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
   const categoryComparisons = comparisonPages.filter((comparison) =>
     getComparisonProducts(comparison).some((product) => product.category === data.slug),
   );
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${siteConfig.url}/products/${data.slug}#itemlist`,
+      name: `AccuMeasure ${data.label}`,
+      numberOfItems: categoryProducts.length,
+      itemListElement: categoryProducts.map((p, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: `${p.model} ${p.name}`,
+        url: `${siteConfig.url}/products/${p.slug}`,
+      })),
+    },
+    ...(data.faqs && data.faqs.length > 0 ? [faqPageJsonLd(data.faqs)] : []),
+  ];
 
   return (
     <div>
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "ItemList",
-          "@id": `${siteConfig.url}/products/${data.slug}#itemlist`,
-          name: `AccuMeasure ${data.label}`,
-          numberOfItems: categoryProducts.length,
-          itemListElement: categoryProducts.map((p, i) => ({
-            "@type": "ListItem",
-            position: i + 1,
-            name: `${p.model} ${p.name}`,
-            url: `${siteConfig.url}/products/${p.slug}`,
-          })),
-        }}
-      />
+      <JsonLd data={jsonLd} />
 
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
@@ -81,6 +91,11 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-dark mb-6">{data.h1}</h1>
             <p className="text-lg text-muted max-w-3xl mx-auto">{data.lead}</p>
+            {data.lastReviewed && (
+              <p className="text-xs text-muted mt-3">
+                Content reviewed {data.lastReviewed}
+              </p>
+            )}
           </div>
           <div className="bg-white rounded-xl p-6 border border-border mb-12 max-w-4xl mx-auto">
             <p className="text-muted text-sm">{data.overview}</p>
@@ -152,6 +167,47 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
         </div>
       </section>
 
+      {data.decisionBlocks && data.decisionBlocks.length > 0 && (
+        <section className="py-16 border-t border-border">
+          <div className="container-max">
+            <div className="max-w-3xl mb-10">
+              <h2 className="text-2xl font-bold text-dark mb-3">
+                Decide by Installation &amp; Area Classification
+              </h2>
+              <p className="text-muted">
+                Match the measurement principle to fluid, pipe access, and hazardous-area
+                requirements before you compare price or MOQ.
+              </p>
+            </div>
+            <div className="space-y-6 max-w-4xl">
+              {data.decisionBlocks.map((block) => (
+                <div
+                  key={block.title}
+                  className="bg-white rounded-xl border border-border p-6"
+                >
+                  <h3 className="text-lg font-semibold text-dark mb-3">{block.title}</h3>
+                  <p className="text-muted text-sm leading-7 mb-4">{block.body}</p>
+                  {block.links && block.links.length > 0 && (
+                    <div className="flex flex-wrap gap-3">
+                      {block.links.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="inline-flex items-center gap-1 text-primary font-medium text-sm"
+                        >
+                          {link.label}
+                          <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {data.relatedGuides && data.relatedGuides.length > 0 && (
         <section className="py-16 border-t border-border">
           <div className="container-max">
@@ -190,7 +246,7 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
               the right model, output, material, and certification for your project.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.selectionGuide.map((item) => (
               <div key={item.title} className="bg-white rounded-xl border border-border p-6">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
@@ -203,6 +259,27 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
           </div>
         </div>
       </section>
+
+      {data.faqs && data.faqs.length > 0 && (
+        <section className="py-16 border-t border-border">
+          <div className="container-max max-w-3xl">
+            <h2 className="text-2xl font-bold text-dark mb-8 text-center">
+              {data.label} FAQ
+            </h2>
+            <div className="space-y-4">
+              {data.faqs.map((faq) => (
+                <div
+                  key={faq.question}
+                  className="bg-white rounded-xl border border-border p-6"
+                >
+                  <h3 className="font-semibold text-dark mb-2">{faq.question}</h3>
+                  <p className="text-muted text-sm leading-7">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="py-16">
         <div className="container-max">

@@ -71,6 +71,10 @@ export interface CaseStudy {
   id: string;
   slug: string;
   title: string;
+  /** Optional SERP title override; keep page H1 as `title`. */
+  seoTitle?: string;
+  /** Optional SERP description override. */
+  seoDescription?: string;
   datePublished: string;
   dateModified: string;
   clientType: string;
