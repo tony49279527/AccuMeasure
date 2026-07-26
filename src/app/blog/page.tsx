@@ -7,7 +7,7 @@ import { blogPosts } from "@/lib/blog";
 export const metadata: Metadata = {
   title: "Level, Flow & Pressure Sensor Guides | AccuMeasure Blog",
   description:
-    "Selection guides for industrial buyers: how to choose radar level sensors, 80GHz vs 26GHz radar compared, electromagnetic vs ultrasonic flow meters, and pressure transmitter specs.",
+    "Selection guides for industrial buyers comparing radar level sensors, flow meters, and pressure transmitter specs for measurement RFQs.",
   alternates: { canonical: "/blog" },
   openGraph: {
     url: "/blog",
