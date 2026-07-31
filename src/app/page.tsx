@@ -381,6 +381,12 @@ export default function Home() {
               </Link>
             ))}
           </div>
+          <div className="mt-8 text-center">
+            <Link href="/applications" className="inline-flex items-center gap-2 text-primary font-medium">
+              Explore all industrial measurement application guides
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
 

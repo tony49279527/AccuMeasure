@@ -44,6 +44,7 @@ function renderEntry(entry: SitemapEntry): string {
 export function GET() {
   const staticContentLastModified = "2026-07-17T00:00:00.000Z";
   const productCatalogLastModified = "2026-07-17T00:00:00.000Z";
+  const applicationsIndexLastModified = "2026-07-31T00:00:00.000Z";
 
   const staticPages: SitemapEntry[] = [
     { url: siteConfig.url, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 1 },
@@ -60,7 +61,7 @@ export function GET() {
     { url: `${siteConfig.url}/products/level`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/products/flow`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/products/pressure`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${siteConfig.url}/applications`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${siteConfig.url}/applications`, lastModified: applicationsIndexLastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/compare`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.8 },
   ];
 

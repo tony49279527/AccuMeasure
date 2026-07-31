@@ -7,9 +7,9 @@ import { applicationPages } from "@/lib/applications";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Industrial Sensor Application Guides | AccuMeasure",
+  title: "Industrial Measurement Applications & Guides | AccuMeasure",
   description:
-    "Choose level, flow, or pressure instruments by medium, process conditions, installation, output, and certification. Review application guides and RFQ inputs.",
+    "Choose level, flow, and pressure instruments by medium, process conditions, installation, and output. Explore application guides and RFQ inputs.",
   alternates: { canonical: "/applications" },
   openGraph: {
     url: "/applications",
@@ -83,7 +83,7 @@ export default function ApplicationsIndexPage() {
           <Breadcrumbs items={[{ name: "Applications", href: "/applications" }]} />
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold text-dark mb-4">
-              Industrial Measurement Application Guides
+              Industrial Measurement Applications &amp; Selection Guides
             </h1>
             <p className="text-lg text-muted">
               Select level sensors, flow meters, and pressure transmitters from the

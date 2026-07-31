@@ -231,6 +231,13 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
                 </Link>
               ))}
             </div>
+            <p className="mt-8 text-sm text-muted">
+              Need a different measurement duty? Browse all{" "}
+              <Link href="/applications" className="text-primary font-medium hover:underline">
+                industrial measurement application guides
+              </Link>{" "}
+              before requesting a quotation.
+            </p>
           </div>
         </section>
       )}
