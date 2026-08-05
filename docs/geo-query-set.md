@@ -1,5 +1,7 @@
 # GEO Query Set — AccuMeasure
 
+> Operational queries now live in `data/geo-query-set.csv` with stable `query_id`, locale, intent, landing page, and priority fields. This doc is retained as the original protocol history.
+
 **Purpose:** Standardized query set for monthly Generative Engine Optimization (GEO) re-testing across Perplexity, ChatGPT, Copilot, and Gemini.
 
 **Testing protocol:**

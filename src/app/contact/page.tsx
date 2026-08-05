@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { MapPin, Clock, Users, Globe, Mail, MessageSquare, ExternalLink } from "lucide-react";
+import { MapPin, Clock, Users, Globe, Mail, MessageSquare, ExternalLink, ClipboardList } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ContactInquiry } from "@/components/forms/contact-inquiry";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -22,6 +22,15 @@ export const metadata: Metadata = {
 };
 
 const faqs = contactFaqs;
+
+const rfqInputs = [
+  "Application, medium, and operating conditions",
+  "Required range, accuracy, output, and process connection",
+  "Tank, pipe, or machine installation details",
+  "Hazardous-area classification and certification documents",
+  "Estimated quantity, target delivery date, and destination country",
+  "OEM/ODM needs: logo, packaging, ranges, display units, or custom firmware",
+];
 
 // One monitored desk — subject lines route OEM vs standard inquiries.
 const salesContacts = [
@@ -241,6 +250,32 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 border-t border-border">
+        <div className="container-max max-w-4xl">
+          <div className="flex items-center gap-3 mb-4">
+            <ClipboardList className="w-7 h-7 text-primary" />
+            <h2 className="text-2xl font-bold text-dark">What to Include in Your RFQ</h2>
+          </div>
+          <p className="text-muted mb-8 max-w-3xl">
+            Complete RFQ inputs help our engineers confirm the right model, material,
+            output, certification, and delivery plan without sending multiple rounds of clarification.
+          </p>
+          <div className="grid md:grid-cols-2 gap-3">
+            {rfqInputs.map((item) => (
+              <div
+                key={item}
+                className="bg-white rounded-xl border border-border p-4 flex items-start gap-3"
+              >
+                <span className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
+                  {rfqInputs.indexOf(item) + 1}
+                </span>
+                <p className="text-sm text-muted leading-6">{item}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

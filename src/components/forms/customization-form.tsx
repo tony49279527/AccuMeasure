@@ -15,6 +15,7 @@ import {
 import type { CustomizationValues } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 import { trackLeadEvent } from "@/lib/analytics";
+import { getSourceSnapshot } from "@/lib/source";
 
 export function CustomizationForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -37,10 +38,11 @@ export function CustomizationForm() {
     setStatus("submitting");
     setErrorMsg("");
     try {
+      const source = getSourceSnapshot();
       const res = await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, formType: "customization" }),
+        body: JSON.stringify({ ...values, ...source, formType: "customization" }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -50,6 +52,11 @@ export function CustomizationForm() {
       trackLeadEvent({
         formType: "customization",
         category: values.productCategory,
+        landingPage: source.landingPage,
+        referrer: source.referrer,
+        utmSource: source.utmSource,
+        utmMedium: source.utmMedium,
+        utmCampaign: source.utmCampaign,
       });
       reset();
     } catch (e) {

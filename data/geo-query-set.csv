@@ -1,0 +1,77 @@
+query_id,locale,family,intent,variant_id,query,expected_landing_page,priority
+AM-D-001,en-US,level,discovery,v1,80GHz radar level transmitter manufacturer for industrial tank inventory,/products/level,high
+AM-D-002,en-US,level,discovery,v1,capacitive level sensor supplier for chemical and water storage,/products/am-cl100-capacitive-level-sensor,high
+AM-D-003,en-US,flow,discovery,v1,electromagnetic flow meter manufacturer for water utility projects,/products/am-emf100-electromagnetic-flow-meter,high
+AM-D-004,en-US,flow,discovery,v1,clamp-on ultrasonic flow meter supplier for process pipe retrofit,/products/am-uf200-ultrasonic-flow-meter,high
+AM-D-005,en-US,pressure,discovery,v1,piezoresistive pressure transmitter manufacturer for industrial equipment,/products/am-pt300-pressure-transmitter,high
+AM-D-006,en-US,pressure,discovery,v1,battery powered digital pressure gauge manufacturer for private label,/products/am-pg200-digital-pressure-gauge,high
+AM-D-007,en-US,iot,discovery,v1,IoT WiFi tank level sensor manufacturer for remote monitoring,/products/am-wl50-iot-wifi-level-sensor,high
+AM-D-008,en-US,flow,discovery,v1,thermal mass flow meter supplier for gas and laboratory systems,/products/am-mf50-mass-flow-meter,medium
+AM-C-001,en-US,level,comparison,v1,80GHz vs 26GHz radar level transmitter for storage tanks,/blog/80ghz-vs-26ghz-radar-level-sensor,high
+AM-C-002,en-US,level,comparison,v1,capacitive vs ultrasonic level sensor for industrial tanks,/compare/capacitive-vs-ultrasonic-level-sensor,high
+AM-C-003,en-US,level,comparison,v1,radar vs ultrasonic level sensor for water treatment tanks,/applications/radar-vs-ultrasonic-level-sensor,high
+AM-C-004,en-GB,flow,comparison,v1,electromagnetic vs ultrasonic flow meter for water treatment projects,/compare/electromagnetic-vs-ultrasonic-flow-meter,high
+AM-C-005,en-US,flow,comparison,v1,clamp-on ultrasonic vs electromagnetic flow meter for retrofit,/compare/electromagnetic-vs-ultrasonic-flow-meter,medium
+AM-C-006,en-US,pressure,comparison,v1,piezoresistive pressure transmitter vs digital gauge for OEM panels,/products/pressure,medium
+AM-C-007,en-US,pressure,comparison,v1,digital pressure gauge vs analog gauge for industrial panels,/products/am-pg200-digital-pressure-gauge,medium
+AM-C-008,en-US,flow,comparison,v1,thermal mass flow meter vs orifice plate for gas flow,/products/am-mf50-mass-flow-meter,medium
+AM-P-001,en-US,level,purchase,v1,level sensor wholesale supplier with low MOQ,/products/level,high
+AM-P-002,en-US,level,purchase,v1,radar level transmitter factory direct price from China,/products/am-rl80-80ghz-radar-level-transmitter,high
+AM-P-003,en-US,flow,purchase,v1,electromagnetic flow meter bulk order for water project,/products/am-emf100-electromagnetic-flow-meter,high
+AM-P-004,en-US,level,purchase,v1,ultrasonic level sensor sample order for evaluation,/products/am-ul20-ultrasonic-level-sensor,high
+AM-P-005,en-US,pressure,purchase,v1,pressure transmitter OEM order with private label,/products/pressure,high
+AM-P-006,en-US,pressure,purchase,v1,digital pressure gauge wholesale with custom branding,/products/am-pg200-digital-pressure-gauge,high
+AM-P-007,en-US,iot,purchase,v1,IoT level sensor bulk purchase for remote tank monitoring,/products/am-wl50-iot-wifi-level-sensor,medium
+AM-P-008,en-US,oem,purchase,v1,industrial measurement instrument procurement quote for process plant,/contact,high
+AM-A-001,en-US,level,application,v1,radar level sensor for crude oil storage tanks,/applications/radar-level-sensor-for-oil-tank,high
+AM-A-002,en-US,level,application,v1,ultrasonic level sensor for water treatment tanks,/products/am-ul20-ultrasonic-level-sensor,high
+AM-A-003,en-US,flow,application,v1,electromagnetic flow meter for wastewater treatment plant,/applications/electromagnetic-flow-meter-for-water-treatment,high
+AM-A-004,en-US,flow,application,v1,clamp-on ultrasonic flow meter for existing water pipes,/products/am-uf200-ultrasonic-flow-meter,high
+AM-A-005,en-US,pressure,application,v1,pressure transmitter for hydraulic systems,/products/am-pt300-pressure-transmitter,high
+AM-A-006,en-US,level,application,v1,level sensor for chemical reactor tanks,/products/am-cl100-capacitive-level-sensor,high
+AM-A-007,en-US,iot,application,v1,IoT level sensor for remote water tank monitoring,/products/am-wl50-iot-wifi-level-sensor,medium
+AM-A-008,en-US,flow,application,v1,thermal mass flow meter for specialty gas measurement,/products/am-mf50-mass-flow-meter,medium
+AM-A-009,en-US,level,application,v1,radar level sensor for silo solids measurement,/products/am-rl80-80ghz-radar-level-transmitter,high
+AM-A-010,en-US,pressure,application,v1,digital pressure gauge for OEM air compressor panels,/products/am-pg200-digital-pressure-gauge,medium
+AM-F-001,en-US,level,faq,v1,what should buyers check before importing radar level transmitters,/blog/how-to-choose-radar-level-sensor,high
+AM-F-002,en-US,level,faq,v1,what is the MOQ for AccuMeasure level sensors,/contact,high
+AM-F-003,en-US,flow,faq,v1,how long is the lead time for custom flow meters,/contact,high
+AM-F-004,en-US,oem,faq,v1,do AccuMeasure products include calibration certificates,/quality,high
+AM-F-005,en-US,oem,faq,v1,what payment terms do Chinese instrument manufacturers accept,/contact,high
+AM-F-006,en-US,level,faq,v1,can ultrasonic level sensors measure chemical tanks,/products/am-ul20-ultrasonic-level-sensor,high
+AM-F-007,en-US,flow,faq,v1,what documents should a buyer request from a China flow meter supplier,/blog/electromagnetic-vs-ultrasonic-flow-meter,high
+AM-F-008,en-US,oem,faq,v1,how do I get a sample order from a sensor manufacturer,/contact,high
+AM-F-009,en-US,flow,faq,v1,can an electromagnetic flow meter measure non-conductive oil,/compare/electromagnetic-vs-ultrasonic-flow-meter,high
+AM-F-010,en-US,pressure,faq,v1,what is the warranty for industrial pressure transmitters,/contact,medium
+AM-CO-001,en-DE,level,compliance,v1,documents required for importing radar level transmitters to EU,/certificates,high
+AM-CO-002,en-US,level,compliance,v1,ATEX certified radar level transmitter for hazardous area,/certificates,high
+AM-CO-003,en-GB,flow,compliance,v1,CE certified electromagnetic flow meter for water projects,/certificates,high
+AM-CO-004,en-US,level,compliance,v1,ISO 9001 certificate for level sensor factory,/certificates,high
+AM-CO-005,en-US,pressure,compliance,v1,RoHS compliant pressure transmitter for OEM equipment,/certificates,high
+AM-CO-006,en-AE,level,compliance,v1,IECEx explosion proof level transmitter for oil and gas,/products/am-rl80-80ghz-radar-level-transmitter,high
+AM-CO-007,en-US,flow,compliance,v1,calibration certificate requirements for export flow meters,/quality,high
+AM-CO-008,en-US,iot,compliance,v1,FCC compliant IoT level sensor for US tank monitoring,/products/am-wl50-iot-wifi-level-sensor,medium
+AM-L-001,en-US,level,logistics,v1,radar level transmitter export packaging and shipping requirements,/products/am-rl80-80ghz-radar-level-transmitter,high
+AM-L-002,en-US,level,logistics,v1,level sensor lead time and sea freight from China,/contact,high
+AM-L-003,en-US,flow,logistics,v1,electromagnetic flow meter packing for sea shipment,/products/am-emf100-electromagnetic-flow-meter,medium
+AM-L-004,en-US,oem,logistics,v1,China instrument supplier payment and shipping terms,/contact,high
+AM-L-005,en-US,pressure,logistics,v1,DHL sample shipping for pressure transmitters,/products/am-pt300-pressure-transmitter,medium
+AM-L-006,en-US,flow,logistics,v1,custom wooden case packaging for large flow meter order,/contact,medium
+AM-L-007,en-AU,level,logistics,v1,how to import industrial sensors from Xi'an China,/about,medium
+AM-L-008,en-US,oem,logistics,v1,MOQ and delivery schedule for OEM pressure gauge order,/products/am-pg200-digital-pressure-gauge,high
+AM-R-001,en-DE,oem,regional,v1,level sensor manufacturer for EU private label brands,/customization,high
+AM-R-002,en-GB,flow,regional,v1,flow meter supplier for UK water utilities,/products/flow,medium
+AM-R-003,en-AU,pressure,regional,v1,pressure transmitter supplier for Australian OEMs,/products/pressure,medium
+AM-R-004,en-AE,level,regional,v1,radar level transmitter for Middle East oil and gas projects,/applications/radar-level-sensor-for-oil-tank,high
+AM-R-005,en-US,flow,regional,v1,electromagnetic flow meter for Southeast Asia water projects,/applications/electromagnetic-flow-meter-for-water-treatment,high
+AM-R-006,en-US,level,regional,v1,80GHz radar level transmitter for Indian process industries,/products/am-rl80-80ghz-radar-level-transmitter,medium
+AM-R-007,en-US,iot,regional,v1,IoT level sensor for US agricultural tank monitoring,/products/am-wl50-iot-wifi-level-sensor,medium
+AM-R-008,zh-CN,level,regional,v1,西安精准测量仪器工厂参观,/about,high
+AM-B-001,en-US,brand,brand,v1,AccuMeasure Instruments product range,/products,high
+AM-B-002,en-US,brand,brand,v1,AccuMeasure level sensor manufacturer,/products/level,high
+AM-B-003,en-US,brand,brand,v1,AccuMeasure flow meter factory,/products/flow,high
+AM-B-004,en-US,brand,brand,v1,AccuMeasure pressure transmitter supplier,/products/pressure,high
+AM-B-005,en-US,brand,brand,v1,AccuMeasure Xi'an measurement instruments company,/about,high
+AM-B-006,en-US,brand,brand,v1,accumeasuretech.com OEM services,/customization,high
+AM-B-007,en-US,brand,brand,v1,AccuMeasure ISO 9001 certified factory,/certificates,high
+AM-B-008,zh-CN,brand,brand,v1,西安精准测量仪器有限公司,/about,high

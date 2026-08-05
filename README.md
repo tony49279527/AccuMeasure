@@ -59,6 +59,7 @@ src/
 ## Key Features
 
 - **Inquiry forms** with Zod validation across contact, product detail, and customization pages
+- **Lead source snapshots** capturing landing page, referrer, and UTM parameters with each inquiry/customization submission
 - **WhatsApp floating button** (desktop) + mobile bottom bar (WhatsApp / Call / Quote)
 - **SEO**: per-page metadata, `generateMetadata` for products, JSON-LD (Organization, Product, BreadcrumbList), sitemap & robots
 - **Responsive**: mobile-first, tested down to 375px width
@@ -98,6 +99,69 @@ This project is optimized for **Vercel**:
 2. Import into Vercel
 3. Add environment variables (GA4 ID, email provider keys)
 4. Deploy
+
+## GEO 自动监控与优化闭环
+
+The repository contains a repeatable B2B GEO loop for AccuMeasure: observe real AI-search results, generate an optimization report, make only evidence-backed page changes, and re-test on the next cycle.
+
+### Local dry run
+
+```bash
+npm run geo:dry-run
+npm run geo:report
+```
+
+The dry run validates query selection without calling OpenAI or writing observation rows. The report generator writes:
+
+- `reports/geo/geo-observation-status.md`
+- `reports/geo/geo-optimization-latest.md`
+
+### Run a real observation
+
+Create `.env.local`:
+
+```bash
+OPENAI_API_KEY=sk-...
+GEO_TARGET_URL=https://www.accumeasuretech.com
+```
+
+Then run high-priority queries:
+
+```bash
+npm run geo:observe -- --priority high --limit 20
+npm run geo:report
+```
+
+Supported filters: `--query-id`, `--family`, `--intent`, `--priority`, `--limit`. The script only logs responses with status `completed` and a non-empty answer. Failed, empty, or incomplete responses are saved as raw reports but are never counted as brand absence.
+
+### Weekly GitHub Actions
+
+`.github/workflows/geo-observation.yml` runs every Monday 09:00 Asia/Shanghai and can be triggered manually. Configure these repository settings:
+
+- Secret `OPENAI_API_KEY`: required for real runs.
+- Variable `GEO_ISSUE_NUMBER`: optional private GitHub issue number for weekly comments.
+- Secret `GEO_NOTIFY_WEBHOOK`: optional Feishu/WeCom/Telegram webhook; no webhook is called unless this is set.
+- Variable `GEO_TARGET_URL`: optional target URL override.
+
+The workflow runs high-priority queries, regenerates the status and optimization reports, commits `data/geo-observation-log.csv` and `reports/geo/` back to `main`, then appends a summary to the configured issue.
+
+### Files in this loop
+
+- `data/geo-query-set.csv`: 76 B2B buying-intent queries mapped to real AccuMeasure pages.
+- `data/geo-observation-log.csv`: completed observations only.
+- `scripts/geo-observe-openai.mjs`: OpenAI Responses API collector.
+- `scripts/geo-recommendations.py`: status and optimization report generator.
+- `reports/geo/raw/`: original response payloads, including failed calls.
+- `llms.txt`: machine-readable company, product, procurement, compliance, and contact facts.
+
+### Weekly execution
+
+1. Run the high-priority query set.
+2. Review `geo-optimization-latest.md`; separate `not visible` from `not measured`.
+3. Edit only pages whose required facts are already verifiable in the project.
+4. Update internal links, `llms.txt`, and sitemap `lastmod` when content changes.
+5. Build and run SEO/schema CI, then deploy only after user authorization.
+6. Re-test the same query IDs next cycle and compare brand mentions, citations, citation position, and coverage.
 
 ## Analytics (optional)
 

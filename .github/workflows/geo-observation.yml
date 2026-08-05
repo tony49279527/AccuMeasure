@@ -1,0 +1,123 @@
+name: GEO Observation
+
+on:
+  schedule:
+    # Monday 09:00 Asia/Shanghai = 01:00 UTC.
+    - cron: "0 1 * * 1"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Validate the pipeline without calling OpenAI
+        type: boolean
+        default: false
+      query_id:
+        description: Optional query_id (comma-separated)
+        type: string
+        default: ""
+      priority:
+        description: Priority filter
+        type: choice
+        options:
+          - high
+          - medium
+          - low
+          - all
+        default: high
+      limit:
+        description: Maximum number of queries
+        type: number
+        default: 20
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: geo-observation
+  cancel-in-progress: false
+
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      GEO_TARGET_URL: ${{ vars.GEO_TARGET_URL }}
+      GEO_OPENAI_MODEL: ${{ vars.GEO_OPENAI_MODEL }}
+      GEO_ISSUE_NUMBER: ${{ vars.GEO_ISSUE_NUMBER }}
+      GEO_NOTIFY_WEBHOOK: ${{ secrets.GEO_NOTIFY_WEBHOOK }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run GEO observation
+        shell: bash
+        run: |
+          ARGS="--limit ${{ inputs.limit || 20 }}"
+          if [ "${{ inputs.priority || 'high' }}" != "all" ]; then
+            ARGS="$ARGS --priority ${{ inputs.priority || 'high' }}"
+          fi
+          if [ -n "${{ inputs.query_id }}" ]; then
+            ARGS="$ARGS --query-id ${{ inputs.query_id }}"
+          fi
+          if [ "${{ inputs.dry_run }}" == "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          node scripts/geo-observe-openai.mjs $ARGS
+
+      - name: Generate GEO reports
+        shell: bash
+        run: |
+          python3 scripts/geo-recommendations.py
+
+      - name: Commit observation and report files
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/geo-observation-log.csv reports/geo
+          if git diff --cached --quiet; then
+            echo "No GEO files changed."
+          else
+            git commit -m "chore(geo): weekly GEO observation and optimization report"
+            git push origin HEAD:main
+          fi
+
+      - name: Append weekly summary to private GEO issue
+        shell: bash
+        run: |
+          if [ -z "$GEO_ISSUE_NUMBER" ]; then
+            echo "GEO_ISSUE_NUMBER is not set; skipping issue comment."
+            exit 0
+          fi
+          {
+            echo "## GEO Weekly Run $(date -u +%Y-%m-%d)"
+            echo ""
+            cat reports/geo/geo-observation-status.md
+            echo ""
+            cat reports/geo/geo-optimization-latest.md
+          } > /tmp/geo-weekly-summary.md
+          gh issue comment "$GEO_ISSUE_NUMBER" --body-file /tmp/geo-weekly-summary.md
+
+      - name: Send optional notification
+        shell: bash
+        run: |
+          if [ -z "$GEO_NOTIFY_WEBHOOK" ]; then
+            echo "GEO_NOTIFY_WEBHOOK is not set; skipping notification."
+            exit 0
+          fi
+          curl --fail --silent --show-error \
+            -X POST \
+            -H "Content-Type: application/json" \
+            -d '{"text":"AccuMeasure GEO weekly run completed. Review reports/geo/geo-optimization-latest.md."}' \
+            "$GEO_NOTIFY_WEBHOOK"

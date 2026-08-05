@@ -31,7 +31,10 @@ export default function PrivacyPage() {
           <p>
             We collect the information you voluntarily submit via our inquiry and
             customization forms: name, company, email, phone/WhatsApp, country, and project
-            requirements. We do not use tracking cookies for advertising.
+            requirements. To understand which pages and campaigns generate inquiries, the form
+            may also include non-identifying technical fields such as the landing page URL,
+            browser referrer, and UTM campaign parameters. We do not use tracking cookies for
+            advertising.
           </p>
           <h2 className="text-xl font-semibold text-dark">How We Use Your Information</h2>
           <p>

@@ -79,6 +79,14 @@ export const inquirySchema = z.object({
   privacy: privacyField,
   // Honeypot: hidden from humans; any value marks the submission as bot spam.
   website: z.string().optional(),
+  landingPage: z.string().optional(),
+  pageUrl: z.string().optional(),
+  referrer: z.string().optional(),
+  utmSource: z.string().optional(),
+  utmMedium: z.string().optional(),
+  utmCampaign: z.string().optional(),
+  utmContent: z.string().optional(),
+  utmTerm: z.string().optional(),
 });
 
 export type InquiryValues = z.infer<typeof inquirySchema>;
@@ -105,6 +113,14 @@ export const customizationSchema = z.object({
   fileName: z.string().optional(),
   privacy: privacyField,
   website: z.string().optional(),
+  landingPage: z.string().optional(),
+  pageUrl: z.string().optional(),
+  referrer: z.string().optional(),
+  utmSource: z.string().optional(),
+  utmMedium: z.string().optional(),
+  utmCampaign: z.string().optional(),
+  utmContent: z.string().optional(),
+  utmTerm: z.string().optional(),
 });
 
 export type CustomizationValues = z.infer<typeof customizationSchema>;

@@ -40,6 +40,11 @@ export function trackLeadEvent(data: {
   productName?: string;
   category?: string;
   country?: string;
+  landingPage?: string;
+  referrer?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
 }) {
   trackEvent("generate_lead", {
     event_category: "Engagement",
@@ -47,6 +52,11 @@ export function trackLeadEvent(data: {
     form_type: data.formType,
     product_id: data.productId || "general",
     buyer_country: data.country || "unknown",
+    landing_page: data.landingPage || "",
+    referrer: data.referrer || "",
+    utm_source: data.utmSource || "",
+    utm_medium: data.utmMedium || "",
+    utm_campaign: data.utmCampaign || "",
   });
 }
 

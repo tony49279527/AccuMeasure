@@ -15,6 +15,7 @@ import {
 import type { InquiryValues } from "@/lib/schema";
 import { siteConfig, waLinkFor } from "@/lib/site";
 import { trackLeadEvent, trackContactClick } from "@/lib/analytics";
+import { getSourceSnapshot } from "@/lib/source";
 
 interface InquiryFormProps {
   productId?: string;
@@ -62,10 +63,11 @@ export function InquiryForm({
     setStatus("submitting");
     setErrorMsg("");
     try {
+      const source = getSourceSnapshot();
       const res = await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, formType: "inquiry" }),
+        body: JSON.stringify({ ...values, ...source, formType: "inquiry" }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -77,6 +79,11 @@ export function InquiryForm({
         productId: productId,
         productName: productName,
         country: values.country,
+        landingPage: source.landingPage,
+        referrer: source.referrer,
+        utmSource: source.utmSource,
+        utmMedium: source.utmMedium,
+        utmCampaign: source.utmCampaign,
       });
       reset();
     } catch (e) {

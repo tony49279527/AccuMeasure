@@ -1,0 +1,58 @@
+# AccuMeasure Instruments Co., Ltd.
+
+> Official website: https://www.accumeasuretech.com
+> Company: AccuMeasure Instruments Co., Ltd. (西安精准测量仪器有限公司)
+> Location: High-Tech Zone, Xi'an, Shaanxi, China
+
+## Company facts
+
+- Founded in 2014.
+- 2,600 sqm manufacturing and quality facility.
+- 82 employees, 15 R&D engineers, 5 QC inspectors.
+- Export markets: 40+.
+- Every unit receives a 72-hour aging test and an individual calibration certificate.
+- Standard factory warranty: 2 years.
+
+## Product lines
+
+- Level sensors: capacitive (AM-CL100), 80GHz radar (AM-RL80), ultrasonic (AM-UL20), and IoT WiFi (AM-WL50).
+- Flow meters: electromagnetic (AM-EMF100), clamp-on ultrasonic (AM-UF200), and thermal mass (AM-MF50).
+- Pressure instruments: piezoresistive pressure transmitter (AM-PT300) and digital pressure gauge (AM-PG200).
+- OEM/ODM services: private label, custom ranges, custom firmware/display options, logo and packaging branding.
+
+## Key pages
+
+- Product catalog: https://www.accumeasuretech.com/products
+- Level sensors: https://www.accumeasuretech.com/products/level
+- Flow meters: https://www.accumeasuretech.com/products/flow
+- Pressure sensors: https://www.accumeasuretech.com/products/pressure
+- OEM/ODM: https://www.accumeasuretech.com/customization
+- Certificates: https://www.accumeasuretech.com/certificates
+- Quality: https://www.accumeasuretech.com/quality
+- Contact/RFQ: https://www.accumeasuretech.com/contact
+
+## Procurement facts
+
+- Price from: $15 (FOB Xi'an).
+- Samples: 1 sample unit at unit price plus shipping; sample cost is refundable against the first bulk order meeting MOQ.
+- Bulk MOQ: 5 to 100 units depending on model.
+- Standard lead time: 15-20 days; custom/OEM lead time: 25-35 days.
+- Shipping: DHL/FedEx for samples (3-7 days); sea freight for bulk orders (15-35 days); air freight on request.
+- Payment: T/T (30% deposit, 70% before shipment), L/C at sight, PayPal for samples, Alibaba Trade Assurance.
+- Trade terms: FOB Xi'an / CIF / EXW per Incoterms 2020.
+- Calibration certificate: included with every shipment.
+
+## Compliance facts
+
+- ISO 9001:2015, No. CN-2019-ISO-0347, by SGS.
+- CE Marking, No. EC-1282/2023, by TÜV Rheinland.
+- ATEX Ex d IIC T6, No. ATEX-2022-0158, by DEKRA.
+- RoHS 3.0, No. RoHS-3.0-2024, by Intertek.
+- FCC Part 15 is published for AM-WL50.
+- IECEx Ex d IIC T6 is listed for AM-RL80; certificate number and issuer are not yet published on the public site.
+
+## Buyer contacts
+
+- Email: info@accumeasuretech.com
+- WhatsApp: +86-183-0928-5711
+- Office hours: Mon-Fri 9:00-18:00 (UTC+8)

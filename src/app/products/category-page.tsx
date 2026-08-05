@@ -33,6 +33,16 @@ export interface CategoryPageData {
     body: string;
     links?: { label: string; href: string }[];
   }[];
+  decisionTable?: {
+    title: string;
+    description?: string;
+    rows: {
+      buyerNeed: string;
+      firstChoice: string;
+      secondChoice: string;
+      guidance: string;
+    }[];
+  };
   faqs?: { question: string; answer: string }[];
   lastReviewed?: string;
 }
@@ -203,6 +213,41 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
                   )}
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {data.decisionTable && data.decisionTable.rows.length > 0 && (
+        <section className="py-16 border-t border-border">
+          <div className="container-max">
+            <div className="max-w-3xl mb-8">
+              <h2 className="text-2xl font-bold text-dark mb-3">{data.decisionTable.title}</h2>
+              {data.decisionTable.description && (
+                <p className="text-muted">{data.decisionTable.description}</p>
+              )}
+            </div>
+            <div className="overflow-x-auto rounded-xl border border-border bg-white">
+              <table className="min-w-[820px] w-full border-collapse text-left">
+                <thead>
+                  <tr className="bg-bg-light">
+                    <th className="px-5 py-4 text-sm font-semibold text-dark">Buyer need</th>
+                    <th className="px-5 py-4 text-sm font-semibold text-dark">Start here</th>
+                    <th className="px-5 py-4 text-sm font-semibold text-dark">Alternative</th>
+                    <th className="px-5 py-4 text-sm font-semibold text-dark">Guidance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.decisionTable.rows.map((row) => (
+                    <tr key={row.buyerNeed} className="border-t border-border align-top">
+                      <td className="px-5 py-4 text-sm font-medium text-dark">{row.buyerNeed}</td>
+                      <td className="px-5 py-4 text-sm text-muted">{row.firstChoice}</td>
+                      <td className="px-5 py-4 text-sm text-muted">{row.secondChoice}</td>
+                      <td className="px-5 py-4 text-sm text-muted">{row.guidance}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>

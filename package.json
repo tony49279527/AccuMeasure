@@ -14,7 +14,10 @@
     "verify": "next build && node scripts/schema-ci.cjs && node scripts/seo-ci.cjs",
     "seo:ci": "node scripts/seo-ci.cjs",
     "indexnow": "node scripts/submit-indexnow.cjs",
-    "sites:build": "node scripts/build-sites-prototype.cjs"
+    "sites:build": "node scripts/build-sites-prototype.cjs",
+    "geo:dry-run": "node scripts/geo-observe-openai.mjs --dry-run",
+    "geo:observe": "node scripts/geo-observe-openai.mjs",
+    "geo:report": "python3 scripts/geo-recommendations.py"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",

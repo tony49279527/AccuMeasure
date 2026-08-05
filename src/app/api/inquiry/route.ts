@@ -2,25 +2,47 @@ import { NextResponse } from "next/server";
 import { inquirySchema, customizationSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 
+const SOURCE_FIELDS = [
+  "landingPage",
+  "pageUrl",
+  "referrer",
+  "utmSource",
+  "utmMedium",
+  "utmCampaign",
+  "utmContent",
+  "utmTerm",
+] as const;
+
 function formatEmailBody(formType: string, data: Record<string, unknown>): string {
   const lines = [
     `New ${formType} submission from accumeasuretech.com`,
     `Time: ${new Date().toISOString()}`,
     "",
     ...Object.entries(data)
-      .filter(([k, v]) => k !== "formType" && v !== undefined && v !== "")
+      .filter(([k, v]) => k !== "formType" && !SOURCE_FIELDS.includes(k as (typeof SOURCE_FIELDS)[number]) && v !== undefined && v !== "")
       .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(", ") : String(v)}`),
   ];
   return lines.join("\n");
 }
 
 function leadPayload(formType: string, data: Record<string, unknown>) {
+  const sourceDetails = Object.fromEntries(
+    SOURCE_FIELDS
+      .filter((key) => data[key] !== undefined && data[key] !== "")
+      .map((key) => [key, data[key]]),
+  );
   const cleanData = Object.fromEntries(
-    Object.entries(data).filter(([key]) => key !== "website" && key !== "formType")
+    Object.entries(data).filter(
+      ([key]) =>
+        key !== "website" &&
+        key !== "formType" &&
+        !SOURCE_FIELDS.includes(key as (typeof SOURCE_FIELDS)[number]),
+    )
   );
 
   return {
     source: "accumeasuretech.com",
+    sourceDetails,
     formType,
     submittedAt: new Date().toISOString(),
     data: cleanData,
