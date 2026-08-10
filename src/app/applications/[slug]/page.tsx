@@ -106,15 +106,27 @@ export default function ApplicationDetailPage({
             <p className="text-muted leading-7">{page.solution}</p>
           </div>
           <div className="bg-bg-light rounded-xl border border-border p-8">
-            <h2 className="text-xl font-bold text-dark mb-6">Why AccuMeasure for this job</h2>
+            <h2 className="text-xl font-bold text-dark mb-3">What to verify before selection</h2>
+            <p className="text-sm text-muted leading-6 mb-6">
+              Published summaries do not replace the current datasheet, quotation, or
+              model-specific compliance documents.
+            </p>
             <ul className="space-y-4">
-              {page.whyAccuMeasure.map((item) => (
+              {page.selectionChecks.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-muted">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
+            <div className="flex flex-wrap gap-x-5 gap-y-2 mt-6 pt-5 border-t border-border text-sm">
+              <Link href="/certificates" className="text-primary font-medium hover:underline">
+                Review documentation status
+              </Link>
+              <Link href="/resources" className="text-primary font-medium hover:underline">
+                Request current product documents
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -157,7 +169,10 @@ export default function ApplicationDetailPage({
                 <div className="p-6">
                   <div className="text-sm text-muted mb-1">{product.model}</div>
                   <h3 className="text-xl font-semibold text-dark mb-2">{product.name}</h3>
-                  <p className="text-muted text-sm mb-4">{product.tagline}</p>
+                  <p className="text-muted text-sm mb-4">
+                    Review the current model page, specifications, and project-specific
+                    documentation before selection.
+                  </p>
                   <span className="inline-flex items-center gap-2 text-accent font-medium">
                     View specs <ArrowRight className="w-4 h-4" />
                   </span>

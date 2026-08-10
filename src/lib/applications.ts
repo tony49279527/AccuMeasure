@@ -9,7 +9,7 @@ export interface ApplicationPage {
   industry: string;
   problem: string;
   solution: string;
-  whyAccuMeasure: string[];
+  selectionChecks: string[];
   checklist: string[];
   relatedProductIds: string[];
   relatedCaseSlug?: string;
@@ -22,18 +22,18 @@ export const applicationPages: ApplicationPage[] = [
     title: "80GHz Radar Level Sensor for Oil Tanks | AccuMeasure",
     h1: "80GHz Radar Level Sensor for Oil Storage Tanks",
     description:
-      "Non-contact 80GHz FMCW radar level transmitters for petroleum, diesel, and chemical storage tanks. ATEX options, ±2mm accuracy, factory-direct from Xi'an.",
+      "A buyer guide for evaluating non-contact 80GHz radar on oil, fuel, and chemical storage tanks, including installation and documentation checks.",
     industry: "Oil & Gas / Fuel Storage",
     problem:
       "Oil and fuel tanks often have vapor, temperature swing, and hazardous-area requirements. Contact probes foul; ultrasonic sensors struggle with vapor and foam.",
     solution:
-      "The AM-RL80 80GHz FMCW radar measures continuously without contacting the product. Narrow beam angle handles nozzles and tank internals; ATEX Ex d IIC T6 options support hazardous zones.",
-    whyAccuMeasure: [
-      "±2mm accuracy with 0.3–80m range for tall storage tanks",
-      "ATEX Ex d IIC T6 option with DEKRA certificate number on request",
-      "4-20mA / HART / RS485 outputs for DCS and tank-gauging systems",
-      "72-hour aging test and calibration certificate with every unit",
-      "Typical FOB pricing about 1/3 of European radar brands for comparable specs",
+      "Evaluate the AM-RL80 against the tank drawing, process conditions, mounting geometry, required signal, and site classification. Confirm the exact model configuration and current documentation before ordering.",
+    selectionChecks: [
+      "Confirm measuring range, blind zone, accuracy, and antenna choice in the current model datasheet",
+      "Match hazardous-area marking and certificate scope to the exact quoted model and installation zone",
+      "Review nozzle size, tank internals, foam, vapor, temperature, and pressure with engineering",
+      "Confirm power supply and output requirements for the control or tank-gauging system",
+      "Request the current calibration, inspection, and compliance documents required for the project",
     ],
     checklist: [
       "Tank height and nozzle size",
@@ -48,17 +48,17 @@ export const applicationPages: ApplicationPage[] = [
       {
         question: "Can AM-RL80 measure diesel and gasoline tanks?",
         answer:
-          "Yes. Non-contact 80GHz radar works on petroleum products. Confirm vapor density, nozzle geometry, and whether ATEX is required for your site.",
+          "It can be evaluated for non-contact measurement on these tanks, but final selection depends on tank geometry, vapor, process conditions, mounting, and site classification. Share those inputs for an engineering check.",
       },
       {
         question: "Do you supply ATEX-certified radar for oil terminals?",
         answer:
-          "ATEX Ex d IIC T6 is available for AM-RL80. Request the DEKRA certificate scan (ATEX-2022-0158) with your RFQ.",
+          "Hazardous-area requirements must be checked against the current certificate, exact model, protection marking, and installation zone. Request the applicable document set with the quotation rather than relying on a page summary.",
       },
       {
         question: "What is the MOQ and lead time?",
         answer:
-          "Samples from 1 unit; bulk MOQ depends on model. Standard lead time is 15-20 days; ATEX/custom builds may take 25-35 days.",
+          "MOQ and lead time depend on the confirmed model, documentation, customization, quantity, and destination. They are stated in the project quotation after the configuration review.",
       },
     ],
   },
@@ -67,18 +67,18 @@ export const applicationPages: ApplicationPage[] = [
     title: "Electromagnetic Flow Meter for Water Treatment | AccuMeasure",
     h1: "Electromagnetic Flow Meter for Water & Wastewater Treatment",
     description:
-      "AM-EMF100 electromagnetic flow meters for PDAM, municipal water, and industrial wastewater. DN15–DN1000, ±0.5% accuracy, factory-direct from China.",
+      "A selection guide for evaluating AM-EMF100 electromagnetic flow meters in municipal water and industrial wastewater applications.",
     industry: "Water & Wastewater",
     problem:
-      "Utilities and EPCs need stable flow measurement on conductive liquids with low maintenance. Mechanical meters wear; clamp-on ultrasonic can drift on dirty pipes.",
+      "Utilities and EPCs need to match the meter to liquid conductivity, pipe conditions, lining compatibility, installation space, accuracy requirements, and the plant control system.",
     solution:
-      "The AM-EMF100 magmeter has no moving parts, handles DN15–DN1000 lines, and delivers ±0.5% accuracy for billing, process control, and plant monitoring.",
-    whyAccuMeasure: [
-      "DN15–DN1000 coverage for plant and network lines",
-      "±0.5% accuracy suitable for utility and industrial duty",
-      "PTFE / rubber liner options for water and mild chemicals",
-      "Proven on Indonesia PDAM-style water projects with repeat orders",
-      "Calibration certificate shipped with every meter",
+      "Evaluate the AM-EMF100 only after confirming the liquid is conductive and documenting pipe size, flange standard, liner compatibility, grounding, straight-run conditions, power, and output requirements.",
+    selectionChecks: [
+      "Confirm the liquid conductivity and chemical compatibility before selecting electromagnetic technology",
+      "Match pipe size, pressure class, flange standard, liner, and electrode material to the project",
+      "Review grounding, straight-run, full-pipe, and installation requirements with engineering",
+      "Confirm accuracy and output requirements in the current quoted model datasheet",
+      "Request the calibration and inspection documents required by the project before ordering",
     ],
     checklist: [
       "Pipe diameter (DN) and flange standard",
@@ -93,17 +93,17 @@ export const applicationPages: ApplicationPage[] = [
       {
         question: "What liquids can AM-EMF100 measure?",
         answer:
-          "Conductive liquids such as water, wastewater, and many process fluids. Non-conductive media (oils, ultrapure water) need ultrasonic or other technologies.",
+          "Electromagnetic meters require a conductive liquid. Water and many wastewater streams can be candidates, while oils and other low-conductivity media generally require another technology. Confirm actual conductivity and compatibility before selection.",
       },
       {
         question: "Can you match existing flange standards?",
         answer:
-          "Yes — specify DIN, ANSI, or JIS flanges in the RFQ. We configure process connections before production.",
+          "Specify the existing flange standard, size, pressure class, and face type in the RFQ. Engineering will confirm whether the required connection is available for the quoted model.",
       },
       {
         question: "Do you support large utility orders?",
         answer:
-          "Yes. Share monthly/annual quantity and delivery schedule. We quote phased production and packing for export.",
+          "Share the required quantity, inspection plan, packing rules, destination, and delivery schedule. Capacity and any phased delivery plan are confirmed in the quotation.",
       },
     ],
   },
@@ -112,18 +112,18 @@ export const applicationPages: ApplicationPage[] = [
     title: "OEM Pressure Transmitter & Private Label Gauge | AccuMeasure",
     h1: "Pressure Transmitters for OEM Equipment & Private Label",
     description:
-      "AM-PT300 pressure transmitters and AM-PG200 digital gauges for OEM branding. MOQ from 100 for logo/packaging, factory-direct from Xi'an.",
+      "A qualification guide for AM-PT300 pressure transmitters and AM-PG200 digital gauges in OEM and private-label equipment projects.",
     industry: "OEM / System Integrators",
     problem:
-      "Integrators need stable pressure sensors with private-label packaging, predictable lead times, and documentation for their end customers — without European brand markups.",
+      "Integrators need a pressure device that fits the process, electrical interface, enclosure, labeling, packaging, documentation, and supply plan for their equipment.",
     solution:
-      "AccuMeasure supplies piezoresistive transmitters and digital gauges with OEM branding, custom ranges, and serial-number traceability. Brazil integrator case: 500 first order, 2,000 reorder.",
-    whyAccuMeasure: [
-      "OEM branding from MOQ 100 with no tooling fee",
-      "Ranges up to 100MPa with 4-20mA / RS485 options",
-      "2-year warranty and calibration certificate per unit",
-      "15-engineer R&D support for non-standard ranges and housings",
-      "Documented OEM reorder growth on private-label gauge programs",
+      "Qualify the AM-PT300 or AM-PG200 from the required range, overload conditions, wetted materials, process and electrical connections, output, enclosure, documentation, and branding brief. Custom scope is confirmed in writing before samples or production.",
+    selectionChecks: [
+      "Confirm normal pressure, surge pressure, accuracy, wetted materials, and process connection",
+      "Document the required output, connector, power supply, display, enclosure, and environmental limits",
+      "Provide approved logo, label, serial-number, packaging, and language requirements",
+      "Agree sample approval, inspection, change-control, and production acceptance criteria",
+      "Confirm MOQ, tooling, warranty, documentation, and delivery terms in the written quotation",
     ],
     checklist: [
       "Pressure range and accuracy",
@@ -138,17 +138,17 @@ export const applicationPages: ApplicationPage[] = [
       {
         question: "What is the OEM branding MOQ?",
         answer:
-          "OEM logo and packaging start at 100 units with no tooling fee. Full ODM (new enclosure/PCB) typically starts at 500 units.",
+          "MOQ depends on the product, artwork, packaging, tooling, testing, and customization scope. Share the annual volume and first-order quantity so the applicable terms can be included in the quotation.",
       },
       {
         question: "Can you sign an NDA for private-label projects?",
         answer:
-          "Yes. NDA and branding confidentiality can be included before artwork exchange. Mention NDA in your inquiry.",
+          "Request an NDA before sharing confidential drawings or artwork. The parties and permitted use should be agreed in writing before protected materials are exchanged.",
       },
       {
         question: "How fast can you quote a custom range?",
         answer:
-          `We aim to quote standard ranges within ${siteConfig.responseTarget}. Non-standard ranges or housings usually get a solution outline within 7 days.`,
+          `We aim to acknowledge a complete inquiry within ${siteConfig.responseTarget}. The quotation schedule depends on the technical review, sample, tooling, and documentation requirements.`,
       },
     ],
   },
@@ -162,12 +162,12 @@ export const applicationPages: ApplicationPage[] = [
     problem:
       "Buyers often shortlist both radar and ultrasonic. Wrong choice causes false echoes, vapor errors, or unnecessary cost.",
     solution:
-      "Use ultrasonic for clean water and open channels at lower cost. Use 80GHz radar when vapor, dust, foam, long range, or hazardous-area certification matters.",
-    whyAccuMeasure: [
-      "Both technologies in one factory catalog — unbiased selection help",
-      "AM-UL20 for economical water/tank duty; AM-RL80 for harsh process duty",
-      "Side-by-side specs, MOQ, and lead time on each product page",
-      `Application engineers aim to reply within ${siteConfig.responseTarget} with a model recommendation`,
+      "Evaluate ultrasonic for clean liquids and open applications with suitable environmental conditions. Evaluate 80GHz radar when vapor, dust, foam, range, beam geometry, or hazardous-area requirements change the measurement task.",
+    selectionChecks: [
+      "Compare the medium, vapor, dust, foam, condensation, temperature, and pressure conditions",
+      "Review range, blind zone, accuracy, beam path, nozzle, and tank-internal constraints",
+      "Confirm whether hazardous-area documentation is required for the exact installation",
+      "Compare current model datasheets and request an engineering review before ordering",
     ],
     checklist: [
       "Medium and vapor/dust conditions",
@@ -181,12 +181,12 @@ export const applicationPages: ApplicationPage[] = [
       {
         question: "When is ultrasonic good enough?",
         answer:
-          "Clean liquids, short-to-medium range, no heavy vapor or foam, and cost-sensitive projects. AM-UL20 fits many water tank applications.",
+          "Ultrasonic is commonly evaluated for clean liquids and open applications without heavy vapor, foam, dust, or difficult mounting geometry. Confirm range and environmental limits for the exact model.",
       },
       {
         question: "When should I buy 80GHz radar instead?",
         answer:
-          "Choose radar for vapor, dust, foam, taller tanks, higher accuracy, or ATEX zones. AM-RL80 is the AccuMeasure radar option.",
+          "Radar is often evaluated when vapor, dust, foam, longer range, narrow beam geometry, or hazardous-area requirements make ultrasonic less suitable. The exact radar model and documentation still need project review.",
       },
       {
         question: "Can you recommend a model from my tank drawing?",
