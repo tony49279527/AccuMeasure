@@ -7,7 +7,7 @@ const SITE_URL = "https://www.accumeasuretech.com";
 const REQUIRED_FIELDS = {
   Organization: ["name", "url", "address"],
   WebSite: ["name", "url"],
-  Product: ["name", "offers", "brand"],
+  Product: ["name", "url", "brand"],
   BreadcrumbList: ["itemListElement"],
   ItemList: ["itemListElement"],
   FAQPage: ["mainEntity"],
@@ -84,6 +84,10 @@ function validateSchema(schema) {
         errors.push("BreadcrumbList: non-home item points to homepage");
       }
     }
+  }
+
+  if (type === "Product" && schema.offers) {
+    errors.push("Product: offers require approved price, availability, MOQ, and warranty evidence");
   }
 
   const staleProductAnchors = collectStrings(schema).filter((value) =>

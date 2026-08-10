@@ -1,6 +1,4 @@
 import { siteConfig } from "./site";
-import { certificationDetail } from "./certifications";
-import { companyFacts } from "./facts";
 import { getProductById } from "./products";
 import type { Product, CaseStudy } from "./types";
 import type { BlogPost } from "./blog";
@@ -67,39 +65,6 @@ const categoryLabels: Record<Product["category"], string> = {
 
 export function productJsonLd(product: Product) {
   const productUrl = `${siteConfig.url}/products/${product.slug}`;
-  const additionalProperties = [
-    { "@type": "PropertyValue", name: "MOQ", value: product.moq },
-    { "@type": "PropertyValue", name: "Lead Time", value: product.leadTime },
-    {
-      "@type": "PropertyValue",
-      name: "Category",
-      value: categoryLabels[product.category],
-    },
-    {
-      "@type": "PropertyValue",
-      name: "Certifications",
-      value: product.certifications.map(certificationDetail).join("; "),
-    },
-    {
-      "@type": "PropertyValue",
-      name: "Applications",
-      value: product.applications.map((a) => a.name).join(", "),
-    },
-    { "@type": "PropertyValue", name: "Country of Origin", value: "CN" },
-  ];
-
-  const specs = product.specifications.flatMap((g) => g.items);
-  const materialSpec = specs.find((s) =>
-    s.param.toLowerCase().includes("material"),
-  );
-  if (materialSpec) {
-    additionalProperties.push({
-      "@type": "PropertyValue",
-      name: "Material",
-      value: materialSpec.value,
-    });
-  }
-
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -107,41 +72,12 @@ export function productJsonLd(product: Product) {
     name: product.name,
     sku: product.model,
     mpn: product.model,
-    description: `${product.tagline} ${product.description}`,
+    description: `${product.model} ${product.name} product page. Confirm current specifications, documentation, availability, and commercial terms for the exact quoted configuration.`,
     image: [`${siteConfig.url}${product.image}`],
     url: productUrl,
     brand: { "@type": "Brand", name: "AccuMeasure" },
     manufacturer: { "@id": `${siteConfig.url}/#organization` },
     category: categoryLabels[product.category],
-    additionalProperty: additionalProperties,
-    offers: {
-      "@type": "Offer",
-      "@id": `${productUrl}#offer`,
-      price: product.priceFrom,
-      priceCurrency: "USD",
-      priceSpecification: {
-        "@type": "PriceSpecification",
-        price: product.priceFrom,
-        priceCurrency: "USD",
-        valueAddedTaxIncluded: false,
-      },
-      availability: "https://schema.org/InStock",
-      url: productUrl,
-      seller: { "@id": `${siteConfig.url}/#organization` },
-      eligibleQuantity: {
-        "@type": "QuantitativeValue",
-        minValue: product.moq,
-        unitText: "unit",
-      },
-      warranty: {
-        "@type": "WarrantyPromise",
-        durationOfWarranty: {
-          "@type": "QuantitativeValue",
-          value: companyFacts.warrantyYears,
-          unitCode: "ANN",
-        },
-      },
-    },
   };
 }
 
