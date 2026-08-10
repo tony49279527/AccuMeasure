@@ -12,7 +12,7 @@ export const siteConfig = {
   officeHours: "Mon-Fri 9:00-18:00 (UTC+8)",
   responseTarget: "one business day (UTC+8)",
   description:
-    "Factory-direct level sensors, flow meters, and pressure transmitters from Xi'an. ISO 9001, calibration certificates, and OEM support. Request a quote.",
+    "Level, flow, and pressure instruments with application review, model confirmation, controlled document requests, and OEM project support.",
   social: {
     // Only keep profiles we own. Wrong LinkedIn/YouTube sameAs links poison
     // entity trust (the previous LinkedIn URL pointed at an unrelated US firm).

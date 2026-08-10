@@ -1,117 +1,86 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { JsonLd } from "@/components/json-ld";
-import { siteConfig } from "@/lib/site";
 
-const teamMembers = [
+const buyerWorkflows = [
   {
-    name: "Zhang Wei",
-    jobTitle: "Founder & CEO",
-    description: "Industrial measurement engineer with 18 years of product and export-manufacturing experience.",
+    title: "Application review",
+    description:
+      "Start with the medium, process limits, installation, signal, documentation, quantity, and destination rather than selecting from a model name alone.",
   },
   {
-    name: "Li Mei",
-    jobTitle: "CTO",
-    description: "Leads sensor R&D, firmware configuration, and application-specific engineering reviews.",
+    title: "Configuration confirmation",
+    description:
+      "Record the exact range, materials, connection, output, enclosure, accessories, labeling, and project options in the quotation and approved datasheet.",
   },
   {
-    name: "Wang Jun",
-    jobTitle: "Head of Quality",
-    description: "Runs supplier inspection, process checks, aging-test control, and final calibration release.",
+    title: "Document check",
+    description:
+      "Match current inspection, calibration, and compliance documents to the quoted model and project scope before approval.",
+  },
+  {
+    title: "Commercial handoff",
+    description:
+      "Confirm sample or production quantity, acceptance criteria, packing, delivery, warranty, and after-sales ownership in writing.",
   },
 ];
 
-const certifications = [
-  { name: "ISO 9001:2015", number: "CN-2019-ISO-0347", issuer: "SGS" },
-  { name: "CE Marking", number: "EC-1282/2023", issuer: "TÜV Rheinland" },
-  { name: "ATEX", number: "ATEX-2022-0158", issuer: "DEKRA" },
-  { name: "RoHS", number: "RoHS-3.0-2024", issuer: "Intertek" },
-  { name: "Alibaba Gold Supplier", number: "Verified 8 years", issuer: "Alibaba.com" },
-];
-
-const factoryCapabilities = [
+const verificationAreas = [
   {
-    title: "Assembly & Configuration",
-    desc: "Model selection, housing assembly, output configuration, and serial-number traceability.",
-    image: "/factory/assembly.jpg",
+    title: "Company and contact",
+    description:
+      "Verify the contracting entity, sales contact, quotation details, payment beneficiary, and communication channel before placing an order.",
+    href: "/contact",
+    linkLabel: "Contact AccuMeasure",
   },
   {
-    title: "Calibration Lab",
-    desc: "Pressure, flow, and level calibration records prepared for export shipment documentation.",
-    image: "/factory/calibration.jpg",
+    title: "Product scope",
+    description:
+      "Confirm the exact model, measuring principle, range, materials, process connection, output, and environmental limits for the application.",
+    href: "/products",
+    linkLabel: "Review product families",
   },
   {
-    title: "72-Hour Aging Test",
-    desc: "Continuous powered testing with post-aging inspection before final release.",
-    image: "/factory/aging-test.jpg",
+    title: "Compliance scope",
+    description:
+      "Check the holder, issuer, standard, model applicability, marking, validity, and permitted use of each required document.",
+    href: "/certificates",
+    linkLabel: "Review documentation status",
   },
   {
-    title: "Export QC & Packing",
-    desc: "Outgoing inspection, calibration certificate matching, carton protection, and shipment labeling.",
-    image: "/factory/qc-packaging.jpg",
-  },
-];
-
-const factoryFacts = [
-  {
-    label: "Factory Scale",
-    value: "82 employees · 2,600 sqm facility",
-    detail: "The team includes 15 R&D engineers, 5 QC inspectors, export sales, assembly technicians, and calibration staff in Xi'an.",
+    title: "Quality records",
+    description:
+      "Request the inspection, calibration, test, traceability, and acceptance records required by the project instead of relying on a general quality claim.",
+    href: "/quality",
+    linkLabel: "Review quality workflow",
   },
   {
-    label: "Production Scope",
-    value: "Level, flow, and pressure instruments",
-    detail: "Core product lines cover radar level measurement up to 80 m, DN6-DN1000 flow measurement, and 0-100MPa pressure measurement.",
+    title: "Controlled documents",
+    description:
+      "Use the current revision of datasheets, manuals, drawings, certificates, and project documents. Do not rely on an old attachment or page summary.",
+    href: "/resources",
+    linkLabel: "Request current documents",
   },
   {
-    label: "Signal Options",
-    value: "4-20 mA · RS485 · HART",
-    detail: "Common outputs include 4-20 mA, RS485 Modbus, HART, and 0-10 V depending on product model and PLC/DCS requirement.",
-  },
-  {
-    label: "Environmental Ratings",
-    value: "IP65/IP67 · -40°C to +200°C",
-    detail: "Selected models support IP65, IP67, ATEX Ex d IIC T6, and process temperature ratings up to +200°C.",
-  },
-  {
-    label: "Quality Control",
-    value: "5-stage QC · 72 hours aging",
-    detail: "Inspection flow covers IQC, IPQC, 72 hours powered aging, OQC, and calibration certificate matching before export packing.",
-  },
-  {
-    label: "Certificates",
-    value: "ISO 9001 · CE · ATEX · RoHS",
-    detail: "Certificate issuers listed on the site include SGS, TÜV Rheinland, DEKRA, Intertek, and Alibaba.com supplier verification.",
-  },
-  {
-    label: "Ordering Range",
-    value: "MOQ 1 sample · bulk by model",
-    detail: "Samples ship from 1 unit at unit price (refundable against first bulk order). Bulk MOQ ranges from 5 to 100 units by model. Standard production lead time is 15-20 days, custom orders 25-35 days.",
-  },
-  {
-    label: "Export Handling",
-    value: "DHL/FedEx 3-7 days for samples",
-    detail: "Bulk orders ship by air or sea freight using export cartons, foam protection, and optional wooden cases.",
-  },
-  {
-    label: "Warranty",
-    value: "2-year product warranty",
-    detail: "AccuMeasure backs standard instruments with a 2-year warranty and serial-number traceability for after-sales support.",
+    title: "OEM change control",
+    description:
+      "For private-label work, approve samples, artwork, packaging, serialization, inspection criteria, and change control before production.",
+    href: "/customization",
+    linkLabel: "Prepare an OEM brief",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "Industrial Sensor Manufacturer in China | AccuMeasure",
+  title: "About AccuMeasure | Industrial Measurement Supplier",
   description:
-    "Meet AccuMeasure: an 82-person industrial sensor factory in Xi'an, exporting level, flow, and pressure instruments to 40+ countries since 2014.",
+    "Learn how AccuMeasure handles application review, model confirmation, project documents, OEM requirements, and industrial instrument RFQs.",
   alternates: { canonical: "/about" },
   openGraph: {
     url: "/about",
-    title: "About AccuMeasure — Measurement Instrument Factory in Xi'an",
+    title: "About AccuMeasure | Industrial Measurement Supplier",
     description:
-      "Founded in 2014 by Xi'an Jiaotong University and aerospace engineers. 82 employees, 2,600 sqm facility, exporting to 40+ countries.",
+      "A verification-first overview of AccuMeasure application review, configuration, documents, and commercial handoff.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Instruments" }],
   },
 };
@@ -122,245 +91,118 @@ export default function AboutPage() {
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
           <Breadcrumbs items={[{ name: "About Us", href: "/about" }]} />
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
+            <div className="max-w-3xl">
+              <p className="text-sm font-medium text-primary mb-3">AccuMeasure Instruments Co., Ltd.</p>
               <h1 className="text-4xl font-bold text-dark mb-6">
-                About AccuMeasure
+                Industrial measurement support built around project inputs
               </h1>
-              <p className="text-lg text-muted">
-                A measurement instrument factory in Xi&apos;an, China — the city known
-                for aerospace and measurement technology heritage.
+              <p className="text-lg text-muted leading-8">
+                AccuMeasure supplies level, flow, and pressure instrument options for
+                industrial buyers. The useful starting point is a complete application
+                brief and a model-specific document review, not an unsupported company
+                statistic or a generic certificate claim.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { value: "2014", label: "Founded" },
-                { value: "82", label: "Employees (15 R&D)" },
-                { value: "2,600 sqm", label: "Facility" },
-                { value: "40+", label: "Export Markets" },
-                { value: "2 years", label: "Product Warranty" },
-                { value: "15-20 days", label: "Standard Lead Time" },
-              ].map((item) => (
-                <div key={item.label} className="bg-white rounded-xl border border-border p-6">
-                  <div className="text-2xl font-bold text-primary">{item.value}</div>
-                  <div className="text-sm text-muted mt-1">{item.label}</div>
-                </div>
-              ))}
-            </div>
+            <aside className="bg-white border border-border rounded-xl p-8">
+              <h2 className="text-xl font-bold text-dark mb-3">Prepare a useful first inquiry</h2>
+              <p className="text-sm text-muted leading-6 mb-6">
+                Include the medium, range, process conditions, installation, signal,
+                required documents, quantity, destination, and target date.
+              </p>
+              <div className="flex flex-col gap-3">
+                <Link href="/applications" className="btn-secondary justify-center">
+                  Review application inputs
+                </Link>
+                <Link href="/contact" className="btn-primary justify-center">
+                  Send project requirements
+                </Link>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
 
       <section className="py-16">
         <div className="container-max">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-dark mb-6">
-                From 3 People to 82
-              </h2>
-              <div className="space-y-4 text-muted">
-                <p>
-                  Founded in 2014 by engineers from Xi&apos;an Jiaotong University and
-                  the aerospace industry, we set out with one mission: to provide
-                  global buyers with industrial measurement instruments that match
-                  European quality at a fraction of the cost.
-                </p>
-                <p>
-                  We started with 3 people in an 80 sqm office. Our first order was
-                  a batch of ultrasonic level sensors for a Dubai water company.
-                  Today, we&apos;re 82 strong, exporting to 40+ countries.
-                </p>
-                <p>
-                  We don&apos;t compete on being the biggest. We compete on being the
-                  factory that gives overseas buyers direct access to sales, engineering,
-                  and quality teams when project details need a fast answer.
-                </p>
-              </div>
-            </div>
-            <div className="bg-bg-light rounded-xl border border-border p-8">
-              <h3 className="text-xl font-semibold text-dark mb-6">How We Support Buyers</h3>
-              <div className="space-y-4">
-                {[
-                  "Application review before quotation, not only catalog matching.",
-                  "Factory-calibrated instruments with serial-number documentation.",
-                  "OEM/ODM configuration support for branding, enclosure, firmware, and output signal.",
-                  "Export packaging and shipping options for sample and bulk orders.",
-                ].map((item) => (
-                  <div key={item} className="flex gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-primary flex-shrink-0" />
-                    <p className="text-sm text-muted">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="max-w-3xl mb-10">
+            <h2 className="text-3xl font-bold text-dark mb-4">How an inquiry moves to a quotation</h2>
+            <p className="text-muted leading-7">
+              Each step should leave a reviewable record. Availability, specifications,
+              documents, and commercial terms remain subject to the exact quoted model
+              and written project scope.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {buyerWorkflows.map((item, index) => (
+              <article key={item.title} className="card">
+                <div className="text-sm font-medium text-primary mb-3">Step {index + 1}</div>
+                <h3 className="text-xl font-semibold text-dark mb-3">{item.title}</h3>
+                <p className="text-sm text-muted leading-6">{item.description}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="py-16 bg-bg-light">
         <div className="container-max">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-dark mb-4">
-              Factory Facts Buyers Can Verify
-            </h2>
-            <p className="text-muted max-w-2xl mx-auto">
-              AccuMeasure is positioned as a source factory, not a catalog-only trader.
-              These operating facts are the basis for quotation, customization, QC,
-              and export documentation.
+          <div className="max-w-3xl mb-10">
+            <h2 className="text-3xl font-bold text-dark mb-4">What buyers should verify</h2>
+            <p className="text-muted leading-7">
+              These checks are more useful than relying on employee counts, market
+              totals, generic factory claims, or a certificate name without scope.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {factoryFacts.map((fact) => (
-              <div key={fact.label} className="bg-white rounded-xl border border-border p-6">
-                <div className="text-sm font-medium text-cta mb-2">{fact.label}</div>
-                <h3 className="text-xl font-semibold text-dark mb-3">{fact.value}</h3>
-                <p className="text-sm leading-6 text-muted">{fact.detail}</p>
-              </div>
+            {verificationAreas.map((area) => (
+              <article key={area.title} className="bg-white border border-border rounded-xl p-6">
+                <div className="flex items-start gap-3 mb-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" aria-hidden="true" />
+                  <h3 className="text-lg font-semibold text-dark">{area.title}</h3>
+                </div>
+                <p className="text-sm text-muted leading-6 mb-5">{area.description}</p>
+                <Link href={area.href} className="inline-flex items-center gap-2 text-primary text-sm font-medium">
+                  {area.linkLabel} <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Link>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       <section className="py-16">
-        <div className="container-max">
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Our Mission",
-                desc: "Make reliable measurement accessible to every industrial buyer worldwide.",
-              },
-              {
-                title: "Our Vision",
-                desc: "Become the most trusted measurement instrument source factory for emerging markets by 2030.",
-              },
-              {
-                title: "Our Values",
-                desc: "Accuracy above all · Pragmatic manufacturing · Fast response · Transparent partnership · Continuous improvement",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="card">
-                <h3 className="text-xl font-semibold text-dark mb-4">{item.title}</h3>
-                <p className="text-muted">{item.desc}</p>
-              </div>
-            ))}
+        <div className="container-max grid lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <h2 className="text-3xl font-bold text-dark mb-4">Evidence and publication policy</h2>
+            <p className="text-muted leading-7 mb-6">
+              Company scale, employee identities, customer names, project outcomes,
+              certifications, test results, shipment records, and performance figures
+              should be published only when their source, scope, date, redaction, and
+              channel approval are recorded.
+            </p>
+            <p className="text-muted leading-7">
+              Until that review is complete, this site uses bounded process language and
+              asks buyers to confirm the current model and document set in the quotation.
+            </p>
+          </div>
+          <div className="border-l-4 border-primary pl-6 py-2">
+            <h2 className="text-xl font-bold text-dark mb-3">Need due-diligence documents?</h2>
+            <p className="text-sm text-muted leading-6 mb-6">
+              Name the model, destination market, intended use, and required document.
+              The team can confirm what is currently available and applicable.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/certificates" className="btn-secondary">
+                Documentation status
+              </Link>
+              <Link href="/resources" className="btn-secondary">
+                Document requests
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-
-      <section className="py-16">
-        <div className="container-max">
-          <h2 className="text-3xl font-bold text-dark mb-12 text-center">
-            Our Journey
-          </h2>
-          <div className="space-y-8">
-            {[
-              { year: "2014", event: "Founded", desc: "Started with 3 people in an 80 sqm office" },
-              { year: "2016", event: "First Export", desc: "First export order to Dubai water company" },
-              { year: "2019", event: "ISO Certified", desc: "Received ISO 9001:2015 certification" },
-              { year: "2022", event: "Factory Expansion", desc: "Moved to 2,600 sqm facility" },
-              { year: "2026", event: "40+ Countries", desc: "Exporting to 40+ countries worldwide" },
-            ].map((milestone, idx) => (
-              <div key={idx} className="flex gap-8">
-                <div className="w-32 flex-shrink-0 text-right">
-                  <div className="text-2xl font-bold text-primary">{milestone.year}</div>
-                </div>
-                <div className="flex-1 bg-bg-light p-6 rounded-xl">
-                  <h4 className="font-semibold text-dark mb-2">{milestone.event}</h4>
-                  <p className="text-muted text-sm">{milestone.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-bg-light" id="factory">
-        <div className="container-max">
-          <h2 className="text-3xl font-bold text-dark mb-12 text-center">
-            Inside Our Factory
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {factoryCapabilities.map((item) => (
-              <div key={item.title} className="bg-white rounded-xl border border-border overflow-hidden">
-                <div className="relative aspect-[4/3] bg-primary/5">
-                  <Image
-                    src={item.image}
-                    alt={`${item.title} at AccuMeasure factory`}
-                    fill
-                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <span className="text-primary font-bold">✓</span>
-                  </div>
-                  <h3 className="font-semibold text-dark mb-2">{item.title}</h3>
-                  <p className="text-muted text-sm leading-6">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16">
-        <div className="container-max">
-          <h2 className="text-3xl font-bold text-dark mb-12 text-center">
-            Leadership Team
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {teamMembers.map((member, idx) => (
-              <div key={idx} className="card text-center">
-                <div className="w-24 h-24 rounded-full bg-primary/10 mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-primary">
-                    {member.name.split(" ").map((part) => part[0]).join("")}
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-dark">{member.name}</h3>
-                <p className="text-primary text-sm mb-3">{member.jobTitle}</p>
-                <p className="text-muted text-sm">{member.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-bg-light">
-        <div className="container-max">
-          <h2 className="text-3xl font-bold text-dark mb-12 text-center">
-            Certifications
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {certifications.map((cert, i) => (
-              <div key={i} className="card text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-primary font-bold">{i + 1}</span>
-                </div>
-                <div className="font-medium text-dark text-sm">{cert.name}</div>
-                <div className="text-xs text-muted mt-1">{cert.issuer}</div>
-                <div className="text-xs text-muted font-mono">{cert.number}</div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link href="/certificates" className="btn-secondary">
-              View Certificate Details
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <JsonLd
-        data={teamMembers.map((m) => ({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          name: m.name,
-          jobTitle: m.jobTitle,
-          description: m.description,
-          worksFor: { "@id": `${siteConfig.url}/#organization` },
-        }))}
-      />
     </div>
   );
 }

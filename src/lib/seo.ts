@@ -21,12 +21,6 @@ export function organizationJsonLd() {
     },
     email: siteConfig.email,
     telephone: siteConfig.phoneDisplay,
-    foundingDate: "2014",
-    numberOfEmployees: {
-      "@type": "QuantitativeValue",
-      value: 82,
-    },
-    naics: "334513",
     address: {
       "@type": "PostalAddress",
       streetAddress: "High-Tech Zone",
