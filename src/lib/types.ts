@@ -84,11 +84,12 @@ export interface CaseStudy {
   background: string;
   challenge: string;
   solution: string[];
+  verificationChecks: string[];
+  /** Compatibility badges used by product cards; never store unapproved project outcomes here. */
   results: {
     metric: string;
     value: string;
   }[];
-  testimonial: string;
-  testimonialAuthor: string;
+  /** Use a generic approved image until a project-specific asset is approved. */
   image: string;
 }

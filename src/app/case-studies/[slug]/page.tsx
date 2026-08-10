@@ -16,15 +16,14 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const cs = getCaseStudyBySlug(params.slug);
-  if (!cs) return { title: "Case Study Not Found" };
+  if (!cs) return { title: "Project Brief Not Found" };
   const product = cs.productIds.map((id) => getProductById(id)).find(Boolean);
-  const resultSummary = cs.results.slice(0, 2).map((r) => `${r.metric}: ${r.value}`).join(", ");
   const title =
     cs.seoTitle ??
-    `${cs.country} ${product?.model ?? "Instrument"} Case Study: ${cs.results[0]?.value} ${cs.results[0]?.metric} | AccuMeasure`;
+    `${cs.country} ${product?.model ?? "Instrument"} Application Planning Brief | AccuMeasure`;
   const description =
     cs.seoDescription ??
-    `${cs.clientType} in ${cs.country} used ${product?.model ?? "AccuMeasure instruments"}. Results: ${resultSummary}. Review the supplied configuration and project outcome.`;
+    `Review the selection inputs, verification checks, and documentation needed to evaluate ${product?.model ?? "AccuMeasure instruments"} for an application in ${cs.country}.`;
   return {
     title,
     description,
@@ -36,7 +35,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       type: "article",
       publishedTime: cs.datePublished,
       modifiedTime: cs.dateModified,
-      images: [{ url: `${siteConfig.url}${cs.image}`, width: 1200, height: 630, alt: cs.title }],
+      images: [{ url: `${siteConfig.url}/og-image.jpg`, width: 1200, height: 630, alt: cs.title }],
     },
   };
 }
@@ -57,7 +56,7 @@ export default function CaseStudyDetailPage({ params }: { params: { slug: string
         <div className="container-max">
           <Breadcrumbs
             items={[
-              { name: "Case Studies", href: "/case-studies" },
+              { name: "Project Briefs", href: "/case-studies" },
               { name: cs.title.split(" — ")[0] ?? cs.title, href: `/case-studies/${cs.slug}` },
             ]}
           />
@@ -73,36 +72,28 @@ export default function CaseStudyDetailPage({ params }: { params: { slug: string
             </time>
           </div>
           <h1 className="text-3xl lg:text-4xl font-bold text-dark mb-6">{cs.title}</h1>
-          <div className="flex flex-wrap gap-4">
-            {cs.results.map((r, i) => (
-              <div key={i} className="bg-white border border-cta/20 rounded-lg px-5 py-3">
-                <div className="text-cta font-bold text-2xl">{r.value}</div>
-                <div className="text-muted text-xs">{r.metric}</div>
-              </div>
-            ))}
-          </div>
+          <p className="max-w-3xl text-muted">
+            This planning brief provides selection and verification inputs. It does not
+            identify a customer or publish unapproved project outcomes.
+          </p>
         </div>
       </section>
 
       <section className="py-16">
         <div className="container-max grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 space-y-10">
-            <div className="relative aspect-video rounded-xl overflow-hidden border border-border">
-              <Image src={cs.image} alt={cs.title} fill sizes="(min-width: 1024px) 66vw, 100vw" className="object-cover" priority />
-            </div>
-
             <div>
-              <h2 className="text-2xl font-bold text-dark mb-3">Background</h2>
+              <h2 className="text-2xl font-bold text-dark mb-3">Selection context</h2>
               <p className="text-muted">{cs.background}</p>
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-dark mb-3">Challenge</h2>
+              <h2 className="text-2xl font-bold text-dark mb-3">Engineering task</h2>
               <p className="text-muted">{cs.challenge}</p>
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-dark mb-3">Solution</h2>
+              <h2 className="text-2xl font-bold text-dark mb-3">Review approach</h2>
               <ul className="space-y-3">
                 {cs.solution.map((s, i) => (
                   <li key={i} className="flex items-start gap-3 text-muted">
@@ -113,18 +104,35 @@ export default function CaseStudyDetailPage({ params }: { params: { slug: string
               </ul>
             </div>
 
-            <div className="bg-bg-light p-8 rounded-xl">
-              <p className="italic text-dark text-lg mb-4">&ldquo;{cs.testimonial}&rdquo;</p>
-              <p className="text-sm font-medium text-muted">
-                — {cs.testimonialAuthor}, {cs.title.split(" — ")[0]}
+            <div className="bg-bg-light p-8 rounded-xl border border-border">
+              <h2 className="text-xl font-bold text-dark mb-3">Verification checklist</h2>
+              <p className="text-sm text-muted leading-6 mb-6">
+                Confirm these items against the current datasheet, quotation, and
+                project-specific documents before approval.
               </p>
+              <ul className="space-y-3">
+                {cs.verificationChecks.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-muted">
+                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-x-5 gap-y-2 mt-6 pt-5 border-t border-border text-sm">
+                <Link href="/certificates" className="text-primary font-medium hover:underline">
+                  Review documentation status
+                </Link>
+                <Link href="/resources" className="text-primary font-medium hover:underline">
+                  Request current documents
+                </Link>
+              </div>
             </div>
           </div>
 
           <aside className="space-y-6">
             {usedProducts.length > 0 && (
               <div className="bg-white rounded-xl border border-border p-6">
-                <h2 className="font-semibold text-dark mb-4">Products Used</h2>
+                <h2 className="font-semibold text-dark mb-4">Related instruments</h2>
                 <div className="space-y-4">
                   {usedProducts.map((p) => (
                     <Link key={p.id} href={`/products/${p.slug}`} className="flex gap-3 group">
@@ -137,7 +145,7 @@ export default function CaseStudyDetailPage({ params }: { params: { slug: string
                           {p.name}
                         </div>
                         <div className="text-xs text-muted">
-                          From ${p.priceFrom} · MOQ {p.moq} · {p.leadTime}
+                          Review current specifications and project documents
                         </div>
                       </div>
                     </Link>
@@ -147,7 +155,7 @@ export default function CaseStudyDetailPage({ params }: { params: { slug: string
             )}
 
             <div className="bg-cta/5 rounded-xl border border-cta/20 p-6">
-              <h2 className="font-semibold text-dark mb-2">Have a similar project?</h2>
+              <h2 className="font-semibold text-dark mb-2">Planning a similar application?</h2>
               <p className="text-muted text-sm mb-4">
                 Tell us your application, quantity, and destination. We&apos;ll aim to reply within {siteConfig.responseTarget}.
               </p>
@@ -157,7 +165,7 @@ export default function CaseStudyDetailPage({ params }: { params: { slug: string
                 </Link>
                 <a
                   href={waLinkFor(
-                    `Hi AccuMeasure, I read the "${cs.title}" case study and have a similar project. Can we discuss?`,
+                    `Hi AccuMeasure, I read the "${cs.title}" planning brief and have a similar application. Can we discuss the selection inputs?`,
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -173,7 +181,7 @@ export default function CaseStudyDetailPage({ params }: { params: { slug: string
 
       <section className="py-16 bg-bg-light">
         <div className="container-max">
-          <h2 className="text-2xl font-bold text-dark mb-8 text-center">More Case Studies</h2>
+          <h2 className="text-2xl font-bold text-dark mb-8 text-center">More Project Briefs</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {caseStudies
               .filter((other) => other.slug !== cs.slug)
@@ -188,7 +196,7 @@ export default function CaseStudyDetailPage({ params }: { params: { slug: string
                   </h3>
                   <p className="text-muted text-sm mb-3 line-clamp-2">{other.background}</p>
                   <span className="text-accent font-medium inline-flex items-center gap-1 text-sm">
-                    Read Case Study <ArrowRight className="w-4 h-4" />
+                    Open Project Brief <ArrowRight className="w-4 h-4" />
                   </span>
                 </Link>
               ))}

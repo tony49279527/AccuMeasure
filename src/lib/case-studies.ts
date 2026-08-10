@@ -4,103 +4,112 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "1",
     slug: "saudi-water-radar-level",
-    title: "Saudi Water Co. — Radar Level Sensors",
-    seoTitle: "Saudi Water Utility: AM-RL80 Radar for 55°C+ Tanks",
+    title: "Saudi Water Storage Radar Level Planning Brief",
+    seoTitle: "Radar Level Planning for Saudi Water Storage Tanks",
     seoDescription:
-      "Water utility case for AM-RL80 80GHz radar on storage tanks in high ambient heat. Review configuration, delivery window, and what to send for a similar RFQ.",
+      "Plan an 80GHz radar review for water storage tanks in high ambient heat. Check tank geometry, process conditions, documentation, and RFQ inputs.",
     datePublished: "2025-11-12",
-    dateModified: "2026-07-26",
-    clientType: "Water Utility",
+    dateModified: "2026-08-10",
+    clientType: "Application Planning Brief",
     country: "Saudi Arabia",
     flag: "🇸🇦",
     productIds: ["2"],
     background:
-      "Saudi Water Co. operates dozens of large crude and water storage tanks across the Kingdom. They were sourcing 80GHz radar level transmitters from a leading European brand at premium pricing.",
+      "This brief outlines the information needed to evaluate non-contact radar level measurement for water storage tanks operating in high ambient temperatures. It does not identify or claim results for a specific customer project.",
     challenge:
-      "Cut procurement cost by 60% without compromising on accuracy or reliability in 55°C+ desert ambient temperatures.",
+      "Select a configuration that fits the tank geometry, operating temperature, mounting location, power and signal requirements, while documenting the exact environmental and compliance limits.",
     solution: [
-      "Supplied AM-RL80 80GHz FMCW radar level transmitters as a drop-in replacement.",
-      "Custom high-temperature antenna and epoxy rated to +120°C ambient.",
-      "Every unit passed the 72-hour aging test including extended thermal cycling.",
+      "Review the tank drawing, nozzle, measuring range, internals, condensation, foam, and expected ambient and process temperatures.",
+      "Compare the required range, blind zone, accuracy, antenna, enclosure, power, and output with the current AM-RL80 datasheet.",
+      "Request model-specific inspection, calibration, environmental, and compliance documents before approval.",
+    ],
+    verificationChecks: [
+      "Tank drawing, nozzle dimensions, measuring range, medium, and obstructions",
+      "Normal and maximum ambient and process temperature",
+      "Power, signal, control-system, ingress-protection, and mounting requirements",
+      "Current datasheet revision and applicable model-specific documentation",
+      "Written quotation covering configuration, inspection, delivery, and acceptance criteria",
     ],
     results: [
-      { metric: "Cost Saved", value: "71%" },
-      { metric: "Field Failures (6 months)", value: "0" },
-      { metric: "Delivery Time", value: "18 days" },
+      { metric: "Brief Type", value: "Planning" },
+      { metric: "Evidence Status", value: "Verify" },
+      { metric: "Checklist Items", value: "5" },
     ],
-    testimonial:
-      "We were skeptical about switching from our European supplier, but AccuMeasure proved us wrong. Same quality, 1/3 the price.",
-    testimonialAuthor: "Procurement Manager",
-    image: "/cases/saudi-water.jpg",
+    image: "/og-image.jpg",
   },
   {
     id: "2",
     slug: "indonesia-pdam-electromagnetic-flow",
-    title: "Indonesia PDAM — Electromagnetic Flow Meters",
+    title: "Indonesia Water Network Magmeter Planning Brief",
+    seoTitle: "Electromagnetic Flow Meter Planning for Indonesia Water Networks",
+    seoDescription:
+      "Plan an electromagnetic flow meter review for treated-water networks. Check conductivity, pipe conditions, materials, installation, and project documents.",
     datePublished: "2025-12-03",
-    dateModified: "2026-06-20",
-    clientType: "Water Utility",
+    dateModified: "2026-08-10",
+    clientType: "Application Planning Brief",
     country: "Indonesia",
     flag: "🇮🇩",
     productIds: ["5"],
     background:
-      "A regional Indonesian water utility (PDAM) needed accurate flow measurement for treated water distribution across a growing municipal network.",
+      "This brief organizes the inputs for evaluating electromagnetic flow meters in treated-water distribution networks. It does not identify a utility or claim a completed order.",
     challenge:
-      "Source 200 electromagnetic flow meters with PTFE liners within a tight budget and a 15-day delivery window for a government-funded project.",
+      "Match the meter to liquid conductivity, pipe sizes, pressure class, flange standard, liner and electrode compatibility, grounding, installation conditions, and the control system.",
     solution: [
-      "Delivered 200 units of AM-EMF100 electromagnetic flow meters, DN50-DN300.",
-      "PTFE liners and 316L electrodes for treated water compatibility.",
-      "Pre-calibrated in our lab with individual certificates to streamline commissioning.",
+      "Confirm the water conductivity and chemical conditions before selecting electromagnetic technology.",
+      "Document each pipe size, flange and pressure standard, liner and electrode requirement, straight-run availability, and grounding method.",
+      "Review the current AM-EMF100 configuration and request the calibration, inspection, packing, and delivery documents required by the project.",
+    ],
+    verificationChecks: [
+      "Liquid conductivity, temperature, chemistry, and solids content",
+      "Pipe schedule, diameter, flange, pressure class, lining, and electrode material",
+      "Grounding, full-pipe condition, straight runs, and available installation space",
+      "Power, output, communication, display, and accuracy requirements",
+      "Approved datasheet, calibration scope, inspection plan, packing, and delivery terms",
     ],
     results: [
-      { metric: "Units Delivered", value: "200" },
-      { metric: "Repeat Order", value: "500" },
-      { metric: "Lead Time", value: "15 days" },
+      { metric: "Brief Type", value: "Planning" },
+      { metric: "Evidence Status", value: "Verify" },
+      { metric: "Checklist Items", value: "5" },
     ],
-    testimonial:
-      "The team is incredibly responsive. We had custom requirements, and they delivered in 15 days. We've already placed a repeat order for 500 more.",
-    testimonialAuthor: "Engineering Director",
-    image: "/cases/indonesia-pdam.jpg",
+    image: "/og-image.jpg",
   },
   {
     id: "3",
     slug: "brazil-integrator-oem-pressure-gauge",
-    title: "Brazil Integrator — OEM Digital Pressure Gauges",
+    title: "Brazil OEM Digital Pressure Gauge Planning Brief",
+    seoTitle: "OEM Digital Pressure Gauge Planning Brief for Brazil",
+    seoDescription:
+      "Prepare an OEM digital pressure gauge qualification brief covering process fit, branding, samples, documentation, inspection, and written commercial terms.",
     datePublished: "2026-01-15",
-    dateModified: "2026-06-20",
-    clientType: "System Integrator",
+    dateModified: "2026-08-10",
+    clientType: "OEM Planning Brief",
     country: "Brazil",
     flag: "🇧🇷",
     productIds: ["9"],
     background:
-      "A Brazilian system integrator wanted to launch their own branded line of digital pressure gauges without investing in manufacturing.",
+      "This brief describes the qualification work for a private-label digital pressure gauge program. It does not identify a system integrator or claim order or margin results.",
     challenge:
-      "Find an OEM partner for private-label digital pressure gauges with custom branding and a competitive unit price.",
+      "Align the gauge specification, electrical and mechanical interfaces, artwork, packaging, sample approval, documentation, quality checks, and supply terms before production.",
     solution: [
-      "OEM branding of AM-PG200 smart digital pressure gauges with the client's logo and packaging.",
-      "Custom pressure ranges and display units configured in firmware.",
-      "No tooling fee, MOQ 100 units for the first order.",
+      "Create a controlled specification covering pressure range, overload, accuracy, process connection, display, units, power, enclosure, and environmental conditions.",
+      "Provide approved artwork, label, serial-number, language, packaging, and confidentiality requirements before sample preparation.",
+      "Agree sample acceptance, inspection, change control, documentation, MOQ, tooling, warranty, and delivery terms in writing.",
+    ],
+    verificationChecks: [
+      "Pressure and overload range, accuracy, materials, thread, display, output, and enclosure",
+      "Logo, label, packaging, manuals, language, serialization, and confidentiality scope",
+      "Prototype and sample approval criteria with named reviewers",
+      "Inspection, calibration, traceability, change-control, and nonconformance process",
+      "Written MOQ, tooling, warranty, payment, packing, and delivery terms",
     ],
     results: [
-      { metric: "First Order", value: "500" },
-      { metric: "Reorder", value: "2,000" },
-      { metric: "Margin Gain", value: "45%" },
+      { metric: "Brief Type", value: "Planning" },
+      { metric: "Evidence Status", value: "Verify" },
+      { metric: "Checklist Items", value: "5" },
     ],
-    testimonial:
-      "The OEM service is seamless. Our customers can't tell the difference — but we love the margin. AccuMeasure handles manufacturing so we can focus on sales.",
-    testimonialAuthor: "CEO",
-    image: "/cases/brazil-oem.jpg",
+    image: "/og-image.jpg",
   },
 ];
-
-/** Only names backed by published case studies — unverified logos erode trust. */
-export const clientLogos = caseStudies.map((cs) =>
-  cs.country === "Saudi Arabia"
-    ? "Saudi Water Co."
-    : cs.country === "Indonesia"
-      ? "Indonesia PDAM"
-      : "Brazil Integrator",
-);
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug);
