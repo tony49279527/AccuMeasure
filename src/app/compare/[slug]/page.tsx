@@ -9,7 +9,6 @@ import {
   getComparisonBySlug,
   getComparisonProducts,
 } from "@/lib/comparisons";
-import { companyFacts } from "@/lib/facts";
 import { faqPageJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -88,8 +87,9 @@ export default function ComparisonDetailPage({ params }: { params: { slug: strin
         <div className="container-max">
           <h2 className="text-2xl font-bold text-dark mb-3">Comparison at a Glance</h2>
           <p className="text-muted mb-8 max-w-3xl">
-            Published values below come from the current AccuMeasure product specifications.
-            Final configuration depends on the medium, installation, output, and certification.
+            These comparison points support initial selection. Confirm numeric values,
+            configuration, document scope, and commercial terms in the current controlled
+            datasheet and formal quotation.
           </p>
           <div className="overflow-x-auto border border-border rounded-lg">
             <table className="w-full min-w-[820px] border-collapse">
@@ -103,16 +103,16 @@ export default function ComparisonDetailPage({ params }: { params: { slug: strin
               </thead>
               <tbody>
                 <tr className="border-b border-border/70">
-                  <th className="text-left py-4 px-5 text-sm text-muted font-medium">Starting price</th>
-                  <td className="py-4 px-5 font-semibold text-dark">${first.priceFrom} FOB Xi&apos;an</td>
-                  <td className="py-4 px-5 font-semibold text-dark">${second.priceFrom} FOB Xi&apos;an</td>
-                  <td className="py-4 px-5 text-sm text-muted">Confirm configuration and freight in the formal quote.</td>
+                  <th className="text-left py-4 px-5 text-sm text-muted font-medium">Commercial basis</th>
+                  <td className="py-4 px-5 font-semibold text-dark">Project quotation required</td>
+                  <td className="py-4 px-5 font-semibold text-dark">Project quotation required</td>
+                  <td className="py-4 px-5 text-sm text-muted">Confirm configuration, quantity, documentation, freight, and validity in writing.</td>
                 </tr>
                 <tr className="border-b border-border/70 bg-bg-light/40">
-                  <th className="text-left py-4 px-5 text-sm text-muted font-medium">MOQ / lead time</th>
-                  <td className="py-4 px-5 text-dark">{first.moq} units / {first.leadTime}</td>
-                  <td className="py-4 px-5 text-dark">{second.moq} units / {second.leadTime}</td>
-                  <td className="py-4 px-5 text-sm text-muted">One sample is available before a bulk order.</td>
+                  <th className="text-left py-4 px-5 text-sm text-muted font-medium">MOQ / schedule</th>
+                  <td className="py-4 px-5 text-dark">Confirmed after configuration review</td>
+                  <td className="py-4 px-5 text-dark">Confirmed after configuration review</td>
+                  <td className="py-4 px-5 text-sm text-muted">State first-order quantity, annual volume, destination, and target date in the RFQ.</td>
                 </tr>
                 {page.criteria.map((row, index) => (
                   <tr key={row.label} className={index % 2 ? "bg-bg-light/40 border-b border-border/70" : "border-b border-border/70"}>
@@ -182,28 +182,28 @@ export default function ComparisonDetailPage({ params }: { params: { slug: strin
             </ul>
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-dark mb-5">Factory &amp; Supply Facts</h2>
+            <h2 className="text-2xl font-bold text-dark mb-5">Project Verification Checks</h2>
             <dl className="grid grid-cols-2 gap-4">
               <div className="border border-border rounded-lg p-4">
-                <dt className="text-sm text-muted">Exporting</dt>
-                <dd className="text-lg font-semibold text-dark">{companyFacts.yearsExportingLabel}</dd>
+                <dt className="text-sm text-muted">Specifications</dt>
+                <dd className="text-lg font-semibold text-dark">Current revision</dd>
               </div>
               <div className="border border-border rounded-lg p-4">
-                <dt className="text-sm text-muted">Markets</dt>
-                <dd className="text-lg font-semibold text-dark">{companyFacts.exportMarkets} countries</dd>
+                <dt className="text-sm text-muted">Certificates</dt>
+                <dd className="text-lg font-semibold text-dark">Exact model scope</dd>
               </div>
               <div className="border border-border rounded-lg p-4">
-                <dt className="text-sm text-muted">Pre-shipment test</dt>
-                <dd className="text-lg font-semibold text-dark">{companyFacts.agingHours} hours</dd>
+                <dt className="text-sm text-muted">Test records</dt>
+                <dd className="text-lg font-semibold text-dark">Requested by project</dd>
               </div>
               <div className="border border-border rounded-lg p-4">
-                <dt className="text-sm text-muted">Warranty</dt>
-                <dd className="text-lg font-semibold text-dark">{companyFacts.warrantyLabel}</dd>
+                <dt className="text-sm text-muted">Commercial terms</dt>
+                <dd className="text-lg font-semibold text-dark">Written quotation</dd>
               </div>
             </dl>
             <p className="text-sm text-muted mt-5">
-              Calibration certificates and serial-number traceability are supplied with each unit.
-              Verify available approvals for the exact model and configuration before purchase.
+              Request the documents needed for acceptance and verify their revision, scope,
+              identifiers, and approval status for the exact model and configuration.
             </p>
           </div>
         </div>

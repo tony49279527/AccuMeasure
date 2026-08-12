@@ -3,18 +3,17 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { ProductsExplorer } from "@/components/products-explorer";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { companyFacts } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "Industrial Sensors & Flow Meters | AccuMeasure",
   description:
-    `Compare 9 factory-direct level sensors, flow meters, and pressure instruments from $${companyFacts.priceFrom}. Review specs, MOQ, lead time, and request a quote.`,
+    "Compare level sensors, flow meters, and pressure instruments by application and published selection data. Request current specifications and project terms.",
   alternates: { canonical: "/products" },
   openGraph: {
     url: "/products",
     title: "Industrial Sensors & Flow Meters | AccuMeasure",
     description:
-      `Compare 9 factory-direct level sensors, flow meters, and pressure instruments from $${companyFacts.priceFrom}. Review specs, MOQ, lead time, and request a quote.`,
+      "Compare level sensors, flow meters, and pressure instruments by application and published selection data. Request current specifications and project terms.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Industrial Sensors" }],
   },
   robots: { index: true, follow: true },
@@ -39,7 +38,8 @@ export default function ProductsPage() {
             </h1>
             <p className="text-muted max-w-2xl mx-auto">
               Search factory-direct level, flow, and pressure instruments by model, application,
-              output signal, certification, or measuring range. Every unit ships with a calibration certificate.
+              output signal, documentation need, or measuring range. Confirm the current datasheet,
+              document scope, and commercial terms for the selected configuration before ordering.
             </p>
           </div>
         </div>
@@ -58,9 +58,9 @@ export default function ProductsPage() {
               </h2>
               <p className="text-muted mb-4">
                 Our published catalog focuses on the nine core level, flow, and pressure models we
-                manufacture and stock for export. Adjacent technologies (vortex, TDR/guided-wave radar,
-                differential pressure, temperature transmitters) are available via OEM/ODM engineering —
-                tell us the duty and we confirm feasibility within 7 days.
+                currently present for buyer review. For adjacent technologies such as vortex,
+                TDR/guided-wave radar, differential pressure, or temperature transmitters, send the
+                duty for an engineering feasibility review before treating the configuration as available.
               </p>
               <p className="text-sm text-muted">
                 Prefer application-first browsing? Start from our{" "}

@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
 import { CategoryPage, generateCategoryMetadata, type CategoryPageData } from "../category-page";
-import { categoryPriceFrom } from "@/lib/facts";
-
-const priceFrom = categoryPriceFrom("level");
 
 const data: CategoryPageData = {
   slug: "level",
   label: "Level Sensors",
   title: "Industrial Level Sensor Manufacturer | AccuMeasure",
-  description: `Compare capacitive, 80GHz radar, ultrasonic, and IoT level sensors from $${priceFrom}. Review 0.3-80m ranges, approvals, MOQ, and request a factory quote.`,
+  description: "Compare capacitive, radar, ultrasonic, and connected level sensors by medium, tank geometry, installation, output, and documentation requirements.",
   h1: "Level Sensors for Industrial Tanks & Silos",
-  lead: "Non-contact and contact level measurement from 0.3m to 80m range. Capacitive, radar, ultrasonic, and IoT technologies. Factory-calibrated with 72-hour aging test on every unit.",
-  overview: "AccuMeasure level sensors cover every industrial level measurement scenario: capacitive for aggressive chemicals, 80GHz FMCW radar for high-accuracy non-contact measurement up to 80m, ultrasonic for economical non-contact applications, and IoT WiFi smart sensors for remote tank monitoring. Each sensor is factory-calibrated with a calibration certificate and backed by a 2-year warranty.",
+  lead: "Compare contact and non-contact level technologies for tanks and silos. Confirm the selected model's current range, accuracy, output, materials, test documents, and warranty in the controlled datasheet and quotation.",
+  overview: "Use process conditions and installation constraints to narrow capacitive, radar, ultrasonic, or connected level sensing. Published card values are selection inputs, not a final project specification; engineering must confirm the model, configuration, document scope, and commercial terms for the RFQ.",
   relatedGuides: [
     {
       title: "Radar Level Sensor for Oil Tanks",
@@ -53,7 +50,7 @@ const data: CategoryPageData = {
     {
       title: "Specify output and approval",
       description:
-        "Confirm 4-20mA, HART, RS485 Modbus, or IoT requirements, plus CE, ATEX, or RoHS documentation needed by your market.",
+        "Confirm the required signal or protocol and list any market or hazardous-area documentation. Verify the exact certificate holder, model scope, marking, and validity before ordering.",
     },
   ],
 };

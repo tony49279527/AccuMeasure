@@ -38,7 +38,6 @@ export function ProductsExplorer() {
           product.category,
           ...product.keySpecs.map((spec) => `${spec.label} ${spec.value}`),
           ...product.applications.map((app) => `${app.name} ${app.description}`),
-          ...product.certifications,
         ]
           .join(" ")
           .toLowerCase();
@@ -104,7 +103,7 @@ export function ProductsExplorer() {
                 type="search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search AM-RL80, radar, Modbus, ATEX, wastewater..."
+                placeholder="Search AM-RL80, radar, Modbus, wastewater..."
                 className="w-full h-14 rounded-xl border border-border bg-white pl-12 pr-12 text-dark outline-none focus:border-primary focus:ring-2 focus:ring-primary/10"
               />
               {query && (
@@ -125,7 +124,7 @@ export function ProductsExplorer() {
               {[
                 "Water & Wastewater",
                 "Chemical & Corrosive",
-                "ATEX",
+                "Hazardous Area",
                 "Modbus",
                 "High Temperature",
               ].map((preset) => (
@@ -180,8 +179,8 @@ export function ProductsExplorer() {
                   </h3>
                   <p className="text-muted mb-4 line-clamp-2">{product.tagline}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-lg font-bold text-dark">
-                      From ${product.priceFrom}
+                    <span className="text-sm font-medium text-dark">
+                      Request project quote
                     </span>
                     <span className="text-accent font-medium inline-flex items-center gap-2">
                       View Details <ArrowRight className="w-4 h-4" />

@@ -148,7 +148,7 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
                 </div>
                 <div className="flex items-center justify-between pt-4 border-t border-border">
                   <span className="text-accent font-medium text-sm">
-                    From ${product.priceFrom}
+                    Request current quote
                   </span>
                   <span className="text-primary font-medium inline-flex items-center gap-1 text-sm">
                     View Details <ArrowRight className="w-4 h-4" />
@@ -186,7 +186,7 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
               </h2>
               <p className="text-muted">
                 Match the measurement principle to fluid, pipe access, and hazardous-area
-                requirements before you compare price or MOQ.
+                requirements before you compare commercial terms.
               </p>
             </div>
             <div className="space-y-6 max-w-4xl">

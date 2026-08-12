@@ -7,13 +7,13 @@ import { comparisonPages, getComparisonProducts } from "@/lib/comparisons";
 export const metadata: Metadata = {
   title: "Industrial Sensor Comparison Guides | AccuMeasure",
   description:
-    "Compare level sensors and flow meters by media, accuracy, range, installation, price, MOQ, and lead time. Choose a model and request a factory quote.",
+    "Compare level sensors and flow meters by medium, range, installation, and required documentation. Verify current specifications and project terms before ordering.",
   alternates: { canonical: "/compare" },
   openGraph: {
     url: "/compare",
     title: "Industrial Sensor Comparison Guides | AccuMeasure",
     description:
-      "Compare level sensors and flow meters by media, accuracy, range, installation, price, MOQ, and lead time. Choose a model and request a factory quote.",
+      "Compare level sensors and flow meters by medium, range, installation, and required documentation. Verify current specifications and project terms before ordering.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Comparison Guides" }],
   },
 };
@@ -50,7 +50,7 @@ export default function ComparePage() {
                     {comparedProducts.map((product) => (
                       <li key={product.id} className="flex items-center gap-2 text-sm text-muted">
                         <CheckCircle className="w-4 h-4 text-cta flex-shrink-0" />
-                        {product.model} {product.name}: from ${product.priceFrom}, MOQ {product.moq}
+                        {product.model} {product.name}: verify the current datasheet and project quotation
                       </li>
                     ))}
                   </ul>

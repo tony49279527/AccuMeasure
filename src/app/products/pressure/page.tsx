@@ -1,52 +1,49 @@
 import type { Metadata } from "next";
 import { CategoryPage, generateCategoryMetadata, type CategoryPageData } from "../category-page";
-import { categoryPriceFrom } from "@/lib/facts";
-
-const priceFrom = categoryPriceFrom("pressure");
 
 const data: CategoryPageData = {
   slug: "pressure",
   label: "Pressure Sensors",
   title: "Industrial Pressure Sensor Manufacturer | AccuMeasure",
-  description: `Compare pressure transmitters and digital gauges from $${priceFrom}. Review 10kPa-100MPa ranges, ±0.25% FS accuracy, ATEX options, MOQ, and lead time.`,
+  description: "Compare pressure transmitters and digital gauges by pressure type, range, connection, output, environment, display, and documentation requirements.",
   h1: "Pressure Sensors for Industrial & Hazardous Applications",
-  lead: "Piezoresistive pressure transmitters and battery-powered digital gauges. 0–10kPa to 0–100MPa. ±0.25% FS accuracy. ATEX explosion-proof. Built for high-vibration industrial duty.",
-  overview: "AccuMeasure pressure sensors cover the full spectrum of industrial pressure measurement: ATEX-certified transmitters for hazardous areas, battery-powered digital gauges as drop-in replacements for mechanical gauges, and high-accuracy piezoresistive sensors for hydraulic and process control applications. Every unit undergoes 72-hour temperature cycling with a calibration certificate.",
-  lastReviewed: "2026-08-05",
+  lead: "Review transmitter and digital-gauge paths for process control, local indication, hydraulic equipment, and OEM integration. Confirm current performance, environmental limits, and document scope for the selected configuration.",
+  overview: "Start with pressure type, normal and surge range, wetted materials, process connection, signal or display, power, enclosure, and area classification. Published model data is a selection aid; the controlled datasheet, certificate scope, test documents, warranty, and commercial terms must be confirmed for each RFQ.",
+  lastReviewed: "2026-08-12",
   decisionTable: {
     title: "Which Pressure Instrument Should I Buy?",
-    description: "Match the published AM-PT300 and AM-PG200 capabilities to signal, display, power, certification, and OEM requirements.",
+    description: "Use the two model paths to identify the datasheet, environmental, documentation, and OEM questions that require confirmation.",
     rows: [
       {
-        buyerNeed: "Process signal to PLC, DCS, or SCADA with ATEX coverage",
+        buyerNeed: "Process signal to PLC, DCS, or SCADA in a hazardous area",
         firstChoice: "AM-PT300 pressure transmitter",
         secondChoice: "AM-PG200 digital pressure gauge",
-        guidance: "AM-PT300 supports 4-20mA and RS485 Modbus with ATEX Ex d IIC T6; AM-PG200 is not the hazardous-area transmitter path.",
+        guidance: "Start with the transmitter path, then verify output, protection concept, certificate holder, exact model scope, marking, and validity for the site classification.",
       },
       {
         buyerNeed: "Local digital readout, battery power, or private-label gauge",
         firstChoice: "AM-PG200 smart digital pressure gauge",
         secondChoice: "AM-PT300 if a remote signal is also required",
-        guidance: "AM-PG200 has a 4-digit LCD, 2-year battery life, and an OEM branding path with a 100-unit MOQ.",
+        guidance: "Start with the local-display path, then confirm the current display, power, range, branding feasibility, MOQ, and schedule in the datasheet and quotation.",
       },
       {
         buyerNeed: "High-vibration hydraulic or heavy machinery duty",
         firstChoice: "AM-PT300 pressure transmitter",
         secondChoice: "AM-PG200 for local panel indication",
-        guidance: "AM-PT300 is marketed for high-vibration industrial duty; send your vibration profile with the RFQ for confirmation.",
+        guidance: "Send the measured vibration profile and mounting details; do not treat a general industrial-use description as a verified vibration rating.",
       },
       {
         buyerNeed: "Battery-powered field gauge without wiring",
         firstChoice: "AM-PG200 digital pressure gauge",
         secondChoice: "AM-PT300 pressure transmitter",
-        guidance: "AM-PG200 runs on 2x AA batteries, while AM-PT300 requires 12-36V DC power.",
+        guidance: "Confirm the current battery and transmitter power requirements in the quoted model datasheets before system design.",
       },
     ],
   },
   decisionBlocks: [
     {
       title: "ATEX and ex-certified pressure selection",
-      body: "AM-PT300 carries ATEX Ex d IIC T6 and IP65 protection. AM-PG200 is published with ISO 9001 and CE but not ATEX. If an RFQ says “ex certified pressure gauge,” confirm whether a transmitter output, digital display, or both are required, and send the area classification.",
+      body: "If an RFQ requires hazardous-area equipment, send the area classification and required protection concept. Request the current certificate and verify its holder, model scope, marking, issuer, and validity before selecting either pressure instrument.",
       links: [
         { label: "AM-PT300 pressure transmitter", href: "/products/am-pt300-pressure-transmitter" },
         { label: "Certificates & verification", href: "/certificates" },
@@ -54,7 +51,7 @@ const data: CategoryPageData = {
     },
     {
       title: "OEM and private-label pressure gauges",
-      body: "AM-PG200 supports OEM branding from a published MOQ of 100 units with no tooling fee for logo and packaging. Full ODM with new enclosure or PCB starts at 500 units. Confirm artwork, packaging, ranges, and display units before production.",
+      body: "For private-label or ODM work, send artwork, packaging, range, display, documentation, first-order quantity, and annual volume. Branding feasibility, tooling, fees, MOQ, validation, and schedule are confirmed after review.",
       links: [
         { label: "AM-PG200 digital pressure gauge", href: "/products/am-pg200-digital-pressure-gauge" },
         { label: "OEM/ODM customization", href: "/customization" },
@@ -87,17 +84,17 @@ const data: CategoryPageData = {
     {
       title: "Check environment and certification",
       description:
-        "For hazardous areas or outdoor sites, confirm ATEX Ex d IIC T6, IP rating, vibration resistance, cable entry, and calibration certificate needs.",
+        "For hazardous or outdoor sites, state the area classification, ingress, vibration, cable-entry, and calibration-document requirements, then verify them against current controlled records.",
     },
   ],
   faqs: [
     {
-      question: "Is the AM-PG200 digital pressure gauge ATEX certified?",
-      answer: "No. AM-PG200 is published with ISO 9001 and CE only. For hazardous-area pressure measurement, use AM-PT300 with ATEX Ex d IIC T6 and confirm the exact area classification before ordering.",
+      question: "How should I verify hazardous-area suitability for a pressure instrument?",
+      answer: "Send the area classification and required protection concept. Request the current certificate and confirm its holder, exact model scope, marking, issuer, and validity before ordering; do not infer coverage from a category-page label.",
     },
     {
       question: "What is the OEM MOQ for pressure instruments?",
-      answer: "OEM logo and packaging start at 100 units with no tooling fee. Full ODM such as a new enclosure or PCB typically starts at 500 units.",
+      answer: "MOQ depends on the selected model, artwork, packaging, tooling, testing, documentation, and customization scope. It is stated in the project quotation after these inputs are reviewed.",
     },
     {
       question: "Which AccuMeasure pressure instrument is better for hydraulic systems?",

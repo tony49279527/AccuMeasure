@@ -24,10 +24,10 @@ export const comparisonPages: ComparisonPage[] = [
     slug: "capacitive-vs-ultrasonic-level-sensor",
     title: "Capacitive vs Ultrasonic Level Sensor | Buyer Guide",
     description:
-      "Compare capacitive and ultrasonic level sensors by media, range, accuracy, price, MOQ, and installation. Choose the right model and request a quote.",
+      "Compare capacitive and ultrasonic level sensors by medium, range, installation, and required documentation. Request current specifications and terms.",
     h1: "Capacitive vs Ultrasonic Level Sensor: B2B Comparison",
     directAnswer:
-      "Choose capacitive sensing for compact tanks, oils, chemicals, or bulk solids. Choose ultrasonic for non-contact measurement of clean liquids and longer ranges up to 20m.",
+      "Start with capacitive sensing when a compatible contact probe fits the vessel and medium. Start with ultrasonic for non-contact liquid measurement, then confirm range and process limits in the current datasheet.",
     productIds: ["1", "3"],
     criteria: [
       {
@@ -37,16 +37,16 @@ export const comparisonPages: ComparisonPage[] = [
         buyingGuidance: "Use non-contact measurement when the sensor must not touch the medium.",
       },
       {
-        label: "Published range",
-        first: "0.5-6m",
-        second: "0.5-20m",
-        buyingGuidance: "Ultrasonic covers taller tanks; confirm the top dead zone before ordering.",
+        label: "Measuring range",
+        first: "Confirm AM-CL100 configuration",
+        second: "Confirm AM-UL20 configuration",
+        buyingGuidance: "Confirm range, dead zone, mounting, and process limits in the quoted datasheet.",
       },
       {
-        label: "Published accuracy",
-        first: "±1% FS",
-        second: "±1% FS",
-        buyingGuidance: "Both fit general tank monitoring; neither is the first choice for millimeter accuracy.",
+        label: "Accuracy requirement",
+        first: "Confirm against project range",
+        second: "Confirm against project range",
+        buyingGuidance: "State the required error basis and operating conditions; verify the value in the current datasheet.",
       },
       {
         label: "Best-fit media",
@@ -74,7 +74,7 @@ export const comparisonPages: ComparisonPage[] = [
     ],
     chooseSecond: [
       "The process requires non-contact measurement.",
-      "The tank range is above 6m and no more than 20m.",
+      "The required range and dead zone fit the confirmed ultrasonic configuration.",
       "The liquid surface is relatively clean, without heavy foam or dense vapor.",
     ],
     rfqChecklist: [
@@ -98,7 +98,7 @@ export const comparisonPages: ComparisonPage[] = [
       {
         question: "What are the MOQ and lead time for these models?",
         answer:
-          "AM-CL100 and AM-UL20 both have a published bulk MOQ of 50 units and a standard lead time of 15-20 days. One sample unit is available at unit price plus shipping.",
+          "MOQ, sample availability, and schedule depend on configuration, testing, documentation, quantity, and destination. They are confirmed in the project quotation.",
       },
     ],
   },
@@ -106,10 +106,10 @@ export const comparisonPages: ComparisonPage[] = [
     slug: "electromagnetic-vs-ultrasonic-flow-meter",
     title: "Electromagnetic vs Ultrasonic Flow Meter | Buyer Guide",
     description:
-      "Compare electromagnetic and clamp-on ultrasonic flow meters by fluid, pipe size, accuracy, installation, price, and MOQ. Get a model recommendation.",
+      "Compare electromagnetic and clamp-on ultrasonic flow meters by fluid, pipe, installation, and documentation requirements. Request current specifications and terms.",
     h1: "Electromagnetic vs Ultrasonic Flow Meter: B2B Comparison",
     directAnswer:
-      "Choose electromagnetic flow for conductive liquids and ±0.5% FS accuracy. Choose clamp-on ultrasonic when pipe cutting or process shutdown is not acceptable.",
+      "Start with electromagnetic flow for conductive liquids and inline installation. Start with clamp-on ultrasonic when pipe cutting or process shutdown is not acceptable, then verify performance for the actual pipe and fluid.",
     productIds: ["5", "6"],
     criteria: [
       {
@@ -119,16 +119,16 @@ export const comparisonPages: ComparisonPage[] = [
         buyingGuidance: "Fluid conductivity and installation access are the first decision points.",
       },
       {
-        label: "Published pipe size",
-        first: "DN6-DN600",
-        second: "DN15-DN1000",
-        buyingGuidance: "Ultrasonic covers larger existing pipes; electromagnetic starts at smaller diameters.",
+        label: "Pipe size",
+        first: "Confirm AM-EMF100 configuration",
+        second: "Confirm AM-UF200 transducer set",
+        buyingGuidance: "Send pipe OD, wall thickness, material, liner, and nominal DN for confirmation.",
       },
       {
-        label: "Published accuracy",
-        first: "±0.5% FS",
-        second: "±1% FS",
-        buyingGuidance: "Use electromagnetic when the tighter published accuracy is required.",
+        label: "Accuracy requirement",
+        first: "Confirm for fluid and installation",
+        second: "Confirm for pipe and installation",
+        buyingGuidance: "State the required error basis; verify performance in the current quoted datasheet.",
       },
       {
         label: "Fluid requirement",
@@ -143,21 +143,21 @@ export const comparisonPages: ComparisonPage[] = [
         buyingGuidance: "Clamp-on ultrasonic avoids pipe cutting and process shutdown.",
       },
       {
-        label: "Hazardous-area option",
-        first: "ATEX option published",
-        second: "No ATEX claim published",
-        buyingGuidance: "Confirm the exact area classification before quoting either model.",
+        label: "Hazardous-area documentation",
+        first: "Verify current certificate scope",
+        second: "Verify current certificate scope",
+        buyingGuidance: "Do not infer coverage from the category. Confirm holder, exact model, marking, issuer, and validity.",
       },
     ],
     chooseFirst: [
       "The liquid is conductive water, wastewater, slurry, or a compatible chemical.",
-      "You need the published ±0.5% FS accuracy.",
+      "The confirmed electromagnetic configuration meets the required accuracy under the stated process conditions.",
       "An inline installation and process connection are acceptable.",
     ],
     chooseSecond: [
       "The pipe cannot be cut or the process cannot be stopped.",
       "The fluid is non-conductive but can transmit ultrasound.",
-      "You need portable surveys or coverage up to DN1000.",
+      "You need a clamp-on survey and the confirmed transducer set fits the actual pipe.",
     ],
     rfqChecklist: [
       "Fluid name, conductivity, temperature, and solids content",
@@ -180,7 +180,7 @@ export const comparisonPages: ComparisonPage[] = [
       {
         question: "Do the two models have different starting prices or MOQ?",
         answer:
-          "AM-EMF100 and AM-UF200 both start at $280 FOB Xi'an, with a published bulk MOQ of 5 units and a standard lead time of 15-20 days.",
+          "Starting price, MOQ, sample availability, and schedule depend on configuration, testing, documentation, quantity, and destination. Compare them in the current project quotation.",
       },
     ],
   },
