@@ -14,15 +14,15 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { siteConfig, waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "OEM / ODM Custom Manufacturing | AccuMeasure",
+  title: "OEM / ODM Instrument Customization | AccuMeasure",
   description:
-    "OEM branding, ODM design, and non-standard engineering for level, flow, and pressure instruments. Send specifications for feasibility, MOQ, and lead time.",
+    "Request an engineering review for OEM branding, ODM design, or non-standard level, flow, and pressure instruments. Scope, MOQ, and schedule are confirmed per project.",
   alternates: { canonical: "/customization" },
   openGraph: {
     url: "/customization",
-    title: "OEM / ODM Custom Manufacturing — 7-Day Solution",
+    title: "OEM / ODM Instrument Customization | AccuMeasure",
     description:
-      "Send your specs. Get a solution in 7 days. From sample approval to first custom order in 45-60 days. MOQ from 1 unit for non-standard builds.",
+      "Send application and interface requirements for a project-specific feasibility, documentation, MOQ, and schedule review.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Custom Manufacturing" }],
   },
 };
@@ -31,91 +31,89 @@ const services = [
   {
     icon: Tag,
     name: "OEM Branding",
-    tagline: "Your brand, our proven design",
-    moq: "100 units",
-    leadTime: "25-30 days",
-    fee: "No extra fee",
+    tagline: "Branding review for an existing model",
+    scope: "Logo, label, packaging, documents",
+    decision: "Model and artwork review required",
     featured: false,
     features: [
       "Custom logo & packaging",
       "Standard product specs, your branding",
-      "No tooling required",
-      "Fastest time to market",
-      "Lowest MOQ for branded products",
+      "Specification and label review",
+      "Artwork approval before production",
+      "MOQ and schedule confirmed by model",
     ],
   },
   {
     icon: PenTool,
     name: "ODM Customization",
-    tagline: "Your specs, our full design",
-    moq: "500 units",
-    leadTime: "45-60 days (first order)",
-    fee: "$3K-$15K (refundable at MOQ)",
+    tagline: "Design review against your requirements",
+    scope: "Housing, electronics, firmware, interface",
+    decision: "Feasibility and validation plan required",
     featured: true,
     features: [
       "Custom enclosure & PCB design",
       "Firmware customization",
       "New mold development",
-      "Full engineering support",
-      "Dev fee refundable at MOQ",
+      "Engineering review and test planning",
+      "Tooling, fee, MOQ, and schedule quoted by scope",
     ],
   },
   {
     icon: Wrench,
     name: "Non-Standard Engineering",
-    tagline: "Special conditions, custom build",
-    moq: "1 unit (sample)",
-    leadTime: "15-20 days (sample)",
-    fee: "Sample + engineering fee",
+    tagline: "Application review for non-standard conditions",
+    scope: "Materials, process connection, range, output",
+    decision: "Operating envelope must be verified",
     featured: false,
     features: [
       "Extreme temperature ratings",
       "Special material requirements",
       "Unique form factor",
-      "One-off or low-volume builds",
+      "Prototype or low-volume feasibility review",
       "Direct engineer collaboration",
+      "Commercial terms confirmed after review",
     ],
   },
 ];
 
 const steps = [
-  { day: "Day 1", title: "Requirement Discussion" },
-  { day: "Day 3-5", title: "Solution & Quote" },
-  { day: "Day 7", title: "Contract & Deposit" },
-  { day: "Day 8-20", title: "Design & Development" },
-  { day: "Day 21-25", title: "Sample Assembly & Testing" },
-  { day: "Day 25-30", title: "Sample Delivery & Approval" },
-  { day: "Day 31-55", title: "Mass Production & Shipping" },
+  { stage: "Input", title: "Requirement Review" },
+  { stage: "Scope", title: "Feasibility Check" },
+  { stage: "Plan", title: "Quote & Validation Plan" },
+  { stage: "Design", title: "Engineering Review" },
+  { stage: "Sample", title: "Assembly & Testing" },
+  { stage: "Approval", title: "Customer Evaluation" },
+  { stage: "Release", title: "Production Planning" },
 ];
 
-const deliveredCases = [
+const reviewExamples = [
   {
-    title: "Saudi WiFi Level Sensor",
-    desc: "Custom WiFi-enabled level sensor with Arabic app interface for water tank monitoring.",
-    qty: "1,200 units",
+    title: "Connected Tank Monitoring",
+    desc: "Review wireless connectivity, local interface, tank geometry, power, and alarm requirements.",
+    check: "Verify protocol, environment, and data ownership",
     image: "/products/am-wl50-v2.jpg",
-    alt: "WiFi smart level sensor configured for OEM tank monitoring",
+    alt: "Wireless level sensor for a connected tank monitoring requirements review",
   },
   {
-    title: "Indonesia Electromagnetic Flow Meter",
-    desc: "Battery-powered portable electromagnetic flow meter for remote irrigation monitoring.",
-    qty: "300 units",
+    title: "Remote Water Flow Measurement",
+    desc: "Review fluid conductivity, pipe size, installation constraints, power, output, and enclosure needs.",
+    check: "Verify fluid, pipe, power, and installation data",
     image: "/products/am-emf100-v2.jpg",
-    alt: "Electromagnetic flow meter configured for custom water monitoring projects",
+    alt: "Electromagnetic flow meter for a remote water measurement requirements review",
   },
   {
-    title: "Brazil OEM Pressure Gauge",
-    desc: "Private-label digital pressure gauge with custom display language and pressure ranges.",
-    qty: "2,500 units",
+    title: "Private-Label Pressure Display",
+    desc: "Review pressure range, process media, connection, display, language, label, and packaging inputs.",
+    check: "Verify range, wetted materials, and labeling",
     image: "/products/am-pg200-v2.jpg",
-    alt: "Digital pressure gauge used for OEM private-label projects",
+    alt: "Digital pressure gauge for a private-label requirements review",
   },
   {
-    title: "Dubai High-Temp Radar",
-    desc: "80GHz radar level transmitter rated for +150°C ambient in oil storage tanks.",
-    qty: "80 units",
+    title: "Elevated-Temperature Radar Level",
+    desc: "Review process and ambient temperatures, pressure, vapor, tank geometry, mounting, and area classification.",
+    check: "Verify the complete operating envelope",
     image: "/products/am-rl80-v2.jpg",
-    alt: "80GHz radar level transmitter configured for high-temperature tank applications",
+    alt: "Radar level transmitter for an elevated-temperature application requirements review",
   },
 ];
 
@@ -127,14 +125,14 @@ export default function CustomizationPage() {
           <Breadcrumbs items={[{ name: "OEM / ODM Customization", href: "/customization" }]} />
           <div className="text-center">
             <h1 className="text-4xl font-bold text-dark mb-6">
-              OEM / ODM Custom Manufacturing
+              OEM / ODM Instrument Customization
             </h1>
             <p className="text-lg text-muted max-w-2xl mx-auto mb-8">
-              Send your specs. Get a solution in 7 days. From sample approval to first custom order in 45-60 days.
+              Send the application, interface, documentation, and quantity requirements. We will review feasibility and confirm the project scope before quoting commercial terms.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="#form" className="btn-primary">Submit Custom Request</a>
-              <a href="#cases" className="btn-secondary">View Custom Cases</a>
+              <a href="#examples" className="btn-secondary">Review Input Examples</a>
             </div>
           </div>
         </div>
@@ -163,16 +161,12 @@ export default function CustomizationPage() {
 
                 <div className="space-y-2 mb-6 pb-6 border-b border-border">
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted">MOQ</span>
-                    <span className="text-dark font-medium">{s.moq}</span>
+                    <span className="text-muted">Review scope</span>
+                    <span className="text-dark font-medium text-right ml-4">{s.scope}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted">Lead time</span>
-                    <span className="text-dark font-medium">{s.leadTime}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted">Fee</span>
-                    <span className="text-dark font-medium">{s.fee}</span>
+                    <span className="text-muted">Before quote</span>
+                    <span className="text-dark font-medium text-right ml-4">{s.decision}</span>
                   </div>
                 </div>
 
@@ -193,7 +187,7 @@ export default function CustomizationPage() {
       <section className="py-20 bg-bg-light">
         <div className="container-max">
           <h2 className="text-2xl font-bold text-dark mb-12 text-center">
-            Our 7-Step Custom Process
+            Project Review and Validation Process
           </h2>
           <div className="grid sm:grid-cols-4 lg:grid-cols-7 gap-4">
             {steps.map((step, idx) => (
@@ -202,7 +196,7 @@ export default function CustomizationPage() {
                   <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 text-sm font-bold">
                     {idx + 1}
                   </div>
-                  <div className="text-cta text-xs font-medium mb-1">{step.day}</div>
+                  <div className="text-cta text-xs font-medium mb-1">{step.stage}</div>
                   <div className="text-dark text-sm font-medium">{step.title}</div>
                 </div>
                 {idx < steps.length - 1 && (
@@ -214,13 +208,16 @@ export default function CustomizationPage() {
         </div>
       </section>
 
-      <section id="cases" className="py-20">
+      <section id="examples" className="py-20">
         <div className="container-max">
           <h2 className="text-2xl font-bold text-dark mb-12 text-center">
-            Delivered Custom Projects
+            Requirements Review Examples
           </h2>
+          <p className="text-muted text-center max-w-3xl mx-auto mb-12">
+            These are example review paths, not published customer deliveries. Final specifications, compliance scope, MOQ, price, and schedule depend on the approved project requirements.
+          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {deliveredCases.map((c, idx) => (
+            {reviewExamples.map((c, idx) => (
               <div key={idx} className="bg-white rounded-xl p-6 border border-border">
                 <div className="relative aspect-video bg-primary/10 rounded-lg overflow-hidden mb-4">
                   <Image
@@ -233,7 +230,7 @@ export default function CustomizationPage() {
                 </div>
                 <h3 className="font-semibold text-dark mb-2">{c.title}</h3>
                 <p className="text-muted text-sm mb-4">{c.desc}</p>
-                <div className="text-cta font-bold text-lg">{c.qty}</div>
+                <div className="text-cta font-medium text-sm">{c.check}</div>
               </div>
             ))}
           </div>
