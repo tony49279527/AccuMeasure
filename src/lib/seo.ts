@@ -72,12 +72,23 @@ export function productJsonLd(product: Product) {
     name: product.name,
     sku: product.model,
     mpn: product.model,
-    description: `${product.model} ${product.name} product page. Confirm current specifications, documentation, availability, and commercial terms for the exact quoted configuration.`,
+    description: product.description,
     image: [`${siteConfig.url}${product.image}`],
     url: productUrl,
     brand: { "@type": "Brand", name: "AccuMeasure" },
     manufacturer: { "@id": `${siteConfig.url}/#organization` },
     category: categoryLabels[product.category],
+    additionalProperty: product.keySpecs.map((spec) => ({
+      "@type": "PropertyValue",
+      name: spec.label,
+      value: spec.value,
+    })),
+    subjectOf: product.applications.map((application) => ({
+      "@type": "Thing",
+      name: application.name,
+      description: application.description,
+    })),
+    mainEntityOfPage: { "@type": "WebPage", "@id": productUrl },
   };
 }
 

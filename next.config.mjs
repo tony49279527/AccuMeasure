@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      // Preserve scan-era and buyer-shared aliases without creating duplicate pages.
+      { source: "/level-sensors", destination: "/products/level", statusCode: 301 },
+      { source: "/flow-meters", destination: "/products/flow", statusCode: 301 },
+      // The controlled document hub is implemented by Resources.
+      { source: "/docs", destination: "/resources", statusCode: 301 },
+    ];
+  },
   experimental: {
     optimizePackageImports: [
       "lucide-react",
