@@ -107,9 +107,6 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
               </p>
             )}
           </div>
-          <div className="bg-white rounded-xl p-6 border border-border mb-12 max-w-4xl mx-auto">
-            <p className="text-muted text-sm">{data.overview}</p>
-          </div>
         </div>
       </section>
 
@@ -156,6 +153,10 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
                 </div>
               </Link>
             ))}
+          </div>
+          <div className="mt-12 bg-bg-light rounded-lg p-6 border border-border max-w-4xl">
+            <h2 className="font-semibold text-dark mb-2">How to narrow the choice</h2>
+            <p className="text-muted text-sm">{data.overview}</p>
           </div>
           {categoryComparisons.length > 0 && (
             <div className="mt-12 border-t border-border pt-8">

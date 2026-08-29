@@ -1,68 +1,37 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Shield, Award, FileCheck, ArrowRight } from "lucide-react";
+import { ArrowRight, ClipboardCheck, FileCheck, Shield } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { waLinkFor } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Verify ISO 9001, CE & ATEX Certificates | AccuMeasure",
+  title: "Documentation & Compliance Review | AccuMeasure",
   description:
-    "Check ISO 9001 (SGS), CE (TÜV Rheinland), ATEX Ex d IIC T6 (DEKRA), and RoHS numbers, scope, and validity. Request official scans and unit calibration certificates.",
+    "Request current model-specific technical documentation and verify certificate scope, issuer, applicability, and validity for an AccuMeasure project.",
   alternates: { canonical: "/certificates" },
   openGraph: {
     url: "/certificates",
-    title: "Verify ISO 9001, CE, ATEX & RoHS Certificates | AccuMeasure",
+    title: "Documentation & Compliance Review | AccuMeasure",
     description:
-      "Certificate numbers, issuers, and scope for buyer verification. Request official PDF scans and per-unit calibration certificates before ordering.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Certificates" }],
+      "Use a controlled document review to confirm the selected model, certificate scope, issuer, applicability, and current revision before approval.",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure document review" }],
   },
 };
 
-const certifications = [
+const requestTypes = [
   {
-    name: "ISO 9001:2015",
-    number: "CN-2019-ISO-0347",
-    issuer: "SGS",
-    description:
-      "Quality management system covering design, manufacturing, calibration, and after-sales service for industrial measurement instruments. Annual surveillance audit by SGS.",
-    scope: "Design, manufacture, and servicing of level, flow, and pressure measurement instruments.",
-    validUntil: "2027",
+    icon: FileCheck,
+    title: "Model documentation",
+    body: "Request the current datasheet, drawing, wiring information, and configuration record for the selected model.",
   },
   {
-    name: "CE Marking",
-    number: "EC-1282/2023",
-    issuer: "TÜV Rheinland",
-    description:
-      "Conformity with EU safety, health, and environmental requirements for products sold within the European Economic Area. Covers electromagnetic compatibility (EMC) and low-voltage directive (LVD).",
-    scope: "Level sensors, flow meters, and pressure transmitters exported to EU markets.",
-    validUntil: "2028",
+    icon: Shield,
+    title: "Compliance scope",
+    body: "For a required standard, request the current certificate or declaration and verify its holder, issuer, model scope, marking, and validity.",
   },
   {
-    name: "ATEX",
-    number: "ATEX-2022-0158",
-    issuer: "DEKRA",
-    description:
-      "Explosion-proof certification per ATEX Directive 2014/34/EU. Ex d IIC T6 protection level for hazardous area installations in oil & gas, chemical, and LPG/LNG applications.",
-    scope: "80GHz radar level transmitters (AM-RL80), electromagnetic flow meters (AM-EMF100), and explosion-proof pressure transmitters (AM-PT300).",
-    validUntil: "2027",
-  },
-  {
-    name: "RoHS 3.0",
-    number: "RoHS-3.0-2024",
-    issuer: "Intertek",
-    description:
-      "Restriction of Hazardous Substances compliance per EU Directive 2015/863 (RoHS 3.0). All AccuMeasure products are free from lead, mercury, cadmium, hexavalent chromium, PBBs, PBDEs, DEHP, BBP, DBP, and DIBP.",
-    scope: "All AccuMeasure products shipped to EU and international markets.",
-    validUntil: "2029",
-  },
-  {
-    name: "Alibaba Gold Supplier",
-    number: "Verified 8 years",
-    issuer: "Alibaba.com",
-    description:
-      "Verified supplier status on Alibaba.com with on-site factory audit. Confirms legal status, manufacturing capability, and export history of AccuMeasure Instruments Co., Ltd.",
-    scope: "Company verification and factory assessment by Alibaba.com.",
-    validUntil: "2027",
+    icon: ClipboardCheck,
+    title: "Project records",
+    body: "State the inspection, calibration, traceability, packing, delivery, and acceptance records required by the project.",
   },
 ];
 
@@ -71,14 +40,12 @@ export default function CertificatesPage() {
     <div>
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
-          <Breadcrumbs items={[{ name: "Certificates", href: "/certificates" }]} />
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-dark mb-6">Certificates &amp; Compliance</h1>
-            <p className="text-lg text-muted max-w-3xl mx-auto">
-              Every AccuMeasure instrument ships with an individual calibration certificate.
-              Our manufacturing facility is ISO 9001 certified. Our products hold CE, ATEX, and RoHS certifications.
-              Certificate numbers and issuers are published below so buyers can verify independently;
-              official PDF scans are sent on request (email or WhatsApp) to keep controlled documents current.
+          <Breadcrumbs items={[{ name: "Documentation & Compliance", href: "/certificates" }]} />
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold text-primary mb-3">Controlled document review</p>
+            <h1 className="text-4xl font-bold text-dark mb-6">Documentation &amp; Compliance Review</h1>
+            <p className="text-lg text-muted">
+              Public category labels are not a substitute for project evidence. Request the current document package for the selected configuration and verify its exact scope before approval.
             </p>
           </div>
         </div>
@@ -86,97 +53,12 @@ export default function CertificatesPage() {
 
       <section className="py-16">
         <div className="container-max">
-          <div className="space-y-12">
-            {certifications.map((cert, idx) => (
-              <div
-                key={idx}
-                className={`grid lg:grid-cols-5 gap-8 items-start ${idx > 0 ? "pt-12 border-t border-border" : ""}`}
-              >
-                <div className="lg:col-span-2">
-                  <div className="aspect-[4/3] bg-bg-light rounded-xl border border-border p-6 flex flex-col justify-between">
-                    <div>
-                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
-                        <FileCheck className="w-6 h-6 text-primary" />
-                      </div>
-                      <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">
-                        Verifiable Credential
-                      </p>
-                      <h3 className="text-xl font-bold text-dark">{cert.name}</h3>
-                      <p className="text-sm text-dark mt-3 font-mono-num font-semibold">
-                        {cert.number}
-                      </p>
-                      <p className="text-sm text-muted mt-1">Issuer: {cert.issuer}</p>
-                      <p className="text-sm text-muted mt-3">
-                        Official scan available by email or WhatsApp — usually within one business day.
-                      </p>
-                    </div>
-                    <div className="mt-6 space-y-3">
-                      <Link
-                        href={`/contact?document=${encodeURIComponent(`${cert.name} certificate scan`)}`}
-                        className="btn-secondary w-full justify-center"
-                      >
-                        Request Scan by Email
-                      </Link>
-                      <a
-                        href={waLinkFor(
-                          `Hi AccuMeasure, please send the ${cert.name} certificate scan (${cert.number}).`,
-                        )}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary w-full justify-center"
-                      >
-                        Request via WhatsApp
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="lg:col-span-3">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Award className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h2 className="text-xl font-bold text-dark">{cert.name}</h2>
-                    </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-3 mb-4">
-                    <div className="bg-bg-light rounded-lg p-3">
-                      <p className="text-xs text-muted mb-1">Certificate Number</p>
-                      <p className="text-sm font-mono-num font-semibold text-dark">{cert.number}</p>
-                    </div>
-                    <div className="bg-bg-light rounded-lg p-3">
-                      <p className="text-xs text-muted mb-1">Issuing Body</p>
-                      <p className="text-sm font-semibold text-dark">{cert.issuer}</p>
-                    </div>
-                    <div className="bg-bg-light rounded-lg p-3">
-                      <p className="text-xs text-muted mb-1">Scope</p>
-                      <p className="text-sm text-dark">{cert.scope}</p>
-                    </div>
-                    <div className="bg-bg-light rounded-lg p-3">
-                      <p className="text-xs text-muted mb-1">Valid Until</p>
-                      <p className="text-sm font-semibold text-dark">{cert.validUntil}</p>
-                    </div>
-                  </div>
-
-                  <p className="text-muted text-sm">{cert.description}</p>
-
-                  <div className="flex flex-col sm:flex-row gap-3 mt-6">
-                    <Link
-                      href={`/contact?document=${encodeURIComponent(`${cert.name} certificate scan`)}`}
-                      className="btn-primary justify-center"
-                    >
-                      Request Certificate Scan
-                    </Link>
-                    <Link
-                      href={`/contact?document=${encodeURIComponent(`${cert.name} certificate verification ${cert.number}`)}`}
-                      className="btn-secondary justify-center"
-                    >
-                      Verify Certificate Number
-                    </Link>
-                  </div>
-                </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {requestTypes.map((item) => (
+              <div key={item.title} className="card">
+                <item.icon className="w-7 h-7 text-primary mb-4" />
+                <h2 className="text-lg font-semibold text-dark mb-3">{item.title}</h2>
+                <p className="text-sm text-muted">{item.body}</p>
               </div>
             ))}
           </div>
@@ -184,41 +66,18 @@ export default function CertificatesPage() {
       </section>
 
       <section className="py-16 bg-bg-light">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <FileCheck className="w-12 h-12 text-primary mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-dark mb-4">Individual Calibration Certificate</h2>
-            <p className="text-muted max-w-2xl mx-auto">
-              Every AccuMeasure instrument undergoes 72 hours of continuous testing with temperature cycling
-              (0°C to 50°C) before shipping. A calibration certificate with traceable reference standards is
-              included in every shipment at no extra charge.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
+        <div className="container-max max-w-4xl">
+          <h2 className="text-2xl font-bold text-dark mb-8">What to verify before a project release</h2>
+          <div className="space-y-4">
             {[
-              {
-                icon: Shield,
-                title: "5-Stage QC",
-                desc: "Incoming inspection → In-process check → Calibration → Aging test → Final inspection.",
-              },
-              {
-                icon: Award,
-                title: "72-Hour Aging Test",
-                desc: "Every unit completes continuous aging with temperature cycling before shipment.",
-              },
-              {
-                icon: FileCheck,
-                title: "2-Year Warranty",
-                desc: "Every instrument backed by a 2-year factory warranty with free technical support.",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white rounded-xl p-6 border border-border text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-semibold text-dark mb-2">{item.title}</h3>
-                <p className="text-muted text-sm">{item.desc}</p>
+              ["Match the document to the configuration", "The product model, options, marking, market, and conditions must match the specific item under review."],
+              ["Check the evidence chain", "Record the document holder, issuing organization, document number, issue or expiry date, and the official verification route where applicable."],
+              ["Confirm the controlled revision", "Use the current revision supplied for the RFQ rather than an old scan, brochure, cached page, or unrelated model document."],
+              ["Keep approval conditions in writing", "Capture required inspections, calibration or test records, acceptance criteria, packaging, delivery, and commercial terms in the project documentation."],
+            ].map(([title, body]) => (
+              <div key={title} className="bg-white border border-border rounded-lg p-5">
+                <h3 className="font-semibold text-dark mb-2">{title}</h3>
+                <p className="text-sm text-muted">{body}</p>
               </div>
             ))}
           </div>
@@ -226,16 +85,13 @@ export default function CertificatesPage() {
       </section>
 
       <section className="py-16">
-        <div className="container-max text-center">
-          <h2 className="text-2xl font-bold text-dark mb-4">
-            Need to verify a certificate?
-          </h2>
-          <p className="text-muted mb-8 max-w-lg mx-auto">
-            Contact us with the certificate number and we&apos;ll provide verification documents
-            from the issuing body within 48 hours.
+        <div className="container-max text-center max-w-2xl">
+          <h2 className="text-2xl font-bold text-dark mb-4">Request a document review</h2>
+          <p className="text-muted mb-8">
+            Include the selected model, destination market, required standard, application, and the documents your project needs.
           </p>
-          <Link href="/contact" className="btn-primary flex items-center gap-2 mx-auto w-fit">
-            Request Certificate Verification <ArrowRight className="w-4 h-4" />
+          <Link href="/contact?request=document-review" className="btn-primary">
+            Start a document request <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

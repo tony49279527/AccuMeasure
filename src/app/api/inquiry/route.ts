@@ -13,8 +13,23 @@ const SOURCE_FIELDS = [
   "utmTerm",
 ] as const;
 
+const SOURCE_LABELS: Record<(typeof SOURCE_FIELDS)[number], string> = {
+  landingPage: "First landing page",
+  pageUrl: "Form page",
+  referrer: "Referrer",
+  utmSource: "UTM source",
+  utmMedium: "UTM medium",
+  utmCampaign: "UTM campaign",
+  utmContent: "UTM content",
+  utmTerm: "UTM term",
+};
+
+function formatSourceValue(value: unknown): string {
+  return String(value).replace(/[\r\n\t]+/g, " ").trim().slice(0, 240);
+}
+
 function formatEmailBody(formType: string, data: Record<string, unknown>): string {
-  const lines = [
+  const leadLines = [
     `New ${formType} submission from accumeasuretech.com`,
     `Time: ${new Date().toISOString()}`,
     "",
@@ -22,7 +37,11 @@ function formatEmailBody(formType: string, data: Record<string, unknown>): strin
       .filter(([k, v]) => k !== "formType" && !SOURCE_FIELDS.includes(k as (typeof SOURCE_FIELDS)[number]) && v !== undefined && v !== "")
       .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(", ") : String(v)}`),
   ];
-  return lines.join("\n");
+  const attributionLines = SOURCE_FIELDS
+    .filter((key) => data[key] !== undefined && data[key] !== "")
+    .map((key) => `${SOURCE_LABELS[key]}: ${formatSourceValue(data[key])}`);
+
+  return [...leadLines, ...(attributionLines.length > 0 ? ["", "Attribution", ...attributionLines] : [])].join("\n");
 }
 
 function leadPayload(formType: string, data: Record<string, unknown>) {
@@ -119,6 +138,14 @@ async function backupLead(formType: string, data: Record<string, unknown>): Prom
 }
 
 export async function POST(request: Request) {
+  const contentLength = Number(request.headers.get("content-length") ?? "0");
+  if (Number.isFinite(contentLength) && contentLength > 25_000) {
+    return NextResponse.json(
+      { success: false, error: "Request body is too large" },
+      { status: 413 },
+    );
+  }
+
   let body: unknown;
   try {
     body = await request.json();

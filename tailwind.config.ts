@@ -23,7 +23,7 @@ const config: Config = {
         "bg-light": "#F1EFE8",
         "bg-white": "#FFFFFF",
         success: "#087854",
-        danger: "#E24B4A",
+        danger: "#B42318",
         border: "rgba(0, 0, 0, 0.08)",
       },
       fontFamily: {

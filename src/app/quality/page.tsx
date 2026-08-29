@@ -1,35 +1,56 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle, Thermometer, Gauge, Clock, Award } from "lucide-react";
+import { ArrowRight, ClipboardCheck, FileText, Gauge, ShieldCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Quality Assurance — 5-Stage QC & 72h Aging Test",
+  title: "Quality & Project Documentation Review | AccuMeasure",
   description:
-    "Every unit passes 5-stage QC, a 72-hour aging test with temperature cycling, and final calibration with an individual certificate. ISO 9001, CE, ATEX factory.",
+    "Prepare a project-specific quality and documentation review for an AccuMeasure measurement-instrument RFQ.",
   alternates: { canonical: "/quality" },
   openGraph: {
     url: "/quality",
-    title: "Quality Assurance — 5-Stage QC & 72h Aging Test",
+    title: "Quality & Project Documentation Review | AccuMeasure",
     description:
-      "Every unit undergoes 72 hours of continuous testing under temperature cycling. Calibration certificate included. ISO 9001, CE, ATEX certified.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Quality Control" }],
+      "Define the selected configuration, required records, acceptance criteria, and controlled document package before project release.",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure quality document review" }],
   },
 };
+
+const reviewSteps = [
+  {
+    icon: Gauge,
+    title: "Confirm the configuration",
+    body: "Document the selected model, process conditions, materials, interfaces, environmental limits, and destination-market requirements.",
+  },
+  {
+    icon: FileText,
+    title: "Set the evidence package",
+    body: "List the current datasheet, drawings, certificates or declarations, inspection records, and calibration or test evidence the project requires.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Define acceptance",
+    body: "Agree measurement checks, document revision, reviewer, sampling or inspection plan, nonconformance handling, and release criteria in writing.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Close the RFQ record",
+    body: "Confirm configuration, quantity, packing, delivery, warranty, payment, and change-control terms for the approved project.",
+  },
+];
 
 export default function QualityPage() {
   return (
     <div>
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
-          <Breadcrumbs items={[{ name: "Quality Assurance", href: "/quality" }]} />
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-dark mb-6">
-              Quality You Can Trust
-            </h1>
-            <p className="text-lg text-muted max-w-3xl mx-auto">
-              5-stage quality control. 72-hour aging test on every unit. Calibration certificate with every shipment.
+          <Breadcrumbs items={[{ name: "Quality & Documentation", href: "/quality" }]} />
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold text-primary mb-3">Project-specific qualification</p>
+            <h1 className="text-4xl font-bold text-dark mb-6">Quality &amp; Project Documentation Review</h1>
+            <p className="text-lg text-muted">
+              Build the quality and evidence requirements into the RFQ. Published product information helps begin the discussion; the selected configuration and required records must be confirmed for the project.
             </p>
           </div>
         </div>
@@ -37,115 +58,13 @@ export default function QualityPage() {
 
       <section className="py-16">
         <div className="container-max">
-          <h2 className="text-3xl font-bold text-dark mb-12 text-center">
-            Our 5-Stage Quality Control
-          </h2>
-          <div className="grid sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {[
-              { step: 1, title: "IQC", desc: "Incoming Material Inspection" },
-              { step: 2, title: "IPQC", desc: "In-Process Quality Control" },
-              { step: 3, title: "72h", desc: "Aging Test", highlight: true },
-              { step: 4, title: "OQC", desc: "Outgoing Quality Control" },
-              { step: 5, title: "Cal", desc: "Lab Certification" },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className={`card text-center ${
-                  item.highlight ? "border-cta bg-cta/5" : ""
-                }`}
-              >
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl font-bold text-primary">{item.step}</span>
-                </div>
-                <h3 className="text-lg font-semibold text-dark mb-2">{item.title}</h3>
-                <p className="text-muted text-sm">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-primary">
-        <div className="container-max">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white">
-              <h2 className="text-3xl font-bold mb-6">
-                The 72-Hour Aging Test — Our Signature
-              </h2>
-              <div className="space-y-4">
-                <p className="text-white/90">
-                  Every single unit — not a sample, every unit — goes through 72 hours of continuous testing under:
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-cta flex-shrink-0 mt-0.5" />
-                    <span>Temperature cycling: 0°C to 50°C, 3 cycles</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-cta flex-shrink-0 mt-0.5" />
-                    <span>Vibration: 10g, 20-2000Hz, 2 hours</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-cta flex-shrink-0 mt-0.5" />
-                    <span>Power fluctuation simulation</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-cta flex-shrink-0 mt-0.5" />
-                    <span>Post-aging re-calibration to confirm zero drift</span>
-                  </li>
-                </ul>
-                <p className="text-white/90 mt-6">
-                  Why? Because in 2018, a batch came back from a Middle East customer because epoxy softened at 55°C ambient. We learned. Now we test every unit to the extreme.
-                </p>
-              </div>
-            </div>
-            <div className="aspect-square bg-white/10 rounded-xl flex items-center justify-center overflow-hidden">
-              <Image
-                src="/factory/aging-test.jpg"
-                alt="72-Hour Aging Test Room"
-                width={900}
-                height={900}
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16">
-        <div className="container-max">
-          <h2 className="text-3xl font-bold text-dark mb-12 text-center">
-            Calibration Laboratory
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: Gauge,
-                title: "Pressure Calibration",
-                desc: "GE Druck DPI 620, Class 0.025",
-              },
-              {
-                icon: Thermometer,
-                title: "Flow Calibration",
-                desc: "Standard volume method, DN15-DN600",
-              },
-              {
-                icon: Gauge,
-                title: "Level Calibration",
-                desc: "10m standard water tower",
-              },
-              {
-                icon: Clock,
-                title: "Data Traceability",
-                desc: "2-year archive, traceable to national standards",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="card">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold text-dark mb-2">{item.title}</h3>
-                <p className="text-muted text-sm">{item.desc}</p>
+          <h2 className="text-3xl font-bold text-dark mb-10">A practical project review</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {reviewSteps.map((step) => (
+              <div key={step.title} className="card">
+                <step.icon className="w-7 h-7 text-primary mb-4" />
+                <h3 className="text-lg font-semibold text-dark mb-3">{step.title}</h3>
+                <p className="text-sm text-muted">{step.body}</p>
               </div>
             ))}
           </div>
@@ -153,45 +72,35 @@ export default function QualityPage() {
       </section>
 
       <section className="py-16 bg-bg-light">
-        <div className="container-max">
-          <h2 className="text-3xl font-bold text-dark mb-12 text-center">
-            Quality Commitments
-          </h2>
-          <p className="text-muted text-center max-w-2xl mx-auto mb-10">
-            These are process commitments buyers can verify in an RFQ package — not unverified field-performance percentages.
-          </p>
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { number: "5", label: "QC Stages on Every Order" },
-              { number: "72h", label: "Aging Test on Every Unit" },
-              { number: "100%", label: "Calibration Certificate With Shipment" },
-              { number: "2yr", label: "Factory Warranty" },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-xl border border-border text-center">
-                <div className="text-4xl font-bold text-cta mb-2">{item.number}</div>
-                <div className="text-muted">{item.label}</div>
-              </div>
-            ))}
+        <div className="container-max grid lg:grid-cols-2 gap-10">
+          <div>
+            <h2 className="text-2xl font-bold text-dark mb-4">Information to include in the RFQ</h2>
+            <ul className="space-y-3 text-muted">
+              <li>Measurement medium, range, process conditions, tank or pipe details, and installation constraints.</li>
+              <li>Required performance, interfaces, materials, enclosure, destination market, and compliance scope.</li>
+              <li>Required controlled documents, records, reviewers, inspection points, and acceptance criteria.</li>
+              <li>Configuration, quantity, packaging, delivery, warranty, payment, and change-control terms.</li>
+            </ul>
+          </div>
+          <div className="bg-white border border-border rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-dark mb-4">Evidence boundary</h2>
+            <p className="text-muted mb-4">
+              Certificates, test records, calibration evidence, customer information, and internal quality files are not public proof by default. Request the current, applicable controlled record for the exact project.
+            </p>
+            <Link href="/certificates" className="inline-flex items-center gap-2 text-primary font-medium">
+              Review documentation requirements <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-primary">
-        <div className="container-max text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Need Calibration Records or a Factory Audit Pack?
-          </h2>
-          <p className="text-white/80 max-w-2xl mx-auto mb-8">
-            Ask for our QC flow, aging-test profile, and sample calibration certificate with your RFQ.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-primary">
-              Request QC Documents
-            </Link>
-            <Link href="/certificates" className="border border-white text-white hover:bg-white hover:text-primary px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center gap-2 transition-colors">
-              View Certificates
-            </Link>
-          </div>
+      <section className="py-16 bg-primary text-white">
+        <div className="container-max text-center max-w-2xl">
+          <h2 className="text-3xl font-bold mb-4">Prepare your RFQ document package</h2>
+          <p className="text-white/80 mb-8">Tell us the selected model or measurement duty and the records your project needs reviewed.</p>
+          <Link href="/contact?request=quality-document-review" className="btn-primary">
+            Request project review <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
     </div>

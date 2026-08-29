@@ -2,23 +2,20 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Shield,
-  Award,
-  Clock,
-  Users,
-  Calendar,
-  Globe,
-  Gauge,
-  Waves,
   Activity,
   ArrowRight,
+  BookOpen,
+  ClipboardCheck,
+  FileCheck,
+  Gauge,
   MessageSquare,
+  SlidersHorizontal,
+  Waves,
 } from "lucide-react";
-import { waLink, siteConfig } from "@/lib/site";
-import { companyFacts } from "@/lib/facts";
+import { siteConfig, waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Level Sensor & Flow Meter Manufacturer | AccuMeasure",
+  title: "Industrial Level, Flow & Pressure Instruments | AccuMeasure",
   description: siteConfig.description,
   alternates: {
     canonical: "/",
@@ -29,57 +26,36 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: "/",
-    title: "Level Sensor & Flow Meter Manufacturer | AccuMeasure",
+    title: "Industrial Level, Flow & Pressure Instruments | AccuMeasure",
     description: siteConfig.description,
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "AccuMeasure Instruments Co., Ltd.",
+        alt: "AccuMeasure industrial measurement instruments",
       },
     ],
   },
   keywords: [
-    "level sensor manufacturer",
-    "radar level transmitter",
-    "electromagnetic flow meter",
-    "pressure transmitter",
+    "industrial level sensors",
+    "industrial flow meters",
+    "pressure transmitters",
     "industrial measurement instruments",
-    "China factory",
-    "factory-direct level sensor",
+    "OEM measurement instruments",
   ],
 };
 
-const homeFactoryImages = [
-  {
-    src: "/factory/assembly.jpg",
-    alt: "AccuMeasure sensor assembly line for level transmitters and flow meters",
-  },
-  {
-    src: "/factory/calibration.jpg",
-    alt: "Calibration bench for radar level transmitters and pressure sensors",
-  },
-  {
-    src: "/factory/aging-test.jpg",
-    alt: "72-hour aging test racks for industrial measurement instruments",
-  },
-  {
-    src: "/factory/qc-packaging.jpg",
-    alt: "Quality control and export packaging workflow at AccuMeasure",
-  },
-];
-
-const homeProductCategories = [
+const productCategories = [
   {
     icon: Gauge,
     eyebrow: "Level",
     title: "Level Measurement",
     description:
-      "Capacitive, 80GHz radar, ultrasonic, and IoT WiFi level sensors.",
+      "Compare radar, ultrasonic, capacitive, and connected level-sensing paths for tanks and silos.",
     href: "/products/level",
     image: "/products/am-rl80-v2.jpg",
-    alt: "80GHz radar level transmitter for tanks and silos",
+    alt: "Radar level transmitter product image",
     chips: ["Radar", "Ultrasonic", "Capacitive"],
   },
   {
@@ -87,49 +63,40 @@ const homeProductCategories = [
     eyebrow: "Flow",
     title: "Flow Measurement",
     description:
-      "Electromagnetic, ultrasonic, and digital mass flow meters for industrial lines.",
+      "Review electromagnetic, ultrasonic, and thermal mass measurement options for process lines.",
     href: "/products/flow",
     image: "/products/am-emf100-v2.jpg",
-    alt: "Electromagnetic flow meter for water treatment and process pipelines",
-    chips: ["Electromagnetic", "Ultrasonic", "Mass Flow"],
+    alt: "Electromagnetic flow meter product image",
+    chips: ["Electromagnetic", "Ultrasonic", "Thermal mass"],
   },
   {
     icon: Activity,
     eyebrow: "Pressure",
     title: "Pressure Measurement",
     description:
-      "Piezoresistive transmitters and smart digital pressure gauges.",
+      "Evaluate pressure transmitters and digital gauges for process, equipment, and OEM requirements.",
     href: "/products/pressure",
     image: "/products/am-pt300-v2.jpg",
-    alt: "Pressure transmitter for OEM equipment and process measurement",
+    alt: "Pressure transmitter product image",
     chips: ["Transmitters", "Gauges", "OEM"],
   },
 ];
 
-const homeCaseStudies = [
+const planningBriefs = [
   {
-    client: "Saudi Water Co.",
-    product: "Radar Level Sensors",
-    result: "Saved 71% vs European brand. 6 months, zero failures.",
-    image: "/cases/saudi-water.jpg",
-    alt: "Large water storage tanks using radar level sensors in a desert utility site",
-    slug: "saudi-water-radar-level",
+    href: "/case-studies/saudi-water-radar-level",
+    title: "Water-storage level planning",
+    description: "Collect tank geometry, medium, mounting, output, and document requirements before comparing models.",
   },
   {
-    client: "Indonesia PDAM",
-    product: "Electromagnetic Flow Meters",
-    result: "200 units delivered. Repeat order for 500 more.",
-    image: "/cases/indonesia-pdam.jpg",
-    alt: "Water treatment pipeline with electromagnetic flow meter installation",
-    slug: "indonesia-pdam-electromagnetic-flow",
+    href: "/case-studies/indonesia-pdam-electromagnetic-flow",
+    title: "Water-network flow planning",
+    description: "Document conductivity, pipe details, installation, control-system, and inspection inputs for the RFQ.",
   },
   {
-    client: "Brazil Integrator",
-    product: "OEM Digital Pressure Gauges",
-    result: "Custom branded. First order 500, reorder 2,000.",
-    image: "/cases/brazil-oem.jpg",
-    alt: "OEM pressure gauge assembly and packaging for a system integrator",
-    slug: "brazil-integrator-oem-pressure-gauge",
+    href: "/case-studies/brazil-integrator-oem-pressure-gauge",
+    title: "OEM pressure-instrument planning",
+    description: "Align configuration, branding, sample approval, documentation, and commercial terms before release.",
   },
 ];
 
@@ -140,97 +107,54 @@ export default function Home() {
         <div className="container-max">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="min-w-0">
-              <h1 className="max-w-full break-words text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-dark mb-6">
-                Level Sensor, Flow Meter &amp; Pressure Transmitter Manufacturer
-                <span className="text-primary block mt-2 break-words">
-                  Factory-Direct from Xi&apos;an
-                </span>
+              <p className="text-sm font-semibold text-primary mb-4">Industrial measurement for B2B procurement</p>
+              <h1 className="max-w-full break-words text-3xl sm:text-4xl lg:text-5xl font-bold text-dark mb-6">
+                Industrial Level, Flow &amp; Pressure Instruments
               </h1>
-              <p className="text-lg text-muted mb-6 max-w-xl">
-                Factory-direct level sensors, flow meters, and pressure transmitters
-                from Xi&apos;an, China. Exporting {companyFacts.yearsExportingLabel.toLowerCase()} to {companyFacts.exportMarkets} countries.
-                Process-instrument quality at about 1/3 typical European brand pricing —
-                backed by ISO 9001, CE, ATEX, and RoHS.
+              <p className="text-lg text-muted mb-8 max-w-xl">
+                Start with the application, then request the current model configuration, controlled technical documents,
+                and project quotation. AccuMeasure supports buyers evaluating level, flow, pressure, and OEM measurement requirements.
               </p>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {["ISO 9001 (SGS)", "CE (TÜV)", "ATEX (DEKRA)", "RoHS (Intertek)"].map((badge) => (
-                  <Link
-                    key={badge}
-                    href="/certificates"
-                    className="inline-flex items-center rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-dark hover:border-primary hover:text-primary transition-colors"
-                  >
-                    {badge}
-                  </Link>
-                ))}
-              </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/contact" className="btn-primary">
                   <MessageSquare className="w-5 h-5" />
-                  Get a Quote
+                  Start an RFQ
                 </Link>
-                <Link href="/contact?request=catalog" className="btn-secondary">
-                  Request Product Catalog
+                <Link href="/products" className="btn-secondary">
+                  Browse Product Categories
                 </Link>
               </div>
-
-              <div className="mt-12 grid grid-cols-3 gap-3 sm:gap-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">{companyFacts.yearsExportingShort.split(" ")[0]}+</div>
-                  <div className="text-sm text-muted mt-1">Years Exporting</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">{companyFacts.exportMarkets}</div>
-                  <div className="text-sm text-muted mt-1">Countries</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">{companyFacts.agingHours}h</div>
-                  <div className="text-sm text-muted mt-1">Aging Test</div>
-                </div>
+              <div className="mt-10 grid sm:grid-cols-3 gap-4">
+                {[
+                  { icon: ClipboardCheck, title: "Application review", body: "Share the medium, range, installation, and control-system context." },
+                  { icon: SlidersHorizontal, title: "Model confirmation", body: "Confirm the exact configuration against the current datasheet." },
+                  { icon: FileCheck, title: "Document review", body: "Request the current scope, revision, and project evidence before approval." },
+                ].map((item) => (
+                  <div key={item.title} className="border-t border-border pt-4">
+                    <item.icon className="w-5 h-5 text-primary mb-2" />
+                    <h2 className="font-semibold text-dark text-sm">{item.title}</h2>
+                    <p className="text-xs text-muted mt-1">{item.body}</p>
+                  </div>
+                ))}
               </div>
-              <p className="mt-4 text-xs text-muted max-w-xl">
-                {companyFacts.agingHours}h aging test = every unit runs continuous powered burn-in
-                ({companyFacts.agingSpec}) before OQC and calibration certificate release.
-              </p>
             </div>
 
             <div className="relative">
-              <div className="aspect-square bg-primary/10 rounded-2xl flex items-center justify-center overflow-hidden">
+              <div className="aspect-square bg-primary/10 rounded-xl flex items-center justify-center overflow-hidden">
                 <Image
                   src="/products/am-rl80-v2.jpg"
-                  alt="AM-RL80 80GHz radar level transmitter manufactured in Xi'an"
+                  alt="Radar level transmitter product image"
                   width={600}
                   height={600}
                   className="h-full w-full object-cover"
                   priority
                 />
               </div>
-              <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white/95 border border-border px-4 py-3 shadow-sm">
-                <div className="text-sm font-semibold text-dark">AM-RL80 · 80GHz Radar</div>
-                <div className="text-xs text-muted mt-1">
-                  ±2mm · up to 80m · ATEX option · From $380 FOB Xi&apos;an
-                </div>
+              <div className="absolute bottom-4 left-4 right-4 rounded-lg bg-white/95 border border-border px-4 py-3 shadow-sm">
+                <div className="text-sm font-semibold text-dark">Select by application, not a search snippet</div>
+                <div className="text-xs text-muted mt-1">Confirm the current model, document scope, and commercial terms for the exact project.</div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-8 bg-primary">
-        <div className="container-max">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {[
-              { icon: Shield, label: "ISO 9001" },
-              { icon: Award, label: "CE & ATEX" },
-              { icon: Clock, label: `${companyFacts.agingHours}h Test` },
-              { icon: Users, label: `${companyFacts.rdEngineers} R&D` },
-              { icon: Calendar, label: "7-Day Custom" },
-              { icon: Globe, label: `${companyFacts.exportMarkets} Country` },
-            ].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-3 text-white">
-                <item.icon className="w-6 h-6" />
-                <span className="text-sm font-medium">{item.label}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -238,47 +162,35 @@ export default function Home() {
       <section className="py-20">
         <div className="container-max">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-dark mb-4">
-              What We Make
-            </h2>
-            <p className="text-muted max-w-2xl mx-auto">
-              Comprehensive measurement solutions for your industrial needs
-            </p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-dark mb-4">Explore Measurement Categories</h2>
+            <p className="text-muted max-w-2xl mx-auto">Use the catalog to narrow a technology; confirm final suitability in the project RFQ.</p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-8">
-            {homeProductCategories.map((cat) => (
-              <Link key={cat.href} href={cat.href} className="card group overflow-hidden p-0">
+            {productCategories.map((category) => (
+              <Link key={category.href} href={category.href} className="card group overflow-hidden p-0">
                 <div className="relative h-52 bg-bg-light overflow-hidden">
                   <Image
-                    src={cat.image}
-                    alt={cat.alt}
+                    src={category.image}
+                    alt={category.alt}
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 text-sm font-semibold text-primary shadow-sm">
-                    <cat.icon className="w-4 h-4" />
-                    {cat.eyebrow}
+                  <div className="absolute left-4 top-4 flex items-center gap-2 rounded-lg bg-white/90 px-3 py-2 text-sm font-semibold text-primary shadow-sm">
+                    <category.icon className="w-4 h-4" />
+                    {category.eyebrow}
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-dark mb-3">
-                    {cat.title}
-                  </h3>
-                  <p className="text-muted mb-5">{cat.description}</p>
+                  <h3 className="text-xl font-semibold text-dark mb-3">{category.title}</h3>
+                  <p className="text-muted mb-5">{category.description}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {cat.chips.map((chip) => (
-                      <span
-                        key={chip}
-                        className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
-                      >
-                        {chip}
-                      </span>
+                    {category.chips.map((chip) => (
+                      <span key={chip} className="rounded-lg bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{chip}</span>
                     ))}
                   </div>
                   <span className="inline-flex items-center gap-2 text-accent font-medium">
-                    Explore Products <ArrowRight className="w-4 h-4" />
+                    Explore products <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
               </Link>
@@ -289,259 +201,66 @@ export default function Home() {
 
       <section className="py-20 bg-bg-light">
         <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-dark mb-4">
-              Why Buyers Choose AccuMeasure
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                number: "72h",
-                title: "Aging Test on Every Unit",
-                description:
-                  "Every sensor runs 72 hours continuous testing under temperature cycling before shipping. Zero shortcuts.",
-              },
-              {
-                number: "FOB",
-                title: "Factory-Direct Pricing",
-                description:
-                  "Buy from the Xi'an manufacturer, not a rebranded import channel. Compare specs and request a project quote.",
-              },
-              {
-                number: "7d",
-                title: "Custom Solution Turnaround",
-                description:
-                  `${companyFacts.rdEngineers}-engineer R&D team. Send your specs for a solution outline and quote timeline.`,
-              },
-              {
-                number: "1d",
-                title: "Inquiry Response Target",
-                description:
-                  `We aim to reply within ${siteConfig.responseTarget}. WhatsApp and email remain available if the form is delayed.`,
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-xl border border-border">
-                <div className="text-4xl lg:text-5xl font-bold text-cta mb-4">
-                  {item.number}
+          <div className="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p className="text-sm font-semibold text-primary mb-3">Before model approval</p>
+              <h2 className="text-3xl font-bold text-dark mb-4">Build a decision record that purchasing can use</h2>
+              <p className="text-muted max-w-xl">
+                Keep published catalog information separate from the documents and commercial terms that must be confirmed for the selected configuration.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                ["Measurement duty", "Medium, tank or pipe details, range, process conditions, and installation constraints."],
+                ["Integration", "Power, output, control-system interface, enclosure, and environmental requirements."],
+                ["Evidence", "Current datasheet, certificate scope, test or calibration records, and document revision."],
+                ["Commercial terms", "Configuration, quantity, packaging, delivery, warranty, and acceptance criteria in writing."],
+              ].map(([title, body]) => (
+                <div key={title} className="bg-white border border-border rounded-lg p-5">
+                  <h3 className="font-semibold text-dark mb-2">{title}</h3>
+                  <p className="text-sm text-muted">{body}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-dark mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-muted text-sm">{item.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-bg-light">
+      <section className="py-20">
         <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-dark mb-4">
-              Start From Your Application
-            </h2>
-            <p className="text-muted max-w-2xl mx-auto">
-              Buyer-job pages that map real industrial needs to the right AccuMeasure model —
-              with RFQ checklists, not brochure fluff.
-            </p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <div>
+              <p className="text-sm font-semibold text-primary mb-3">Application planning</p>
+              <h2 className="text-3xl font-bold text-dark">Start with project inputs</h2>
+            </div>
+            <Link href="/applications" className="inline-flex items-center gap-2 text-primary font-medium">
+              Browse application guides <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                href: "/applications/radar-level-sensor-for-oil-tank",
-                title: "Radar level for oil tanks",
-                desc: "80GHz non-contact measurement with ATEX options",
-              },
-              {
-                href: "/applications/electromagnetic-flow-meter-for-water-treatment",
-                title: "Magmeters for water treatment",
-                desc: "DN15–DN1000 utility and plant flow measurement",
-              },
-              {
-                href: "/applications/pressure-transmitter-for-oem-equipment",
-                title: "OEM pressure & private label",
-                desc: "Branding from MOQ 100, integrator-ready docs",
-              },
-              {
-                href: "/applications/radar-vs-ultrasonic-level-sensor",
-                title: "Radar vs ultrasonic selection",
-                desc: "Choose the right level technology before you RFQ",
-              },
-            ].map((item) => (
-              <Link key={item.href} href={item.href} className="card group">
-                <h3 className="text-lg font-semibold text-dark mb-2 group-hover:text-primary transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-muted mb-4">{item.desc}</p>
-                <span className="inline-flex items-center gap-2 text-accent font-medium text-sm">
-                  Open guide <ArrowRight className="w-4 h-4" />
+          <div className="grid md:grid-cols-3 gap-6">
+            {planningBriefs.map((brief) => (
+              <Link key={brief.href} href={brief.href} className="card group">
+                <BookOpen className="w-6 h-6 text-primary mb-4" />
+                <h3 className="text-lg font-semibold text-dark mb-2 group-hover:text-primary transition-colors">{brief.title}</h3>
+                <p className="text-sm text-muted mb-5">{brief.description}</p>
+                <span className="inline-flex items-center gap-2 text-primary font-medium text-sm">
+                  Open planning brief <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
             ))}
           </div>
-          <div className="mt-8 text-center">
-            <Link href="/applications" className="inline-flex items-center gap-2 text-primary font-medium">
-              Explore all industrial measurement application guides
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </Link>
-          </div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-dark mb-4">
-              Trusted by Buyers Worldwide
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {homeCaseStudies.map((cs) => (
-              <div key={cs.client} className="card overflow-hidden p-0">
-                <div className="relative h-48 bg-bg-light">
-                  <Image
-                    src={cs.image}
-                    alt={cs.alt}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="text-sm text-muted mb-2">{cs.product}</div>
-                  <h3 className="text-xl font-semibold text-dark mb-4">
-                    {cs.client}
-                  </h3>
-                  <p className="text-muted mb-6">{cs.result}</p>
-                  <Link href={`/case-studies/${cs.slug}`} className="text-accent font-medium inline-flex items-center gap-2">
-                    Read case study <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-bg-light">
-        <div className="container-max">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="grid grid-cols-2 gap-4">
-              {homeFactoryImages.map((image) => (
-                <div
-                  key={image.src}
-                  className="relative aspect-square bg-primary/10 rounded-xl flex items-center justify-center overflow-hidden"
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    sizes="(min-width: 1024px) 25vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-dark mb-6">
-                Inside Our Factory
-              </h2>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-primary text-sm">✓</span>
-                  </div>
-                  <span className="text-muted">
-                    2,600 sqm facility in Xi&apos;an, China
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-primary text-sm">✓</span>
-                  </div>
-                  <span className="text-muted">
-                    SMT production line, CNC machining, assembly, aging test, calibration lab
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-primary text-sm">✓</span>
-                  </div>
-                  <span className="text-muted">
-                    82 employees, 15 R&D engineers, 5 QC inspectors
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-primary text-sm">✓</span>
-                  </div>
-                  <span className="text-muted">
-                    Every unit: IQC → IPQC → 72h Aging → OQC → Calibration Certificate
-                  </span>
-                </li>
-              </ul>
-              <Link href="/about#factory" className="btn-secondary">
-                Take a Virtual Tour <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20">
-        <div className="container-max">
-          <h2 className="text-3xl lg:text-4xl font-bold text-dark mb-4 text-center">
-            AccuMeasure at a Glance
-          </h2>
-          <p className="text-muted text-center max-w-2xl mx-auto mb-12">
-            The facts buyers ask about first — before the catalog and the sales call.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            {[
-              { label: "Founded", value: `${companyFacts.foundedYear}, Xi'an, China` },
-              { label: "Facility", value: `${companyFacts.facilitySqm.toLocaleString()} sqm, High-Tech Zone` },
-              { label: "Team", value: `${companyFacts.employees} staff, ${companyFacts.rdEngineers} R&D engineers` },
-              { label: "Quality System", value: "ISO 9001:2015 (SGS)" },
-              { label: "Product Certifications", value: companyFacts.certificationsPublic.filter((c) => c !== "ISO 9001").join(", ") },
-              { label: "Price Range", value: companyFacts.priceFromLabel },
-              { label: "MOQ", value: companyFacts.moqRangeLabel },
-              { label: "Standard Lead Time", value: companyFacts.leadTimeStandard },
-              { label: "Burn-in Testing", value: `${companyFacts.agingHours}-hour aging, every unit` },
-              { label: "Documentation", value: "Calibration cert per unit" },
-              { label: "Warranty", value: companyFacts.warrantyLabel },
-              { label: "Export Markets", value: `${companyFacts.exportMarkets} countries` },
-            ].map((fact) => (
-              <div key={fact.label} className="bg-bg-light rounded-lg border border-border p-4">
-                <div className="text-xs text-muted uppercase tracking-wide mb-1">{fact.label}</div>
-                <div className="text-sm font-semibold text-dark">{fact.value}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-primary">
+      <section className="py-20 bg-dark text-white">
         <div className="container-max text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-            Ready to Source Reliable Measurement Instruments?
-          </h2>
+          <h2 className="text-3xl font-bold mb-4">Ready to prepare an industrial RFQ?</h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-8">
-            Request a quote. We aim to reply within {siteConfig.responseTarget} with specs and pricing.
+            Send the measurement duty, configuration requirements, quantity, destination market, and required documentation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-primary">
-              Request a Quote
-            </Link>
-            <a
-              href={waLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-white text-white hover:bg-white hover:text-primary px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center gap-2 transition-colors"
-            >
+            <Link href="/contact" className="btn-primary">Start an RFQ</Link>
+            <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn-outline-white">
               Chat on WhatsApp
             </a>
           </div>

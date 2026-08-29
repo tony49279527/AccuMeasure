@@ -8,7 +8,7 @@ const llms = `# ${siteConfig.name}
 
 ## What this company does
 
-AccuMeasure is a manufacturer and engineering supplier of industrial level sensors, flow meters, pressure transmitters, and OEM/ODM measurement instruments. Buyers can request model confirmation, controlled technical documents, application review, and a factory quotation.
+AccuMeasure is an industrial measurement supplier for level sensors, flow meters, pressure transmitters, and OEM/ODM measurement instruments. Buyers can request model confirmation, controlled technical documents, application review, and a project quotation.
 
 ## Product categories
 
