@@ -123,7 +123,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               </span>
               <span className="inline-flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
-                {formatDate(post.dateModified)}
+                Updated {formatDate(post.dateModified)}
               </span>
               <span className="inline-flex items-center gap-2">
                 <Clock className="w-4 h-4" />
@@ -169,6 +169,33 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   </section>
                 ))}
               </div>
+
+              {post.relatedGuides && post.relatedGuides.length > 0 && (
+                <section className="mt-14 border-t border-border pt-10">
+                  <h2 className="text-2xl font-bold text-dark mb-6">
+                    Related Guides &amp; Applications
+                  </h2>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {post.relatedGuides.map((guide) => (
+                      <Link
+                        key={guide.href}
+                        href={guide.href}
+                        className="bg-white rounded-xl border border-border p-5 group"
+                      >
+                        <h3 className="font-semibold text-dark mb-2 group-hover:text-primary transition-colors">
+                          {guide.title}
+                        </h3>
+                        <p className="text-muted text-sm leading-6 mb-4">
+                          {guide.description}
+                        </p>
+                        <span className="text-primary font-medium inline-flex items-center gap-2 text-sm">
+                          Read guide <ArrowRight className="w-4 h-4" />
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
 
               <section className="mt-14 border-t border-border pt-10">
                 <h2 className="text-2xl font-bold text-dark mb-6">Buyer FAQ</h2>

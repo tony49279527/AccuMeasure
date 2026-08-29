@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FileText, BookOpen, MessageSquare, ArrowRight } from "lucide-react";
+import { FileText, BookOpen, ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { products } from "@/lib/products";
+import { DocumentRequestLink } from "@/components/document-request-link";
 
 export const metadata: Metadata = {
   title: "Sensor Datasheets, Manuals & 3D Models | AccuMeasure",
@@ -27,8 +28,15 @@ export default function ResourcesPage() {
           <div className="text-center">
             <h1 className="text-4xl font-bold text-dark mb-6">Resources &amp; Technical Documents</h1>
             <p className="text-lg text-muted max-w-2xl mx-auto">
-              Request the latest controlled datasheets, installation manuals, 3D models, and technical guides for AccuMeasure instruments.
+              Request the latest controlled datasheets, installation manuals, 3D models, and certificate scans for AccuMeasure instruments.
             </p>
+            <div className="max-w-2xl mx-auto mt-6 bg-white border border-border rounded-xl p-5 text-left">
+              <p className="text-sm text-muted">
+                These are controlled documents, not public placeholder downloads. Request a current
+                version and our engineering team sends it with the quote package after confirming the
+                product and project scope.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -56,17 +64,21 @@ export default function ResourcesPage() {
               </div>
 
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-                {product.downloads.map((dl, dIdx) => (
-                  <Link
-                    key={dIdx}
+                {product.downloads.map((dl) => (
+                  <DocumentRequestLink
+                    key={dl.name}
                     href={`/contact?product=${encodeURIComponent(product.id)}&document=${encodeURIComponent(dl.name)}`}
+                    documentName={`${product.model} ${dl.name}`}
+                    source="resources"
+                    productId={product.id}
+                    productName={product.name}
                     className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all"
                   >
                     <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                      {dl.type === "pdf" ? (
-                        <FileText className="w-5 h-5 text-primary" />
+                      {dl.type === "3d" ? (
+                        <BookOpen className="w-5 h-5 text-primary" />
                       ) : (
-                        <MessageSquare className="w-5 h-5 text-primary" />
+                        <FileText className="w-5 h-5 text-primary" />
                       )}
                     </div>
                     <div className="min-w-0">
@@ -74,7 +86,7 @@ export default function ResourcesPage() {
                       <p className="text-xs text-muted uppercase">{dl.type === "3d" ? "3D Model · Request STEP" : "Request PDF"}</p>
                     </div>
                     <span className="ml-auto text-xs font-medium text-primary">Request</span>
-                  </Link>
+                  </DocumentRequestLink>
                 ))}
               </div>
             </div>
@@ -90,9 +102,14 @@ export default function ResourcesPage() {
             If you need technical drawings, custom specification sheets, or application-specific documentation,
             our engineering team can prepare them for your review.
           </p>
-          <Link href="/contact" className="btn-primary">
+          <DocumentRequestLink
+            href="/contact?document=Custom%20Documentation%20Request"
+            documentName="Custom Documentation Request"
+            source="resources"
+            className="btn-primary"
+          >
             Request Documentation
-          </Link>
+          </DocumentRequestLink>
         </div>
       </section>
     </div>

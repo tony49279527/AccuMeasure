@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle, Thermometer, Gauge, Clock, Award } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { DocumentRequestLink } from "@/components/document-request-link";
+import { companyFacts } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "Quality Assurance — 5-Stage QC & 72h Aging Test",
@@ -79,7 +81,7 @@ export default function QualityPage() {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-cta flex-shrink-0 mt-0.5" />
-                    <span>Temperature cycling: 0°C to 50°C, 3 cycles</span>
+                    <span>Temperature cycling: {companyFacts.agingSpec}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-cta flex-shrink-0 mt-0.5" />
@@ -185,9 +187,14 @@ export default function QualityPage() {
             Ask for our QC flow, aging-test profile, and sample calibration certificate with your RFQ.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-primary">
+            <DocumentRequestLink
+              href="/contact?document=QC%20Documentation%20Pack"
+              documentName="QC Documentation Pack"
+              source="quality"
+              className="btn-primary"
+            >
               Request QC Documents
-            </Link>
+            </DocumentRequestLink>
             <Link href="/certificates" className="border border-white text-white hover:bg-white hover:text-primary px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center gap-2 transition-colors">
               View Certificates
             </Link>

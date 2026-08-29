@@ -172,6 +172,10 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 NEXT_PUBLIC_CLARITY_ID=xxxxxxxxxx
 ```
 
+The codebase defines `contact_click`, `generate_lead`, and `document_request` analytics events.
+They only fire when GA4 is initialized. Do not set analytics IDs in production until the privacy
+policy, consent mechanism, event definitions, and lead definitions are approved.
+
 ## License
 
 © AccuMeasure Instruments Co., Ltd. All rights reserved.

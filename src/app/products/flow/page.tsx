@@ -4,7 +4,7 @@ import { CategoryPage, generateCategoryMetadata, type CategoryPageData } from ".
 const data: CategoryPageData = {
   slug: "flow",
   label: "Flow Meters",
-  title: "Flow Meter Manufacturer: Electromagnetic, Ultrasonic, ATEX",
+  title: "Flow Meter Manufacturer: Electromagnetic, Ultrasonic, Non-Contact ATEX",
   description:
     "Compare electromagnetic, clamp-on ultrasonic, and thermal mass meters (DN6–DN1000). ATEX options, non-contact clamp-on, portable survey, outputs, and MOQ.",
   h1: "Flow Meters for Liquids & Gases",

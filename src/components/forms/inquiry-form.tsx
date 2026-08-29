@@ -14,12 +14,14 @@ import {
 } from "@/lib/schema";
 import type { InquiryValues } from "@/lib/schema";
 import { siteConfig, waLinkFor } from "@/lib/site";
-import { trackLeadEvent, trackContactClick } from "@/lib/analytics";
+import { trackLeadEvent, trackContactClick, trackDocumentRequest, type DocumentRequestSource } from "@/lib/analytics";
 import { getSourceSnapshot } from "@/lib/source";
 
 interface InquiryFormProps {
   productId?: string;
   productName?: string;
+  documentName?: string;
+  documentSource?: DocumentRequestSource;
   defaultInterest?: string;
   defaultMessage?: string;
 }
@@ -27,6 +29,8 @@ interface InquiryFormProps {
 export function InquiryForm({
   productId,
   productName,
+  documentName,
+  documentSource,
   defaultInterest,
   defaultMessage,
 }: InquiryFormProps) {
@@ -85,6 +89,14 @@ export function InquiryForm({
         utmMedium: source.utmMedium,
         utmCampaign: source.utmCampaign,
       });
+      if (documentName && documentSource) {
+        trackDocumentRequest({
+          documentName,
+          source: documentSource,
+          productId: productId,
+          productName: productName,
+        });
+      }
       reset();
     } catch (e) {
       setStatus("error");

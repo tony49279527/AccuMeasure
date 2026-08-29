@@ -14,8 +14,64 @@ import { certificationDetail } from "@/lib/certifications";
 import { siteConfig, waLinkFor } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { getComparisonsForProduct } from "@/lib/comparisons";
+import { DocumentRequestLink } from "@/components/document-request-link";
+import type { Product } from "@/lib/types";
 
 const reservedSlugs = ["level", "flow", "pressure"];
+
+const categoryGuides: Record<Product["category"], { title: string; description: string; href: string }[]> = {
+  level: [
+    {
+      title: "How to Choose a Radar Level Sensor",
+      description: "7 buyer checks for range, beam angle, tank geometry, output, and certification.",
+      href: "/blog/how-to-choose-radar-level-sensor",
+    },
+    {
+      title: "Radar Level Sensor for Oil Tanks",
+      description: "Vapor, nozzle, tank geometry, and hazardous-area requirements for storage tanks.",
+      href: "/applications/radar-level-sensor-for-oil-tank",
+    },
+    {
+      title: "Radar vs Ultrasonic Level Sensors",
+      description: "Compare range, vapor, dust, foam, accuracy, installation, and cost.",
+      href: "/applications/radar-vs-ultrasonic-level-sensor",
+    },
+    {
+      title: "Choosing a Level Sensor Supplier in China",
+      description: "Audit factory, certificate, sample, MOQ, payment, and quality checks before ordering.",
+      href: "/blog/how-to-choose-level-sensor-supplier-china",
+    },
+  ],
+  flow: [
+    {
+      title: "Electromagnetic Flow Meter for Water Treatment",
+      description: "Define conductivity, pipe size, liner, flange, grounding, and utility requirements.",
+      href: "/applications/electromagnetic-flow-meter-for-water-treatment",
+    },
+    {
+      title: "Electromagnetic vs Ultrasonic Flow Meter",
+      description: "Compare media limits, installation work, accuracy, maintenance, and lifecycle tradeoffs.",
+      href: "/compare/electromagnetic-vs-ultrasonic-flow-meter",
+    },
+    {
+      title: "Electromagnetic vs Ultrasonic: Buyer Guide",
+      description: "Work through pipe, process, and installation questions to choose the right technology.",
+      href: "/blog/electromagnetic-vs-ultrasonic-flow-meter",
+    },
+  ],
+  pressure: [
+    {
+      title: "Pressure Transmitter Selection Guide",
+      description: "Specify range, overload, accuracy, output, process connection, material, and approval.",
+      href: "/blog/pressure-transmitter-selection-guide",
+    },
+    {
+      title: "Pressure Transmitters for OEM Equipment",
+      description: "Define range, connection, output, housing, branding, documentation, and volume.",
+      href: "/applications/pressure-transmitter-for-oem-equipment",
+    },
+  ],
+};
 
 export function generateStaticParams() {
   return products
@@ -92,9 +148,16 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                   priority
                 />
               </div>
-              <a href="#documents" className="btn-secondary w-full mt-4 flex items-center justify-center gap-2">
+              <DocumentRequestLink
+                href="#documents"
+                documentName="Technical Documents"
+                source="product"
+                productId={product.id}
+                productName={product.name}
+                className="btn-secondary w-full mt-4 flex items-center justify-center gap-2"
+              >
                 <FileText className="w-4 h-4" /> Request Technical Documents
-              </a>
+              </DocumentRequestLink>
             </div>
 
             <div className="lg:col-span-3">
@@ -194,6 +257,31 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                 <h3 className="text-lg font-semibold text-dark mb-3">{adv.title}</h3>
                 <p className="text-muted text-sm">{adv.description}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="container-max">
+          <h2 className="text-2xl font-bold text-dark mb-8 text-center">
+            Selection Guides &amp; Applications
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {categoryGuides[product.category].map((guide) => (
+              <Link
+                key={guide.href}
+                href={guide.href}
+                className="bg-white rounded-xl border border-border p-6 group"
+              >
+                <h3 className="font-semibold text-dark mb-2 group-hover:text-primary transition-colors">
+                  {guide.title}
+                </h3>
+                <p className="text-muted text-sm mb-4">{guide.description}</p>
+                <span className="text-primary font-medium inline-flex items-center gap-2 text-sm">
+                  Read guide <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
             ))}
           </div>
         </div>

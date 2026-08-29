@@ -26,9 +26,13 @@
 - Level sensors: https://www.accumeasuretech.com/products/level
 - Flow meters: https://www.accumeasuretech.com/products/flow
 - Pressure sensors: https://www.accumeasuretech.com/products/pressure
+- Legacy level-sensor path: https://www.accumeasuretech.com/level-sensors (301 to /products/level)
+- Legacy flow-meter path: https://www.accumeasuretech.com/flow-meters (301 to /products/flow)
+- Documents and controlled files: https://www.accumeasuretech.com/resources (the /docs alias redirects here)
 - OEM/ODM: https://www.accumeasuretech.com/customization
 - Certificates: https://www.accumeasuretech.com/certificates
 - Quality: https://www.accumeasuretech.com/quality
+- Resources: https://www.accumeasuretech.com/resources
 - Contact/RFQ: https://www.accumeasuretech.com/contact
 
 ## Procurement facts
@@ -50,6 +54,12 @@
 - RoHS 3.0, No. RoHS-3.0-2024, by Intertek.
 - FCC Part 15 is published for AM-WL50.
 - IECEx Ex d IIC T6 is listed for AM-RL80; certificate number and issuer are not yet published on the public site.
+- Certificate scans and controlled datasheets are sent by email or WhatsApp on request; they are not public downloads.
+
+## Document requests
+
+- Request current datasheets, manuals, 3D models, certificate scans, and QC documentation through https://www.accumeasuretech.com/contact.
+- Include the product model and project scope so engineering can send the current controlled document revision.
 
 ## Buyer contacts
 

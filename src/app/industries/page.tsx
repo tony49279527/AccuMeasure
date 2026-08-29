@@ -20,7 +20,18 @@ export const metadata: Metadata = {
   },
 };
 
-const industries = [
+interface IndustryCard {
+  icon: typeof Droplets;
+  name: string;
+  description: string;
+  products: string[];
+  image: string;
+  highlight: string;
+  applicationHref?: string;
+  applicationLabel?: string;
+}
+
+const industries: IndustryCard[] = [
   {
     icon: Droplets,
     name: "Water & Wastewater Treatment",
@@ -29,6 +40,8 @@ const industries = [
     products: ["1", "3", "4", "5"],
     image: "/industries/water-treatment.jpg",
     highlight: "±2mm radar accuracy for clean water; PVDF ultrasonic sensors for chemical dosing.",
+    applicationHref: "/applications/electromagnetic-flow-meter-for-water-treatment",
+    applicationLabel: "Flow Meter for Water Treatment",
   },
   {
     icon: Beef,
@@ -38,6 +51,8 @@ const industries = [
     products: ["2", "7", "8"],
     image: "/industries/oil-gas.jpg",
     highlight: "80GHz FMCW radar with Ex d IIC T6 certification; thermal mass flow for custody transfer.",
+    applicationHref: "/applications/radar-level-sensor-for-oil-tank",
+    applicationLabel: "Radar for Oil Storage Tanks",
   },
   {
     icon: Microscope,
@@ -74,6 +89,8 @@ const industries = [
     products: ["4", "5", "8"],
     image: "/industries/manufacturing.jpg",
     highlight: "High vibration resistance for hydraulics; IoT sensors with 6-month battery life.",
+    applicationHref: "/applications/pressure-transmitter-for-oem-equipment",
+    applicationLabel: "Pressure Transmitters for OEM",
   },
 ];
 
@@ -169,6 +186,15 @@ export default function IndustriesPage() {
                         ))}
                       </div>
                     </div>
+                  )}
+                  {ind.applicationHref && (
+                    <Link
+                      href={ind.applicationHref}
+                      className="inline-flex items-center gap-2 mt-5 text-sm font-medium text-primary hover:underline"
+                    >
+                      View {ind.applicationLabel}
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   )}
                 </div>
 

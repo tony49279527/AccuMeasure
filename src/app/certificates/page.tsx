@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Shield, Award, FileCheck, ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { waLinkFor } from "@/lib/site";
+import { DocumentRequestLink } from "@/components/document-request-link";
 
 export const metadata: Metadata = {
   title: "Verify ISO 9001, CE & ATEX Certificates | AccuMeasure",
@@ -111,12 +111,14 @@ export default function CertificatesPage() {
                       </p>
                     </div>
                     <div className="mt-6 space-y-3">
-                      <Link
+                      <DocumentRequestLink
                         href={`/contact?document=${encodeURIComponent(`${cert.name} certificate scan`)}`}
+                        documentName={`${cert.name} certificate scan`}
+                        source="certificates"
                         className="btn-secondary w-full justify-center"
                       >
                         Request Scan by Email
-                      </Link>
+                      </DocumentRequestLink>
                       <a
                         href={waLinkFor(
                           `Hi AccuMeasure, please send the ${cert.name} certificate scan (${cert.number}).`,
@@ -163,18 +165,22 @@ export default function CertificatesPage() {
                   <p className="text-muted text-sm">{cert.description}</p>
 
                   <div className="flex flex-col sm:flex-row gap-3 mt-6">
-                    <Link
+                    <DocumentRequestLink
                       href={`/contact?document=${encodeURIComponent(`${cert.name} certificate scan`)}`}
+                      documentName={`${cert.name} certificate scan`}
+                      source="certificates"
                       className="btn-primary justify-center"
                     >
                       Request Certificate Scan
-                    </Link>
-                    <Link
+                    </DocumentRequestLink>
+                    <DocumentRequestLink
                       href={`/contact?document=${encodeURIComponent(`${cert.name} certificate verification ${cert.number}`)}`}
+                      documentName={`${cert.name} certificate verification`}
+                      source="certificates"
                       className="btn-secondary justify-center"
                     >
                       Verify Certificate Number
-                    </Link>
+                    </DocumentRequestLink>
                   </div>
                 </div>
               </div>
@@ -226,6 +232,61 @@ export default function CertificatesPage() {
       </section>
 
       <section className="py-16">
+        <div className="container-max max-w-3xl">
+          <h2 className="text-2xl font-bold text-dark mb-4 text-center">
+            How to Verify a Certificate
+          </h2>
+          <ol className="space-y-4">
+            <li className="bg-bg-light rounded-xl p-5">
+              <p className="font-semibold text-dark mb-1">1. Compare the published record</p>
+              <p className="text-sm text-muted">
+                Check that the certificate number, issuing body, scope, and validity shown on this page
+                match the document you receive. Scope must name the product family or type used in your project.
+              </p>
+            </li>
+            <li className="bg-bg-light rounded-xl p-5">
+              <p className="font-semibold text-dark mb-1">2. Request the current official scan</p>
+              <p className="text-sm text-muted">
+                We send current controlled scans by email or WhatsApp with your RFQ. Public scans are not
+                hosted here so buyers always receive the latest revision.
+              </p>
+            </li>
+            <li className="bg-bg-light rounded-xl p-5">
+              <p className="font-semibold text-dark mb-1">3. Confirm IECEx or project-specific scope</p>
+              <p className="text-sm text-muted">
+                Where a certificate is listed without a public number, such as IECEx for AM-RL80, include
+                the product model and RFQ so engineering can confirm the current certificate scope and issuer.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section className="py-16 bg-bg-light">
+        <div className="container-max max-w-3xl">
+          <h2 className="text-2xl font-bold text-dark mb-4">
+            Certificates Listed Without Public Numbers
+          </h2>
+          <div className="space-y-4">
+            <div className="bg-white rounded-xl border border-border p-5">
+              <h3 className="font-semibold text-dark mb-1">IECEx Ex d IIC T6</h3>
+              <p className="text-sm text-muted">
+                Listed for AM-RL80. The number and issuer are not published until the current
+                certificate scope is confirmed for your RFQ.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl border border-border p-5">
+              <h3 className="font-semibold text-dark mb-1">FCC Part 15</h3>
+              <p className="text-sm text-muted">
+                Listed for AM-WL50. Request the current device documentation and test record with
+                the product model and destination.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
         <div className="container-max text-center">
           <h2 className="text-2xl font-bold text-dark mb-4">
             Need to verify a certificate?
@@ -234,9 +295,14 @@ export default function CertificatesPage() {
             Contact us with the certificate number and we&apos;ll provide verification documents
             from the issuing body within 48 hours.
           </p>
-          <Link href="/contact" className="btn-primary flex items-center gap-2 mx-auto w-fit">
+          <DocumentRequestLink
+            href="/contact?document=Certificate%20Verification"
+            documentName="Certificate Verification"
+            source="certificates"
+            className="btn-primary flex items-center gap-2 mx-auto w-fit"
+          >
             Request Certificate Verification <ArrowRight className="w-4 h-4" />
-          </Link>
+          </DocumentRequestLink>
         </div>
       </section>
     </div>

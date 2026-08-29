@@ -1,5 +1,6 @@
 import { FileText, Settings, MessageSquare, Droplet, Droplets, FlaskConical, ShieldCheck, Fuel, Factory, Microscope, Beer, Package, Home, SprayCan, Filter, Trees, Thermometer } from "lucide-react";
 import type { Product } from "@/lib/types";
+import { DocumentRequestLink } from "@/components/document-request-link";
 
 const appIcons: Record<string, typeof Droplet> = {
   Oil: Fuel,
@@ -90,10 +91,14 @@ export function ProductTabs({ product }: { product: Product }) {
           Request the latest controlled version and we will send it with your product quotation.
         </p>
         <div className="grid sm:grid-cols-2 gap-3">
-          {product.downloads.map((dl, idx) => (
-            <a
-              key={idx}
+          {product.downloads.map((dl) => (
+            <DocumentRequestLink
+              key={dl.name}
               href={`/contact?product=${encodeURIComponent(product.id)}&document=${encodeURIComponent(dl.name)}`}
+              documentName={`${product.model} ${dl.name}`}
+              source="product"
+              productId={product.id}
+              productName={product.name}
               className="flex items-center justify-between p-4 border border-border rounded-xl hover:border-accent hover:bg-bg-light transition-colors group"
             >
               <div className="flex items-center gap-3">
@@ -108,8 +113,29 @@ export function ProductTabs({ product }: { product: Product }) {
               <span className="inline-flex items-center gap-2 text-sm font-medium text-primary">
                 Request <MessageSquare className="w-4 h-4" />
               </span>
-            </a>
+            </DocumentRequestLink>
           ))}
+          <DocumentRequestLink
+            href={`/contact?product=${encodeURIComponent(product.id)}&document=${encodeURIComponent(`${product.model} certificate scan`)}`}
+            documentName={`${product.model} certificate scan`}
+            source="product"
+            productId={product.id}
+            productName={product.name}
+            className="flex items-center justify-between p-4 border border-border rounded-xl hover:border-accent hover:bg-bg-light transition-colors group"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                <ShieldCheck className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <div className="font-medium text-dark">Certificate Scan</div>
+                <div className="text-muted text-xs uppercase">Request verification</div>
+              </div>
+            </div>
+            <span className="inline-flex items-center gap-2 text-sm font-medium text-primary">
+              Request <MessageSquare className="w-4 h-4" />
+            </span>
+          </DocumentRequestLink>
         </div>
       </section>
     </div>

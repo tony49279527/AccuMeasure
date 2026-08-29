@@ -14,7 +14,7 @@
 - URL Inspection 抽样：主页、Products、Level、Flow、Pressure、Compare、Resources、Blog 已收录；`/applications` 为 `URL is unknown to Google`；`/contact` 为 `Crawled - currently not indexed`。sitemap API 无错误或警告，但其计数与 URL Inspection 不一致，继续观察而不自动请求索引。
 - 内容与内链：`/applications` 原线上正文约 301 词且 Google 未识别；两篇选型文章只有 1 条内部入链。2026-07-24 本地优化将应用中心改为测量任务/选型/RFQ 决策页，并从三个产品分类页增加相关应用、比较与选型指南链接。
 - 分析与转化：生产环境没有 `NEXT_PUBLIC_GA_ID` 或 `NEXT_PUBLIC_CLARITY_ID`，页面也未加载 GA/Clarity；因此目前只能证明搜索曝光、抓取与技术质量，不能证明询盘或收入增量。未经隐私、同意、事件定义和外部授权，不自动安装分析脚本。
-- 证据治理：`evidence-manifest.csv` 只有 3 组未审批图片，覆盖度不足以证明站内全部证书编号、客户名称、订单、测试和量化结果。后续新增案例或强声明前必须补来源、授权、日期、适用范围与审批状态。
+- 证据治理：`evidence-manifest.csv` 只有 3 组未审批图片，覆盖度不足以证明站内全部证书编号、客户名称、订单、测试和量化结果。`claim-to-evidence-matrix.csv` 记录公开强声明与所需证据；后续新增案例或强声明前必须补来源、授权、日期、适用范围与审批状态。
 
 ## Skills 与自然语言用法
 

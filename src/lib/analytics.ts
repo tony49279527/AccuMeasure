@@ -70,3 +70,24 @@ export function trackContactClick(channel: "whatsapp" | "email" | "phone", label
     channel: channel,
   });
 }
+
+/**
+ * Dispatched when a buyer requests a controlled datasheet, manual, 3D model, or certificate scan.
+ */
+export type DocumentRequestSource = "product" | "resources" | "certificates" | "quality";
+
+export function trackDocumentRequest(data: {
+  documentName: string;
+  productId?: string;
+  productName?: string;
+  source: DocumentRequestSource;
+}) {
+  trackEvent("document_request", {
+    event_category: "Lead Intent",
+    event_label: data.documentName,
+    document_name: data.documentName,
+    product_id: data.productId || "general",
+    product_name: data.productName || "general",
+    source: data.source,
+  });
+}

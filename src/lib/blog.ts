@@ -18,6 +18,11 @@ export interface BlogPost {
     question: string;
     answer: string;
   }[];
+  relatedGuides?: {
+    title: string;
+    description: string;
+    href: string;
+  }[];
 }
 
 export const blogPosts: BlogPost[] = [
@@ -28,8 +33,8 @@ export const blogPosts: BlogPost[] = [
       "A practical B2B guide to selecting radar level sensors by range, beam angle, tank geometry, media condition, output signal, certification, and installation constraints.",
     category: "Level Measurement",
     datePublished: "2026-07-04",
-    dateModified: "2026-07-26",
-    readTime: "8 min read",
+    dateModified: "2026-08-09",
+    readTime: "9 min read",
     keywords: [
       "radar level sensor",
       "level sensor manufacturer",
@@ -41,6 +46,18 @@ export const blogPosts: BlogPost[] = [
     intro:
       "Radar level sensors are often selected when a tank has vapor, dust, foam, high temperature, or internal structures that make contact measurement unreliable. For overseas buyers, the right choice depends less on the catalog headline and more on the tank geometry, medium behavior, installation point, and output standard used by the control system.",
     sections: [
+      {
+        heading: "Quick selection table",
+        body: [
+          "Use this shortlist before reading the full guide. It matches the published AccuMeasure radar model to the project conditions that drive most RFQs.",
+        ],
+        bullets: [
+          "Clean water tanks, 0.3-20 m, no hazardous area: start with AM-RL80 80GHz FMCW for a narrow beam and stable echo.",
+          "Tall silos, dust, or internal tank structures, 20-80 m: AM-RL80 with 80GHz FMCW and a narrow beam angle.",
+          "Hazardous area oil/gas, chemical, or LPG/LNG: confirm ATEX/IECEx Ex d IIC T6 scope names the exact model.",
+          "PLC/DCS integration: choose 4-20mA, HART, or RS485 Modbus from the confirmed model configuration.",
+        ],
+      },
       {
         heading: "Start with the real measuring range",
         body: [
@@ -58,6 +75,11 @@ export const blogPosts: BlogPost[] = [
         body: [
           "80GHz FMCW radar produces a narrower beam than older low-frequency radar. That matters in tall or narrow vessels because the beam is less likely to hit ladders, agitators, bracing, or tank walls. In practical purchasing terms, a narrower beam can reduce commissioning time and false level jumps.",
           "If the nozzle is close to the wall or the tank has many internal obstructions, send a simple drawing before ordering. A good supplier should confirm the mounting position instead of only quoting the lowest price.",
+        ],
+        bullets: [
+          "Send tank height, highest and lowest operating level, nozzle size, and nozzle height.",
+          "Mark agitators, ladders, bracing, inlet flow, and any heating coils on the drawing.",
+          "State whether the sensor must mount at the tank top, side nozzle, or a low-profile standpipe.",
         ],
       },
       {
@@ -90,6 +112,23 @@ export const blogPosts: BlogPost[] = [
         question: "Can radar level sensors measure solids in silos?",
         answer:
           "Yes. 80GHz radar is commonly used for cement, lime, grain, plastic pellets, and powders. The supplier should check beam angle, dust level, and installation point before confirming the model.",
+      },
+    ],
+    relatedGuides: [
+      {
+        title: "Radar Level Sensor for Oil Tanks",
+        description: "Check vapor, nozzle, tank geometry, output, and hazardous-area inputs for fuel and chemical storage.",
+        href: "/applications/radar-level-sensor-for-oil-tank",
+      },
+      {
+        title: "AM-RL80 80GHz Radar Level Transmitter",
+        description: "Review published range, output, certification, MOQ, and lead time for the radar model used in this guide.",
+        href: "/products/am-rl80-80ghz-radar-level-transmitter",
+      },
+      {
+        title: "Certificate Verification",
+        description: "Compare the certificate number, issuing body, scope, and validity in your RFQ documentation.",
+        href: "/certificates",
       },
     ],
   },
@@ -156,6 +195,18 @@ export const blogPosts: BlogPost[] = [
         question: "Does 80GHz always cost more?",
         answer:
           "The unit price is often higher, but total project cost can be lower if it reduces commissioning time, false readings, or site troubleshooting.",
+      },
+    ],
+    relatedGuides: [
+      {
+        title: "How to Choose a Radar Level Sensor",
+        description: "Use the seven buyer checks to narrow range, beam angle, output, and certification.",
+        href: "/blog/how-to-choose-radar-level-sensor",
+      },
+      {
+        title: "AM-RL80 80GHz Radar Level Transmitter",
+        description: "Review the published model specs and request a factory quote.",
+        href: "/products/am-rl80-80ghz-radar-level-transmitter",
       },
     ],
   },
@@ -233,6 +284,23 @@ export const blogPosts: BlogPost[] = [
         question: "Which flow meter is better for wastewater?",
         answer:
           "Electromagnetic flow meters are usually preferred for wastewater because the liquid is conductive and the meter has no moving parts. Choose suitable liner and electrode materials for corrosion and abrasion.",
+      },
+    ],
+    relatedGuides: [
+      {
+        title: "Electromagnetic Flow Meter for Water Treatment",
+        description: "Define conductivity, pipe size, liner, grounding, signal, and utility project requirements.",
+        href: "/applications/electromagnetic-flow-meter-for-water-treatment",
+      },
+      {
+        title: "Flow Meter Category",
+        description: "Compare electromagnetic, clamp-on ultrasonic, and thermal mass meter models in one place.",
+        href: "/products/flow",
+      },
+      {
+        title: "Electromagnetic vs Ultrasonic Comparison",
+        description: "See the same tradeoffs in a side-by-side comparison layout.",
+        href: "/compare/electromagnetic-vs-ultrasonic-flow-meter",
       },
     ],
   },
@@ -330,6 +398,23 @@ export const blogPosts: BlogPost[] = [
           "Each shipment should include a datasheet, wiring diagram, installation guide, and an individual calibration certificate per unit with serial-number traceability. For EU projects, add the CE declaration of conformity; for hazardous areas, the ATEX/IECEx certificate.",
       },
     ],
+    relatedGuides: [
+      {
+        title: "Certificate Verification",
+        description: "Use the published certificate numbers, scopes, and issuer details in your supplier check.",
+        href: "/certificates",
+      },
+      {
+        title: "Level Sensor Catalog",
+        description: "Review the level sensor models referenced by the sourcing checklist.",
+        href: "/products/level",
+      },
+      {
+        title: "Request a Quote",
+        description: "Send the supplier questions and project requirements directly to our sales desk.",
+        href: "/contact",
+      },
+    ],
   },
   {
     slug: "pressure-transmitter-selection-guide",
@@ -412,6 +497,23 @@ export const blogPosts: BlogPost[] = [
         question: "Can one pressure transmitter measure 100 MPa?",
         answer:
           "Yes. High-pressure piezoresistive transmitters cover ranges up to 100 MPa for hydraulic, test-bench, and high-pressure processing applications. Verify the overpressure and burst ratings, and use appropriate high-pressure fittings rated for the same class.",
+      },
+    ],
+    relatedGuides: [
+      {
+        title: "Pressure Transmitters for OEM Equipment",
+        description: "Define range, connection, output, housing, branding, documentation, and annual volume for OEM projects.",
+        href: "/applications/pressure-transmitter-for-oem-equipment",
+      },
+      {
+        title: "Pressure Sensor Category",
+        description: "Compare AM-PT300 and AM-PG200 by signal, display, power, certification, and OEM requirements.",
+        href: "/products/pressure",
+      },
+      {
+        title: "AM-PT300 Pressure Transmitter",
+        description: "Review the published model specs and request a factory quote.",
+        href: "/products/am-pt300-pressure-transmitter",
       },
     ],
   },

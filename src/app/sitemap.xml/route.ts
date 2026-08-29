@@ -42,8 +42,8 @@ function renderEntry(entry: SitemapEntry): string {
 }
 
 export function GET() {
-  const staticContentLastModified = "2026-08-05T00:00:00.000Z";
-  const productCatalogLastModified = "2026-08-05T00:00:00.000Z";
+  const staticContentLastModified = "2026-08-09T00:00:00.000Z";
+  const productCatalogLastModified = "2026-08-09T00:00:00.000Z";
   const applicationsIndexLastModified = "2026-08-05T00:00:00.000Z";
 
   const staticPages: SitemapEntry[] = [
