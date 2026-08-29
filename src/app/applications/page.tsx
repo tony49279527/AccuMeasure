@@ -179,9 +179,9 @@ export default function ApplicationsIndexPage() {
           <aside className="border-l-4 border-primary pl-6 py-2">
             <h2 className="text-xl font-bold text-dark mb-3">Need a model recommendation?</h2>
             <p className="text-muted text-sm leading-6 mb-6">
-              Share the application and operating conditions. Our team will aim to
-              respond within {siteConfig.responseTarget} and identify any missing inputs
-              before a formal quotation.
+              Share the application and operating conditions. We will review the
+              submitted inputs and identify what must be confirmed before a formal
+              quotation.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/contact" className="btn-primary">

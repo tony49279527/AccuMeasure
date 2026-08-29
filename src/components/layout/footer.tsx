@@ -95,8 +95,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/about#factory" className="text-white/70 hover:text-white transition-colors text-sm">
-                  Factory Tour
+                <Link href="/about#evidence" className="text-white/70 hover:text-white transition-colors text-sm">
+                  Evidence Policy
                 </Link>
               </li>
             </ul>
@@ -116,7 +116,6 @@ export function Footer() {
                   {siteConfig.phoneDisplay}
                 </a>
               </li>
-              <li>{siteConfig.officeHours}</li>
             </ul>
           </div>
         </div>

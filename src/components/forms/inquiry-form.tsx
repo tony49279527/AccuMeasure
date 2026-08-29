@@ -13,7 +13,7 @@ import {
   productInterestOptions,
 } from "@/lib/schema";
 import type { InquiryValues } from "@/lib/schema";
-import { siteConfig, waLinkFor } from "@/lib/site";
+import { waLinkFor } from "@/lib/site";
 import { trackLeadEvent, trackContactClick, trackDocumentRequest, type DocumentRequestSource } from "@/lib/analytics";
 import { getSourceSnapshot } from "@/lib/source";
 
@@ -112,7 +112,7 @@ export function InquiryForm({
         </div>
         <h3 className="text-2xl font-bold text-dark mb-2">Inquiry Sent!</h3>
         <p className="text-muted mb-6">
-          We aim to reply within {siteConfig.responseTarget}. Need a faster answer?
+          Your inquiry is ready for review. Need to continue the discussion now?
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <a

@@ -76,7 +76,6 @@ export function productJsonLd(product: Product) {
     image: [`${siteConfig.url}${product.image}`],
     url: productUrl,
     brand: { "@type": "Brand", name: "AccuMeasure" },
-    manufacturer: { "@id": `${siteConfig.url}/#organization` },
     category: categoryLabels[product.category],
     additionalProperty: product.keySpecs.map((spec) => ({
       "@type": "PropertyValue",

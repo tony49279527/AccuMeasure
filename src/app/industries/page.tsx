@@ -39,7 +39,7 @@ const industries: IndustryCard[] = [
       "Level measurement for raw water tanks, flocculation basins, sludge thickeners, and chemical dosing tanks. Flow metering for distribution networks, pump stations, and effluent discharge monitoring.",
     products: ["1", "3", "4", "5"],
     image: "/industries/water-treatment.jpg",
-    highlight: "±2mm radar accuracy for clean water; PVDF ultrasonic sensors for chemical dosing.",
+    highlight: "Confirm measurement principle, wetted materials, and current document scope for each water or dosing application.",
     applicationHref: "/applications/electromagnetic-flow-meter-for-water-treatment",
     applicationLabel: "Flow Meter for Water Treatment",
   },
@@ -47,10 +47,10 @@ const industries: IndustryCard[] = [
     icon: Beef,
     name: "Oil & Gas",
     description:
-      "ATEX/IECEx certified radar level transmitters for LPG/LNG storage, crude oil tanks, and separator vessels. Explosion-proof pressure transmitters for wellhead monitoring. Mass flow meters for gas distribution.",
+      "Evaluate level, pressure, and gas-flow options only after the area classification, hydrocarbon conditions, installation geometry, and required controlled documents are reviewed.",
     products: ["2", "7", "8"],
     image: "/industries/oil-gas.jpg",
-    highlight: "80GHz FMCW radar with Ex d IIC T6 certification; thermal mass flow for custody transfer.",
+    highlight: "Hazardous-area suitability requires a current document that names the exact quoted model, marking, holder, and scope.",
     applicationHref: "/applications/radar-level-sensor-for-oil-tank",
     applicationLabel: "Radar for Oil Storage Tanks",
   },
@@ -58,37 +58,37 @@ const industries: IndustryCard[] = [
     icon: Microscope,
     name: "Chemical Processing",
     description:
-      "Corrosion-resistant capacitive level sensors (PVDF/316L) for acid and caustic tanks. Non-contact ultrasonic and radar level measurement for aggressive media. Electromagnetic flow meters with PTFE/PFA liners.",
+      "Chemical measurement starts with media compatibility, temperature, pressure, tank or pipe geometry, installation, and the required documentation for the project.",
     products: ["1", "2", "3", "5"],
     image: "/industries/chemical.jpg",
-    highlight: "PVDF wetted parts for strong acids; PTFE-lined electromagnetic flow meters for corrosives.",
+    highlight: "Request the current materials, configuration, and document review before using a product with an aggressive medium.",
   },
   {
     icon: Gauge,
     name: "Pharmaceutical & Life Sciences",
     description:
-      "High-accuracy thermal mass flow controllers for gas process control. Sanitary electromagnetic flow meters for WFI and CIP systems. Digital pressure gauges for cleanroom differential pressure monitoring.",
+      "Evaluate flow, level, and pressure options from cleanability, material compatibility, process connection, documentation, and validation requirements.",
     products: ["5", "7", "9"],
     image: "/industries/pharma.jpg",
-    highlight: "316L stainless steel construction; ±0.5% FS accuracy for process validation.",
+    highlight: "Confirm the current model data, materials, and project-specific validation documents before approval.",
   },
   {
     icon: Factory,
     name: "Food & Beverage",
     description:
-      "Sanitary level sensors for dairy, brewery, and beverage tanks. Clamp-on ultrasonic flow meters for CIP return lines — no pipe cutting required. Digital pressure gauges for pasteurization and filling lines.",
+      "Evaluate level, flow, and pressure options by media contact, cleaning process, process connection, installation access, and required documents.",
     products: ["3", "6", "9"],
     image: "/industries/food-beverage.jpg",
-    highlight: "Non-contact measurement preserves product purity; clamp-on flow meters eliminate contamination risk.",
+    highlight: "Choose a technology only after confirming cleaning, material, installation, and acceptance requirements for the exact project.",
   },
   {
     icon: Shield,
     name: "Manufacturing & Automation",
     description:
-      "Pressure transmitters for hydraulic systems and pneumatic control. IoT WiFi level sensors for remote tank monitoring across facilities. Electromagnetic flow meters for coolant and lubricant distribution systems.",
+      "Review pressure, level, and flow options for machine integration, control signal, installation constraints, environmental conditions, and maintenance access.",
     products: ["4", "5", "8"],
     image: "/industries/manufacturing.jpg",
-    highlight: "High vibration resistance for hydraulics; IoT sensors with 6-month battery life.",
+    highlight: "Confirm the current configuration, operating conditions, integration requirements, and documentation before release.",
     applicationHref: "/applications/pressure-transmitter-for-oem-equipment",
     applicationLabel: "Pressure Transmitters for OEM",
   },
@@ -127,8 +127,8 @@ export default function IndustriesPage() {
               Measurement Solutions by Industry
             </h1>
             <p className="text-lg text-muted max-w-2xl mx-auto">
-              Find the right level, flow, and pressure instruments for your specific application.
-              Each industry has unique requirements — we help you match the right technology.
+              Use industry context to structure the level, flow, or pressure technology review.
+              Each application has its own process, installation, and documentation requirements.
             </p>
           </div>
         </div>
@@ -156,14 +156,14 @@ export default function IndustriesPage() {
                   </div>
                   <p className="text-muted mb-4">{ind.description}</p>
                   <div className="bg-cta/5 border border-cta/20 rounded-lg p-4 mb-6">
-                    <p className="text-sm font-medium text-dark mb-1">Key Capability</p>
+                    <p className="text-sm font-medium text-dark mb-1">Project Checks</p>
                     <p className="text-sm text-muted">{ind.highlight}</p>
                   </div>
 
                   {prods.length > 0 && (
                     <div>
                       <h3 className="font-semibold text-dark mb-3 text-sm uppercase tracking-wide">
-                        Recommended Instruments
+                        Relevant Product Pages
                       </h3>
                       <div className="space-y-3">
                         {prods.map((p) => (
@@ -219,8 +219,8 @@ export default function IndustriesPage() {
             Don&apos;t see your industry?
           </h2>
           <p className="text-muted mb-8 max-w-xl mx-auto">
-            We work with clients across 40+ countries and many more industries.
-            Tell us your application and we&apos;ll recommend the right instrument.
+            Tell us your application, installation conditions, and documentation needs.
+            We will review the relevant technology and current model information.
           </p>
           <Link href="/contact" className="btn-primary">
             Tell Us Your Application

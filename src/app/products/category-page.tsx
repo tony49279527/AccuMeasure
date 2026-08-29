@@ -341,8 +341,8 @@ export function CategoryPage({ data }: { data: CategoryPageData }) {
               Need help choosing the right {data.label.toLowerCase()}?
             </h2>
             <p className="text-muted mb-8 max-w-lg mx-auto">
-              Our engineers can recommend the best sensor for your application, medium, and budget.
-              Describe your project and we&apos;ll aim to respond within {siteConfig.responseTarget}.
+              Share your application, medium, and commercial constraints. We will review
+              the fit of the published options and the information still needed for a quotation.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/customization" className="btn-primary">

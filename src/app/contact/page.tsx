@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { MapPin, Clock, Users, Globe, Mail, MessageSquare, ExternalLink, ClipboardList } from "lucide-react";
+import { MapPin, Users, Globe, Mail, MessageSquare, ExternalLink, ClipboardList } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ContactInquiry } from "@/components/forms/contact-inquiry";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -11,12 +11,14 @@ import { contactFaqs } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "Get an Industrial Sensor Quote | AccuMeasure",
-  description: `Request a quote for AccuMeasure level sensors, flow meters, and pressure transmitters. Email, WhatsApp, or use the form; response target ${siteConfig.responseTarget}.`,
+  description:
+    "Request a quote for AccuMeasure level sensors, flow meters, and pressure transmitters. Share project requirements by email, WhatsApp, or inquiry form.",
   alternates: { canonical: "/contact" },
   openGraph: {
     url: "/contact",
     title: "Contact AccuMeasure — Request an Industrial Sensor Quote",
-    description: `Factory-direct measurement instruments. Email, WhatsApp, or use our inquiry form. We aim to reply within ${siteConfig.responseTarget}.`,
+    description:
+      "Industrial measurement inquiry support by email, WhatsApp, or inquiry form.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure" }],
   },
 };
@@ -35,8 +37,8 @@ const rfqInputs = [
 // One monitored desk — subject lines route OEM vs standard inquiries.
 const salesContacts = [
   {
-    name: "Sales & OEM Desk",
-    role: "Quotations, samples, bulk orders, private label, custom engineering",
+    name: "Inquiry Contact",
+    role: "Quotations, documents, OEM requirements, and application review",
     email: siteConfig.email,
     subject: "Website inquiry",
     wa: siteConfig.whatsappDisplay,
@@ -115,7 +117,7 @@ export default function ContactPage() {
           <div className="text-center">
             <h1 className="text-4xl font-bold text-dark mb-6">Contact Us</h1>
             <p className="text-lg text-muted max-w-3xl mx-auto">
-              Request a quote or ask a technical question. We aim to reply within {siteConfig.responseTarget}.
+              Request a quote or ask a technical question. Include the project requirements and preferred contact method.
             </p>
           </div>
         </div>
@@ -142,19 +144,9 @@ export default function ContactPage() {
                   <div className="flex items-start gap-4">
                     <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
-                      <div className="font-medium text-dark">Factory Address</div>
+                      <div className="font-medium text-dark">Company Location</div>
                       <div className="text-muted text-sm">
                         {siteConfig.address}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <Clock className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <div className="font-medium text-dark">Office Hours</div>
-                      <div className="text-muted text-sm">
-                        {siteConfig.officeHours}
                       </div>
                     </div>
                   </div>
@@ -172,7 +164,7 @@ export default function ContactPage() {
                   <div className="border-t border-border pt-6">
                     <div className="font-medium text-dark mb-4 flex items-center gap-2">
                       <Users className="w-5 h-5" />
-                      Sales Contacts
+                      Inquiry Channels
                     </div>
                     <div className="space-y-4">
                       {salesContacts.map((contact, idx) => (
@@ -235,7 +227,7 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-dark mb-2">Factory Location</h3>
+                    <h3 className="font-semibold text-dark mb-2">Company Location</h3>
                     <p className="text-sm text-muted mb-4">{siteConfig.address}</p>
                     <a
                       href="https://www.google.com/maps/search/?api=1&query=Xi%27an%20High-Tech%20Zone%2C%20Shaanxi%2C%20China"
@@ -261,8 +253,8 @@ export default function ContactPage() {
             <h2 className="text-2xl font-bold text-dark">What to Include in Your RFQ</h2>
           </div>
           <p className="text-muted mb-8 max-w-3xl">
-            Complete RFQ inputs help our engineers confirm the right model, material,
-            output, certification, and delivery plan without sending multiple rounds of clarification.
+            Complete RFQ inputs help us review model fit, material, output, required
+            documents, and commercial requirements without repeated clarification.
           </p>
           <div className="grid md:grid-cols-2 gap-3">
             {rfqInputs.map((item) => (

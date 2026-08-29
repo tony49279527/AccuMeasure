@@ -38,7 +38,7 @@ AccuMeasure is an industrial measurement supplier for level sensors, flow meters
 
 ## RFQ and technical support
 
-Send the product model or measurement duty, medium, range, pipe or tank details, output, installation constraints, destination market, quantity, and required documents through ${siteConfig.url}/contact. Contact: ${siteConfig.email}; ${siteConfig.phoneDisplay}. Office hours: ${siteConfig.officeHours}.
+Send the product model or measurement duty, medium, range, pipe or tank details, output, installation constraints, destination market, quantity, and required documents through ${siteConfig.url}/contact. Contact: ${siteConfig.email}; ${siteConfig.phoneDisplay}. Follow-up timing and document availability are confirmed after review.
 
 ## Evidence and publication policy
 

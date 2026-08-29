@@ -4,7 +4,7 @@ import { CategoryPage, generateCategoryMetadata, type CategoryPageData } from ".
 const data: CategoryPageData = {
   slug: "level",
   label: "Level Sensors",
-  title: "Industrial Level Sensor Manufacturer | AccuMeasure",
+  title: "Industrial Level Sensors | AccuMeasure",
   description: "Compare capacitive, radar, ultrasonic, and connected level sensors by medium, tank geometry, installation, output, and documentation requirements.",
   h1: "Level Sensors for Industrial Tanks & Silos",
   lead: "Compare contact and non-contact level technologies for tanks and silos. Confirm the selected model's current range, accuracy, output, materials, test documents, and warranty in the controlled datasheet and quotation.",
@@ -40,7 +40,7 @@ const data: CategoryPageData = {
     {
       title: "Match technology to media",
       description:
-        "Use 80GHz radar for vapor, dust, foam, and tall silos; ultrasonic for clean water tanks; capacitive probes for oil, chemicals, and compact vessels.",
+        "Consider radar for difficult vapor, dust, foam, or tall-silo conditions; ultrasonic for appropriate clean-liquid tanks; and capacitive probes where the medium and vessel support contact sensing.",
     },
     {
       title: "Confirm tank geometry",

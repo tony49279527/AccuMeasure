@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import {
   Tag,
   PenTool,
@@ -11,7 +10,7 @@ import {
 } from "lucide-react";
 import { CustomizationForm } from "@/components/forms/customization-form";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { siteConfig, waLink } from "@/lib/site";
+import { waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "OEM / ODM Instrument Customization | AccuMeasure",
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
     title: "OEM / ODM Instrument Customization | AccuMeasure",
     description:
       "Send application and interface requirements for a project-specific feasibility, documentation, MOQ, and schedule review.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Custom Manufacturing" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure custom project review" }],
   },
 };
 
@@ -36,11 +35,11 @@ const services = [
     decision: "Model and artwork review required",
     featured: false,
     features: [
-      "Custom logo & packaging",
-      "Standard product specs, your branding",
-      "Specification and label review",
-      "Artwork approval before production",
-      "MOQ and schedule confirmed by model",
+      "Proposed logo, label, packaging, and document scope",
+      "Existing-model configuration review",
+      "Specification and label input review",
+      "Artwork approval requirements",
+      "MOQ and schedule confirmed in the quotation",
     ],
   },
   {
@@ -51,11 +50,11 @@ const services = [
     decision: "Feasibility and validation plan required",
     featured: true,
     features: [
-      "Custom enclosure & PCB design",
-      "Firmware customization",
-      "New mold development",
-      "Engineering review and test planning",
-      "Tooling, fee, MOQ, and schedule quoted by scope",
+      "Proposed enclosure, electronics, firmware, and interface inputs",
+      "Required behavior and validation criteria",
+      "Potential tooling and test-planning scope",
+      "Engineering feasibility review",
+      "Tooling, fee, MOQ, and schedule confirmed by written scope",
     ],
   },
   {
@@ -66,11 +65,11 @@ const services = [
     decision: "Operating envelope must be verified",
     featured: false,
     features: [
-      "Extreme temperature ratings",
-      "Special material requirements",
-      "Unique form factor",
-      "Prototype or low-volume feasibility review",
-      "Direct engineer collaboration",
+      "Temperature, material, connection, range, and output inputs",
+      "Operating-envelope review",
+      "Unique form-factor requirements",
+      "Prototype or low-volume feasibility questions",
+      "Required records and acceptance criteria",
       "Commercial terms confirmed after review",
     ],
   },
@@ -244,7 +243,7 @@ export default function CustomizationPage() {
               Submit Your Custom Request
             </h2>
             <p className="text-muted">
-              Tell us what you need. Our engineers aim to reply within {siteConfig.responseTarget}.
+              Tell us what you need. We will review the submitted scope before confirming feasibility and commercial terms.
             </p>
           </div>
           <div className="bg-white rounded-xl p-8 border border-border">

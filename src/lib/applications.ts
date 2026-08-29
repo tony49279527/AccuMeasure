@@ -1,5 +1,4 @@
 import { products } from "./products";
-import { siteConfig } from "./site";
 
 export interface ApplicationPage {
   slug: string;
@@ -148,7 +147,7 @@ export const applicationPages: ApplicationPage[] = [
       {
         question: "How fast can you quote a custom range?",
         answer:
-          `We aim to acknowledge a complete inquiry within ${siteConfig.responseTarget}. The quotation schedule depends on the technical review, sample, tooling, and documentation requirements.`,
+          "A quotation schedule is confirmed after the technical review, sample, tooling, and documentation requirements are understood. Include the target date and complete project inputs in the inquiry.",
       },
     ],
   },

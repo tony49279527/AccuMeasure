@@ -137,7 +137,7 @@ export default async function ApplicationDetailPage({
         <div className="container-max">
           <h2 className="text-2xl font-bold text-dark mb-4">RFQ Checklist</h2>
           <p className="text-muted mb-8 max-w-2xl">
-            Send these details and we aim to reply within {siteConfig.responseTarget} with a model recommendation and quote.
+            Send these details to request a project review, current model documentation, and quotation.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {page.checklist.map((item) => (
@@ -188,7 +188,7 @@ export default async function ApplicationDetailPage({
                 href={`/case-studies/${page.relatedCaseSlug}`}
                 className="text-accent font-medium inline-flex items-center gap-2"
               >
-                Read related case study <ArrowRight className="w-4 h-4" />
+                Open related application planning brief <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           )}

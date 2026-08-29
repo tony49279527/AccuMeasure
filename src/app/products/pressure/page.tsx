@@ -4,9 +4,9 @@ import { CategoryPage, generateCategoryMetadata, type CategoryPageData } from ".
 const data: CategoryPageData = {
   slug: "pressure",
   label: "Pressure Sensors",
-  title: "Industrial Pressure Sensor Manufacturer | AccuMeasure",
+  title: "Industrial Pressure Instruments | AccuMeasure",
   description: "Compare pressure transmitters and digital gauges by pressure type, range, connection, output, environment, display, and documentation requirements.",
-  h1: "Pressure Sensors for Industrial & Hazardous Applications",
+  h1: "Pressure Instruments for Industrial Applications",
   lead: "Review transmitter and digital-gauge paths for process control, local indication, hydraulic equipment, and OEM integration. Confirm current performance, environmental limits, and document scope for the selected configuration.",
   overview: "Start with pressure type, normal and surge range, wetted materials, process connection, signal or display, power, enclosure, and area classification. Published model data is a selection aid; the controlled datasheet, certificate scope, test documents, warranty, and commercial terms must be confirmed for each RFQ.",
   lastReviewed: "2026-08-12",
@@ -42,7 +42,7 @@ const data: CategoryPageData = {
   },
   decisionBlocks: [
     {
-      title: "ATEX and ex-certified pressure selection",
+      title: "Hazardous-area pressure selection",
       body: "If an RFQ requires hazardous-area equipment, send the area classification and required protection concept. Request the current certificate and verify its holder, model scope, marking, issuer, and validity before selecting either pressure instrument.",
       links: [
         { label: "AM-PT300 pressure transmitter", href: "/products/am-pt300-pressure-transmitter" },
@@ -98,7 +98,7 @@ const data: CategoryPageData = {
     },
     {
       question: "Which AccuMeasure pressure instrument is better for hydraulic systems?",
-      answer: "AM-PT300 is the high-vibration industrial transmitter option. Send your pressure range, process connection, output signal, and vibration profile so our engineers can confirm the configuration.",
+      answer: "Start with the AM-PT300 transmitter path when the project needs a process signal. Send the pressure range, process connection, output signal, and vibration profile so the configuration can be reviewed against current records.",
     },
   ],
 };

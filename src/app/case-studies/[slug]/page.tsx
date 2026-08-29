@@ -159,7 +159,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
             <div className="bg-cta/5 rounded-xl border border-cta/20 p-6">
               <h2 className="font-semibold text-dark mb-2">Planning a similar application?</h2>
               <p className="text-muted text-sm mb-4">
-                Tell us your application, quantity, and destination. We&apos;ll aim to reply within {siteConfig.responseTarget}.
+                Tell us your application, quantity, and destination to start a project review.
               </p>
               <div className="flex flex-col gap-3">
                 <Link href="/contact" className="btn-primary text-sm justify-center">

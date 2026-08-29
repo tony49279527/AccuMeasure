@@ -82,7 +82,7 @@ export const products: Product[] = [
       { feature: 'Price', accumeasure: 'From $35', competitor: 'From $90' },
       { feature: 'MOQ', accumeasure: '50 units', competitor: '100 units' },
     ],
-    certifications: ['ISO9001', 'CE'],
+    certifications: [],
     downloads: [
       { name: 'Product Datasheet', type: 'pdf' },
       { name: 'Installation Manual', type: 'pdf' },
@@ -116,7 +116,7 @@ export const products: Product[] = [
       { label: 'Frequency', value: '80GHz FMCW' },
       { label: 'Accuracy', value: '±2mm' },
       { label: 'Range', value: '0-80m' },
-      { label: 'Protection', value: 'IP67, Ex d IIC T6' },
+      { label: 'Protection', value: 'IP67; project document scope to confirm' },
     ],
     specifications: [
       {
@@ -140,7 +140,7 @@ export const products: Product[] = [
         items: [
           { param: 'Process Temp', value: '-40°C to +200°C' },
           { param: 'Protection', value: 'IP67' },
-          { param: 'Explosion Proof', value: 'Ex d IIC T6' },
+          { param: 'Hazardous-area documentation', value: 'Confirm exact model scope in the current controlled record' },
         ],
       },
     ],
@@ -155,7 +155,7 @@ export const products: Product[] = [
       { title: 'High Precision', description: '±2mm accuracy even in challenging conditions' },
       { title: 'Non-Contact', description: 'No moving parts, no wear, minimal maintenance' },
       { title: '80GHz Technology', description: 'Narrow beam angle, better focusing' },
-      { title: 'Ex-Proof', description: 'Certified for hazardous area installations' },
+      { title: 'Project documentation', description: 'Confirm the applicable model scope and current documents before ordering' },
     ],
     competitorComparison: [
       { feature: 'Accuracy', accumeasure: '±2mm', competitor: '±3mm' },
@@ -163,7 +163,7 @@ export const products: Product[] = [
       { feature: 'Price', accumeasure: 'From $380', competitor: 'From $1200' },
       { feature: 'Ex-Cert', accumeasure: 'Included', competitor: 'Optional (+$300)' },
     ],
-    certifications: ['ISO9001', 'CE', 'ATEX', 'IECEx'],
+    certifications: [],
     downloads: [
       { name: 'Product Datasheet', type: 'pdf' },
       { name: 'Installation Manual', type: 'pdf' },
@@ -172,7 +172,7 @@ export const products: Product[] = [
     procurement: defaultProcurement,
     faq: [
       { question: 'What makes the 80GHz FMCW radar better than lower-frequency radar?', answer: 'The 80GHz frequency produces a narrower beam angle (about 8°), enabling better focusing in narrow tanks and avoiding false echoes from agitators or internal structures. It achieves ±2mm accuracy up to 80m range.' },
-      { question: 'Is the AM-RL80 certified for hazardous areas?', answer: 'Yes, it carries ATEX and IECEx Ex d IIC T6 explosion-proof certification, making it suitable for hazardous area installations including oil and gas, chemical, and LPG/LNG applications.' },
+      { question: 'How should I check hazardous-area suitability for the AM-RL80?', answer: 'Send the area classification and required protection concept. Confirm the holder, issuer, exact model scope, marking, and validity in the current controlled document before selection.' },
       { question: 'What is the maximum process temperature?', answer: 'The AM-RL80 operates from -40°C to +200°C process temperature with IP67 protection.' },
       { question: 'Does it require contact with the measured medium?', answer: 'No, the AM-RL80 is a non-contact radar level transmitter. It mounts on top of the tank and measures through air, making it ideal for corrosive, abrasive, or high-temperature media.' },
       { question: 'What output protocols are supported?', answer: '4-20mA HART and RS485 Modbus RTU are standard, powered by 12-36V DC.' },
@@ -239,7 +239,7 @@ export const products: Product[] = [
       { feature: 'Range', accumeasure: '0-20m', competitor: '0-15m' },
       { feature: 'Price', accumeasure: 'From $55', competitor: 'From $120' },
     ],
-    certifications: ['ISO9001', 'CE'],
+    certifications: [],
     downloads: [
       { name: 'Product Datasheet', type: 'pdf' },
     ],
@@ -310,7 +310,7 @@ export const products: Product[] = [
       { title: 'Cloud Monitoring', description: 'Monitor from anywhere via app' },
       { title: 'Alerts', description: 'Low/high level notifications' },
     ],
-    certifications: ['ISO9001', 'CE', 'FCC'],
+    certifications: [],
     downloads: [
       { name: 'Product Datasheet', type: 'pdf' },
     ],
@@ -386,7 +386,7 @@ export const products: Product[] = [
       { feature: 'Accuracy', accumeasure: '±0.5% FS', competitor: '±0.5% FS' },
       { feature: 'Price', accumeasure: 'From $280', competitor: 'From $850' },
     ],
-    certifications: ['ISO9001', 'CE', 'ATEX'],
+    certifications: [],
     downloads: [
       { name: 'Product Datasheet', type: 'pdf' },
     ],
@@ -395,7 +395,7 @@ export const products: Product[] = [
       { question: 'What sizes are available for the AM-EMF100 electromagnetic flow meter?', answer: 'Sizes range from DN6 to DN600 (1/4" to 24"), with ±0.5% FS accuracy and flow velocity range of 0.1-12 m/s.' },
       { question: 'Can it measure non-conductive fluids like oil or pure water?', answer: 'No. Electromagnetic flow meters require the fluid to have minimum conductivity (typically >5 µS/cm). For non-conductive fluids like oil, please consider our ultrasonic flow meter AM-UF200.' },
       { question: 'What liner and electrode materials are available?', answer: 'Liners: PTFE, PFA, and rubber. Electrodes: 316L stainless steel, Hastelloy C, and Titanium, selected based on fluid chemical compatibility.' },
-      { question: 'Does the AM-EMF100 have explosion-proof certification?', answer: 'Yes, ATEX explosion-proof certification is available for hazardous area installations.' },
+      { question: 'How should I check hazardous-area suitability for the AM-EMF100?', answer: 'Provide the area classification and required protection concept. Hazardous-area suitability must be confirmed from the current controlled document for the exact quoted model and configuration.' },
       { question: 'What outputs does it support?', answer: '4-20mA, pulse, and RS485 Modbus RTU outputs are standard, with an integrated LCD display.' },
     ],
     relatedProductIds: ['6', '7'],
@@ -448,7 +448,7 @@ export const products: Product[] = [
       { title: 'No Pressure Drop', description: 'Full flow, no restriction' },
       { title: 'Portable Option', description: 'Portable version for temporary measurements' },
     ],
-    certifications: ['ISO9001', 'CE'],
+    certifications: [],
     downloads: [
       { name: 'Product Datasheet', type: 'pdf' },
     ],
@@ -510,7 +510,7 @@ export const products: Product[] = [
       { title: 'Fast Response', description: '<10ms response time' },
       { title: 'Direct Mass', description: 'Measures mass flow directly' },
     ],
-    certifications: ['ISO9001', 'CE'],
+    certifications: [],
     downloads: [
       { name: 'Product Datasheet', type: 'pdf' },
     ],
@@ -530,8 +530,8 @@ export const products: Product[] = [
     model: 'AM-PT300',
     name: 'Piezoresistive Pressure Transmitter',
     category: 'pressure',
-    tagline: 'High vibration resistance for hydraulic and industrial duty.',
-    description: 'Rugged piezoresistive pressure transmitter built for high-vibration industrial environments such as hydraulics, pumps, and heavy machinery.',
+    tagline: 'Piezoresistive pressure measurement for hydraulic and industrial applications.',
+    description: 'Piezoresistive pressure transmitter for project evaluation in hydraulic and industrial applications. Confirm current performance, environmental limits, and documents before selection.',
     image: '/products/am-pt300-v2.jpg',
     gallery: [
       '/products/am-pt300-v2.jpg',
@@ -543,7 +543,7 @@ export const products: Product[] = [
       { label: 'Range', value: '0-100MPa' },
       { label: 'Accuracy', value: '±0.25% FS' },
       { label: 'Output', value: '4-20mA / RS485' },
-      { label: 'Protection', value: 'IP65, Ex d IIC T6' },
+      { label: 'Protection', value: 'IP65; project document scope to confirm' },
     ],
     specifications: [
       {
@@ -575,7 +575,7 @@ export const products: Product[] = [
       { icon: 'Droplets', name: 'Pumps', description: 'Pump discharge and line pressure' },
     ],
     advantages: [
-      { title: 'Rugged', description: 'High vibration resistance for industrial duty' },
+      { title: 'Project review', description: 'Confirm vibration, mounting, and environmental requirements for the selected configuration' },
       { title: 'Wide Range', description: 'From vacuum to 100MPa' },
       { title: 'Stable', description: 'Excellent long-term stability' },
     ],
@@ -583,15 +583,15 @@ export const products: Product[] = [
       { feature: 'Accuracy', accumeasure: '±0.25% FS', competitor: '±0.5% FS' },
       { feature: 'Price', accumeasure: 'From $25', competitor: 'From $80' },
     ],
-    certifications: ['ISO9001', 'CE', 'ATEX'],
+    certifications: [],
     downloads: [
       { name: 'Product Datasheet', type: 'pdf' },
     ],
     procurement: defaultProcurement,
     faq: [
       { question: 'What pressure range does the AM-PT300 cover?', answer: 'The AM-PT300 covers 0-10kPa to 0-100MPa with ±0.25% FS accuracy, using piezoresistive sensing technology.' },
-      { question: 'Is the AM-PT300 suitable for high-vibration environments?', answer: 'Yes. It is designed for high-vibration industrial duty such as hydraulic systems, pumps, and heavy machinery. Share your vibration profile with the RFQ and our engineers will confirm suitability or recommend an alternative.' },
-      { question: 'Is the AM-PT300 explosion-proof certified?', answer: 'Yes, it carries ATEX Ex d IIC T6 explosion-proof certification and IP65 protection for harsh environments.' },
+      { question: 'How should I evaluate the AM-PT300 for vibration duty?', answer: 'Share the vibration profile, mounting details, pressure range, and installation conditions. Confirm suitability against the current quoted configuration and documentation.' },
+      { question: 'How should I check hazardous-area suitability for the AM-PT300?', answer: 'Provide the area classification and required protection concept. Confirm the holder, issuer, exact model scope, marking, and validity in the current controlled document before selection.' },
       { question: 'What is the operating temperature range?', answer: 'It operates from -40°C to +125°C, suitable for both cold outdoor and high-temperature industrial applications.' },
       { question: 'What output signals are supported?', answer: '4-20mA and RS485 Modbus outputs are standard, powered by 12-36V DC supply.' },
     ],
@@ -652,7 +652,7 @@ export const products: Product[] = [
       { title: 'Long Battery', description: '2-year battery life' },
       { title: 'Drop-In', description: 'Direct mechanical gauge replacement' },
     ],
-    certifications: ['ISO9001', 'CE'],
+    certifications: [],
     downloads: [
       { name: 'Product Datasheet', type: 'pdf' },
     ],
@@ -662,7 +662,7 @@ export const products: Product[] = [
       { question: 'How long does the battery last?', answer: 'The gauge is powered by 2x AA batteries with a 2-year typical battery life, reducing maintenance frequency significantly compared to wired gauges.' },
       { question: 'What pressure units can it display?', answer: 'The 4-digit LCD can display MPa, Bar, PSI, and kPa, switchable from the menu.' },
       { question: 'What pressure range does it cover?', answer: 'The AM-PG200 covers 0-10kPa to 0-100MPa using piezoresistive sensing technology with ±0.5% FS accuracy.' },
-      { question: 'Is it suitable for outdoor or harsh environments?', answer: 'Yes, it has a rugged industrial housing. For hazardous area installations, please consult our AM-PT300 pressure transmitter with ATEX certification.' },
+      { question: 'How should I assess outdoor or harsh-environment use?', answer: 'Provide the environmental conditions, ingress requirement, mounting details, and required documents. Confirm the current quoted configuration before selection.' },
     ],
     relatedProductIds: ['8'],
   },

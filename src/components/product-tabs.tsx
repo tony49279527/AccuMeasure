@@ -2,6 +2,11 @@ import { FileText, Settings, MessageSquare, Droplet, Droplets, FlaskConical, Shi
 import type { Product } from "@/lib/types";
 import { DocumentRequestLink } from "@/components/document-request-link";
 
+type ProductTabsProduct = Pick<
+  Product,
+  "id" | "model" | "name" | "specifications" | "applications" | "downloads"
+>;
+
 const appIcons: Record<string, typeof Droplet> = {
   Oil: Fuel,
   Droplets: Droplets,
@@ -20,7 +25,7 @@ const appIcons: Record<string, typeof Droplet> = {
   Thermometer: Thermometer,
 };
 
-export function ProductTabs({ product }: { product: Product }) {
+export function ProductTabs({ product }: { product: ProductTabsProduct }) {
   return (
     <div className="space-y-12">
       <nav
@@ -88,7 +93,7 @@ export function ProductTabs({ product }: { product: Product }) {
       <section id="documents" className="scroll-mt-24">
         <h2 className="text-2xl font-bold text-dark mb-2">Technical Documents</h2>
         <p className="text-muted mb-6">
-          Request the latest controlled version and we will send it with your product quotation.
+          Request the latest controlled version with the selected model and project requirements.
         </p>
         <div className="grid sm:grid-cols-2 gap-3">
           {product.downloads.map((dl) => (

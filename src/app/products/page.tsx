@@ -37,7 +37,7 @@ export default function ProductsPage() {
               Industrial Measurement Products: Level Sensors, Flow Meters &amp; Pressure Transmitters
             </h1>
             <p className="text-muted max-w-2xl mx-auto">
-              Search factory-direct level, flow, and pressure instruments by model, application,
+              Search level, flow, and pressure instruments by model, application,
               output signal, documentation need, or measuring range. Confirm the current datasheet,
               document scope, and commercial terms for the selected configuration before ordering.
             </p>

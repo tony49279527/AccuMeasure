@@ -1,10 +1,10 @@
 # AccuMeasure Instruments — Official Website
 
-The official B2B website for **AccuMeasure Instruments Co., Ltd.** (西安精准测量仪器有限公司), an industrial measurement instrument manufacturer based in Xi'an, China. The site showcases level sensors, flow meters, and pressure transmitters, and converts overseas buyers into inquiries.
+The official B2B website for **AccuMeasure Instruments Co., Ltd.** (西安精准测量仪器有限公司). The site supports industrial buyers evaluating level sensors, flow meters, pressure transmitters, and OEM/custom measurement projects.
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router) + TypeScript
+- **Framework**: Next.js 16 (App Router) + TypeScript
 - **Styling**: Tailwind CSS + shadcn-style components (Radix UI)
 - **Forms**: React Hook Form + Zod validation
 - **Icons**: Lucide React
@@ -47,12 +47,12 @@ src/
 
 | Route | Description |
 |-------|-------------|
-| `/` | Home — Hero, trust bar, product lines, advantages, cases, factory, CTA |
+| `/` | Home — product categories, application review, document review, and RFQ CTA |
 | `/products` | Product overview with category filters (reads `?category=`) |
 | `/products/[slug]` | 9 product detail pages with specs, applications, comparison, inquiry form |
-| `/about` | Company story, mission, timeline, team, factory data |
-| `/quality` | 5-stage QC, 72h aging test, calibration lab, quality stats |
-| `/case-studies` | 3 detailed cases + client logo wall |
+| `/about` | Buyer-facing company, documentation, and evidence policy |
+| `/quality` | Project-specific quality and documentation review |
+| `/case-studies` | Application planning briefs with verification checklists |
 | `/customization` | OEM/ODM/non-standard services, 7-step process, request form |
 | `/contact` | Inquiry form (handles `?product=`), contact info, FAQ |
 

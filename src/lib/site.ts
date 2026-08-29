@@ -9,8 +9,6 @@ export const siteConfig = {
   phone: "+8618309285711",
   phoneDisplay: "+86-183-0928-5711",
   address: "High-Tech Zone, Xi'an, Shaanxi, China",
-  officeHours: "Mon-Fri 9:00-18:00 (UTC+8)",
-  responseTarget: "one business day (UTC+8)",
   description:
     "Level, flow, and pressure instruments with application review, model confirmation, controlled document requests, and OEM project support.",
   social: {

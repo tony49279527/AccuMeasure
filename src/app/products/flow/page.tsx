@@ -4,54 +4,54 @@ import { CategoryPage, generateCategoryMetadata, type CategoryPageData } from ".
 const data: CategoryPageData = {
   slug: "flow",
   label: "Flow Meters",
-  title: "Flow Meter Manufacturer: Electromagnetic, Ultrasonic, Non-Contact ATEX",
+  title: "Industrial Flow Meters: Electromagnetic, Ultrasonic & Thermal Mass",
   description:
-    "Compare electromagnetic, clamp-on ultrasonic, and thermal mass meters (DN6–DN1000). ATEX options, non-contact clamp-on, portable survey, outputs, and MOQ.",
+    "Compare electromagnetic, clamp-on ultrasonic, and thermal mass flow meters by medium, conductivity, pipe access, installation, outputs, and document requirements.",
   h1: "Flow Meters for Liquids & Gases",
-  lead: "Electromagnetic, ultrasonic, and thermal mass flow measurement from DN6 to DN1000. ±0.5% FS accuracy options. ATEX explosion-proof electromagnetic meters. Clamp-on non-contact and portable ultrasonic versions for retrofit and surveys.",
+  lead: "Choose flow technology by medium, conductivity, pipe access, installation, and system signal. Confirm current model range, performance, document scope, and commercial terms before release.",
   overview:
-    "AccuMeasure flow meters cover conductive liquids, non-conductive fluids, and process gases for water treatment, chemical processing, oil & gas, HVAC, and laboratory duty. Use electromagnetic (AM-EMF100) when the liquid is conductive and you need higher accuracy in a full-bore meter. Use clamp-on ultrasonic (AM-UF200) when you need non-invasive, non-contact installation without cutting the pipe—fixed or portable. Use thermal mass (AM-MF50) for precision gas mass flow in labs and semiconductor lines, not as a handheld pipe survey tool.",
-  lastReviewed: "2026-08-05",
+    "AccuMeasure publishes electromagnetic, clamp-on ultrasonic, and thermal-mass flow options for project review. Start with liquid conductivity, fluid phase, pipe access, installation constraints, and the required signal. Treat published values as selection inputs and verify the exact quoted configuration against current model-specific records.",
+  lastReviewed: "2026-08-29",
   decisionTable: {
     title: "Which Flow Meter Should I Buy?",
     description: "Use this table to match the published AccuMeasure models to the fluid, installation, and approval requirements in your RFQ.",
     rows: [
       {
-        buyerNeed: "Conductive liquid in a new full-bore line with higher accuracy",
+        buyerNeed: "Conductive liquid in a new full-bore line",
         firstChoice: "AM-EMF100 electromagnetic",
         secondChoice: "AM-UF200 clamp-on ultrasonic",
-        guidance: "Start with electromagnetic for conductive water, wastewater, and process liquids when a flanged inline installation is acceptable.",
+        guidance: "Start with electromagnetic for conductive water, wastewater, and process liquids when an inline installation is acceptable. Confirm the quoted configuration and installation requirements.",
       },
       {
         buyerNeed: "Existing pipe cannot be cut or the liquid has low conductivity",
         firstChoice: "AM-UF200 clamp-on ultrasonic",
         secondChoice: "AM-EMF100 electromagnetic",
-        guidance: "Clamp-on ultrasonic avoids pipe cutting, shutdown, and pressure drop and works with many non-conductive fluids.",
+        guidance: "Consider clamp-on ultrasonic when pipe modification is constrained or the liquid has low conductivity. Confirm pipe material, wall condition, fluid properties, and installation method.",
       },
       {
         buyerNeed: "Hazardous area flow measurement",
-        firstChoice: "AM-EMF100 with ATEX Ex d IIC T6",
-        secondChoice: "AM-MF50 or AM-UF200 only with written project-specific approval",
-        guidance: "Confirm the area classification and that the certificate names the exact model and protection marking before ordering.",
+        firstChoice: "Project-specific documentation review",
+        secondChoice: "Do not select from a category-page label alone",
+        guidance: "Provide the area classification and required protection concept. Verify the holder, issuer, exact model scope, marking, and validity in the current controlled document before ordering.",
       },
       {
         buyerNeed: "Gas mass flow in lab, semiconductor, or process gas lines",
         firstChoice: "AM-MF50 thermal mass meter",
         secondChoice: "AM-UF200 portable ultrasonic for volumetric survey",
-        guidance: "AM-MF50 measures gas mass flow from 0 to 500 slm; it is not marketed as a handheld field mass meter for large process pipes.",
+        guidance: "Confirm gas composition, flow range, pressure, temperature, output, and installation details against the current model documentation.",
       },
       {
         buyerNeed: "Temporary survey or multi-point pipe checks",
         firstChoice: "AM-UF200 portable ultrasonic",
         secondChoice: "AM-MF50 thermal mass meter",
-        guidance: "Portable ultrasonic is the survey answer; fixed thermal mass is for precision gas mass measurement, not a portable pipe survey tool.",
+        guidance: "Confirm whether a portable or fixed configuration is available for the quoted model, then match it to the survey method and required accuracy.",
       },
     ],
   },
   decisionBlocks: [
     {
-      title: "Explosion-proof / ATEX flow meters",
-      body: "For hazardous-area oil & gas, chemical, or LPG/LNG service, start with the AM-EMF100 electromagnetic flow meter with ATEX Ex d IIC T6 available. Confirm fluid conductivity, pipe size, liner, grounding rings, and that the certificate names the exact model and protection marking before ordering. Clamp-on ultrasonic and thermal mass catalogs on this site are not the first path for Ex d process service unless a project-specific approval is confirmed in writing.",
+      title: "Hazardous-area documentation",
+      body: "For an oil, gas, chemical, or other hazardous-area project, send the area classification, required protection concept, fluid, pipe size, and installation conditions. Request the current controlled document and verify its holder, issuer, exact model scope, marking, and validity before selecting any configuration.",
       links: [
         { label: "AM-EMF100 electromagnetic flow meter", href: "/products/am-emf100-electromagnetic-flow-meter" },
         { label: "Certificates & verification", href: "/certificates" },
@@ -59,7 +59,7 @@ const data: CategoryPageData = {
     },
     {
       title: "Non-contact, clamp-on, and non-invasive installation",
-      body: "If buyers search for non-contact or non-invasive flow meters, they usually mean clamp-on ultrasonic: sensors mount on the outside of the pipe, so there is no pipe cutting, no process shutdown, and no pressure drop. AM-UF200 supports DN15–DN1000 metal and plastic pipes and works with fluids that transmit sound, including many oils and low-conductivity waters that a magmeter cannot measure.",
+      body: "For a non-contact or non-invasive request, begin with clamp-on ultrasonic options: the sensors are evaluated for external mounting rather than a full-bore insertion. Confirm pipe material, outside diameter, wall thickness, lining, fluid condition, access, and installation method against the current model documentation.",
       links: [
         { label: "AM-UF200 ultrasonic flow meter", href: "/products/am-uf200-ultrasonic-flow-meter" },
         {
@@ -70,7 +70,7 @@ const data: CategoryPageData = {
     },
     {
       title: "Portable survey vs fixed process metering",
-      body: "A portable ultrasonic version of AM-UF200 is intended for temporary surveys and multi-point checks. It is not the same as a portable thermal mass flow meter. AM-MF50 is a panel/process thermal mass meter for gas (0–500 slm), built for lab and semiconductor accuracy—not a handheld field mass meter for large process pipes. If your RFQ says “portable mass flow,” tell us pipe size, fluid phase (liquid or gas), and whether you need survey portability or fixed mass accuracy so we can refuse a mismatch instead of forcing a model.",
+      body: "Temporary surveys and fixed process metering require different installation and verification steps. If an RFQ says “portable mass flow,” state the pipe size, fluid phase, survey method, and whether the result is for a temporary check or permanent control. The current configuration must be confirmed before a model is shortlisted.",
       links: [
         { label: "AM-UF200 portable / fixed ultrasonic", href: "/products/am-uf200-ultrasonic-flow-meter" },
         { label: "AM-MF50 thermal mass (gas)", href: "/products/am-mf50-mass-flow-meter" },
@@ -113,7 +113,7 @@ const data: CategoryPageData = {
     {
       title: "Specify hazardous-area approval",
       description:
-        "For oil & gas, chemical, and LPG/LNG service, order AM-EMF100 with ATEX Ex d IIC T6 and verify the certificate names the model before shipment.",
+        "For hazardous-area projects, state the required classification and documentation. Verify the certificate holder, issuer, exact model scope, marking, and validity in the current controlled record before ordering.",
     },
     {
       title: "Separate portable survey from mass accuracy",
@@ -125,27 +125,27 @@ const data: CategoryPageData = {
     {
       question: "Do you offer explosion-proof or ATEX flow meters?",
       answer:
-        "Yes. The AM-EMF100 electromagnetic flow meter is available with ATEX Ex d IIC T6 for hazardous-area installations. Send the area classification, fluid, and pipe size so we can confirm the certified configuration.",
+        "Send the area classification, required protection concept, fluid, and pipe size. Hazardous-area suitability can be confirmed only from the current document for the exact quoted model and configuration.",
     },
     {
       question: "What is a non-contact or non-invasive flow meter in your catalog?",
       answer:
-        "Clamp-on ultrasonic (AM-UF200). Sensors mount externally, so there is no pipe cutting, no shutdown, and no pressure drop. It is the usual answer to non-contact / non-invasive flow searches on process pipes.",
+        "Start with the clamp-on ultrasonic category. Confirm pipe material, wall thickness, lining, fluid condition, access, and the current installation instructions before selection.",
     },
     {
       question: "Is a portable flow meter available?",
       answer:
-        "Yes—AM-UF200 is offered in portable and fixed versions for survey and permanent duty. Portable ultrasonic measures volumetric flow on prepared pipes; it is not a portable thermal mass meter.",
+        "State whether the project needs a temporary survey or a permanent installation. The current portable or fixed configuration, measurement scope, and installation conditions are confirmed for the quoted model.",
     },
     {
       question: "Do you sell portable mass flow meters?",
       answer:
-        "AM-MF50 is a thermal mass meter for gas (0–500 slm) in lab and semiconductor use. It is not marketed as a handheld portable mass meter for large process lines. If you need portable liquid or gas survey capability, start with AM-UF200 and describe the fluid so we can confirm fit.",
+        "AM-MF50 is a thermal-mass flow option for gas projects. If you need portable liquid or gas survey capability, describe the fluid, pipe, target range, and survey method so the current configuration can be reviewed.",
     },
     {
       question: "Electromagnetic or ultrasonic—which should I choose?",
       answer:
-        "Choose electromagnetic for conductive liquids and higher full-bore accuracy. Choose clamp-on ultrasonic when you cannot cut the pipe or the fluid is poorly conductive. See the comparison page for installation and maintenance tradeoffs.",
+        "Start electromagnetic review for conductive liquids and clamp-on ultrasonic review when pipe modification is constrained or the medium has low conductivity. Confirm actual fluid, pipe, and installation conditions in the quotation.",
     },
   ],
 };

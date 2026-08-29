@@ -23,12 +23,12 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "AccuMeasure | Precision Measurement Sensors & Industrial Measuring Solutions",
+    default: "AccuMeasure | Industrial Measurement Instruments & Project Support",
     template: "%s",
   },
   description: siteConfig.description,
   keywords: [
-    "level sensor manufacturer",
+    "level sensors",
     "radar level transmitter",
     "electromagnetic flow meter",
     "pressure transmitter",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AccuMeasure | Level Sensor, Flow Meter & Pressure Transmitter Manufacturer",
+    title: "AccuMeasure | Level Sensors, Flow Meters & Pressure Instruments",
     description: siteConfig.description,
     images: ["/og-image.jpg"],
   },

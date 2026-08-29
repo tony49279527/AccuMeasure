@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useDeferredValue, useState } from "react";
 import { ArrowRight, Gauge, Waves, Activity, Search, X } from "lucide-react";
-import { products } from "@/lib/products";
+import { productDirectory } from "@/lib/product-directory";
 import { cn } from "@/lib/utils";
 
 type Category = "all" | "level" | "flow" | "pressure";
@@ -25,8 +25,8 @@ export function ProductsExplorer() {
 
   const categoryProducts =
     initialCategory === "all"
-      ? products
-      : products.filter((p) => p.category === initialCategory);
+      ? productDirectory
+      : productDirectory.filter((p) => p.category === initialCategory);
 
   const filteredProducts = normalizedQuery
     ? categoryProducts.filter((product) => {
@@ -36,8 +36,6 @@ export function ProductsExplorer() {
           product.tagline,
           product.description,
           product.category,
-          ...product.keySpecs.map((spec) => `${spec.label} ${spec.value}`),
-          ...product.applications.map((app) => `${app.name} ${app.description}`),
         ]
           .join(" ")
           .toLowerCase();
@@ -214,7 +212,7 @@ export function ProductsExplorer() {
             Can&apos;t find what you need?
           </h2>
           <p className="text-muted mb-6">
-            We do custom manufacturing tailored to your specifications
+            Request a custom project review tailored to your specifications
           </p>
           <Link href="/customization" className="btn-primary">
             Request a Custom Solution

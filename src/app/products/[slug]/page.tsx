@@ -231,7 +231,16 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               Use the published data to prepare questions for the RFQ; the current controlled datasheet is the document to approve.
             </p>
           </div>
-          <ProductTabs product={product} />
+          <ProductTabs
+            product={{
+              id: product.id,
+              model: product.model,
+              name: product.name,
+              specifications: product.specifications,
+              applications: product.applications,
+              downloads: product.downloads,
+            }}
+          />
         </div>
       </section>
 

@@ -6,14 +6,14 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BrandLogo } from "@/components/brand/logo";
-import { products } from "@/lib/products";
+import { productDirectory } from "@/lib/product-directory";
 
 const productChildren = [
   { label: "All Products", href: "/products" },
   { label: "Level Sensors", href: "/products/level", group: "category" as const },
   { label: "Flow Meters", href: "/products/flow", group: "category" as const },
   { label: "Pressure Sensors", href: "/products/pressure", group: "category" as const },
-  ...products.map((p) => ({
+  ...productDirectory.map((p) => ({
     label: `${p.model} — ${p.name}`,
     href: `/products/${p.slug}`,
     group: "model" as const,
@@ -118,7 +118,7 @@ export function Navbar() {
                                     : "Pressure Sensors"}
                               </Link>
                               <div className="space-y-1">
-                                {products
+                                {productDirectory
                                   .filter((p) => p.category === cat)
                                   .map((p) => (
                                     <Link

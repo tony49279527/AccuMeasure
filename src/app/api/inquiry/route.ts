@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { inquirySchema, customizationSchema } from "@/lib/schema";
-import { siteConfig } from "@/lib/site";
 
 const SOURCE_FIELDS = [
   "landingPage",
@@ -226,7 +225,7 @@ export async function POST(request: Request) {
     success: true,
     message:
       formType === "customization"
-        ? `Custom request received. Our team aims to reply within ${siteConfig.responseTarget}.`
-        : `Inquiry received. We aim to reply within ${siteConfig.responseTarget}.`,
+        ? "Custom request received. We will review the submitted requirements and use the contact details provided for follow-up."
+        : "Inquiry received. We will review the submitted requirements and use the contact details provided for follow-up.",
   });
 }

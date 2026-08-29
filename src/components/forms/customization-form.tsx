@@ -13,7 +13,6 @@ import {
   productCategories,
 } from "@/lib/schema";
 import type { CustomizationValues } from "@/lib/schema";
-import { siteConfig } from "@/lib/site";
 import { trackLeadEvent } from "@/lib/analytics";
 import { getSourceSnapshot } from "@/lib/source";
 
@@ -73,7 +72,7 @@ export function CustomizationForm() {
         </div>
         <h3 className="text-2xl font-bold text-dark mb-2">Request Sent!</h3>
         <p className="text-muted mb-6">
-          Our engineering team will review your requirements and aim to reply within {siteConfig.responseTarget}.
+          We will review the submitted requirements and use the contact details provided for follow-up.
         </p>
         <button onClick={() => setStatus("idle")} className="btn-secondary">
           Submit Another

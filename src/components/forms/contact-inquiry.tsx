@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { InquiryForm } from "@/components/forms/inquiry-form";
-import { getProductById } from "@/lib/products";
+import { getProductDirectoryById } from "@/lib/product-directory";
 import type { DocumentRequestSource } from "@/lib/analytics";
 
 /**
@@ -21,7 +21,7 @@ export function ContactInquiry() {
     rawDocumentSource === "quality"
       ? rawDocumentSource
       : undefined;
-  const product = productId ? getProductById(productId) : undefined;
+  const product = productId ? getProductDirectoryById(productId) : undefined;
 
   const defaultMessage =
     searchParams.get("request") === "catalog"
