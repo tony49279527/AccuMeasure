@@ -16,7 +16,7 @@ import { JsonLd } from "@/components/json-ld";
 import { products, getProductById, getProductBySlug } from "@/lib/products";
 import { getCaseStudiesByProductId } from "@/lib/case-studies";
 import { productJsonLd } from "@/lib/seo";
-import { siteConfig, waLinkFor } from "@/lib/site";
+import { waLinkFor } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
 const reservedSlugs = ["level", "flow", "pressure"];
@@ -27,9 +27,10 @@ export function generateStaticParams() {
     .map((product) => ({ slug: product.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const product = getProductBySlug(params.slug);
-  if (!product || reservedSlugs.includes(params.slug)) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const product = getProductBySlug(slug);
+  if (!product || reservedSlugs.includes(slug)) {
     return { title: "Product Not Found" };
   }
 
@@ -48,9 +49,10 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function ProductDetailPage({ params }: { params: { slug: string } }) {
-  const product = getProductBySlug(params.slug);
-  if (!product || reservedSlugs.includes(params.slug)) notFound();
+export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const product = getProductBySlug(slug);
+  if (!product || reservedSlugs.includes(slug)) notFound();
 
   const relatedProducts = product.relatedProductIds
     .map((id) => getProductById(id))

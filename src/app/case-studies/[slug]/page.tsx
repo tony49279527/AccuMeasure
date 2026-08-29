@@ -14,8 +14,9 @@ export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const cs = getCaseStudyBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const cs = getCaseStudyBySlug(slug);
   if (!cs) return { title: "Project Brief Not Found" };
   const product = cs.productIds.map((id) => getProductById(id)).find(Boolean);
   const title =
@@ -40,8 +41,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function CaseStudyDetailPage({ params }: { params: { slug: string } }) {
-  const cs = getCaseStudyBySlug(params.slug);
+export default async function CaseStudyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const cs = getCaseStudyBySlug(slug);
   if (!cs) notFound();
 
   const usedProducts = cs.productIds

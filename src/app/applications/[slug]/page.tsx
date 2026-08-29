@@ -18,12 +18,13 @@ export function generateStaticParams() {
   return applicationPages.map((page) => ({ slug: page.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const page = getApplicationBySlug(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const page = getApplicationBySlug(slug);
   if (!page) return {};
   return {
     title: page.title,
@@ -38,12 +39,13 @@ export function generateMetadata({
   };
 }
 
-export default function ApplicationDetailPage({
+export default async function ApplicationDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const page = getApplicationBySlug(params.slug);
+  const { slug } = await params;
+  const page = getApplicationBySlug(slug);
   if (!page) notFound();
 
   const related = getRelatedProducts(page);
