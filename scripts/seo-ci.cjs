@@ -69,7 +69,7 @@ function main() {
   const inbound = new Map([...routeSet].map((route) => [route, 0]));
 
   for (const page of pages) {
-    if (page.route !== "/_not-found") {
+    if (page.route !== "/_not-found" && page.route !== "/_global-error") {
       if (!page.title) errors.push(`${page.route}: missing title`);
       if (page.title.length > TITLE_MAX) {
         errors.push(`${page.route}: title is ${page.title.length} characters (max ${TITLE_MAX})`);
@@ -114,7 +114,7 @@ function main() {
     }
   }
 
-  const excludedFromOrphanCheck = new Set(["/", "/_not-found", "/privacy", "/terms"]);
+  const excludedFromOrphanCheck = new Set(["/", "/_not-found", "/_global-error", "/privacy", "/terms"]);
   for (const page of pages) {
     if (!excludedFromOrphanCheck.has(page.route) && (inbound.get(page.route) || 0) === 0) {
       errors.push(`${page.route}: orphan page with no internal links`);

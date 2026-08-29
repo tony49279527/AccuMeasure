@@ -9,6 +9,8 @@ const privacyField = z
   .boolean()
   .refine((v) => v === true, "You must agree to the privacy policy");
 
+const sourceField = z.string().max(240, "Source field is too long").optional();
+
 export const countryList = [
   "Saudi Arabia",
   "United Arab Emirates",
@@ -79,14 +81,14 @@ export const inquirySchema = z.object({
   privacy: privacyField,
   // Honeypot: hidden from humans; any value marks the submission as bot spam.
   website: z.string().optional(),
-  landingPage: z.string().optional(),
-  pageUrl: z.string().optional(),
-  referrer: z.string().optional(),
-  utmSource: z.string().optional(),
-  utmMedium: z.string().optional(),
-  utmCampaign: z.string().optional(),
-  utmContent: z.string().optional(),
-  utmTerm: z.string().optional(),
+  landingPage: sourceField,
+  pageUrl: sourceField,
+  referrer: sourceField,
+  utmSource: sourceField,
+  utmMedium: sourceField,
+  utmCampaign: sourceField,
+  utmContent: sourceField,
+  utmTerm: sourceField,
 });
 
 export type InquiryValues = z.infer<typeof inquirySchema>;
@@ -113,14 +115,14 @@ export const customizationSchema = z.object({
   fileName: z.string().optional(),
   privacy: privacyField,
   website: z.string().optional(),
-  landingPage: z.string().optional(),
-  pageUrl: z.string().optional(),
-  referrer: z.string().optional(),
-  utmSource: z.string().optional(),
-  utmMedium: z.string().optional(),
-  utmCampaign: z.string().optional(),
-  utmContent: z.string().optional(),
-  utmTerm: z.string().optional(),
+  landingPage: sourceField,
+  pageUrl: sourceField,
+  referrer: sourceField,
+  utmSource: sourceField,
+  utmMedium: sourceField,
+  utmCampaign: sourceField,
+  utmContent: sourceField,
+  utmTerm: sourceField,
 });
 
 export type CustomizationValues = z.infer<typeof customizationSchema>;
