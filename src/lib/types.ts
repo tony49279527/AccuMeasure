@@ -63,6 +63,12 @@ export interface InquiryForm {
   country: string;
   productInterest: string[];
   quantity?: number;
+  medium?: string;
+  vesselDetails?: string;
+  processConditions?: string;
+  mountingConnection?: string;
+  requiredOutput?: string;
+  documentationRequirements?: string;
   message: string;
   productId?: string;
 }

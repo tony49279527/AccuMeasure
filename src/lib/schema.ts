@@ -10,6 +10,7 @@ const privacyField = z
   .refine((v) => v === true, "You must agree to the privacy policy");
 
 const sourceField = z.string().max(240, "Source field is too long").optional();
+const projectInputField = z.string().max(240, "Project input is too long").optional();
 
 export const countryList = [
   "Saudi Arabia",
@@ -76,6 +77,12 @@ export const inquirySchema = z.object({
     .array(z.string())
     .refine((v) => v.length > 0, "Select at least one option"),
   quantity: z.string().optional(),
+  medium: projectInputField,
+  vesselDetails: projectInputField,
+  processConditions: projectInputField,
+  mountingConnection: projectInputField,
+  requiredOutput: projectInputField,
+  documentationRequirements: projectInputField,
   message: z.string().optional(),
   productId: z.string().optional(),
   privacy: privacyField,

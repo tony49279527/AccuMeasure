@@ -124,15 +124,15 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const quoteTitle = isRadarConfigurationReview
     ? "Request AM-RL80 Configuration Review"
     : `Request a Quote: ${product.name}`;
-  const quoteTemplate = isRadarConfigurationReview
+  const radarTechnicalInputs = isRadarConfigurationReview
     ? [
-        "Medium:",
-        "Vessel height / measuring range:",
-        "Process temperature and pressure:",
-        "Mounting connection / nozzle:",
-        "Required output:",
-        "Required documentation or area classification (if applicable):",
-      ].join("\n")
+        { name: "medium" as const, label: "Medium", placeholder: "e.g. water, slurry, powder" },
+        { name: "vesselDetails" as const, label: "Vessel height / measuring range", placeholder: "e.g. 12 m tank, 0-10 m measurement" },
+        { name: "processConditions" as const, label: "Process temperature and pressure", placeholder: "e.g. 60 C, 2 bar" },
+        { name: "mountingConnection" as const, label: "Mounting connection / nozzle", placeholder: "e.g. flange or thread, nozzle size" },
+        { name: "requiredOutput" as const, label: "Required output", placeholder: "e.g. 4-20mA or RS485" },
+        { name: "documentationRequirements" as const, label: "Documentation or area classification (if applicable)", placeholder: "Required records or classification" },
+      ]
     : undefined;
 
   return (
@@ -405,7 +405,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               productId={product.id}
               productName={product.name}
               defaultInterest={categoryLabel}
-              defaultMessage={quoteTemplate}
+              technicalInputs={radarTechnicalInputs}
+              technicalInputTitle={isRadarConfigurationReview ? "AM-RL80 Configuration Inputs" : undefined}
+              technicalInputDescription={
+                isRadarConfigurationReview
+                  ? "Provide the project conditions you know. The current configuration and document scope are confirmed before quotation."
+                  : undefined
+              }
             />
           </div>
         </div>

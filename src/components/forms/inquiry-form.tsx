@@ -17,6 +17,20 @@ import { waLinkFor } from "@/lib/site";
 import { trackLeadEvent, trackContactClick, trackDocumentRequest, type DocumentRequestSource } from "@/lib/analytics";
 import { getSourceSnapshot } from "@/lib/source";
 
+type TechnicalInputName =
+  | "medium"
+  | "vesselDetails"
+  | "processConditions"
+  | "mountingConnection"
+  | "requiredOutput"
+  | "documentationRequirements";
+
+interface TechnicalInput {
+  name: TechnicalInputName;
+  label: string;
+  placeholder: string;
+}
+
 interface InquiryFormProps {
   productId?: string;
   productName?: string;
@@ -24,6 +38,9 @@ interface InquiryFormProps {
   documentSource?: DocumentRequestSource;
   defaultInterest?: string;
   defaultMessage?: string;
+  technicalInputs?: TechnicalInput[];
+  technicalInputTitle?: string;
+  technicalInputDescription?: string;
 }
 
 export function InquiryForm({
@@ -33,6 +50,9 @@ export function InquiryForm({
   documentSource,
   defaultInterest,
   defaultMessage,
+  technicalInputs,
+  technicalInputTitle,
+  technicalInputDescription,
 }: InquiryFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -263,8 +283,31 @@ export function InquiryForm({
         )}
       </div>
 
+      {technicalInputs && technicalInputs.length > 0 && (
+        <fieldset className="space-y-4 rounded-lg border border-border bg-bg-light/50 p-4">
+          <legend className="px-1 text-sm font-semibold text-dark">
+            {technicalInputTitle ?? "Project Configuration Inputs"}
+          </legend>
+          {technicalInputDescription && (
+            <p className="text-sm leading-6 text-muted">{technicalInputDescription}</p>
+          )}
+          <div className="grid gap-4 sm:grid-cols-2">
+            {technicalInputs.map((field) => (
+              <div key={field.name} className="space-y-2">
+                <Label htmlFor={field.name}>{field.label}</Label>
+                <Input
+                  id={field.name}
+                  placeholder={field.placeholder}
+                  {...register(field.name)}
+                />
+              </div>
+            ))}
+          </div>
+        </fieldset>
+      )}
+
       <div className="space-y-2">
-        <Label htmlFor="message">Message / Requirements</Label>
+        <Label htmlFor="message">Message / Other Requirements</Label>
         <Textarea
           id="message"
           rows={5}
