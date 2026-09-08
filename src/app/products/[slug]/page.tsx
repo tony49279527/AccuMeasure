@@ -23,6 +23,10 @@ import type { Product } from "@/lib/types";
 
 const reservedSlugs = ["level", "flow", "pressure"];
 
+// Product records are a build-time catalog. Unknown product slugs must resolve
+// as real 404s instead of streaming the generic product not-found view with 200.
+export const dynamicParams = false;
+
 const categoryGuides: Record<Product["category"], { title: string; description: string; href: string }[]> = {
   level: [
     {
