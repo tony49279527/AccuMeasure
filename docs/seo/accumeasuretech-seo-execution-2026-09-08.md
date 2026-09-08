@@ -13,8 +13,8 @@
 | --- | --- | --- | --- |
 | A1: flow capability table | Evidence blocked | Removed category-page wording that mapped portable or mass-flow queries to a confirmed configuration. Kept a document-first RFQ route. | `evidence-pending`: engineering sign-off, current model datasheets, and exact certificate scope are required before publishing a capability table. |
 | A2: AM-RL80 evidence | Evidence blocked | Added a model-specific configuration-review CTA and a project-input template in the existing inquiry form. No numerical specification, certificate, PDF, or installation drawing was added. | `evidence-pending`: current datasheet, installation drawing, and approved model/claim evidence are required. |
-| A3: comparison and blog intent | Locally verified | Differentiated the comparison page as a procurement matrix and the blog as water-treatment implementation guidance; added reciprocal contextual links. | Production verification remains required. |
-| A4: rich-result, hreflang, title checks | Locally verified | No fabricated Offer or hreflang was added. Built AM-RL80 HTML contains Product and BreadcrumbList JSON-LD, without `offers` or `manufacturer`; no equivalent translation pages exist, so no hreflang pair was created. | Production verification remains required. |
+| A3: comparison and blog intent | Production verified | Differentiated the comparison page as a procurement matrix and the blog as water-treatment implementation guidance; added reciprocal contextual links. | Observe recrawl and 28 complete post-release data days. |
+| A4: rich-result, hreflang, title checks | Production verified | No fabricated Offer or hreflang was added. Production AM-RL80 HTML contains Product and BreadcrumbList JSON-LD, without `offers` or `manufacturer`; no equivalent translation pages exist, so no hreflang pair was created. | Observe recrawl and 28 complete post-release data days. |
 | A5: ATEX / IECEx extension | Conditional | No new URL or model/certificate table created. | `do-not-publish` until A1 evidence is approved and engineering reviews a unique, non-duplicative guide. |
 
 ## Measurement and Rollback
@@ -30,3 +30,10 @@
 - Schema CI passed: 45 HTML files, 168 JSON-LD blocks, and 0 validation errors. SEO CI passed: 43 HTML pages and 0 validation errors.
 - Local production HTTP smoke: target flow, comparison, blog, and AM-RL80 pages returned 200; `/flow-meters` and `/level-sensors` returned 301 to their current category routes; an unknown route returned 404; `robots.txt`, `sitemap.xml`, and `llms.txt` returned 200; an empty inquiry payload returned 422 without sending a real inquiry.
 - Built HTML confirmed canonical URLs, revised flow wording, comparison/blog reciprocal links, AM-RL80 configuration fields, Product plus BreadcrumbList JSON-LD, and 2026-09-08 sitemap dates. The flow decision table retains an explicit responsive horizontal-scroll wrapper for narrow viewports.
+
+## Production Verification - 2026-09-08
+
+- Release commit `2e44ef3` was pushed normally to `origin/main`. Vercel Git deployment `dpl_84UzboZ7snKtMcAyyuopbo2Hwdsc` reached `Ready` at `https://accu-measure-p707cxm03-context27149.vercel.app` and aliases `https://www.accumeasuretech.com` plus the apex domain.
+- The canonical production domain returned 200 for the flow category, flow comparison, water-treatment guide, AM-RL80 product page, `robots.txt`, `sitemap.xml`, and `llms.txt`. `/flow-meters` and `/level-sensors` returned 301 to their canonical category pages; an unknown URL returned 404.
+- Production HTML confirms the revised flow wording, comparison/blog link path, AM-RL80 configuration-review CTA and input template, canonical URLs, Product plus BreadcrumbList JSON-LD, and updated sitemap dates. Invalid inquiry data returned 422 without a real submission. HSTS, `nosniff`, `SAMEORIGIN`, referrer, and permissions headers remain present.
+- No authenticated Google URL Inspection client is configured in this project execution path, so no inspection, indexing request, or sitemap submission was performed. Recheck crawl status and the same GSC page/query scope after Google has recrawled the release.
