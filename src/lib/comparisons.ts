@@ -17,6 +17,12 @@ export interface ComparisonPage {
   chooseSecond: string[];
   rfqChecklist: string[];
   faqs: { question: string; answer: string }[];
+  relatedGuide?: {
+    href: string;
+    title: string;
+    description: string;
+    cta: string;
+  };
 }
 
 export const comparisonPages: ComparisonPage[] = [
@@ -183,6 +189,13 @@ export const comparisonPages: ComparisonPage[] = [
           "Starting price, MOQ, sample availability, and schedule depend on configuration, testing, documentation, quantity, and destination. Compare them in the current project quotation.",
       },
     ],
+    relatedGuide: {
+      href: "/blog/electromagnetic-vs-ultrasonic-flow-meter",
+      title: "Water Treatment Implementation Guide",
+      description:
+        "This page is the procurement shortlisting matrix. Use the companion guide for water-treatment pipe conditions, field checks, and installation considerations before the RFQ.",
+      cta: "Read the water treatment guide",
+    },
   },
 ];
 

@@ -42,9 +42,9 @@ function renderEntry(entry: SitemapEntry): string {
 }
 
 export function GET() {
-  const staticContentLastModified = "2026-08-29T00:00:00.000Z";
-  const productCatalogLastModified = "2026-08-29T00:00:00.000Z";
-  const applicationsIndexLastModified = "2026-08-29T00:00:00.000Z";
+  const staticContentLastModified = "2026-09-08T00:00:00.000Z";
+  const productCatalogLastModified = "2026-09-08T00:00:00.000Z";
+  const applicationsIndexLastModified = "2026-09-08T00:00:00.000Z";
 
   const staticPages: SitemapEntry[] = [
     { url: siteConfig.url, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 1 },

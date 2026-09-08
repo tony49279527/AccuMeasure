@@ -120,6 +120,20 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       : product.category === "flow"
         ? "Flow Meters"
         : "Pressure Sensors";
+  const isRadarConfigurationReview = product.model === "AM-RL80";
+  const quoteTitle = isRadarConfigurationReview
+    ? "Request AM-RL80 Configuration Review"
+    : `Request a Quote: ${product.name}`;
+  const quoteTemplate = isRadarConfigurationReview
+    ? [
+        "Medium:",
+        "Vessel height / measuring range:",
+        "Process temperature and pressure:",
+        "Mounting connection / nozzle:",
+        "Required output:",
+        "Required documentation or area classification (if applicable):",
+      ].join("\n")
+    : undefined;
 
   return (
     <div>
@@ -182,7 +196,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
               <div className="flex flex-wrap gap-4">
                 <a href="#quote" className="btn-primary flex items-center gap-2">
-                  <MessageSquare className="w-5 h-5" /> Request a Project Quote
+                  <MessageSquare className="w-5 h-5" /> {isRadarConfigurationReview ? "Request Configuration Review" : "Request a Project Quote"}
                 </a>
                 <a href="#documents" className="btn-secondary flex items-center gap-2">
                   <FileText className="w-5 h-5" /> Request Technical Documents
@@ -381,13 +395,18 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       <section id="quote" className="py-16">
         <div className="container-max max-w-2xl">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-dark mb-2">Request a Quote: {product.name}</h2>
+            <h2 className="text-2xl font-bold text-dark mb-2">{quoteTitle}</h2>
             <p className="text-muted">
               Include the application and documentation requirements so the configuration and quotation can be reviewed for this project.
             </p>
           </div>
           <div className="bg-white rounded-lg p-8 border border-border">
-            <InquiryForm productId={product.id} productName={product.name} defaultInterest={categoryLabel} />
+            <InquiryForm
+              productId={product.id}
+              productName={product.name}
+              defaultInterest={categoryLabel}
+              defaultMessage={quoteTemplate}
+            />
           </div>
         </div>
       </section>

@@ -214,10 +214,10 @@ export const blogPosts: BlogPost[] = [
     slug: "electromagnetic-vs-ultrasonic-flow-meter",
     title: "Electromagnetic vs Ultrasonic Flow Meter: Which One Fits Water Treatment?",
     description:
-      "A purchasing guide for water treatment projects comparing electromagnetic and ultrasonic flow meters by fluid conductivity, pipe work, accuracy, maintenance, and installation cost.",
+      "A water-treatment implementation guide comparing electromagnetic and ultrasonic flow meters by conductivity, pipe condition, field checks, and installation constraints.",
     category: "Flow Measurement",
     datePublished: "2026-07-04",
-    dateModified: "2026-07-04",
+    dateModified: "2026-09-08",
     readTime: "9 min read",
     keywords: [
       "electromagnetic flow meter",
@@ -228,7 +228,7 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedProductIds: ["5", "6", "2"],
     intro:
-      "Water treatment projects often compare electromagnetic and ultrasonic flow meters because both can measure large pipes without moving parts. The right choice depends on conductivity, installation constraints, pipe access, expected accuracy, and whether shutdown is acceptable.",
+      "Water treatment projects often compare electromagnetic and ultrasonic flow meters because both can measure large pipes without moving parts. This guide focuses on pipe conditions, installation, and field checks; use the companion comparison page when you need a side-by-side procurement matrix and RFQ checklist.",
     sections: [
       {
         heading: "Use electromagnetic flow meters for conductive liquids",
@@ -299,7 +299,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "Electromagnetic vs Ultrasonic Comparison",
-        description: "See the same tradeoffs in a side-by-side comparison layout.",
+        description: "Use the side-by-side procurement matrix and RFQ checklist after reviewing the water-treatment implementation guidance.",
         href: "/compare/electromagnetic-vs-ultrasonic-flow-meter",
       },
     ],

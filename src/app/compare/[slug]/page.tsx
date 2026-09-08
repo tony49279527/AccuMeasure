@@ -130,6 +130,21 @@ export default async function ComparisonDetailPage({ params }: { params: Promise
         </div>
       </section>
 
+      {page.relatedGuide && (
+        <section className="py-10 border-t border-border">
+          <div className="container-max max-w-5xl flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold text-primary mb-2">Complementary guide</p>
+              <h2 className="text-2xl font-bold text-dark mb-2">{page.relatedGuide.title}</h2>
+              <p className="text-muted max-w-3xl">{page.relatedGuide.description}</p>
+            </div>
+            <Link href={page.relatedGuide.href} className="text-primary font-medium inline-flex items-center gap-2 shrink-0">
+              {page.relatedGuide.cta} <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
+      )}
+
       <section className="py-16 bg-bg-light">
         <div className="container-max">
           <div className="grid lg:grid-cols-2 gap-8">

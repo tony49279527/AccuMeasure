@@ -11,7 +11,7 @@ const data: CategoryPageData = {
   lead: "Choose flow technology by medium, conductivity, pipe access, installation, and system signal. Confirm current model range, performance, document scope, and commercial terms before release.",
   overview:
     "AccuMeasure publishes electromagnetic, clamp-on ultrasonic, and thermal-mass flow options for project review. Start with liquid conductivity, fluid phase, pipe access, installation constraints, and the required signal. Treat published values as selection inputs and verify the exact quoted configuration against current model-specific records.",
-  lastReviewed: "2026-08-29",
+  lastReviewed: "2026-09-08",
   decisionTable: {
     title: "Which Flow Meter Should I Buy?",
     description: "Use this table to match the published AccuMeasure models to the fluid, installation, and approval requirements in your RFQ.",
@@ -36,15 +36,15 @@ const data: CategoryPageData = {
       },
       {
         buyerNeed: "Gas mass flow in lab, semiconductor, or process gas lines",
-        firstChoice: "AM-MF50 thermal mass meter",
-        secondChoice: "AM-UF200 portable ultrasonic for volumetric survey",
-        guidance: "Confirm gas composition, flow range, pressure, temperature, output, and installation details against the current model documentation.",
+        firstChoice: "AM-MF50 configuration review",
+        secondChoice: "Project-specific ultrasonic survey review",
+        guidance: "The category page does not establish a portable mass-flow configuration. Confirm gas composition, flow range, pressure, temperature, output, and installation details against the current model documentation.",
       },
       {
         buyerNeed: "Temporary survey or multi-point pipe checks",
-        firstChoice: "AM-UF200 portable ultrasonic",
-        secondChoice: "AM-MF50 thermal mass meter",
-        guidance: "Confirm whether a portable or fixed configuration is available for the quoted model, then match it to the survey method and required accuracy.",
+        firstChoice: "Project-specific portable or fixed configuration review",
+        secondChoice: "Do not substitute a fixed gas meter for a survey request",
+        guidance: "State the survey method, fluid phase, pipe conditions, and required result. Confirm whether the quoted configuration is portable or fixed before it is shortlisted.",
       },
     ],
   },
@@ -70,9 +70,9 @@ const data: CategoryPageData = {
     },
     {
       title: "Portable survey vs fixed process metering",
-      body: "Temporary surveys and fixed process metering require different installation and verification steps. If an RFQ says “portable mass flow,” state the pipe size, fluid phase, survey method, and whether the result is for a temporary check or permanent control. The current configuration must be confirmed before a model is shortlisted.",
+      body: "Temporary surveys and fixed process metering require different installation and verification steps. A “portable mass flow” query does not identify a quoted model by itself. State the pipe size, fluid phase, survey method, and whether the result is for a temporary check or permanent control; then confirm the current configuration before a model is shortlisted.",
       links: [
-        { label: "AM-UF200 portable / fixed ultrasonic", href: "/products/am-uf200-ultrasonic-flow-meter" },
+        { label: "AM-UF200 ultrasonic flow meter", href: "/products/am-uf200-ultrasonic-flow-meter" },
         { label: "AM-MF50 thermal mass (gas)", href: "/products/am-mf50-mass-flow-meter" },
       ],
     },
@@ -116,9 +116,9 @@ const data: CategoryPageData = {
         "For hazardous-area projects, state the required classification and documentation. Verify the certificate holder, issuer, exact model scope, marking, and validity in the current controlled record before ordering.",
     },
     {
-      title: "Separate portable survey from mass accuracy",
+      title: "Do not conflate a portable survey with mass-flow requirements",
       description:
-        "Use portable ultrasonic for temporary checks. Use AM-MF50 when you need gas mass flow accuracy in a fixed thermal mass installation—not as a drop-in for “portable mass” pipe surveys.",
+        "Do not infer a portable mass-flow configuration from a category keyword. Describe the fluid phase, pipe, survey method, target result, and whether the duty is temporary or permanent before the current quoted configuration is reviewed.",
     },
   ],
   faqs: [
@@ -135,12 +135,12 @@ const data: CategoryPageData = {
     {
       question: "Is a portable flow meter available?",
       answer:
-        "State whether the project needs a temporary survey or a permanent installation. The current portable or fixed configuration, measurement scope, and installation conditions are confirmed for the quoted model.",
+        "State whether the project needs a temporary survey or a permanent installation. Availability of a portable or fixed configuration, measurement scope, and installation conditions are confirmed for the quoted model.",
     },
     {
       question: "Do you sell portable mass flow meters?",
       answer:
-        "AM-MF50 is a thermal-mass flow option for gas projects. If you need portable liquid or gas survey capability, describe the fluid, pipe, target range, and survey method so the current configuration can be reviewed.",
+        "The flow category does not publish a portable mass-flow configuration. Describe the fluid phase, pipe, target range, survey method, and whether the requirement is temporary or permanent so the current configuration can be reviewed.",
     },
     {
       question: "Electromagnetic or ultrasonic—which should I choose?",

@@ -21,9 +21,9 @@ const blogSeo: Record<string, { title: string; description: string }> = {
       "Beam angle, accuracy, dust tolerance, silo performance, installation space, and total project cost. See when 80GHz is worth it and when 26GHz is enough.",
   },
   "electromagnetic-vs-ultrasonic-flow-meter": {
-    title: "Electromagnetic vs Ultrasonic Flow Meter | Guide",
+    title: "Electromagnetic vs Ultrasonic Flow Meter for Water Treatment",
     description:
-      "Compare electromagnetic and ultrasonic flow meters by conductivity, pipe work, accuracy, maintenance, and installation. Choose the right technology.",
+      "Water-treatment implementation guide: compare conductivity, pipe conditions, field checks, and installation constraints before a model and RFQ decision.",
   },
   "how-to-choose-level-sensor-supplier-china": {
     title: "How to Choose a Level Sensor Supplier in China",
