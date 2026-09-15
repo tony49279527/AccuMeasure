@@ -9,7 +9,7 @@ const data: CategoryPageData = {
   h1: "Pressure Instruments for Industrial Applications",
   lead: "Review transmitter and digital-gauge paths for process control, local indication, hydraulic equipment, and OEM integration. Confirm current performance, environmental limits, and document scope for the selected configuration.",
   overview: "Start with pressure type, normal and surge range, wetted materials, process connection, signal or display, power, enclosure, and area classification. Published model data is a selection aid; the controlled datasheet, certificate scope, test documents, warranty, and commercial terms must be confirmed for each RFQ.",
-  lastReviewed: "2026-08-12",
+  lastReviewed: "2026-09-15",
   decisionTable: {
     title: "Which Pressure Instrument Should I Buy?",
     description: "Use the two model paths to identify the datasheet, environmental, documentation, and OEM questions that require confirmation.",
@@ -59,6 +59,11 @@ const data: CategoryPageData = {
     },
   ],
   relatedGuides: [
+    {
+      title: "OEM Pressure Qualification Sheet",
+      description: "Define pressure, process, interface, branding, documents, samples, validation, and production release before comparing OEM proposals.",
+      href: "/resources/oem-pressure-instrument-qualification-sheet",
+    },
     {
       title: "Pressure Transmitters for OEM Equipment",
       description: "Define range, connection, output, housing, branding, documentation, and annual volume for OEM projects.",

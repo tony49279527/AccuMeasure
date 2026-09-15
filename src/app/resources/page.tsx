@@ -88,6 +88,24 @@ export default function ResourcesPage() {
               </div>
             </div>
           </Link>
+          <Link
+            href="/resources/oem-pressure-instrument-qualification-sheet"
+            className="block border border-border bg-white p-6 hover:border-primary transition-colors"
+          >
+            <div className="flex items-start gap-4">
+              <FileText className="w-8 h-8 text-primary shrink-0" aria-hidden="true" />
+              <div>
+                <h3 className="text-lg font-semibold text-dark mb-2">OEM Pressure Qualification Sheet</h3>
+                <p className="text-sm text-muted mb-3">
+                  Define pressure, process, electrical, mechanical, branding, sample-test, documentation,
+                  and production-release requirements for an OEM instrument program.
+                </p>
+                <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
+                  Open printable sheet <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </span>
+              </div>
+            </div>
+          </Link>
           </div>
         </div>
       </section>
