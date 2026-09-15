@@ -91,6 +91,9 @@ export default function QualityPage() {
             <Link href="/certificates" className="inline-flex items-center gap-2 text-primary font-medium">
               Review documentation requirements <ArrowRight className="w-4 h-4" />
             </Link>
+            <Link href="/resources/instrument-supplier-evaluation-sheet" className="mt-3 inline-flex items-center gap-2 text-primary font-medium">
+              Use the supplier evaluation sheet <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

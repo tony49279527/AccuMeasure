@@ -106,6 +106,24 @@ export default function ResourcesPage() {
               </div>
             </div>
           </Link>
+          <Link
+            href="/resources/instrument-supplier-evaluation-sheet"
+            className="block border border-border bg-white p-6 hover:border-primary transition-colors"
+          >
+            <div className="flex items-start gap-4">
+              <FileText className="w-8 h-8 text-primary shrink-0" aria-hidden="true" />
+              <div>
+                <h3 className="text-lg font-semibold text-dark mb-2">Industrial Instrument Supplier Evaluation Sheet</h3>
+                <p className="text-sm text-muted mb-3">
+                  Compare supplier identity, product fit, evidence, quality, supply readiness, and buyer
+                  verification records in one neutral worksheet.
+                </p>
+                <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
+                  Open printable sheet <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </span>
+              </div>
+            </div>
+          </Link>
           </div>
         </div>
       </section>

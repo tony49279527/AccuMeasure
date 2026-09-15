@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowRight, ClipboardCheck, FileCheck, Shield } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { DocumentRequestLink } from "@/components/document-request-link";
@@ -47,6 +48,23 @@ export default function CertificatesPage() {
             <p className="text-lg text-muted">
               Public category labels are not a substitute for project evidence. Request the current document package for the selected configuration and verify its exact scope before approval.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 border-t border-border">
+        <div className="container-max max-w-4xl">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+            <div>
+              <h2 className="text-2xl font-bold text-dark mb-2">Need a broader supplier review?</h2>
+              <p className="text-muted">
+                Use the neutral evaluation sheet to record supplier identity, exact model fit, evidence,
+                quality records, and open approval questions alongside the document review.
+              </p>
+            </div>
+            <Link href="/resources/instrument-supplier-evaluation-sheet" className="btn-secondary shrink-0">
+              Open evaluation sheet <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

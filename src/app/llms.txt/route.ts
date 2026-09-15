@@ -35,6 +35,7 @@ AccuMeasure is an industrial measurement supplier for level sensors, flow meters
 - Flow meter RFQ checklist: ${siteConfig.url}/resources/flow-meter-rfq-checklist
 - Level sensor RFQ template: ${siteConfig.url}/resources/level-sensor-rfq-template
 - OEM pressure qualification sheet: ${siteConfig.url}/resources/oem-pressure-instrument-qualification-sheet
+- Supplier evaluation sheet: ${siteConfig.url}/resources/instrument-supplier-evaluation-sheet
 - Certificates: ${siteConfig.url}/certificates
 - Quality: ${siteConfig.url}/quality
 - Contact/RFQ: ${siteConfig.url}/contact

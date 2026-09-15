@@ -58,6 +58,7 @@ export function GET() {
     { url: `${siteConfig.url}/resources/flow-meter-rfq-checklist`, lastModified: utilityContentLastModified, changeFrequency: "monthly", priority: 0.75 },
     { url: `${siteConfig.url}/resources/level-sensor-rfq-template`, lastModified: utilityContentLastModified, changeFrequency: "monthly", priority: 0.75 },
     { url: `${siteConfig.url}/resources/oem-pressure-instrument-qualification-sheet`, lastModified: utilityContentLastModified, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${siteConfig.url}/resources/instrument-supplier-evaluation-sheet`, lastModified: utilityContentLastModified, changeFrequency: "monthly", priority: 0.75 },
     { url: `${siteConfig.url}/case-studies`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteConfig.url}/blog`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.6 },
     { url: `${siteConfig.url}/customization`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.8 },
