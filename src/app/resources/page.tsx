@@ -51,9 +51,10 @@ export default function ResourcesPage() {
               process, installation, signal, documentation, and acceptance requirements.
             </p>
           </div>
+          <div className="grid gap-5 lg:grid-cols-2">
           <Link
             href="/resources/flow-meter-rfq-checklist"
-            className="block max-w-3xl border border-border bg-white p-6 hover:border-primary transition-colors"
+            className="block border border-border bg-white p-6 hover:border-primary transition-colors"
           >
             <div className="flex items-start gap-4">
               <FileText className="w-8 h-8 text-primary shrink-0" aria-hidden="true" />
@@ -69,6 +70,25 @@ export default function ResourcesPage() {
               </div>
             </div>
           </Link>
+          <Link
+            href="/resources/level-sensor-rfq-template"
+            className="block border border-border bg-white p-6 hover:border-primary transition-colors"
+          >
+            <div className="flex items-start gap-4">
+              <FileText className="w-8 h-8 text-primary shrink-0" aria-hidden="true" />
+              <div>
+                <h3 className="text-lg font-semibold text-dark mb-2">Level Sensor RFQ Template</h3>
+                <p className="text-sm text-muted mb-3">
+                  Define the medium, vessel, range, mounting, process conditions, signal, documents,
+                  quantity, and acceptance plan for a tank or silo measurement project.
+                </p>
+                <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
+                  Open printable template <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </span>
+              </div>
+            </div>
+          </Link>
+          </div>
         </div>
       </section>
 

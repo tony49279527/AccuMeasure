@@ -9,7 +9,13 @@ const data: CategoryPageData = {
   h1: "Level Sensors for Industrial Tanks & Silos",
   lead: "Compare contact and non-contact level technologies for tanks and silos. Confirm the selected model's current range, accuracy, output, materials, test documents, and warranty in the controlled datasheet and quotation.",
   overview: "Use process conditions and installation constraints to narrow capacitive, radar, ultrasonic, or connected level sensing. Published card values are selection inputs, not a final project specification; engineering must confirm the model, configuration, document scope, and commercial terms for the RFQ.",
+  lastReviewed: "2026-09-15",
   relatedGuides: [
+    {
+      title: "Level Sensor RFQ Template",
+      description: "Collect medium, vessel, range, mounting, process, signal, document, quantity, and acceptance inputs before comparing quotations.",
+      href: "/resources/level-sensor-rfq-template",
+    },
     {
       title: "Radar Level Sensor for Oil Tanks",
       description: "Check vapor, nozzle, tank geometry, output, and hazardous-area inputs for fuel and chemical storage.",
