@@ -11,7 +11,7 @@ const data: CategoryPageData = {
   lead: "Choose flow technology by medium, conductivity, pipe access, installation, and system signal. Confirm current model range, performance, document scope, and commercial terms before release.",
   overview:
     "AccuMeasure publishes electromagnetic, clamp-on ultrasonic, and thermal-mass flow options for project review. Start with liquid conductivity, fluid phase, pipe access, installation constraints, and the required signal. Treat published values as selection inputs and verify the exact quoted configuration against current model-specific records.",
-  lastReviewed: "2026-09-08",
+  lastReviewed: "2026-09-15",
   decisionTable: {
     title: "Which Flow Meter Should I Buy?",
     description: "Use this table to match the published AccuMeasure models to the fluid, installation, and approval requirements in your RFQ.",
@@ -78,6 +78,11 @@ const data: CategoryPageData = {
     },
   ],
   relatedGuides: [
+    {
+      title: "Flow Meter RFQ Checklist",
+      description: "Collect fluid, pipe, installation, signal, document, quantity, and acceptance inputs before comparing quotations.",
+      href: "/resources/flow-meter-rfq-checklist",
+    },
     {
       title: "Electromagnetic Flow Meter for Water Treatment",
       description: "Define conductivity, pipe size, liner, flange, grounding, signal, and utility project requirements.",

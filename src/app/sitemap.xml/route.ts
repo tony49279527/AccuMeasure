@@ -43,6 +43,7 @@ function renderEntry(entry: SitemapEntry): string {
 
 export function GET() {
   const staticContentLastModified = "2026-09-08T00:00:00.000Z";
+  const utilityContentLastModified = "2026-09-15T00:00:00.000Z";
   const productCatalogLastModified = "2026-09-08T00:00:00.000Z";
   const applicationsIndexLastModified = "2026-09-08T00:00:00.000Z";
 
@@ -53,13 +54,14 @@ export function GET() {
     { url: `${siteConfig.url}/quality`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteConfig.url}/certificates`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteConfig.url}/industries`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${siteConfig.url}/resources`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${siteConfig.url}/resources`, lastModified: utilityContentLastModified, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${siteConfig.url}/resources/flow-meter-rfq-checklist`, lastModified: utilityContentLastModified, changeFrequency: "monthly", priority: 0.75 },
     { url: `${siteConfig.url}/case-studies`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteConfig.url}/blog`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.6 },
     { url: `${siteConfig.url}/customization`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteConfig.url}/contact`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteConfig.url}/products/level`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${siteConfig.url}/products/flow`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${siteConfig.url}/products/flow`, lastModified: utilityContentLastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/products/pressure`, lastModified: productCatalogLastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/applications`, lastModified: applicationsIndexLastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/compare`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.8 },

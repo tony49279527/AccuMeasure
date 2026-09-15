@@ -41,6 +41,37 @@ export default function ResourcesPage() {
         </div>
       </section>
 
+      <section className="py-14 border-b border-border">
+        <div className="container-max">
+          <div className="max-w-3xl mb-7">
+            <p className="text-sm font-semibold text-primary mb-2">Buyer planning tools</p>
+            <h2 className="text-2xl font-bold text-dark mb-3">Prepare a comparable RFQ</h2>
+            <p className="text-muted">
+              Use a practical checklist before requesting quotations so each supplier receives the same
+              process, installation, signal, documentation, and acceptance requirements.
+            </p>
+          </div>
+          <Link
+            href="/resources/flow-meter-rfq-checklist"
+            className="block max-w-3xl border border-border bg-white p-6 hover:border-primary transition-colors"
+          >
+            <div className="flex items-start gap-4">
+              <FileText className="w-8 h-8 text-primary shrink-0" aria-hidden="true" />
+              <div>
+                <h3 className="text-lg font-semibold text-dark mb-2">Flow Meter RFQ Checklist</h3>
+                <p className="text-sm text-muted mb-3">
+                  Collect fluid, pipe, installation, signal, validation, quantity, and delivery inputs for
+                  electromagnetic, clamp-on ultrasonic, or thermal mass meter sourcing.
+                </p>
+                <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
+                  Open printable checklist <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </span>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       <section className="py-16">
         <div className="container-max">
           {products.map((product, idx) => (
