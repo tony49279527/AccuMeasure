@@ -90,7 +90,6 @@ export default function AboutPage() {
     <div>
       <section className="pt-24 pb-16 bg-bg-light">
         <div className="container-max">
-          <Breadcrumbs items={[{ name: "About", href: "/about" }]} />
           <Breadcrumbs items={[{ name: "About Us", href: "/about" }]} />
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
             <div className="max-w-3xl">
