@@ -10,7 +10,7 @@ export const siteConfig = {
   phoneDisplay: "+86-183-0928-5711",
   address: "High-Tech Zone, Xi'an, Shaanxi, China",
   description:
-    "Level, flow, and pressure instruments with application review, model confirmation, controlled document requests, and OEM project support.",
+    "China manufacturer and supplier of level sensors, flow meters, and pressure transmitters. OEM/ODM project support with application review and document confirmation.",
   social: {
     // Only keep profiles we own. Wrong LinkedIn/YouTube sameAs links poison
     // entity trust (the previous LinkedIn URL pointed at an unrelated US firm).

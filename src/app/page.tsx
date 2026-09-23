@@ -15,14 +15,14 @@ import {
 import { siteConfig, waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Industrial Level, Flow & Pressure Instruments | AccuMeasure",
+  title: "Level, Flow & Pressure Instrument Manufacturer | AccuMeasure",
   description: siteConfig.description,
   alternates: {
     canonical: "/",
   },
   openGraph: {
     url: "/",
-    title: "Industrial Level, Flow & Pressure Instruments | AccuMeasure",
+    title: "Level, Flow & Pressure Instrument Manufacturer | AccuMeasure",
     description: siteConfig.description,
     images: [
       {

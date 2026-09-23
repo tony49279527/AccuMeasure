@@ -7,7 +7,7 @@ import { PrintChecklistButton } from "@/components/print-checklist-button";
 export const metadata: Metadata = {
   title: "OEM Pressure Instrument Qualification Sheet | AccuMeasure",
   description:
-    "Use this printable OEM pressure instrument qualification sheet to define pressure, process, interface, branding, documentation, sample, and production requirements.",
+    "Printable OEM pressure instrument qualification sheet: define pressure, process, interface, branding, documentation, sample, and production requirements.",
   alternates: { canonical: "/resources/oem-pressure-instrument-qualification-sheet" },
   openGraph: {
     url: "/resources/oem-pressure-instrument-qualification-sheet",

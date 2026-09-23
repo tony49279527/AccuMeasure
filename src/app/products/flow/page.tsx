@@ -4,7 +4,7 @@ import { CategoryPage, generateCategoryMetadata, type CategoryPageData } from ".
 const data: CategoryPageData = {
   slug: "flow",
   label: "Flow Meters",
-  title: "Industrial Flow Meters: Electromagnetic, Ultrasonic & Thermal Mass",
+  title: "Electromagnetic & Ultrasonic Flow Meters | AccuMeasure",
   description:
     "Compare electromagnetic, clamp-on ultrasonic, and thermal mass flow meters by medium, conductivity, pipe access, installation, outputs, and document requirements.",
   h1: "Flow Meters for Liquids & Gases",

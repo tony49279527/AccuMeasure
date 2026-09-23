@@ -15,7 +15,8 @@ import { InquiryForm } from "@/components/forms/inquiry-form";
 import { JsonLd } from "@/components/json-ld";
 import { products, getProductById, getProductBySlug } from "@/lib/products";
 import { getCaseStudiesByProductId } from "@/lib/case-studies";
-import { productJsonLd } from "@/lib/seo";
+import { productJsonLd, faqPageJsonLd } from "@/lib/seo";
+import { productFaqs } from "@/lib/product-faqs";
 import { waLinkFor } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { DocumentRequestLink } from "@/components/document-request-link";
@@ -103,7 +104,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url: `/products/${product.slug}`,
       title: `${product.model} ${product.name}`,
       description: "Review published specifications and confirm the project configuration in the current document package.",
-      type: "website",
+      type: "website", // Next.js metadata typing only allows website/article/...; "product" is not assignable.
       images: [{ url: product.image, width: 1200, height: 630, alt: `${product.model} ${product.name}` }],
     },
   };
@@ -118,6 +119,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     .map((id) => getProductById(id))
     .filter((candidate): candidate is NonNullable<typeof candidate> => Boolean(candidate));
   const planningBriefs = getCaseStudiesByProductId(product.id);
+  const faqs = productFaqs[product.model] ?? [];
   const categoryLabel =
     product.category === "level"
       ? "Level Sensors"
@@ -141,7 +143,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
   return (
     <div>
-      <JsonLd data={productJsonLd(product)} />
+      <JsonLd data={[productJsonLd(product), faqPageJsonLd(faqs)]} />
 
       <section className="pt-24 pb-12 bg-bg-light">
         <div className="container-max">
@@ -363,6 +365,25 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                     Open planning brief <ArrowRight className="w-4 h-4" />
                   </span>
                 </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {faqs.length > 0 && (
+        <section className="py-16">
+          <div className="container-max max-w-4xl">
+            <h2 className="text-2xl font-bold text-dark mb-3 text-center">Frequently Asked Questions</h2>
+            <p className="text-muted text-center mb-8">
+              Answers use the published specifications. Confirm the configuration and current documents for the project before ordering.
+            </p>
+            <div className="space-y-4">
+              {faqs.map((faq) => (
+                <div key={faq.question} className="bg-white rounded-xl border border-border p-6">
+                  <h3 className="font-semibold text-dark mb-2">{faq.question}</h3>
+                  <p className="text-muted text-sm leading-6">{faq.answer}</p>
+                </div>
               ))}
             </div>
           </div>

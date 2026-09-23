@@ -15,7 +15,7 @@ import { waLink } from "@/lib/site";
 export const metadata: Metadata = {
   title: "OEM / ODM Instrument Customization | AccuMeasure",
   description:
-    "Request an engineering review for OEM branding, ODM design, or non-standard level, flow, and pressure instruments. Scope, MOQ, and schedule are confirmed per project.",
+    "Engineering review for OEM branding, ODM design, or non-standard level, flow, and pressure instruments. Scope, MOQ, and schedule confirmed per project.",
   alternates: { canonical: "/customization" },
   openGraph: {
     url: "/customization",

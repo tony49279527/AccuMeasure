@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PrintChecklistButton } from "@/components/print-checklist-button";
 
 export const metadata: Metadata = {
-  title: "Industrial Instrument Supplier Evaluation Sheet | AccuMeasure",
+  title: "Industrial Instrument Supplier Evaluation | AccuMeasure",
   description:
     "Use this printable sheet to compare industrial instrument suppliers by identity, product fit, evidence, quality, supply readiness, and verification.",
   alternates: { canonical: "/resources/instrument-supplier-evaluation-sheet" },

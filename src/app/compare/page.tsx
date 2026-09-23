@@ -7,13 +7,13 @@ import { comparisonPages, getComparisonProducts } from "@/lib/comparisons";
 export const metadata: Metadata = {
   title: "Industrial Sensor Comparison Guides | AccuMeasure",
   description:
-    "Compare level sensors and flow meters by medium, range, installation, and required documentation. Verify current specifications and project terms before ordering.",
+    "Compare level sensors and flow meters by medium, range, installation, and documentation. Verify current specifications and project terms before ordering.",
   alternates: { canonical: "/compare" },
   openGraph: {
     url: "/compare",
     title: "Industrial Sensor Comparison Guides | AccuMeasure",
     description:
-      "Compare level sensors and flow meters by medium, range, installation, and required documentation. Verify current specifications and project terms before ordering.",
+      "Compare level sensors and flow meters by medium, range, installation, and documentation. Verify current specifications and project terms before ordering.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure Comparison Guides" }],
   },
 };

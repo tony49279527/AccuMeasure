@@ -7,7 +7,7 @@ import { PrintChecklistButton } from "@/components/print-checklist-button";
 export const metadata: Metadata = {
   title: "Flow Meter RFQ Checklist for Industrial Buyers | AccuMeasure",
   description:
-    "Use this printable flow meter RFQ checklist to collect fluid, pipe, installation, signal, validation, quantity, and delivery requirements before comparing suppliers.",
+    "Printable flow meter RFQ checklist: collect fluid, pipe, installation, signal, validation, quantity, and delivery requirements before comparing suppliers.",
   alternates: { canonical: "/resources/flow-meter-rfq-checklist" },
   openGraph: {
     url: "/resources/flow-meter-rfq-checklist",
