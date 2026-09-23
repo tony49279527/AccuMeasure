@@ -86,6 +86,13 @@ function formatDate(date: string) {
   }).format(new Date(`${date}T00:00:00Z`));
 }
 
+function slugifyHeading(heading: string) {
+  return heading
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
@@ -146,9 +153,35 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div className="container-max">
           <div className="grid lg:grid-cols-[minmax(0,1fr)_320px] gap-12 items-start">
             <article className="max-w-3xl">
+              <nav
+                aria-label="Table of contents"
+                className="bg-bg-light rounded-xl p-6 mb-12"
+              >
+                <h2 className="font-semibold text-dark mb-4">In this guide</h2>
+                <ol className="space-y-2 text-sm">
+                  {post.sections.map((section, index) => (
+                    <li key={section.heading}>
+                      <a
+                        href={`#${slugifyHeading(section.heading)}`}
+                        className="text-muted hover:text-primary transition-colors"
+                      >
+                        <span className="text-primary font-medium mr-2">
+                          {index + 1}.
+                        </span>
+                        {section.heading}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+
               <div className="space-y-12">
                 {post.sections.map((section) => (
-                  <section key={section.heading}>
+                  <section
+                    key={section.heading}
+                    id={slugifyHeading(section.heading)}
+                    className="scroll-mt-28"
+                  >
                     <h2 className="text-2xl font-bold text-dark mb-4">
                       {section.heading}
                     </h2>

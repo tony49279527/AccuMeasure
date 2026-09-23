@@ -1,1 +1,21 @@
 run_id,observed_at_utc,engine,engine_mode,locale,query_id,variant_id,brand_mentioned,citation_present,cited_url,citation_position,answer_accuracy_1_to_5,sentiment,competitors,reviewer,notes
+ds-2026-09-23-run1,2026-09-23T15:13:55Z,deepseek,deepseek-chat (no web browsing),en-US,AM-B-001,v1,true,false,,,,,,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:14:01Z,deepseek,deepseek-chat (no web browsing),en-US,AM-B-002,v1,true,false,,,,,emerson; endress+hauser; honeywell; ifm; krohne; siemens; vega,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:14:06Z,deepseek,deepseek-chat (no web browsing),en-US,AM-B-005,v1,true,false,,,,,,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:14:17Z,deepseek,deepseek-chat (no web browsing),en-US,AM-D-001,v1,false,false,,,,,abb; e+h; emerson; endress+hauser; honeywell; siemens; vega,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:14:27Z,deepseek,deepseek-chat (no web browsing),en-US,AM-D-003,v1,false,false,,,,,abb; emerson; endress+hauser; krohne; siemens; yokogawa,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:14:34Z,deepseek,deepseek-chat (no web browsing),en-US,AM-D-005,v1,false,false,,,,,emerson; endress+hauser; honeywell; ifm; siemens; wika; yokogawa,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:14:41Z,deepseek,deepseek-chat (no web browsing),en-US,AM-C-001,v1,false,false,,,,,,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:14:50Z,deepseek,deepseek-chat (no web browsing),en-GB,AM-C-004,v1,false,false,,,,,,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:14:57Z,deepseek,deepseek-chat (no web browsing),en-US,AM-P-001,v1,false,false,,,,,ifm; omega; sick,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:15:04Z,deepseek,deepseek-chat (no web browsing),en-US,AM-P-002,v1,false,false,,,,,,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:15:12Z,deepseek,deepseek-chat (no web browsing),en-US,AM-P-005,v1,false,false,,,,,e+h,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:15:21Z,deepseek,deepseek-chat (no web browsing),en-US,AM-A-001,v1,false,false,,,,,emerson; endress+hauser; honeywell; krohne; vega,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:15:30Z,deepseek,deepseek-chat (no web browsing),en-US,AM-A-002,v1,false,false,,,,,emerson; endress+hauser; siemens; vega,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:15:39Z,deepseek,deepseek-chat (no web browsing),en-US,AM-CO-002,v1,false,false,,,,,abb; emerson; endress+hauser; honeywell; krohne; siemens; vega,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:15:47Z,deepseek,deepseek-chat (no web browsing),en-US,AM-CO-004,v1,false,false,,,,,,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:15:51Z,deepseek,deepseek-chat (no web browsing),en-US,AM-F-002,v1,true,false,,,,,,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:15:56Z,deepseek,deepseek-chat (no web browsing),en-US,AM-F-004,v1,true,false,,,,,,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:16:02Z,deepseek,deepseek-chat (no web browsing),en-US,AM-L-002,v1,false,false,,,,,,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:16:11Z,deepseek,deepseek-chat (no web browsing),en-AE,AM-R-004,v1,false,false,,,,,abb; emerson; endress+hauser; honeywell; krohne; siemens; vega,muse-agent,auto-detect; urls_found=0
+ds-2026-09-23-run1,2026-09-23T15:16:19Z,deepseek,deepseek-chat (no web browsing),en-US,AM-P-008,v1,false,false,,,,,,muse-agent,auto-detect; urls_found=0

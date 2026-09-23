@@ -22,6 +22,7 @@ AccuMeasure is an industrial measurement supplier for level sensors, flow meters
 - Start with the level category for tank, silo, vapor, dust, foam, and installation requirements.
 - Start with the flow category for conductivity, pipe size, fluid phase, installation method, and signal requirements.
 - Start with the pressure category for range, overload, output, process connection, and OEM integration requirements.
+- Each product page includes a buyer FAQ section (performance, application, protection/materials, ordering conditions) grounded in the published specifications.
 - Ask engineering to confirm the exact model, configuration, certificate scope, controlled document revision, lead time, MOQ, and commercial terms before ordering.
 
 ## Key pages
