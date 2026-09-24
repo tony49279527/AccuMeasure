@@ -14,7 +14,8 @@ export const siteConfig = {
   social: {
     // Only keep profiles we own. Wrong LinkedIn/YouTube sameAs links poison
     // entity trust (the previous LinkedIn URL pointed at an unrelated US firm).
-    alibaba: "https://accumeasure.en.alibaba.com",
+    // Alibaba link removed 2026-09-24: ownership of accumeasure.en.alibaba.com
+    // is unverified — restore only after ownership is confirmed.
   } as { linkedin?: string; youtube?: string; alibaba?: string },
 };
 

@@ -359,8 +359,8 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Understand the commercial terms that protect you",
         body: [
-          "Standard terms from established instrument factories: T/T with 30% deposit and 70% before shipment, or an L/C at sight for larger orders. Alibaba Trade Assurance adds a layer of dispute protection for platform orders. Typical MOQ for economical level sensors is 50 units; radar transmitters often quote MOQ 10 or lower because of higher unit value.",
-          "Lead time of 15-20 days for standard models is normal. Quotes promising 3-5 day production for configured instruments usually mean stock of unknown age or specification.",
+          "Standard terms from established instrument factories: T/T with 30% deposit and 70% before shipment, or an L/C at sight for larger orders. Alibaba Trade Assurance adds a layer of dispute protection for platform orders. MOQ varies widely by instrument type and supplier — confirm the exact MOQ and sample policy in your project quotation rather than relying on generic figures.",
+          "Lead time depends on configuration, order size, and production scheduling. Quotes promising 3-5 day production for configured instruments usually mean stock of unknown age or specification — always confirm the production schedule in writing before committing.",
         ],
         bullets: [
           "Payment: 30/70 T/T, L/C at sight, or platform trade assurance.",
@@ -380,7 +380,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is a typical MOQ for level sensors from a China factory?",
         answer:
-          "Economical capacitive and ultrasonic level sensors commonly have an MOQ of 50 units for bulk pricing. Higher-value instruments such as 80GHz radar transmitters are often available at MOQ 5-10, and most factories sell 1-2 samples at unit price before a bulk order.",
+          "MOQ thresholds differ significantly between economical sensors and high-value instruments such as 80GHz radar transmitters, and they vary by supplier. Ask for the MOQ and sample policy in your project quotation, and test samples against your actual process conditions before committing to a bulk order.",
       },
       {
         question: "How do I verify a Chinese supplier's ISO 9001 certificate?",

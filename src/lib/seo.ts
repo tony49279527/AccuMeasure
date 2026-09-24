@@ -1,6 +1,6 @@
 import { siteConfig } from "./site";
 import { getProductById } from "./products";
-import type { Product, CaseStudy } from "./types";
+import type { CaseStudy } from "./types";
 import type { BlogPost } from "./blog";
 
 export function organizationJsonLd() {
@@ -34,11 +34,9 @@ export function organizationJsonLd() {
       availableLanguage: ["English", "Chinese"],
     },
     description: siteConfig.description,
-    sameAs: [
-      siteConfig.social.linkedin,
-      siteConfig.social.youtube,
-      siteConfig.social.alibaba,
-    ].filter((url): url is string => Boolean(url)),
+    sameAs: [siteConfig.social.linkedin, siteConfig.social.youtube].filter(
+      (url): url is string => Boolean(url),
+    ),
   };
 }
 
@@ -54,40 +52,6 @@ export function websiteJsonLd() {
     alternateName: siteConfig.shortName,
     url: siteConfig.url,
     publisher: { "@id": `${siteConfig.url}/#organization` },
-  };
-}
-
-const categoryLabels: Record<Product["category"], string> = {
-  level: "Level Sensors",
-  flow: "Flow Meters",
-  pressure: "Pressure Sensors",
-};
-
-export function productJsonLd(product: Product) {
-  const productUrl = `${siteConfig.url}/products/${product.slug}`;
-  return {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "@id": `${productUrl}#product`,
-    name: product.name,
-    sku: product.model,
-    mpn: product.model,
-    description: product.description,
-    image: [`${siteConfig.url}${product.image}`],
-    url: productUrl,
-    brand: { "@type": "Brand", name: "AccuMeasure" },
-    category: categoryLabels[product.category],
-    additionalProperty: product.keySpecs.map((spec) => ({
-      "@type": "PropertyValue",
-      name: spec.label,
-      value: spec.value,
-    })),
-    subjectOf: product.applications.map((application) => ({
-      "@type": "Thing",
-      name: application.name,
-      description: application.description,
-    })),
-    mainEntityOfPage: { "@type": "WebPage", "@id": productUrl },
   };
 }
 
