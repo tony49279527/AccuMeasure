@@ -5,9 +5,9 @@ import { ProductsExplorer } from "@/components/products-explorer";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Industrial Sensors & Flow Meters | AccuMeasure",
+  title: "Level, Flow & Pressure Instruments Manufacturer | AccuMeasure",
   description:
-    "Compare level sensors, flow meters, and pressure instruments by application and published selection data. Request current specifications and project terms.",
+    "AccuMeasure manufactures level sensors, flow meters, and pressure instruments for industrial projects. Browse the range and request project pricing.",
   alternates: { canonical: "/products" },
   openGraph: {
     url: "/products",

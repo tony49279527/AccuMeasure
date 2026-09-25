@@ -4,8 +4,8 @@ import { CategoryPage, generateCategoryMetadata, type CategoryPageData } from ".
 const data: CategoryPageData = {
   slug: "pressure",
   label: "Pressure Sensors",
-  title: "Industrial Pressure Instruments | AccuMeasure",
-  description: "Compare pressure transmitters and digital gauges by pressure type, range, connection, output, environment, display, and documentation requirements.",
+  title: "Industrial Pressure Gauges & Transmitters | AccuMeasure",
+  description: "Industrial pressure gauges and transmitters for process measurement. Compare range, connection, output, and options; ODM and project pricing on request.",
   h1: "Pressure Instruments for Industrial Applications",
   lead: "Review transmitter and digital-gauge paths for process control, local indication, hydraulic equipment, and OEM integration. Confirm current performance, environmental limits, and document scope for the selected configuration.",
   overview: "Start with pressure type, normal and surge range, wetted materials, process connection, signal or display, power, enclosure, and area classification. Published model data is a selection aid; the controlled datasheet, certificate scope, test documents, warranty, and commercial terms must be confirmed for each RFQ.",
