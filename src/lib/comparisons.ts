@@ -28,9 +28,9 @@ export interface ComparisonPage {
 export const comparisonPages: ComparisonPage[] = [
   {
     slug: "capacitive-vs-ultrasonic-level-sensor",
-    title: "Capacitive vs Ultrasonic Level Sensor | Buyer Guide",
+    title: "Capacitive vs Ultrasonic Level Sensor | AccuMeasure",
     description:
-      "Compare capacitive and ultrasonic level sensors by medium, range, installation, and required documentation. Request current specifications and terms.",
+      "Capacitive vs ultrasonic level sensors compared: contact probe vs non-contact, medium fit, range, and installation. See the buyer checklist.",
     h1: "Capacitive vs Ultrasonic Level Sensor: B2B Comparison",
     directAnswer:
       "Start with capacitive sensing when a compatible contact probe fits the vessel and medium. Start with ultrasonic for non-contact liquid measurement, then confirm range and process limits in the current datasheet.",

@@ -13,13 +13,13 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "OEM / ODM Instrument Customization | AccuMeasure",
+  title: "OEM/ODM Custom Flow Meters & Level Sensors | AccuMeasure",
   description:
     "Engineering review for OEM branding, ODM design, or non-standard level, flow, and pressure instruments. Scope, MOQ, and schedule confirmed per project.",
   alternates: { canonical: "/customization" },
   openGraph: {
     url: "/customization",
-    title: "OEM / ODM Instrument Customization | AccuMeasure",
+    title: "OEM/ODM Custom Flow Meters & Level Sensors | AccuMeasure",
     description:
       "Send application and interface requirements for a project-specific feasibility, documentation, MOQ, and schedule review.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure custom project review" }],

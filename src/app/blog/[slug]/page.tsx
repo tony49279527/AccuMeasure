@@ -16,7 +16,7 @@ const blogSeo: Record<string, { title: string; description: string }> = {
       "Water tank and silo checklist: real measuring range, beam angle, tank geometry, 4-20mA/HART/RS485, ATEX, and the RFQ details a factory needs before quoting.",
   },
   "80ghz-vs-26ghz-radar-level-sensor": {
-    title: "80GHz vs 26GHz Radar Level Sensors: Buyer Comparison",
+    title: "80GHz vs 26GHz Radar Level Sensor: Which to Buy? | AccuMeasure",
     description:
       "Beam angle, accuracy, dust tolerance, silo performance, installation space, and total project cost. See when 80GHz is worth it and when 26GHz is enough.",
   },

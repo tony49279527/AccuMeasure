@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/json-ld";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Industrial Measurement Solutions by Industry | AccuMeasure",
+  title: "Process Measurement Instruments by Industry | AccuMeasure",
   description:
     "Find level, flow, and pressure instruments for water, oil and gas, chemicals, food, pharmaceutical, and manufacturing applications. Request model advice.",
   alternates: { canonical: "/industries" },
