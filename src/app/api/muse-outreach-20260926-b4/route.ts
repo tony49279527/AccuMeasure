@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
 
 const SECRET = "d312ebaf1ce3673ddb6a6ed62158eb3ae4948a3a1eb2370f";
 const FROM = "AccuMeasure <sales@accumeasuretech.com>";
@@ -12,15 +11,18 @@ export async function POST(req: NextRequest) {
   if (!to || !subject || !text) {
     return NextResponse.json({ error: "missing fields" }, { status: 400 });
   }
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  const { data, error } = await resend.emails.send({
-    from: FROM,
-    to: [to],
-    subject,
-    text,
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ from: FROM, to: [to], subject, text }),
   });
-  if (error) {
-    return NextResponse.json({ error: String(error) }, { status: 502 });
+  if (!res.ok) {
+    const err = await res.text().catch(() => "send failed");
+    return NextResponse.json({ error: err }, { status: 502 });
   }
-  return NextResponse.json({ id: data?.id });
+  const data = await res.json();
+  return NextResponse.json({ id: data.id });
 }
