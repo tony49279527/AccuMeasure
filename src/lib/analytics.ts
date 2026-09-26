@@ -26,8 +26,15 @@ export function trackEvent(eventName: string, params: Record<string, unknown> = 
 
   if (typeof window.gtag === "function") {
     window.gtag("event", eventName, params);
-  } else if (process.env.NODE_ENV === "development") {
-    console.log(`[Analytics Dev Log] ${eventName}:`, params);
+  } else {
+    // gtag not ready yet (script still loading): queue in gtag command format
+    // so the event is flushed once gtag.js initializes. Harmless if GA was
+    // never configured (no NEXT_PUBLIC_GA_ID) — just an in-memory array push.
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(["event", eventName, params]);
+    if (process.env.NODE_ENV === "development") {
+      console.log(`[Analytics Dev Log] queued ${eventName}:`, params);
+    }
   }
 }
 

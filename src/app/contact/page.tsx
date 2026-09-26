@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { MapPin, Users, Globe, Mail, MessageSquare, ExternalLink, ClipboardList } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ContactInquiry } from "@/components/forms/contact-inquiry";
+import { TrackedContactLink } from "@/components/tracked-contact-link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { faqPageJsonLd } from "@/lib/seo";
@@ -155,9 +156,14 @@ export default function ContactPage() {
                     <Mail className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <div className="font-medium text-dark">Email</div>
-                      <a href={`mailto:${siteConfig.email}`} className="text-muted text-sm hover:text-primary">
+                      <TrackedContactLink
+                        href={`mailto:${siteConfig.email}`}
+                        channel="email"
+                        label="contact_page_main_email"
+                        className="text-muted text-sm hover:text-primary"
+                      >
                         {siteConfig.email}
-                      </a>
+                      </TrackedContactLink>
                     </div>
                   </div>
 
@@ -171,22 +177,26 @@ export default function ContactPage() {
                         <div key={idx} className="bg-bg-light p-4 rounded-lg">
                           <div className="font-medium text-dark">{contact.name}</div>
                           <div className="text-muted text-sm mb-2">{contact.role}</div>
-                          <a
+                          <TrackedContactLink
                             href={`mailto:${contact.email}?subject=${encodeURIComponent(contact.subject)}`}
+                            channel="email"
+                            label="contact_page_sales_email"
                             className="min-h-6 text-sm text-primary hover:underline flex items-center gap-2"
                           >
                             <Mail className="w-4 h-4" />
                             {contact.email}
-                          </a>
-                          <a
+                          </TrackedContactLink>
+                          <TrackedContactLink
                             href={waLink}
+                            channel="whatsapp"
+                            label="contact_page_sales_whatsapp"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="min-h-6 text-sm text-success hover:underline flex items-center gap-2"
                           >
                             <MessageSquare className="w-4 h-4" />
                             {contact.wa}
-                          </a>
+                          </TrackedContactLink>
                         </div>
                       ))}
                     </div>
