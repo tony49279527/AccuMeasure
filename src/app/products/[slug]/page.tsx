@@ -82,6 +82,82 @@ const categoryGuides: Record<Product["category"], { title: string; description: 
   ],
 };
 
+// Contextual in-body planning links (P1 internal linking). Each category gets
+// 3-5 natural links woven into a sentence: the category page, the technology
+// comparison (where one exists), the matching RFQ tool under /resources, and an
+// application scenario. Internal links never carry tracking parameters.
+const linkClassName = "text-primary font-medium hover:underline";
+
+function PlanningLinks({ category }: { category: Product["category"] }) {
+  if (category === "level") {
+    return (
+      <p className="text-muted leading-7 mt-4">
+        Before requesting a quote, browse the full{" "}
+        <Link href="/products/level" className={linkClassName}>
+          level sensor range
+        </Link>
+        , read the{" "}
+        <Link href="/compare/capacitive-vs-ultrasonic-level-sensor" className={linkClassName}>
+          capacitive vs ultrasonic level sensor comparison
+        </Link>
+        , prepare your inputs with the{" "}
+        <Link href="/resources/level-sensor-rfq-template" className={linkClassName}>
+          level sensor RFQ template
+        </Link>
+        , and review{" "}
+        <Link href="/applications/radar-level-sensor-for-oil-tank" className={linkClassName}>
+          oil tank level measurement planning
+        </Link>{" "}
+        for installation context.
+      </p>
+    );
+  }
+  if (category === "flow") {
+    return (
+      <p className="text-muted leading-7 mt-4">
+        Before requesting a quote, browse the full{" "}
+        <Link href="/products/flow" className={linkClassName}>
+          flow meter range
+        </Link>
+        , read the{" "}
+        <Link href="/compare/electromagnetic-vs-ultrasonic-flow-meter" className={linkClassName}>
+          electromagnetic vs ultrasonic flow meter comparison
+        </Link>
+        , prepare your inputs with the{" "}
+        <Link href="/resources/flow-meter-rfq-checklist" className={linkClassName}>
+          flow meter RFQ checklist
+        </Link>
+        , and review{" "}
+        <Link href="/applications/electromagnetic-flow-meter-for-water-treatment" className={linkClassName}>
+          water treatment flow measurement
+        </Link>{" "}
+        for installation context.
+      </p>
+    );
+  }
+  return (
+    <p className="text-muted leading-7 mt-4">
+      Before requesting a quote, browse the full{" "}
+      <Link href="/products/pressure" className={linkClassName}>
+        pressure instrument range
+      </Link>
+      , prepare your inputs with the{" "}
+      <Link href="/resources/oem-pressure-instrument-qualification-sheet" className={linkClassName}>
+        OEM pressure instrument qualification sheet
+      </Link>
+      , screen suppliers with the{" "}
+      <Link href="/resources/instrument-supplier-evaluation-sheet" className={linkClassName}>
+        instrument supplier evaluation sheet
+      </Link>
+      , and review{" "}
+      <Link href="/applications/pressure-transmitter-for-oem-equipment" className={linkClassName}>
+        pressure transmitters for OEM equipment
+      </Link>{" "}
+      for application context.
+    </p>
+  );
+}
+
 export function generateStaticParams() {
   return products
     .filter((product) => !reservedSlugs.includes(product.slug))
@@ -271,6 +347,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <p className="text-muted">
               These product points help structure an evaluation. Verify the selected configuration against current, model-specific documentation before release.
             </p>
+            <PlanningLinks category={product.category} />
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {product.advantages.map((advantage) => (

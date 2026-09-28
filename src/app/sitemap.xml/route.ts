@@ -43,11 +43,14 @@ function renderEntry(entry: SitemapEntry): string {
 
 export function GET() {
   // Update these dates ONLY when the corresponding content actually changes.
+  // "Content" includes substantive title/meta changes, not just body copy:
+  // the 2026-09-25 title refresh initially missed its lastmod update, so any
+  // future title/description rewrite on a listed page must bump its date too.
   // Never refresh them mechanically (e.g. to the build date): a false lastmod
   // teaches crawlers to ignore the signal.
   const staticContentLastModified = "2026-09-23T00:00:00.000Z";
   const utilityContentLastModified = "2026-09-23T00:00:00.000Z";
-  const productCatalogLastModified = "2026-09-23T00:00:00.000Z";
+  const productCatalogLastModified = "2026-09-28T00:00:00.000Z";
   const applicationsIndexLastModified = "2026-09-08T00:00:00.000Z";
 
   const staticPages: SitemapEntry[] = [

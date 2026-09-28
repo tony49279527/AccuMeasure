@@ -93,6 +93,28 @@ function slugifyHeading(heading: string) {
     .replace(/^-+|-+$/g, "");
 }
 
+// Minimal inline-link support for guide body copy: [anchor text](/internal/path)
+// renders as an internal Link (no tracking parameters on internal links).
+// Only section body paragraphs use this markup; metadata/intro strings stay plain.
+function renderBodyText(text: string, key: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)\s]+\))/g);
+  return parts.map((part, index) => {
+    const match = /^\[([^\]]+)\]\(([^)\s]+)\)$/.exec(part);
+    if (match && match[1] && match[2]) {
+      return (
+        <Link
+          key={`${key}-link-${index}`}
+          href={match[2]}
+          className="text-primary font-medium hover:underline"
+        >
+          {match[1]}
+        </Link>
+      );
+    }
+    return <span key={`${key}-text-${index}`}>{part}</span>;
+  });
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
@@ -186,8 +208,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                       {section.heading}
                     </h2>
                     <div className="space-y-4 text-muted leading-7">
-                      {section.body.map((paragraph) => (
-                        <p key={paragraph}>{paragraph}</p>
+                      {section.body.map((paragraph, paragraphIndex) => (
+                        <p key={paragraph}>
+                          {renderBodyText(paragraph, `${section.heading}-${paragraphIndex}`)}
+                        </p>
                       ))}
                     </div>
                     {section.bullets && (
@@ -242,6 +266,28 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   ))}
                 </div>
               </section>
+
+              {relatedProducts[0] && (
+                <section className="mt-14 rounded-2xl bg-primary p-8 text-white">
+                  <h2 className="text-2xl font-bold mb-3">Validate the model for your project</h2>
+                  <p className="text-white/80 mb-6">
+                    Review the {relatedProducts[0].model} specifications against your application
+                    inputs, or send the project details for an engineer review and current
+                    model-specific documentation.
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    <Link
+                      href={`/products/${relatedProducts[0].slug}`}
+                      className="btn-outline-white"
+                    >
+                      Review {relatedProducts[0].model} <ArrowRight className="w-4 h-4" />
+                    </Link>
+                    <Link href="/contact" className="btn-outline-white">
+                      Ask an Engineer <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </section>
+              )}
             </article>
 
             <aside className="space-y-6 lg:sticky lg:top-24">

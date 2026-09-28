@@ -139,7 +139,7 @@ export const blogPosts: BlogPost[] = [
       "Compare 80GHz and 26GHz radar level transmitters by beam angle, accuracy, dust tolerance, installation constraints, and total project cost.",
     category: "Level Measurement",
     datePublished: "2026-07-04",
-    dateModified: "2026-07-04",
+    dateModified: "2026-09-28",
     readTime: "7 min read",
     keywords: [
       "80GHz radar level sensor",
@@ -154,7 +154,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Beam angle is the most visible difference",
         body: [
-          "80GHz radar typically has a narrower beam angle, which makes it easier to aim at the product surface and avoid tank walls or internal structures. This is valuable in narrow tanks, tall silos, and installations with agitators or ladders.",
+          "[80GHz radar](/products/am-rl80-80ghz-radar-level-transmitter) typically has a narrower beam angle, which makes it easier to aim at the product surface and avoid tank walls or internal structures. This is valuable in narrow tanks, tall silos, and installations with agitators or ladders.",
           "26GHz radar can still work well in open vessels, simple storage tanks, and applications where the mounting position is clean and unobstructed. The issue is not whether 26GHz works; the issue is how much installation margin the site gives you.",
         ],
       },
@@ -168,7 +168,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Dust, vapor, and buildup",
         body: [
-          "Powder silos and dusty filling operations are common reasons to choose 80GHz. The stronger focusing makes false echoes easier to manage. Vapor and condensation still need careful antenna and installation design, especially in chemical tanks.",
+          "Powder silos and dusty filling operations are common reasons to choose 80GHz (see the [radar level sensor buyer guide](/blog/how-to-choose-radar-level-sensor) for the full selection checklist). The stronger focusing makes false echoes easier to manage. Vapor and condensation still need careful antenna and installation design, especially in chemical tanks.",
           "No radar sensor is immune to bad installation. Avoid mounting directly above inlet flow, near ladders, or too close to tank walls unless the supplier has reviewed the drawing.",
         ],
       },
@@ -176,7 +176,7 @@ export const blogPosts: BlogPost[] = [
         heading: "The real cost is not only the sensor price",
         body: [
           "A cheaper transmitter can become expensive if it requires repeated site visits, false echo tuning, or replacement after commissioning. For export projects, the cost of troubleshooting across time zones can exceed the price difference between 26GHz and 80GHz.",
-          "For new projects with unknown site conditions, 80GHz often reduces risk. For simple, repeat installations with clean geometry, 26GHz or ultrasonic may still be the better budget choice.",
+          "For new projects with unknown site conditions, 80GHz often reduces risk. For simple, repeat installations with clean geometry, 26GHz or [ultrasonic](/products/am-ul20-ultrasonic-level-sensor) may still be the better budget choice.",
         ],
       },
     ],
@@ -217,7 +217,7 @@ export const blogPosts: BlogPost[] = [
       "A water-treatment implementation guide comparing electromagnetic and ultrasonic flow meters by conductivity, pipe condition, field checks, and installation constraints.",
     category: "Flow Measurement",
     datePublished: "2026-07-04",
-    dateModified: "2026-09-08",
+    dateModified: "2026-09-28",
     readTime: "9 min read",
     keywords: [
       "electromagnetic flow meter",
@@ -228,12 +228,12 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedProductIds: ["5", "6", "2"],
     intro:
-      "Water treatment projects often compare electromagnetic and ultrasonic flow meters because both can measure large pipes without moving parts. This guide focuses on pipe conditions, installation, and field checks; use the companion comparison page when you need a side-by-side procurement matrix and RFQ checklist.",
+      "Water treatment projects often compare electromagnetic and ultrasonic flow meters because both can measure large pipes without moving parts. This guide focuses on pipe conditions, installation, and field checks; use the [companion comparison page](/compare/electromagnetic-vs-ultrasonic-flow-meter) when you need a side-by-side procurement matrix and RFQ checklist.",
     sections: [
       {
         heading: "Use electromagnetic flow meters for conductive liquids",
         body: [
-          "Electromagnetic flow meters are the standard choice for conductive liquids such as raw water, wastewater, sludge, chemical dosing water, and many process liquids. They measure velocity using Faraday's law, so there are no moving parts and pressure loss is very low.",
+          "[Electromagnetic flow meters](/products/am-emf100-electromagnetic-flow-meter) are the standard choice for conductive liquids such as raw water, wastewater, sludge, chemical dosing water, and many process liquids. They measure velocity using Faraday's law, so there are no moving parts and pressure loss is very low.",
           "They are usually preferred when the project needs stable accuracy, permanent installation, and integration with PLC or SCADA through 4-20mA, pulse, RS485, or industrial Ethernet.",
         ],
         bullets: [
@@ -264,7 +264,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What to specify in an RFQ",
         body: [
-          "A good RFQ should include pipe size, pipe material, liner, fluid conductivity, temperature, pressure, flow range, required output signal, installation environment, and whether the pipe can be shut down.",
+          "A good [RFQ checklist](/resources/flow-meter-rfq-checklist) should include pipe size, pipe material, liner, fluid conductivity, temperature, pressure, flow range, required output signal, installation environment, and whether the pipe can be shut down.",
           "If you are buying from a China flow meter supplier, ask for a calibration certificate, wiring diagram, English manual, and packing suitable for export shipment.",
         ],
       },
