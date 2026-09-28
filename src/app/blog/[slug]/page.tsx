@@ -166,7 +166,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <h1 className="text-4xl lg:text-5xl font-bold text-dark tracking-tight mb-6">
               {post.title}
             </h1>
-            <p className="text-lg text-muted max-w-3xl">{post.intro}</p>
+            <p className="text-lg text-muted max-w-3xl">{renderBodyText(post.intro, "intro")}</p>
           </div>
         </div>
       </section>
