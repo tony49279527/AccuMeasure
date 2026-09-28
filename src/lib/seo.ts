@@ -2,6 +2,7 @@ import { siteConfig } from "./site";
 import { getProductById } from "./products";
 import type { CaseStudy } from "./types";
 import type { BlogPost } from "./blog";
+import type { Product } from "./types";
 
 export function organizationJsonLd() {
   return {
@@ -66,6 +67,32 @@ export function faqPageJsonLd(faqs: { question: string; answer: string }[]) {
         "@type": "Answer",
         text: f.answer,
       },
+    })),
+  };
+}
+
+// Product annotation for product detail pages. Deliberately no `offers`:
+// the site publishes "price from" figures without a stated currency, so
+// emitting priceCurrency would invent a fact. Schema here is annotation
+// (identity), not a rich-result claim.
+export function productJsonLd(product: Product, categoryLabel: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `${product.model} ${product.name}`,
+    description: product.tagline,
+    image: `${siteConfig.url}${product.image}`,
+    url: `${siteConfig.url}/products/${product.slug}`,
+    mpn: product.model,
+    brand: {
+      "@type": "Brand",
+      name: siteConfig.name,
+    },
+    category: categoryLabel,
+    additionalProperty: product.keySpecs.slice(0, 8).map((spec) => ({
+      "@type": "PropertyValue",
+      name: spec.label,
+      value: spec.value,
     })),
   };
 }

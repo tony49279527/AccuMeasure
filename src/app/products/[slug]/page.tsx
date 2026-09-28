@@ -15,7 +15,7 @@ import { InquiryForm } from "@/components/forms/inquiry-form";
 import { JsonLd } from "@/components/json-ld";
 import { products, getProductById, getProductBySlug } from "@/lib/products";
 import { getCaseStudiesByProductId } from "@/lib/case-studies";
-import { faqPageJsonLd } from "@/lib/seo";
+import { faqPageJsonLd, productJsonLd } from "@/lib/seo";
 import { productFaqs } from "@/lib/product-faqs";
 import { waLinkFor } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -219,7 +219,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
   return (
     <div>
-      <JsonLd data={[faqPageJsonLd(faqs)]} />
+      <JsonLd data={[faqPageJsonLd(faqs), productJsonLd(product, categoryLabel)]} />
 
       <section className="pt-24 pb-12 bg-bg-light">
         <div className="container-max">
