@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const SECRET = "nvl6q-B1c3K1AYpG8ES0kAOdNser2v2n-LzfYykL6xM";
+const SECRET = "HLEnqvAHAUO93dzFesx1fnreIyo2RkXMOd6wl-uEe7I";
 const FROM = "AccuMeasure <sales@accumeasuretech.com>";
 
 export async function POST(req: Request) {
