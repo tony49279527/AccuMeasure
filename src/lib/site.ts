@@ -16,6 +16,7 @@ export const siteConfig = {
     // entity trust (the previous LinkedIn URL pointed at an unrelated US firm).
     // Alibaba link removed 2026-09-24: ownership of accumeasure.en.alibaba.com
     // is unverified — restore only after ownership is confirmed.
+    linkedin: "https://www.linkedin.com/company/accumeasure-instruments",
   } as { linkedin?: string; youtube?: string; alibaba?: string },
 };
 
