@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Tag,
   PenTool,
@@ -249,6 +250,17 @@ export default function CustomizationPage() {
           <div className="bg-white rounded-xl p-8 border border-border">
             <CustomizationForm />
           </div>
+          <p className="text-muted text-sm text-center mt-6">
+            Preparing an OEM pressure instrument project?{" "}
+            <Link
+              href="/resources/oem-pressure-instrument-qualification-sheet"
+              className="text-primary font-medium hover:underline"
+            >
+              Use the OEM pressure instrument qualification sheet
+            </Link>{" "}
+            to define pressure, process, interface, branding, documents, and
+            validation before submitting.
+          </p>
           <div className="text-center mt-6">
             <p className="text-muted text-sm mb-2">Prefer to chat first?</p>
             <a
