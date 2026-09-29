@@ -423,8 +423,8 @@ export const blogPosts: BlogPost[] = [
       "How to specify an industrial pressure transmitter: choosing range with overpressure margin, accuracy class, output signal, process connection, wetted materials, and hazardous-area certification.",
     category: "Pressure Measurement",
     datePublished: "2026-07-05",
-    dateModified: "2026-07-05",
-    readTime: "8 min read",
+    dateModified: "2026-09-29",
+    readTime: "12 min read",
     keywords: [
       "pressure transmitter selection",
       "piezoresistive pressure transmitter",
@@ -436,6 +436,40 @@ export const blogPosts: BlogPost[] = [
     intro:
       "A pressure transmitter is one of the most frequently ordered industrial instruments, and also one of the most frequently mis-specified. Range chosen too tight fails on water hammer; accuracy specified too loose fails acceptance testing. This guide walks through the six decisions that define a correct specification.",
     sections: [
+      {
+        heading: "Follow this 5-step selection sequence",
+        body: [
+          "Work through these five decisions in order. If you are unsure at any step, stop and ask the supplier rather than skipping ahead on experience.",
+        ],
+        bullets: [
+          "1. Medium and pressure type — What are you measuring (water, air, hydraulic oil, corrosive media)? Do you need gauge, absolute, or sealed gauge pressure?",
+          "2. Range — Size so the normal operating point falls between 30% and 70% of full scale. For pump and hydraulic circuits, confirm overpressure protection of at least 2x full scale; do not rely on the nameplate range alone.",
+          "3. Signal and power — If the reading must reach a PLC or DCS, take the transmitter path (4-20mA 2-wire loop is the default; RS485 Modbus for multi-point runs). If you only need a local reading, consider the digital gauge path. Confirm whether your panel provides loop power (typically 12-36V DC).",
+          "4. Connection and wetted materials — Confirm the thread standard your fitting stock uses (G1/4, G1/2 for general industry; NPT for North American projects) before ordering. For corrosive media specify 316L wetted parts or a diaphragm seal; for viscous, crystallizing, or sanitary media use a flush diaphragm.",
+          "5. Environment and certification — For oil and gas, chemical, or dusty environments, send the area classification and required protection type to the supplier first, and ask for the current certificate: check holder, model scope, marking, issuer, and validity. Do not infer coverage from a category-page label.",
+        ],
+      },
+      {
+        heading: "Prepare these inputs before you request a quote",
+        body: [
+          "A buyer who fills in this checklist gets an accurate model confirmation in one round instead of three.",
+        ],
+        bullets: [
+          "Pressure type — gauge, absolute, or sealed gauge.",
+          "Normal operating pressure — keep the working point within 30-70% of the selected range.",
+          "Surge and water hammer — any pump starts or fast valve closures? Water hammer can spike to 3-5x operating pressure for milliseconds; require at least 2x full-scale overpressure protection.",
+          "Accuracy class — 0.5% FS covers general monitoring; 0.25% FS suits process control loops; 0.1% FS is for test benches and calibration references. Also check long-term stability (%FS/year) and compensated temperature range.",
+          "Output signal — 4-20mA 2-wire loop is the industrial default (wire-break detectable); RS485 for multi-point runs; 0-10V degrades over long cable runs.",
+          "Power — 12-36V DC typical; confirm whether the panel provides loop power.",
+          "Process connection — G1/4, G1/2, NPT, M20, flange, diaphragm seal, or sanitary; match your spare-parts stock before ordering.",
+          "Wetted materials — standard 304 for water, air, and hydraulic oil; 316L or diaphragm seal for corrosive media; flush diaphragm for viscous or crystallizing media.",
+          "Environment — outdoor (IP65 minimum, IP67 for hose-down), hazardous area (area classification plus protection type required), high vibration (send measured vibration data, not a generic description).",
+          "Certification documents — request the current certificate and verify holder, model scope, marking, issuer, and validity. Until the certificate scope is confirmed, do not accept hazardous-area coverage claims.",
+          "Accompanying documents — individual traceable calibration certificate, material certificates, manual; EPC handovers routinely require the full package.",
+          "Remote vs local reading — need a PLC signal? Take the AM-PT300 transmitter path. Need a local digital display, battery power, or private labeling? Take the AM-PG200 digital gauge path.",
+          "Model-specific parameters — check the published specifications on the AM-PT300 and AM-PG200 product pages; the exact datasheet for the quoted model is confirmed with the quotation.",
+        ],
+      },
       {
         heading: "Choose range with overpressure margin, not nameplate pressure",
         body: [
@@ -476,6 +510,32 @@ export const blogPosts: BlogPost[] = [
           "Every unit should ship with an individual calibration certificate traceable to reference standards — this is standard practice from ISO 9001 certified factories and required documentation for many EPC project handovers.",
         ],
       },
+      {
+        heading: "Six common selection mistakes",
+        body: [
+          "Most mis-specifications come from the same handful of oversights. None of them require a named customer to learn from.",
+        ],
+        bullets: [
+          "Sizing by nameplate range alone, ignoring overpressure — water hammer at 3-5x operating pressure is a millisecond event; without 2x overpressure protection, early failure in pump systems is the most common cause.",
+          "Buying 0.1% accuracy for a trend-monitoring point — 0.5% FS is enough; the extra money buys no usable information.",
+          "Running 0-10V over long cable distances — voltage signals attenuate with cable length; use a 4-20mA current loop or RS485 instead.",
+          "Mixing NPT and G threads on one order — North American projects default to NPT, general industry to G1/4 and G1/2; confirm your fitting stock before ordering 200 units, because a wrong batch means full rework.",
+          "Treating IP65 as explosion protection — ingress rating and hazardous-area protection are two different systems; hazardous-area selection starts with the area classification and a verified certificate.",
+          "Comparing price without comparing the document package — EPC handover needs calibration certificates, material certificates, and manuals; the cheapest quote with incomplete documents stalls at site acceptance.",
+        ],
+      },
+      {
+        heading: "OEM/ODM: what to prepare",
+        body: [
+          "For private-label and custom projects, prepare these inputs with the inquiry. Commercial terms are confirmed during project quotation, not at the selection stage.",
+        ],
+        bullets: [
+          "Inquiry inputs: label artwork, packaging requirements, range, display, required documents, first-order quantity, and annual volume.",
+          "Confirmed after engineering review: labeling feasibility, tooling, costs, MOQ, validation process, and schedule — each itemized in the project quotation.",
+          "Documents first: for OEM projects, lock in pressure, process, connection, branding, documents, samples, validation, and mass-production release criteria before comparing prices, so prototypes and production do not diverge.",
+          "What is not committed at this stage: hazardous-area coverage before the certificate scope is confirmed, and fixed model parameters where the public datasheet is not yet published.",
+        ],
+      },
     ],
     faqs: [
       {
@@ -497,6 +557,26 @@ export const blogPosts: BlogPost[] = [
         question: "Can one pressure transmitter measure 100 MPa?",
         answer:
           "Yes. High-pressure piezoresistive transmitters cover ranges up to 100 MPa for hydraulic, test-bench, and high-pressure processing applications. Verify the overpressure and burst ratings, and use appropriate high-pressure fittings rated for the same class.",
+      },
+      {
+        question: "What is the MOQ for OEM or private-label pressure transmitters?",
+        answer:
+          "It depends on the model, artwork, packaging, tooling, testing, documentation, and customization scope, and is confirmed in the project quotation after engineering review.",
+      },
+      {
+        question: "How do I verify a certificate for hazardous-area transmitters?",
+        answer:
+          "Send the area classification and required protection type first. Ask the supplier for the current certificate and check five items: holder, model scope, marking, issuer, and validity. Never infer coverage from a category-page label.",
+      },
+      {
+        question: "For a hydraulic system, should I choose the AM-PT300 or the AM-PG200?",
+        answer:
+          "If the reading must reach a PLC or DCS, take the AM-PT300 transmitter path — and send the range, process connection, output signal, and measured vibration data for review. If you need a local digital reading, consider the AM-PG200 gauge path.",
+      },
+      {
+        question: "Does each transmitter ship with a calibration certificate?",
+        answer:
+          "Each unit should ship with an individual calibration certificate traceable to reference standards — standard practice from ISO 9001 factories and routinely required for EPC project handovers.",
       },
     ],
     relatedGuides: [
