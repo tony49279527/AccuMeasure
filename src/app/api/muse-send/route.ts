@@ -39,12 +39,15 @@ export async function POST(request: Request) {
   const to = String(body.to ?? "");
   const subject = String(body.subject ?? "");
   const text = String(body.text ?? "");
+  const idemKey = String(body.idemKey ?? "");
   if (!to || !subject || !text) {
     return NextResponse.json({ ok: false, error: "missing_fields" }, { status: 400 });
   }
+  const sendHeaders: Record<string, string> = { ...headers };
+  if (idemKey) sendHeaders["Idempotency-Key"] = idemKey;
   const r = await fetch("https://api.resend.com/emails", {
     method: "POST",
-    headers,
+    headers: sendHeaders,
     body: JSON.stringify({ from: FROM, to: [to], subject, text }),
   });
   const j = await r.json().catch(() => ({}));
