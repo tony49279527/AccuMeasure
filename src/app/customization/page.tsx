@@ -237,6 +237,28 @@ export default function CustomizationPage() {
         </div>
       </section>
 
+      <section className="py-20 bg-bg-light">
+        <div className="container-max max-w-3xl">
+          <h2 className="text-2xl font-bold text-dark mb-8 text-center">
+            Custom Measurement Projects: Common Questions
+          </h2>
+          <div className="space-y-6">
+            <div className="bg-white rounded-xl p-6 border border-border">
+              <h3 className="font-semibold text-dark mb-2">Do you offer custom flow measurement solutions?</h3>
+              <p className="text-muted text-sm">Yes. ODM customization covers housing, electronics, firmware, and interface against your requirements. A feasibility review and validation plan come before any quotation — tooling, fees, MOQ, and schedule are confirmed in writing against the approved scope.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-border">
+              <h3 className="font-semibold text-dark mb-2">Can pressure measurement instruments be customized for projects?</h3>
+              <p className="text-muted text-sm">Yes. Non-standard engineering reviews materials, process connection, range, and output for your operating conditions. The operating envelope must be verified, and commercial terms are confirmed after review.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-border">
+              <h3 className="font-semibold text-dark mb-2">What do you need from us to start a custom instrument project?</h3>
+              <p className="text-muted text-sm">Application, interface, documentation, and quantity requirements. For pressure instruments, the OEM qualification sheet helps define pressure, process, interface, branding, documents, and validation before you submit.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="form" className="py-20 bg-bg-light">
         <div className="container-max max-w-2xl">
           <div className="text-center mb-8">

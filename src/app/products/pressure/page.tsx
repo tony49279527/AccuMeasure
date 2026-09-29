@@ -7,9 +7,9 @@ const data: CategoryPageData = {
   title: "Industrial Pressure Gauges & Transmitters | AccuMeasure",
   description: "Industrial pressure gauges and transmitters for process measurement. Compare range, connection, output, and options; ODM and project pricing on request.",
   h1: "Pressure Instruments for Industrial Applications",
-  lead: "Review transmitter and digital-gauge paths for process control, local indication, hydraulic equipment, and OEM integration. Confirm current performance, environmental limits, and document scope for the selected configuration.",
-  overview: "Start with pressure type, normal and surge range, wetted materials, process connection, signal or display, power, enclosure, and area classification. Published model data is a selection aid; the controlled datasheet, certificate scope, test documents, warranty, and commercial terms must be confirmed for each RFQ.",
-  lastReviewed: "2026-09-15",
+  lead: "Compare pressure measurement equipment for process control, local indication, hydraulic systems, and OEM integration — transmitters and digital gauges side by side. Confirm current performance, environmental limits, and document scope for the selected configuration.",
+  overview: "Select pressure measurement equipment by starting with pressure type, normal and surge range, wetted materials, process connection, signal or display, power, enclosure, and area classification. Published model data is a selection aid; the controlled datasheet, certificate scope, test documents, warranty, and commercial terms must be confirmed for each RFQ.",
+  lastReviewed: "2026-09-29",
   decisionTable: {
     title: "Which Pressure Instrument Should I Buy?",
     description: "Use the two model paths to identify the datasheet, environmental, documentation, and OEM questions that require confirmation.",
