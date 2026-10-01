@@ -16,13 +16,13 @@ import { JsonLd } from "@/components/json-ld";
 import { faqPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "OEM/ODM Custom Flow Meters & Level Sensors | AccuMeasure",
+  title: "OEM/ODM Custom Level, Flow & Pressure Instruments | AccuMeasure",
   description:
     "Engineering review for OEM branding, ODM design, or non-standard level, flow, and pressure instruments. Scope, MOQ, and schedule confirmed per project.",
   alternates: { canonical: "/customization" },
   openGraph: {
     url: "/customization",
-    title: "OEM/ODM Custom Flow Meters & Level Sensors | AccuMeasure",
+    title: "OEM/ODM Custom Level, Flow & Pressure Instruments | AccuMeasure",
     description:
       "Send application and interface requirements for a project-specific feasibility, documentation, MOQ, and schedule review.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AccuMeasure custom project review" }],
@@ -296,7 +296,14 @@ export default function CustomizationPage() {
               Use the OEM pressure instrument qualification sheet
             </Link>{" "}
             to define pressure, process, interface, branding, documents, and
-            validation before submitting.
+            validation before submitting.{" "}
+            <Link
+              href="/products/pressure"
+              className="text-primary font-medium hover:underline"
+            >
+              Browse the pressure instrument range
+            </Link>{" "}
+            for the current models.
           </p>
           <div className="text-center mt-6">
             <p className="text-muted text-sm mb-2">Prefer to chat first?</p>

@@ -361,7 +361,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      <section id="documents" className="py-16">
+      <section id="selection-guides" className="py-16">
         <div className="container-max">
           <h2 className="text-2xl font-bold text-dark mb-8 text-center">
             Selection Guides &amp; Applications
