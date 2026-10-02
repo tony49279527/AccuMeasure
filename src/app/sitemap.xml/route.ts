@@ -52,6 +52,10 @@ export function GET() {
   const utilityContentLastModified = "2026-09-23T00:00:00.000Z";
   const productCatalogLastModified = "2026-09-28T00:00:00.000Z";
   const applicationsIndexLastModified = "2026-09-08T00:00:00.000Z";
+  // 2026-10-01 AM-04: /customization title rewritten to cover pressure measurement
+  // + backlink to /products/pressure (Codex audit 2026-09-30, commit 3795cd5).
+  // Title change = substantive meta change -> own lastmod, do not move staticContent.
+  const customizationLastModified = "2026-10-01T00:00:00.000Z";
 
   const staticPages: SitemapEntry[] = [
     { url: siteConfig.url, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 1 },
@@ -67,7 +71,7 @@ export function GET() {
     { url: `${siteConfig.url}/resources/instrument-supplier-evaluation-sheet`, lastModified: utilityContentLastModified, changeFrequency: "monthly", priority: 0.75 },
     { url: `${siteConfig.url}/case-studies`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteConfig.url}/blog`, lastModified: staticContentLastModified, changeFrequency: "weekly", priority: 0.6 },
-    { url: `${siteConfig.url}/customization`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteConfig.url}/customization`, lastModified: customizationLastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteConfig.url}/contact`, lastModified: staticContentLastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteConfig.url}/products/level`, lastModified: utilityContentLastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/products/flow`, lastModified: utilityContentLastModified, changeFrequency: "weekly", priority: 0.8 },
