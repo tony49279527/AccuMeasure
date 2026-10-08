@@ -30,7 +30,7 @@ export const productFaqs: Record<string, { question: string; answer: string }[]>
     { question: "What sizes and accuracy does the AM-EMF100 cover?", answer: "It covers DN6-DN600 with ±0.5% FS accuracy and PTFE, PFA or rubber liner options. Confirm selections in the project quotation." },
     { question: "Which applications suit the electromagnetic flow meter?", answer: "Listed applications are water treatment, process water, chemicals and slurries. Liner choice should match your media; confirm in the project quotation." },
     { question: "What protection ratings are published for the AM-EMF100?", answer: "IP65 and IP68 are published protections. The controlled datasheet and project document scope govern final selection." },
-    { question: "What are the ordering terms for the AM-EMF100?", answer: "Published MOQ is 5 units, lead time 15-20 days, and price from 280. Confirm these in the project quotation." },
+    { question: "What are the ordering terms for the AM-EMF100?", answer: "Published MOQ is 5 units, lead time 15-20 days, and price from 280 (indicative starting figure; final price depends on configuration). Confirm these in the project quotation." },
   ],
   "AM-UF200": [
     { question: "How is the AM-UF200 installed?", answer: "It is a clamp-on, non-invasive ultrasonic flow meter, so no pipe cutting is required. Confirm pipe and sensor fit in the project quotation." },
@@ -54,6 +54,6 @@ export const productFaqs: Record<string, { question: string; answer: string }[]>
     { question: "What does the AM-PG200 replace and what range does it cover?", answer: "It is a digital replacement for mechanical gauges, covering 0-100MPa with ±0.5% FS accuracy on a 4-digit LCD. Confirm in the project quotation." },
     { question: "How long does the AM-PG200 battery last?", answer: "Published battery life is 2 years. Actual life depends on use; the controlled datasheet and quotation govern." },
     { question: "Which applications suit the AM-PG200?", answer: "Listed uses are field gauges, piping and process monitoring. Suitability depends on your installation; confirm in the project quotation." },
-    { question: "What are the ordering terms for the AM-PG200?", answer: "Published MOQ is 100 units, lead time 15-20 days, and price from 15. Confirm these in the project quotation." },
+    { question: "What are the ordering terms for the AM-PG200?", answer: "Published MOQ is 100 units, lead time 15-20 days, and price from 15 (indicative starting figure; final price depends on configuration). Confirm these in the project quotation." },
   ],
 };
