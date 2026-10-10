@@ -51,8 +51,8 @@ export const productFaqs: Record<string, { question: string; answer: string }[]>
     { question: "What are the procurement terms for the AM-PT300?", answer: "Published MOQ is 100 units, lead time 15-20 days, and price from 25. Confirm in the project quotation." },
   ],
   "AM-PG200": [
-    { question: "What does the AM-PG200 replace and what range does it cover?", answer: "It is a digital replacement for mechanical gauges, covering 0-100MPa with ±0.5% FS accuracy on a 4-digit LCD. Confirm in the project quotation." },
-    { question: "How long does the AM-PG200 battery last?", answer: "Published battery life is 2 years. Actual life depends on use; the controlled datasheet and quotation govern." },
+    { question: "What does the AM-PG200 replace and what range does it cover?", answer: "It is a digital replacement for mechanical gauges with standard G1/4\", M20x1.5 or NPT threads, covering 0-10kPa to 0-100MPa with ±0.5% FS accuracy on a 4-digit LCD. Confirm in the project quotation." },
+    { question: "How long does the AM-PG200 battery last?", answer: "Published typical battery life is 18-24 months under standard 1Hz sampling with 2x AA batteries. Actual life depends on use; the controlled datasheet and quotation govern." },
     { question: "Which applications suit the AM-PG200?", answer: "Listed uses are field gauges, piping and process monitoring. Suitability depends on your installation; confirm in the project quotation." },
     { question: "What are the ordering terms for the AM-PG200?", answer: "Published MOQ is 100 units, lead time 15-20 days, and price from 15 (indicative starting figure; final price depends on configuration). Confirm these in the project quotation." },
   ],
