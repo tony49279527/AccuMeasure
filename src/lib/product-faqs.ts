@@ -3,7 +3,7 @@
  *  Answers point buyers to confirm project terms in the quotation. */
 export const productFaqs: Record<string, { question: string; answer: string }[]> = {
   "AM-CL100": [
-    { question: "What level range and accuracy does the AM-CL100 offer?", answer: "It covers 0-6m with ±1% FS accuracy and provides 4-20mA or RS485 output. Published specs are selection inputs; confirm in the project quotation." },
+    { question: "What level range and accuracy does the AM-CL100 offer?", answer: "It covers 0.5-6m with ±1% FS accuracy and provides 4-20mA or RS485 output. Published specs are selection inputs; confirm in the project quotation." },
     { question: "Which tank applications suit this capacitive level sensor?", answer: "It is intended for oil, water, chemical reactors, fire protection, hydraulic and industrial tanks. The tagline describes economical level measurement for these media." },
     { question: "What protection rating is published for the AM-CL100?", answer: "IP65 and IP68 are published protections. Suitability depends on your installation; the controlled datasheet and project quotation govern." },
     { question: "What are the ordering terms for the AM-CL100?", answer: "Published MOQ is 50 units, lead time 15-20 days, and price from 35. Confirm these in the project quotation." },

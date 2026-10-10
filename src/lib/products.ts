@@ -25,7 +25,7 @@ export const products: Product[] = [
     moq: 50,
     leadTime: '15-20 days',
     keySpecs: [
-      { label: 'Range', value: '0-6m' },
+      { label: 'Range', value: '0.5-6m' },
       { label: 'Accuracy', value: '±1% FS' },
       { label: 'Output', value: '4-20mA / RS485' },
       { label: 'Protection', value: 'IP65 / IP68' },
@@ -78,7 +78,7 @@ export const products: Product[] = [
     ],
     competitorComparison: [
       { feature: 'Accuracy', accumeasure: '±1% FS', competitor: '±1% FS' },
-      { feature: 'Range', accumeasure: '0-6m', competitor: '0-5m' },
+      { feature: 'Range', accumeasure: '0.5-6m', competitor: '0.5-5m' },
       { feature: 'Price', accumeasure: 'From $35', competitor: 'From $90' },
       { feature: 'MOQ', accumeasure: '50 units', competitor: '100 units' },
     ],
