@@ -240,7 +240,7 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-dark mb-2">Company Location</h3>
                     <p className="text-sm text-muted mb-4">{siteConfig.address}</p>
                     <a
-                      href="https://www.google.com/maps/search/?api=1&query=Xi%27an%20High-Tech%20Zone%2C%20Shaanxi%2C%20China"
+                      href="https://www.google.com/maps/search/?api=1&query=iDuhui%2C%20Yicuiyuan%2C%20High-Tech%20Zone%2C%20Xi%27an%2C%20Shaanxi%20710021%2C%20China"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-secondary text-sm py-2 px-4"

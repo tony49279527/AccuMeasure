@@ -22,9 +22,10 @@ export function organizationJsonLd() {
     telephone: siteConfig.phoneDisplay,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "High-Tech Zone",
+      streetAddress: "iDuhui, Yicuiyuan, High-Tech Zone",
       addressLocality: "Xi'an",
       addressRegion: "Shaanxi",
+      postalCode: "710021",
       addressCountry: "CN",
     },
     contactPoint: {

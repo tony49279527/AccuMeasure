@@ -8,7 +8,7 @@ export const siteConfig = {
   whatsappDisplay: "+86-183-0928-5711",
   phone: "+8618309285711",
   phoneDisplay: "+86-183-0928-5711",
-  address: "High-Tech Zone, Xi'an, Shaanxi, China",
+  address: "iDuhui, Yicuiyuan, High-Tech Zone, Xi'an, Shaanxi 710021, China",
   description:
     "China manufacturer and supplier of level sensors, flow meters, and pressure transmitters. OEM/ODM project support with application review and document confirmation.",
   social: {
